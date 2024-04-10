@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4886282e-d97b-49e5-bbcf-b95677545e77" name="Changes" comment="lien linkedin valide" />
+    <list default="true" id="4886282e-d97b-49e5-bbcf-b95677545e77" name="Changes" comment="changement texte + version mobile">
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -37,18 +39,18 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "git-widget-placeholder": "main",
-    "ignore.virus.scanning.warn.message": "true",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\killi\PhpstormProjects\portfolio" />
@@ -76,6 +78,7 @@
       <workItem from="1712760526858" duration="591000" />
       <workItem from="1712765503131" duration="52000" />
       <workItem from="1712765783090" duration="126000" />
+      <workItem from="1712766387162" duration="335000" />
     </task>
     <task id="LOCAL-00001" summary="ajout de ma photo">
       <option name="closed" value="true" />
@@ -125,7 +128,15 @@
       <option name="project" value="LOCAL" />
       <updated>1712765821904</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="changement texte + version mobile">
+      <option name="closed" value="true" />
+      <created>1712766631153</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1712766631153</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -139,6 +150,7 @@
     <MESSAGE value="test" />
     <MESSAGE value="amélioration cv" />
     <MESSAGE value="lien linkedin valide" />
-    <option name="LAST_COMMIT_MESSAGE" value="lien linkedin valide" />
+    <MESSAGE value="changement texte + version mobile" />
+    <option name="LAST_COMMIT_MESSAGE" value="changement texte + version mobile" />
   </component>
 </project>
