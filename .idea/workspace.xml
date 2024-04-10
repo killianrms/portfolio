@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4886282e-d97b-49e5-bbcf-b95677545e77" name="Changes" comment="changement texte + version mobile">
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-    </list>
+    <list default="true" id="4886282e-d97b-49e5-bbcf-b95677545e77" name="Changes" comment="correction sidebar version mobile" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -78,7 +76,7 @@
       <workItem from="1712760526858" duration="591000" />
       <workItem from="1712765503131" duration="52000" />
       <workItem from="1712765783090" duration="126000" />
-      <workItem from="1712766387162" duration="335000" />
+      <workItem from="1712766387162" duration="573000" />
     </task>
     <task id="LOCAL-00001" summary="ajout de ma photo">
       <option name="closed" value="true" />
@@ -136,7 +134,15 @@
       <option name="project" value="LOCAL" />
       <updated>1712766631153</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="correction sidebar version mobile">
+      <option name="closed" value="true" />
+      <created>1712766944343</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1712766944343</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -151,6 +157,7 @@
     <MESSAGE value="amélioration cv" />
     <MESSAGE value="lien linkedin valide" />
     <MESSAGE value="changement texte + version mobile" />
-    <option name="LAST_COMMIT_MESSAGE" value="changement texte + version mobile" />
+    <MESSAGE value="correction sidebar version mobile" />
+    <option name="LAST_COMMIT_MESSAGE" value="correction sidebar version mobile" />
   </component>
 </project>
