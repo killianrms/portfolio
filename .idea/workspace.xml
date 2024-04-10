@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="4886282e-d97b-49e5-bbcf-b95677545e77" name="Changes" comment="lien linkedin valide" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;killianrms&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/killianrms/portfolio.git&quot;,
+    &quot;accountId&quot;: &quot;e676344e-7725-4d02-a193-07b01598d468&quot;
+  }
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 1
+}</component>
+  <component name="ProjectId" id="2euMB2pz00EkaH9Lhaf7a8GsJ6L" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\killi\PhpstormProjects\portfolio" />
+      <recent name="C:\Users\killi\PhpstormProjects\portfolio\assets" />
+    </key>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-1d06a55b98c1-74d2a5396914-JavaScript-PS-241.14494.237" />
+        <option value="bundled-php-predefined-ba97393d7c68-8f0632a2a215-com.jetbrains.php.sharedIndexes-PS-241.14494.237" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="4886282e-d97b-49e5-bbcf-b95677545e77" name="Changes" comment="" />
+      <created>1712749874103</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1712749874103</updated>
+      <workItem from="1712749875361" duration="2268000" />
+      <workItem from="1712753853100" duration="1417000" />
+      <workItem from="1712760526858" duration="591000" />
+      <workItem from="1712765503131" duration="52000" />
+      <workItem from="1712765783090" duration="126000" />
+    </task>
+    <task id="LOCAL-00001" summary="ajout de ma photo">
+      <option name="closed" value="true" />
+      <created>1712755539092</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1712755539092</updated>
+    </task>
+    <task id="LOCAL-00002" summary="sitemap">
+      <option name="closed" value="true" />
+      <created>1712755758324</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1712755758324</updated>
+    </task>
+    <task id="LOCAL-00003" summary="ajout du cv">
+      <option name="closed" value="true" />
+      <created>1712760588957</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1712760588957</updated>
+    </task>
+    <task id="LOCAL-00004" summary="test">
+      <option name="closed" value="true" />
+      <created>1712760689907</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1712760689907</updated>
+    </task>
+    <task id="LOCAL-00005" summary="amélioration cv">
+      <option name="closed" value="true" />
+      <created>1712765548491</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1712765548492</updated>
+    </task>
+    <task id="LOCAL-00006" summary="lien linkedin valide">
+      <option name="closed" value="true" />
+      <created>1712765821904</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1712765821904</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="suppressions du logo" />
+    <MESSAGE value="ajout de ma photo" />
+    <MESSAGE value="sitemap" />
+    <MESSAGE value="ajout du cv" />
+    <MESSAGE value="test" />
+    <MESSAGE value="amélioration cv" />
+    <MESSAGE value="lien linkedin valide" />
+    <option name="LAST_COMMIT_MESSAGE" value="lien linkedin valide" />
+  </component>
+</project>
