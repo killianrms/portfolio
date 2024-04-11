@@ -311,6 +311,7 @@ main {
 
 .info_more-btn:hover::before,
 .info_more-btn:focus::before { background: var(--bg-gradient-yellow-2); }
+.info_more-btn:focus::before { background: var(--bg-gradient-yellow-2); }
 
 .info_more-btn span { display: none; }
 
@@ -1093,8 +1094,8 @@ textarea.form-input::-webkit-resizer { display: none; }
   .contacts-list { gap: 20px; }
 
   .contact-info {
-    max-width: calc(100% - 64px);
-    width: calc(100% - 64px);
+    max-width: calc(100%);
+    width: calc(100%);
   }
 
 
