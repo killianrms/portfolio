@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4886282e-d97b-49e5-bbcf-b95677545e77" name="Changes" comment="correction texte about me">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-    </list>
+    <list default="true" id="4886282e-d97b-49e5-bbcf-b95677545e77" name="Changes" comment="modification navbar biographie" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -82,7 +79,7 @@
       <workItem from="1712766387162" duration="573000" />
       <workItem from="1712767595239" duration="112000" />
       <workItem from="1712825988214" duration="4218000" />
-      <workItem from="1712841684601" duration="719000" />
+      <workItem from="1712841684601" duration="938000" />
     </task>
     <task id="LOCAL-00001" summary="ajout de ma photo">
       <option name="closed" value="true" />
@@ -164,7 +161,23 @@
       <option name="project" value="LOCAL" />
       <updated>1712833102542</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="modification navbar">
+      <option name="closed" value="true" />
+      <created>1712842546194</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1712842546194</updated>
+    </task>
+    <task id="LOCAL-00012" summary="modification navbar biographie">
+      <option name="closed" value="true" />
+      <created>1712842632924</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1712842632924</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -181,6 +194,8 @@
     <MESSAGE value="changement texte + version mobile" />
     <MESSAGE value="correction sidebar version mobile" />
     <MESSAGE value="correction texte about me" />
-    <option name="LAST_COMMIT_MESSAGE" value="correction texte about me" />
+    <MESSAGE value="modification navbar" />
+    <MESSAGE value="modification navbar biographie" />
+    <option name="LAST_COMMIT_MESSAGE" value="modification navbar biographie" />
   </component>
 </project>
