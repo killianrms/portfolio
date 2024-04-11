@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4886282e-d97b-49e5-bbcf-b95677545e77" name="Changes" comment="modification navbar biographie" />
+    <list default="true" id="4886282e-d97b-49e5-bbcf-b95677545e77" name="Changes" comment="nouveau cv" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -80,6 +80,7 @@
       <workItem from="1712767595239" duration="112000" />
       <workItem from="1712825988214" duration="4218000" />
       <workItem from="1712841684601" duration="938000" />
+      <workItem from="1712844725355" duration="42000" />
     </task>
     <task id="LOCAL-00001" summary="ajout de ma photo">
       <option name="closed" value="true" />
@@ -177,7 +178,15 @@
       <option name="project" value="LOCAL" />
       <updated>1712842632924</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="nouveau cv">
+      <option name="closed" value="true" />
+      <created>1712844757552</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1712844757552</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -196,6 +205,7 @@
     <MESSAGE value="correction texte about me" />
     <MESSAGE value="modification navbar" />
     <MESSAGE value="modification navbar biographie" />
-    <option name="LAST_COMMIT_MESSAGE" value="modification navbar biographie" />
+    <MESSAGE value="nouveau cv" />
+    <option name="LAST_COMMIT_MESSAGE" value="nouveau cv" />
   </component>
 </project>
