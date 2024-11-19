@@ -157,15 +157,3 @@ for (let i = 0; i < navigationLinks.length; i++) {
 
   });
 }
-
-    function calculerAge(dateNaissance) {
-        const aujourdHui = new Date();
-        const naissance = new Date(dateNaissance);
-        let age = aujourdHui.getFullYear() - naissance.getFullYear();
-        const mois = aujourdHui.getMonth() - naissance.getMonth();
-        if (mois < 0 || (mois === 0 && aujourdHui.getDate() < naissance.getDate())) {
-            age--;
-        }
-        return age;
-    }
-    document.getElementById('age').textContent = calculerAge('2004-06-28');
