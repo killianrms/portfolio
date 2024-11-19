@@ -113,6 +113,19 @@ for (let i = 0; i < filterBtn.length; i++) {
 
 }
 
+    const birthDate = new Date(2004, 5, 28); // Mois -1 (juin est 5)
+    const today = new Date();
+
+    // Calcul de l'âge
+    let age = today.getFullYear() - birthDate.getFullYear();
+    const monthDifference = today.getMonth() - birthDate.getMonth();
+    if (monthDifference < 0 || (monthDifference === 0 && today.getDate() < birthDate.getDate())) {
+        age--;
+    }
+
+    // Insérer l'âge dans le HTML
+    document.getElementById('age').textContent = age;
+
 
 
 // contact form variables
