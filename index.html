@@ -168,11 +168,28 @@
                 <h2 class="h2 article-title">À propos de moi</h2>
             </header>
             <section class="about-text">
-                <section class="about-text">
-                    <h2>Bonjour, Je suis <strong>Killian</strong> 👋</h2>
-                    <p>Étudiant en informatique, <strong>passionné</strong> par la technologie. J'ai <strong id="age"></strong>, actuellement en <strong>seconde année du BUT Informatique</strong> à l'IUT de Montpellier-Sète.</p>
-                    <p>Je suis à la <strong> recherche d'une alternance </strong>en système - réseau </p>
-                </section>
+<section class="about-text">
+    <h2>Bonjour, Je suis <strong>Killian</strong> 👋</h2>
+    <p>Étudiant en informatique, <strong>passionné</strong> par la technologie. J'ai <strong id="age"></strong>, actuellement en <strong>seconde année du BUT Informatique</strong> à l'IUT de Montpellier-Sète.</p>
+    <p>Je suis à la <strong> recherche d'une alternance </strong>en système - réseau </p>
+</section>
+
+<script>
+    function calculerAge(dateNaissance) {
+        const aujourdHui = new Date();
+        const naissance = new Date(dateNaissance);
+        let age = aujourdHui.getFullYear() - naissance.getFullYear();
+        const mois = aujourdHui.getMonth() - naissance.getMonth();
+        if (mois < 0 || (mois === 0 && aujourdHui.getDate() < naissance.getDate())) {
+            age--;
+        }
+        return age;
+    }
+
+    // Appel de la fonction et mise à jour de l'âge dans le HTML
+    document.getElementById('age').textContent = calculerAge('2004-06-28');
+</script>
+
                 <section class="about-text">
                     <h2>Qu’est-ce que j’aime ?</h2>
                     <p>Depuis toujours dans le milieu de l'automobile, j'ai une <strong>forte passion</strong> pour les <strong>motos</strong> et les
