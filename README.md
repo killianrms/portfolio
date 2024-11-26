@@ -4,6 +4,13 @@ Bienvenue sur le dépôt GitHub contenant le code source de mon portfolio person
 
 Ce portfolio est conçu pour présenter mon parcours, mes compétences, mes projets et mes réalisations dans un format interactif et esthétique. Il s'agit à la fois d'une vitrine professionnelle et d'une démonstration de mes compétences en développement web.
 
+## Mon apprentissage critique 
+
+Suite à la création de mon portfolio j'ai appris à parler de moi et a me vendre. 
+Le but premier était de donner une première image aux recruteurs et/ou collaborateurs qui vont voir dans le futur mon portfolio. 
+
+J'ai également du évaluer mes propres projets pour savoir si il était "intéréssant" à partager ou non...
+
 ## Fonctionnalités principales
 
 - **Présentation personnelle** : Découvrez mon parcours, mes compétences, et mes objectifs professionnels.
