@@ -15,16 +15,15 @@ J'ai également du évaluer mes propres projets pour savoir si il était "intér
 
 - **Présentation personnelle** : Découvrez mon parcours, mes compétences, et mes objectifs professionnels.
 - **Projets** : Une sélection de mes projets, avec des détails sur leur contexte, les technologies utilisées et les défis relevés.
-- **Design responsive** : Une expérience utilisateur optimisée pour les écrans de toutes tailles (desktop, tablette, mobile).
-- **Contact** : Un formulaire permettant de me contacter directement.
+- **Design responsive** : Une expérience utilisateur optimisée pour les écrans de toutes tailles (pc, tablette, mobile).
 
 ## Aperçu du code
 
 Le code de ce portfolio est structuré pour être maintenable et facilement compréhensible. Les principales sections sont :
 
-1. **Fichiers HTML** : Décrivent la structure du site.
-2. **Fichiers CSS/** : Gèrent l'apparence et le design.
-3. **Scripts JavaScript** : Ajoutent des interactions et des fonctionnalités dynamiques.
+1. **HTML** : Décrivent la structure du site.
+2. **CSS** : Gèrent l'apparence et le design.
+3. **JavaScript** : Ajoutent des interactions et des fonctionnalités dynamiques.
 
 ## Objectifs du projet
 
