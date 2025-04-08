@@ -1,172 +1,373 @@
 'use strict';
 
+// Wait for the DOM to be fully loaded before executing script
+document.addEventListener('DOMContentLoaded', () => {
 
+  // IIFE to encapsulate the script and avoid global scope pollution
+  (function() {
 
-// element toggle function
-const elementToggleFunc = function (elem) { elem.classList.toggle("active"); }
+    // --- Helper Functions ---
 
-
-
-// sidebar variables
-const sidebar = document.querySelector("[data-sidebar]");
-const sidebarBtn = document.querySelector("[data-sidebar-btn]");
-
-// sidebar toggle functionality for mobile
-sidebarBtn.addEventListener("click", function () { elementToggleFunc(sidebar); });
-
-
-
-// testimonials variables
-const testimonialsItem = document.querySelectorAll("[data-testimonials-item]");
-const modalContainer = document.querySelector("[data-modal-container]");
-const modalCloseBtn = document.querySelector("[data-modal-close-btn]");
-const overlay = document.querySelector("[data-overlay]");
-
-// modal variable
-const modalImg = document.querySelector("[data-modal-img]");
-const modalTitle = document.querySelector("[data-modal-title]");
-const modalText = document.querySelector("[data-modal-text]");
-
-// modal toggle function
-const testimonialsModalFunc = function () {
-  modalContainer.classList.toggle("active");
-  overlay.classList.toggle("active");
-}
-
-// add click event to all modal items
-for (let i = 0; i < testimonialsItem.length; i++) {
-
-  testimonialsItem[i].addEventListener("click", function () {
-
-    modalImg.src = this.querySelector("[data-testimonials-avatar]").src;
-    modalImg.alt = this.querySelector("[data-testimonials-avatar]").alt;
-    modalTitle.innerHTML = this.querySelector("[data-testimonials-title]").innerHTML;
-    modalText.innerHTML = this.querySelector("[data-testimonials-text]").innerHTML;
-
-    testimonialsModalFunc();
-
-  });
-
-}
-
-// add click event to modal close button
-modalCloseBtn.addEventListener("click", testimonialsModalFunc);
-overlay.addEventListener("click", testimonialsModalFunc);
-
-
-
-// custom select variables
-const select = document.querySelector("[data-select]");
-const selectItems = document.querySelectorAll("[data-select-item]");
-const selectValue = document.querySelector("[data-selecct-value]");
-const filterBtn = document.querySelectorAll("[data-filter-btn]");
-
-select.addEventListener("click", function () { elementToggleFunc(this); });
-
-// add event in all select items
-for (let i = 0; i < selectItems.length; i++) {
-  selectItems[i].addEventListener("click", function () {
-
-    let selectedValue = this.innerText.toLowerCase();
-    selectValue.innerText = this.innerText;
-    elementToggleFunc(select);
-    filterFunc(selectedValue);
-
-  });
-}
-
-// filter variables
-const filterItems = document.querySelectorAll("[data-filter-item]");
-
-const filterFunc = function (selectedValue) {
-
-  for (let i = 0; i < filterItems.length; i++) {
-
-    if (selectedValue === "all") {
-      filterItems[i].classList.add("active");
-    } else if (selectedValue === filterItems[i].dataset.category) {
-      filterItems[i].classList.add("active");
-    } else {
-      filterItems[i].classList.remove("active");
+    /**
+     * Toggles the 'active' class on a given DOM element.
+     * @param {Element} elem - The element to toggle the class on.
+     */
+    const elementToggleFunc = function (elem) {
+      elem.classList.toggle("active");
     }
 
-  }
+    // --- Sidebar ---
 
-}
+    const sidebar = document.querySelector("[data-sidebar]");
+    const sidebarBtn = document.querySelector("[data-sidebar-btn]");
 
-// add event in all filter button items for large screen
-let lastClickedBtn = filterBtn[0];
-
-for (let i = 0; i < filterBtn.length; i++) {
-
-  filterBtn[i].addEventListener("click", function () {
-
-    let selectedValue = this.innerText.toLowerCase();
-    selectValue.innerText = this.innerText;
-    filterFunc(selectedValue);
-
-    lastClickedBtn.classList.remove("active");
-    this.classList.add("active");
-    lastClickedBtn = this;
-
-  });
-
-}
-
-    const birthDate = new Date(2004, 5, 28); // Mois -1 (juin est 5)
-    const today = new Date();
-
-    // Calcul de l'âge
-    let age = today.getFullYear() - birthDate.getFullYear();
-    const monthDifference = today.getMonth() - birthDate.getMonth();
-    if (monthDifference < 0 || (monthDifference === 0 && today.getDate() < birthDate.getDate())) {
-        age--;
+    if (sidebar && sidebarBtn) {
+      // Sidebar toggle functionality for mobile
+      sidebarBtn.addEventListener("click", function () {
+        elementToggleFunc(sidebar);
+        // Toggle aria-expanded attribute
+        const isExpanded = sidebar.classList.contains("active");
+        sidebarBtn.setAttribute('aria-expanded', isExpanded);
+      });
     }
 
-    // Insérer l'âge dans le HTML
-    document.getElementById('age').textContent = age;
+    // --- Custom Select & Filtering ---
 
+    const select = document.querySelector("[data-select]");
+    const selectItems = document.querySelectorAll("[data-select-item]");
+    const selectValue = document.querySelector("[data-select-value]");
+    const filterItems = document.querySelectorAll("[data-filter-item]");
+    const filterBtn = document.querySelectorAll("[data-filter-btn]"); // Desktop filter buttons
 
-
-// contact form variables
-const form = document.querySelector("[data-form]");
-const formInputs = document.querySelectorAll("[data-form-input]");
-const formBtn = document.querySelector("[data-form-btn]");
-
-// add event to all form input field
-for (let i = 0; i < formInputs.length; i++) {
-  formInputs[i].addEventListener("input", function () {
-
-    // check form validation
-    if (form.checkValidity()) {
-      formBtn.removeAttribute("disabled");
-    } else {
-      formBtn.setAttribute("disabled", "");
+    /**
+     * Filters project items based on the selected category.
+     * @param {string} selectedValue - The category value to filter by (lowercase).
+     */
+    const filterFunc = function (selectedValue) {
+      filterItems.forEach(item => {
+        if (selectedValue === "all" || selectedValue === item.dataset.category.toLowerCase()) {
+          item.classList.add("active");
+        } else {
+          item.classList.remove("active");
+        }
+      });
     }
 
-  });
-}
+    // Custom select dropdown functionality
+    if (select && selectItems.length > 0 && selectValue) {
+      select.addEventListener("click", function () { elementToggleFunc(this); });
+
+      selectItems.forEach(item => {
+        item.setAttribute('tabindex', '0');
+        item.setAttribute('role', 'option');
+
+        const handleSelection = function() {
+          let selectedValueText = this.innerText;
+          let selectedValueData = selectedValueText.toLowerCase();
+          selectValue.innerText = selectedValueText;
+          elementToggleFunc(select);
+          filterFunc(selectedValueData);
+        };
+
+        item.addEventListener("click", handleSelection);
+
+        item.addEventListener("keydown", function (event) {
+          if (event.key === 'Enter' || event.key === ' ') {
+            event.preventDefault(); // Prevent default space scroll
+            handleSelection.call(this); // Trigger the selection
+            select.focus(); // Optionally return focus to the main select button
+          }
+        });
+      });
+    }
+
+    // Desktop filter button functionality
+    if (filterBtn.length > 0 && selectValue) {
+      let lastClickedBtn = filterBtn[0]; // Assume first button is active initially
+
+      filterBtn.forEach(btn => {
+        btn.addEventListener("click", function () {
+          let selectedValueText = this.innerText;
+          let selectedValueData = selectedValueText.toLowerCase();
+
+          // Update mobile select display value for consistency (optional)
+          selectValue.innerText = selectedValueText;
+
+          filterFunc(selectedValueData);
+
+          lastClickedBtn.classList.remove("active");
+          this.classList.add("active");
+          lastClickedBtn = this;
+        });
+      });
+    }
+
+    // --- Age Calculation ---
+
+    const ageElement = document.getElementById('age');
+    if (ageElement) {
+      const calculateAndDisplayAge = () => {
+        const birthDate = new Date(2004, 5, 28); // Month is 0-indexed (June = 5)
+        const today = new Date();
+        let age = today.getFullYear() - birthDate.getFullYear();
+        const monthDifference = today.getMonth() - birthDate.getMonth();
+        if (monthDifference < 0 || (monthDifference === 0 && today.getDate() < birthDate.getDate())) {
+            age--;
+        }
+        ageElement.textContent = age;
+      };
+      calculateAndDisplayAge();
+    }
 
 
+    // --- Contact Form ---
 
-// page navigation variables
-const navigationLinks = document.querySelectorAll("[data-nav-link]");
-const pages = document.querySelectorAll("[data-page]");
+    const form = document.querySelector("[data-form]");
+    const formInputs = document.querySelectorAll("[data-form-input]");
+    const formBtn = document.querySelector("[data-form-btn]");
+    const formStatus = document.querySelector(".form-status");
 
-// add event to all nav link
-for (let i = 0; i < navigationLinks.length; i++) {
-  navigationLinks[i].addEventListener("click", function () {
+    if (form && formInputs.length > 0 && formBtn && formStatus) {
+      // Input validation feedback
+      formInputs.forEach(input => {
+        input.addEventListener("input", function () {
+          const errorSpan = this.nextElementSibling;
 
-    for (let i = 0; i < pages.length; i++) {
-      if (this.innerHTML.toLowerCase() === pages[i].dataset.page) {
-        pages[i].classList.add("active");
-        navigationLinks[i].classList.add("active");
-        window.scrollTo(0, 0);
+          if (!this.checkValidity()) {
+            this.classList.add("invalid");
+            if (errorSpan && errorSpan.classList.contains('error-message')) {
+              errorSpan.textContent = this.validationMessage;
+            }
+          } else {
+            this.classList.remove("invalid");
+            if (errorSpan && errorSpan.classList.contains('error-message')) {
+              errorSpan.textContent = "";
+            }
+          }
+
+          // Check overall form validity to enable/disable submit button
+          formBtn.disabled = !form.checkValidity();
+        });
+      });
+
+      // AJAX form submission
+      form.addEventListener("submit", function (event) {
+        event.preventDefault();
+        formBtn.disabled = true; // Disable button during submission
+        formStatus.style.display = "none"; // Hide previous status
+        formStatus.textContent = "Envoi en cours..."; // Indicate processing
+        formStatus.style.color = "var(--light-gray)"; // Neutral color
+        formStatus.style.display = "block";
+
+
+        const formData = new FormData(form);
+        const formAction = form.getAttribute("action");
+
+        fetch(formAction, {
+          method: "POST",
+          body: formData,
+          headers: { 'Accept': 'application/json' }
+        })
+        .then(response => {
+          if (response.ok) {
+            formStatus.innerHTML = "Merci ! Votre message a été envoyé.";
+            formStatus.style.color = "var(--orange-yellow-crayola)"; // Success color
+            form.reset();
+            formInputs.forEach(input => input.classList.remove('invalid')); // Clear validation states
+            formBtn.disabled = true; // Keep disabled after successful reset
+          } else {
+            return response.json().then(data => {
+              let errorMessage = "Oups ! Une erreur s'est produite.";
+              if (data && data.errors) {
+                errorMessage = data.errors.map(error => error.message).join(", ");
+              }
+              throw new Error(errorMessage); // Throw error to be caught below
+            }).catch(() => {
+              // Catch potential JSON parsing error or re-throw generic
+              throw new Error("Oups ! Une erreur serveur s'est produite.");
+            });
+          }
+        })
+        .catch(error => {
+          formStatus.innerHTML = error.message || "Oups ! Une erreur réseau s'est produite.";
+          formStatus.style.color = "var(--bittersweet-shimmer)"; // Error color
+          formBtn.disabled = false; // Re-enable button on error
+        })
+        .finally(() => {
+           formStatus.style.display = "block"; // Ensure status is visible
+           // Re-enable button only if form is valid (might be disabled from input event)
+           if (form.checkValidity()) {
+               formBtn.disabled = false;
+           }
+           // If reset was successful, button remains disabled until new input
+           if (formStatus.textContent.includes("Merci")) {
+               formBtn.disabled = true;
+           }
+        });
+      });
+    }
+
+
+    // --- Page Navigation ---
+
+    const navigationLinks = document.querySelectorAll("[data-nav-link]");
+    const pages = document.querySelectorAll("[data-page]");
+
+    if (navigationLinks.length > 0 && pages.length > 0) {
+      navigationLinks.forEach(link => {
+        link.addEventListener("click", function () {
+          const targetPage = this.innerHTML.toLowerCase();
+
+          pages.forEach((page, index) => {
+            const pageName = page.dataset.page;
+            const correspondingLink = navigationLinks[index]; // Assumes links and pages are in corresponding order
+
+            if (targetPage === pageName) {
+              page.classList.add("active");
+              correspondingLink.classList.add("active");
+            } else {
+              page.classList.remove("active");
+              correspondingLink.classList.remove("active");
+            }
+          });
+          window.scrollTo(0, 0); // Scroll to top when changing pages
+        });
+      });
+    }
+
+
+    // --- Theme Toggle ---
+
+    const themeBtn = document.querySelector("[data-theme-btn]");
+    const htmlElement = document.documentElement;
+
+    /**
+     * Applies the specified theme by setting the 'data-theme' attribute on the <html> element.
+     * @param {string} theme - The theme to apply ('light' or 'dark').
+     */
+    const applyTheme = (theme) => {
+      htmlElement.dataset.theme = theme;
+      // CSS handles icon visibility based on the data-theme attribute now
+    };
+
+    /**
+     * Toggles the theme between 'light' and 'dark' and saves the preference to localStorage.
+     */
+    const toggleTheme = () => {
+      const currentTheme = htmlElement.dataset.theme || 'dark';
+      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+      applyTheme(newTheme);
+      localStorage.setItem('theme', newTheme);
+    };
+
+    if (themeBtn) {
+      themeBtn.addEventListener('click', toggleTheme);
+
+      // Initialize theme on load
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme) {
+        applyTheme(savedTheme);
       } else {
-        pages[i].classList.remove("active");
-        navigationLinks[i].classList.remove("active");
+        // Default to system preference or dark if preference not available/detectable
+        const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+        applyTheme(prefersDark ? 'dark' : 'light');
       }
     }
 
-  });
-}
+
+    // --- Generic Modal Handling ---
+
+    /**
+     * Opens a modal dialog. Finds the overlay as the previous sibling.
+     * @param {HTMLElement} modalElement - The modal element to open.
+     */
+    const openModal = function (modalElement) {
+      if (!modalElement) return;
+      const overlay = modalElement.closest('.modal-container')?.querySelector('.overlay'); // Find overlay within container
+      modalElement.closest('.modal-container')?.classList.add("active"); // Activate container
+      // Consider adding focus management here
+    }
+
+    /**
+     * Closes a modal dialog. Finds the overlay as the previous sibling.
+     * @param {HTMLElement} modalElement - The modal element to close.
+     */
+    const closeModal = function (modalElement) {
+      if (!modalElement) return;
+      modalElement.closest('.modal-container')?.classList.remove("active"); // Deactivate container
+      // Consider returning focus to the trigger element here
+    }
+
+    // Event delegation for modal triggers
+    document.addEventListener('click', function (event) {
+      const triggerButton = event.target.closest('[data-modal-trigger]');
+      if (!triggerButton) return;
+
+      const targetModalId = triggerButton.dataset.modalTrigger;
+      // Find modal *section* using data-modal attribute
+      const modalElement = document.querySelector(`section[data-modal="${targetModalId}"]`);
+
+      if (!modalElement) {
+        console.error(`Modal section with data-modal="${targetModalId}" not found.`);
+        return;
+      }
+
+      // Project Modal Specific Logic
+      if (targetModalId === 'project-details') {
+        const projectItem = triggerButton.closest(".project-item");
+        if (!projectItem) {
+            console.error("Could not find parent .project-item for trigger:", triggerButton);
+            return;
+        }
+
+        // Get data from the project item
+        const title = projectItem.dataset.projectTitle || 'N/A';
+        const category = projectItem.dataset.projectCategory || 'N/A';
+        const image = projectItem.dataset.projectImage || '';
+        const description = projectItem.dataset.projectDescription || 'No description available.';
+        const tech = projectItem.dataset.projectTech || 'N/A';
+        const link = projectItem.dataset.projectLink || '#';
+
+        // Find content elements within the specific modal section
+        const modalImg = modalElement.querySelector("[data-project-modal-img]");
+        const modalTitle = modalElement.querySelector("[data-project-modal-title]");
+        const modalCategory = modalElement.querySelector("[data-project-modal-category]");
+        const modalDescription = modalElement.querySelector("[data-project-modal-description]");
+        const modalTech = modalElement.querySelector("[data-project-modal-tech]");
+        const modalLink = modalElement.querySelector("[data-project-modal-link]");
+
+        // Populate the modal
+        if (modalImg) { modalImg.src = image; modalImg.alt = title; }
+        if (modalTitle) modalTitle.textContent = title;
+        if (modalCategory) modalCategory.textContent = category;
+        if (modalDescription) modalDescription.textContent = description;
+        if (modalTech) modalTech.textContent = tech;
+        if (modalLink) modalLink.href = link;
+      }
+
+      // Open the modal using the generic function (passing the modal *section*)
+      openModal(modalElement);
+    });
+
+    // Event delegation for modal close triggers (buttons and overlay)
+    document.addEventListener('click', function (event) {
+        const closeTrigger = event.target.closest('[data-modal-close]');
+        if (!closeTrigger) return;
+
+        // Find the closest parent modal *section* to close
+        const modalToClose = closeTrigger.closest('section[data-modal]');
+
+        if (modalToClose) {
+            closeModal(modalToClose);
+        } else if (closeTrigger.classList.contains('overlay')) {
+            // If overlay clicked directly, find the active modal *section* within its container
+            const activeModalSection = closeTrigger.closest('.modal-container')?.querySelector('section[data-modal].active');
+             if (activeModalSection) {
+                 closeModal(activeModalSection);
+             }
+        }
+    });
+
+  })(); // End of IIFE
+
+}); // End of DOMContentLoaded

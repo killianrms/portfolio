@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Killianrms | Portfolio</title>
+    <meta name="description" content="Portfolio de Killian Ramus, étudiant en BUT Informatique à Montpellier, présentant ses projets, compétences et parcours. Recherche une alternance.">
+    <title>Killianrms | Projets</title>
     <link rel="stylesheet" href="./assets/css/style.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -15,6 +16,7 @@
 
 <body>
 
+
 <main>
 
     <aside class="sidebar" data-sidebar>
@@ -22,7 +24,11 @@
         <div class="sidebar-info">
 
             <figure class="avatar-box">
-                <img src="./assets/images/photo.png" alt="Killian Ramus" width="80">
+                <img src="./assets/images/photo.webp" alt="Photo de Killian Ramus" width="80">
+                <button class="info_more-btn" data-sidebar-btn aria-controls="sidebar-content" aria-expanded="false">
+                    <span>Plus d'informations</span>
+                    <ion-icon name="chevron-down"></ion-icon>
+                </button>
             </figure>
 
             <div class="info-content">
@@ -31,22 +37,17 @@
                 <p class="title">Recherche Alternance</p>
             </div>
 
-            <button class="info_more-btn" data-sidebar-btn>
-                <span>Contact</span>
-
-                <ion-icon name="chevron-down"></ion-icon>
-            </button>
 
         </div>
 
-        <div class="sidebar-info_more">
+        <div class="sidebar-info_more" id="sidebar-content">
 
             <div class="separator"></div>
 
             <ul class="contacts-list">
 
-                <a href="cv.pdf" target="_blank">
-                    <li class="contact-item">
+                <li class="contact-item">
+                    <a href="cv.pdf" target="_blank" class="contact-link-wrapper">
                         <div class="icon-box">
                             <ion-icon name="cloud-download-outline"></ion-icon>
                         </div>
@@ -54,8 +55,8 @@
                             <p class="contact-title">CV</p>
                             <address>killianrms.com/cv.pdf</address>
                         </div>
-                    </li>
-                </a>
+                    </a>
+                </li>
 
                 <li class="contact-item">
 
@@ -108,7 +109,7 @@
                     <div class="contact-info">
                         <p class="contact-title">Localisation</p>
 
-                        <address>Montellier, France</address>
+                        <address>Montpellier, France</address>
                     </div>
 
                 </li>
@@ -155,8 +156,18 @@
                 </li>
 
                 <li class="navbar-item">
-                    <button class="navbar-link" data-nav-link>Portfolio</button>
+                    <button class="navbar-link" data-nav-link>Projets</button>
                 </li>
+
+                <li class="navbar-item">
+                    <button class="navbar-link" data-nav-link>Contact</button>
+                </li>
+
+                <li class="navbar-item">
+                  <button class="theme-toggle-btn" aria-label="Toggle light/dark theme" data-theme-btn>
+                    <ion-icon name="moon-outline" class="theme-icon moon"></ion-icon>
+                    <ion-icon name="sunny-outline" class="theme-icon sun"></ion-icon>
+                  </button>
                 </li>
             </ul>
 
@@ -168,20 +179,19 @@
                 <h2 class="h2 article-title">À propos de moi</h2>
             </header>
             <section class="about-text">
-<section class="about-text">
-    <h2>Bonjour, Je suis <strong>Killian</strong> 👋</h2>
+    <h3>Bonjour, Je suis <strong>Killian</strong> 👋</h3>
     <p>
         Étudiant en informatique, <strong>passionné</strong> par la technologie. J'ai 
         <strong id="age"></strong> ans, actuellement en 
-        <strong>seconde année du BUT Informatique</strong> à l'IUT de Montpellier-Sète.
+        <strong>seconde année du BUT Informatique</strong> à l'IUT de Montpellier-Sète. Cette formation m'a permis d'acquérir des compétences solides en programmation (Java, Python, C), développement web (HTML, CSS, PHP, SQL) et gestion de systèmes.
     </p>
     <p>
-        Je suis stagiaire en informatique chez Tamabox pour une durée de 10 semaines. Je recherche néanmoins une alternance pour ma troisième année de BUT Informatique dans le domaine de l'informatique.
+        Actuellement en stage chez Tamabox, je recherche activement une alternance pour ma 3ème année de BUT Informatique, idéalement dans le développement logiciel (Java, Python) ou web (PHP, JS).
     </p>
 </section>
 
                 <section class="about-text">
-                    <h2>Qu’est-ce que j’aime ?</h2>
+                    <h3>Qu’est-ce que j’aime ?</h3>
                     <p>Depuis toujours dans le milieu de l'automobile, j'ai une <strong>forte passion</strong> pour les <strong>motos</strong> et les
                         <strong>voitures</strong>. Je m'intéresse particulièrement à <strong>l'intelligence artificielle</strong>, avec l'évolution
                         actuelle des <strong>voitures autonomes</strong>. Mes parents ayant une auto-moto-école, j'ai depuis l'enfance
@@ -194,7 +204,7 @@
                     <p>J'ai également joué de la <strong>guitare</strong> durant 8 ans.</p>
                 </section>
                 <section class="about-text">
-                    <h2>Mon cursus</h2>
+                    <h3>Mon cursus</h3>
                     <p>Originaire d'un <strong>village</strong> dans le Var (83), je n'ai pas hésité à me déplacer à <strong>Montpellier</strong> pour suivre mes <strong>études en informatique</strong>. J'ai commencé au lycée dans la filière <strong>STI2D</strong> spécialité maths/SIN. J'ai ensuite <strong>déménagé à Montpellier</strong> pour rejoindre l'IUT de Montpellier-Sète.</p>
                 </section>
             </section>
@@ -211,7 +221,7 @@
 
                     <div class="modal-img-wrapper">
                         <figure class="modal-avatar-box">
-                            <img src="./assets/images/avatar-1.png" alt="Daniel lewis" width="80" data-modal-img>
+                            <img src="./assets/images/avatar-1.webp" alt="Daniel lewis" width="80" data-modal-img>
                         </figure>
 
                         <img src="./assets/images/icon-quote.svg" alt="quote icon">
@@ -344,10 +354,10 @@
 
         </article>
 
-        <article class="portfolio" data-page="portfolio">
+        <article class="projets" data-page="projets">
 
             <header>
-                <h2 class="h2 article-title">Portfolio</h2>
+                <h2 class="h2 article-title">Projets</h2>
             </header>
 
             <section class="projects">
@@ -356,125 +366,264 @@
 
                     <button class="filter-select" data-select>
 
+                        <div class="select-value" data-select-value>Select category</div>
+
+                        <div class="select-icon">
+                            <ion-icon name="chevron-down"></ion-icon>
+                        </div>
 
                     </button>
+
+                    <ul class="select-list">
+
+                        <li class="select-item" data-select-item tabindex="0" role="option">All</li>
+
+                        <li class="select-item" data-select-item tabindex="0" role="option">Personnel</li>
+
+                        <li class="select-item" data-select-item tabindex="0" role="option">Universitaire</li>
+
+                    </ul>
 
 
                 </div>
 
                 <ul class="project-list">
 
-                    <li class="project-item  active" data-filter-item data-category="Personnel">
-                        <a href="https://github.com/killianrms/lobbybot" target="_blank">
-
+                    <li class="project-item active" data-filter-item data-category="Personnel"
+                        data-project-title="Bot en python"
+                        data-project-link="https://github.com/killianrms/lobbybot"
+                        data-project-image="./assets/images/project-1.webp"
+                        data-project-category="Librairie + API en python + html/css | Personnel"
+                        data-project-description="AerozBot est une bibliothèque Python permettant de créer des bots Fortnite pour simuler des lobbys avec tous les skins/danses, visualiser les nouveautés avant leur sortie, et servir d'outil de développement. Fonctionnalités clés : simulation de lobby, accès anticipé aux nouveautés, commandes de gestion. Premier projet d'équipe rémunéré, axé sur l'apprentissage de GitHub et de la collaboration."
+                        data-project-tech="Python, API X, HTML, CSS">
+                        <a href="https://github.com/killianrms/lobbybot" target="_blank" class="project-link-wrapper">
                             <figure class="project-img">
                                 <div class="project-item-icon-box">
                                     <ion-icon name="eye-outline"></ion-icon>
                                 </div>
-
-                                <img src="./assets/images/project-1.png" loading="lazy">
+                                <picture>
+                                    <source srcset="./assets/images/project-1.webp" type="image/webp">
+                                    <img src="./assets/images/project-1.webp" alt="Miniature du projet Bot en python" loading="lazy">
+                                </picture>
                             </figure>
-
                             <h3 class="project-title">Bot en python</h3>
-
                             <p class="project-category">Librairie + API en python + html/css | Personnel</p>
-
                         </a>
+                        <button class="project-details-btn" data-modal-trigger="project-details">
+                            <ion-icon name="information-circle-outline"></ion-icon>
+                            <span>Voir Détails</span>
+                        </button>
                     </li>
 
-                    <li class="project-item  active" data-filter-item data-category="Personnel">
-                        <a href="https://github.com/killianrms/portfolio" target="_blank">
-
+                    <li class="project-item active" data-filter-item data-category="Personnel"
+                        data-project-title="Portfolio"
+                        data-project-link="https://github.com/killianrms/portfolio"
+                        data-project-image="./assets/images/projet-portfolio.webp"
+                        data-project-category="Site Web en html/css | Personnel"
+                        data-project-description="Ce portfolio que vous consultez actuellement. Créé avec HTML, CSS et JavaScript."
+                        data-project-tech="HTML, CSS, JavaScript">
+                        <a href="https://github.com/killianrms/portfolio" target="_blank" class="project-link-wrapper">
                             <figure class="project-img">
                                 <div class="project-item-icon-box">
                                     <ion-icon name="eye-outline"></ion-icon>
                                 </div>
-
-                                <img src="./assets/images/projet-portfolio.png" loading="lazy">
+                                <picture>
+                                    <source srcset="./assets/images/projet-portfolio.webp" type="image/webp">
+                                    <img src="./assets/images/projet-portfolio.webp" alt="Miniature du projet Portfolio" loading="lazy">
+                                </picture>
                             </figure>
-
                             <h3 class="project-title">Portfolio</h3>
-
                             <p class="project-category">Site Web en html/css | Personnel</p>
-
                         </a>
+                        <button class="project-details-btn" data-modal-trigger="project-details">
+                            <ion-icon name="information-circle-outline"></ion-icon>
+                            <span>Voir Détails</span>
+                        </button>
                     </li>
 
-                    <li class="project-item  active" data-filter-item data-category="Universitaire">
-                        <a href="https://github.com/killianrms/ecommerce-parfum" target="_blank">
-
+                    <li class="project-item active" data-filter-item data-category="Universitaire"
+                        data-project-title="Site e-commerce de parfum"
+                        data-project-link="https://github.com/killianrms/ecommerce-parfum"
+                        data-project-image="./assets/images/site-ecom.webp"
+                        data-project-category="Développement web en PHP | Universitaire"
+                        data-project-description="Projet universitaire de création d'un site e-commerce en PHP."
+                        data-project-tech="PHP, HTML, CSS, SQL">
+                        <a href="https://github.com/killianrms/ecommerce-parfum" target="_blank" class="project-link-wrapper">
                             <figure class="project-img">
                                 <div class="project-item-icon-box">
                                     <ion-icon name="eye-outline"></ion-icon>
                                 </div>
-
-                                <img src="./assets/images/site-ecom.png" loading="lazy">
+                                <picture>
+                                    <source srcset="./assets/images/site-ecom.webp" type="image/webp">
+                                    <img src="./assets/images/site-ecom.webp" alt="Miniature du projet Site e-commerce de parfum" loading="lazy">
+                                </picture>
                             </figure>
-
                             <h3 class="project-title">Site e-commerce de parfum</h3>
-
                             <p class="project-category">Développement web en PHP | Universitaire</p>
-
                         </a>
+                        <button class="project-details-btn" data-modal-trigger="project-details">
+                            <ion-icon name="information-circle-outline"></ion-icon>
+                            <span>Voir Détails</span>
+                        </button>
                     </li>
-                                        <li class="project-item  active" data-filter-item data-category="Universitaire">
-                        <a href="https://github.com/killianrms/Referendum" target="_blank">
-
+                    <li class="project-item active" data-filter-item data-category="Universitaire"
+                        data-project-title="Referendum"
+                        data-project-link="https://github.com/killianrms/Referendum"
+                        data-project-image="./assets/images/ref.webp"
+                        data-project-category="Développement d'application en java ~ méthode scrum | Universitaire"
+                        data-project-description="Application Java développée en suivant la méthode Scrum pour un projet universitaire."
+                        data-project-tech="Java, Scrum">
+                        <a href="https://github.com/killianrms/Referendum" target="_blank" class="project-link-wrapper">
                             <figure class="project-img">
                                 <div class="project-item-icon-box">
                                     <ion-icon name="eye-outline"></ion-icon>
                                 </div>
-
-                                <img src="./assets/images/ref.png" loading="lazy">
+                                <picture>
+                                    <source srcset="./assets/images/ref.webp" type="image/webp">
+                                    <img src="./assets/images/ref.webp" alt="Miniature du projet Referendum" loading="lazy">
+                                </picture>
                             </figure>
-
                             <h3 class="project-title">Referendum</h3>
-
                             <p class="project-category">Développement d'application en java ~ méthode scrum | Universitaire</p>
-
                         </a>
+                        <button class="project-details-btn" data-modal-trigger="project-details">
+                            <ion-icon name="information-circle-outline"></ion-icon>
+                            <span>Voir Détails</span>
+                        </button>
                     </li>
 
-                    <li class="project-item  active" data-filter-item data-category="Universitaire">
-                        <a href="https://github.com/killianrms/CGJ2024" target="_blank">
-
+                    <li class="project-item active" data-filter-item data-category="Universitaire"
+                        data-project-title="Code Game Jam"
+                        data-project-link="https://github.com/killianrms/CGJ2024"
+                        data-project-image="./assets/images/project-4.webp"
+                        data-project-category="Développement d'un jeu vidéo avec Unreal Engine 5 | Universitaire"
+                        data-project-description="Participation à la Code Game Jam 2024, développement d'un jeu avec Unreal Engine 5."
+                        data-project-tech="Unreal Engine 5, C++">
+                        <a href="https://github.com/killianrms/CGJ2024" target="_blank" class="project-link-wrapper">
                             <figure class="project-img">
                                 <div class="project-item-icon-box">
                                     <ion-icon name="eye-outline"></ion-icon>
                                 </div>
-
-                                <img src="./assets/images/project-4.png" loading="lazy">
+                                <picture>
+                                    <source srcset="./assets/images/project-4.webp" type="image/webp">
+                                    <img src="./assets/images/project-4.webp" alt="Miniature du projet Code Game Jam" loading="lazy">
+                                </picture>
                             </figure>
-
                             <h3 class="project-title">Code Game Jam</h3>
-
                             <p class="project-category">Développement d'un jeu vidéo avec Unreal Engine 5 | Universitaire</p>
-
                         </a>
+                        <button class="project-details-btn" data-modal-trigger="project-details">
+                            <ion-icon name="information-circle-outline"></ion-icon>
+                            <span>Voir Détails</span>
+                        </button>
                     </li>
 
-                    <li class="project-item  active" data-filter-item data-category="Universitaire">
-                        <a href="https://github.com/killianrms/Nuit-de-linfo" target="_blank">
-
+                    <li class="project-item active" data-filter-item data-category="Universitaire"
+                        data-project-title="Nuit de L'info"
+                        data-project-link="https://github.com/killianrms/Nuit-de-linfo"
+                        data-project-image="./assets/images/project-5.webp"
+                        data-project-category="Site Web en html/css/js + défis | Universitaire"
+                        data-project-description="Participation à la Nuit de l'Info, création d'un site web et résolution de défis."
+                        data-project-tech="HTML, CSS, JavaScript">
+                        <a href="https://github.com/killianrms/Nuit-de-linfo" target="_blank" class="project-link-wrapper">
                             <figure class="project-img">
                                 <div class="project-item-icon-box">
                                     <ion-icon name="eye-outline"></ion-icon>
                                 </div>
-
-                                <img src="./assets/images/project-5.png" loading="lazy">
+                                <picture>
+                                    <source srcset="./assets/images/project-5.webp" type="image/webp">
+                                    <img src="./assets/images/project-5.webp" alt="Miniature du projet Nuit de L'info" loading="lazy">
+                                </picture>
                             </figure>
-
                             <h3 class="project-title">Nuit de L'info</h3>
-
                             <p class="project-category">Site Web en html/css/js + défis | Universitaire</p>
-
                         </a>
+                        <button class="project-details-btn" data-modal-trigger="project-details">
+                            <ion-icon name="information-circle-outline"></ion-icon>
+                            <span>Voir Détails</span>
+                        </button>
                     </li>
                 </ul>
 
             </section>
 
         </article>
+
+        <!--
+          - CONTACT
+        -->
+
+        <article class="contact" data-page="contact">
+
+            <header>
+                <h2 class="h2 article-title">Contact</h2>
+            </header>
+
+
+            <section class="contact-form">
+
+                <h3 class="h3 form-title">Formulaire de Contact</h3>
+
+                <form action="https://formspree.io/f/mnnpozzn" method="POST" class="form" data-form>
+
+                    <div class="input-wrapper">
+                        <input type="text" name="fullname" class="form-input" placeholder="Nom complet" required data-form-input>
+                        <span class="error-message" aria-live="polite"></span>
+
+                        <input type="email" name="email" class="form-input" placeholder="Adresse Email" required data-form-input>
+                        <span class="error-message" aria-live="polite"></span>
+                    </div>
+
+                    <textarea name="message" class="form-input" placeholder="Votre message" required data-form-input></textarea>
+                    <span class="error-message" aria-live="polite"></span>
+
+                    <button class="form-btn" type="submit" disabled data-form-btn>
+                        <ion-icon name="paper-plane"></ion-icon>
+                        <span>Envoyer Message</span>
+                    </button>
+
+                </form>
+                <div class="form-status" style="display: none; margin-top: 15px; color: var(--orange-yellow-crayola);"></div>
+
+            </section>
+
+        </article>
+
+        <!-- Project Details Modal -->
+        <div class="modal-container project-modal-container" data-project-modal-container>
+            <div class="overlay" data-modal-close></div>
+            <section class="project-modal" role="dialog" aria-modal="true" aria-labelledby="project-modal-title" data-modal="project-details">
+                <button class="modal-close-btn" data-modal-close aria-label="Fermer les détails du projet">
+                    <ion-icon name="close-outline"></ion-icon>
+                </button>
+
+                <div class="modal-content">
+                    <figure class="modal-img-wrapper">
+                        <img src="" alt="" data-project-modal-img>
+                    </figure>
+
+                    <div class="modal-info">
+                        <h3 class="h3 modal-title" data-project-modal-title id="project-modal-title">Project Title</h3>
+                        <p class="project-modal-category" data-project-modal-category>Category</p>
+
+                        <h4>Description</h4>
+                        <p data-project-modal-description>
+                            Project description goes here...
+                        </p>
+
+                        <h4>Technologies Utilisées</h4>
+                        <p data-project-modal-tech>
+                            Technologies list goes here...
+                        </p>
+
+                        <a href="#" target="_blank" class="form-btn project-link-btn" data-project-modal-link>
+                            <ion-icon name="logo-github"></ion-icon>
+                            <span>Voir sur GitHub</span>
+                        </a>
+                    </div>
+                </div>
+            </section>
+        </div>
     </div>
 
 </main>

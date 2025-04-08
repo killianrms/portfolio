@@ -1,53 +1,75 @@
 # Portfolio de Killian Ramus
 
-Bienvenue sur le dépôt GitHub contenant le code source de mon portfolio personnel, accessible à l'adresse suivante : [killianrms.com](https://killianrms.com/).
+Bienvenue sur le dépôt GitHub du code source de mon portfolio personnel. Ce site web sert de vitrine pour présenter mon parcours académique, mes compétences techniques, ainsi que les projets sur lesquels j'ai travaillé.
 
-Ce portfolio est conçu pour présenter mon parcours, mes compétences, mes projets et mes réalisations dans un format interactif et esthétique. Il s'agit à la fois d'une vitrine professionnelle et d'une démonstration de mes compétences en développement web.
+**Site en ligne :** [killianrms.com](https://killianrms.com/)
 
-## Mon apprentissage critique 
+## ✨ Fonctionnalités
 
-Suite à la création de mon portfolio j'ai appris à parler de moi et a me vendre. 
-Le but premier était de donner une première image aux recruteurs et/ou collaborateurs qui vont voir dans le futur mon portfolio. 
+Ce portfolio a été développé avec une attention particulière portée à l'expérience utilisateur et à la présentation des informations :
 
-J'ai également du évaluer mes propres projets pour savoir si il était "intéréssant" à partager ou non...
+*   **Présentation Complète :** Sections dédiées à ma biographie, mon parcours de formation (BUT Informatique), et mes compétences techniques (langages, OS, outils).
+*   **Galerie de Projets Dynamique :**
+    *   Affichage des projets personnels et universitaires.
+    *   Filtrage des projets par catégorie (Personnel, Universitaire).
+    *   Fenêtres modales pour afficher les détails de chaque projet (description, technologies, lien vers le dépôt GitHub).
+*   **Design Responsive :** Interface adaptée à tous les types d'écrans (ordinateur, tablette, mobile).
+*   **Thème Clair / Sombre :** Possibilité de basculer entre un thème clair et un thème sombre, avec sauvegarde de la préférence dans le `localStorage` du navigateur.
+*   **Interactivité :**
+    *   Calcul et affichage dynamique de mon âge.
+    *   Navigation fluide entre les différentes sections (style Single Page Application).
+    *   Sidebar rétractable en vue mobile pour les informations de contact.
+*   **Formulaire de Contact Fonctionnel :** Formulaire avec validation côté client et envoi des messages via AJAX (en utilisant Formspree ou un service similaire configuré dans le HTML).
 
-## Fonctionnalités principales
+## 🛠️ Technologies utilisées
 
-- **Présentation personnelle** : Découvrez mon parcours, mes compétences, et mes objectifs professionnels.
-- **Projets** : Une sélection de mes projets, avec des détails sur leur contexte, les technologies utilisées et les défis relevés.
-- **Design responsive** : Une expérience utilisateur optimisée pour les écrans de toutes tailles (pc, tablette, mobile).
+Le projet est construit avec les technologies web standard :
 
-## Aperçu du code
+*   **HTML5 :** Structure sémantique du contenu.
+*   **CSS3 :** Mise en forme, design responsive, animations et gestion des thèmes (clair/sombre) via des variables CSS.
+*   **JavaScript (ES6+) :** Interactivité, manipulation du DOM, filtrage des projets, gestion des modales, basculement de thème, calcul de l'âge, et soumission AJAX du formulaire de contact.
+*   **IonIcons :** Bibliothèque d'icônes utilisée pour l'interface.
+*   **Google Fonts :** Polices personnalisées (Poppins, Montserrat, Lato) pour améliorer la typographie.
 
-Le code de ce portfolio est structuré pour être maintenable et facilement compréhensible. Les principales sections sont :
+## 📂 Structure du projet
 
-1. **HTML** : Décrivent la structure du site.
-2. **CSS** : Gèrent l'apparence et le design.
-3. **JavaScript** : Ajoutent des interactions et des fonctionnalités dynamiques.
+Le code source est organisé comme suit :
 
-## Objectifs du projet
+```
+/
+├── index.html             # Fichier principal de la page web
+├── README.md              # Ce fichier
+├── cv.pdf                 # Mon Curriculum Vitae
+├── sitemap.xml            # Plan du site pour le référencement
+├── favicon.ico            # Icône du site
+└── assets/
+    ├── css/
+    │   └── style.css      # Feuille de style principale (inclut responsive et thèmes)
+    ├── js/
+    │   └── script.js      # Logique JavaScript pour l'interactivité
+    └── images/            # Images utilisées (photo, miniatures de projets, etc.)
+```
 
-L'objectif de ce portfolio est multiple :
+## 🚀 Comment lancer le projet localement
 
-- **Présentation professionnelle** : Offrir un espace centralisé où recruteurs et collaborateurs peuvent en apprendre davantage sur moi.
-- **Démonstration technique** : Montrer mes compétences en développement web et ma capacité à réaliser un projet complet.
-- **Expérimentation** : Tester et appliquer de nouvelles technologies ou méthodologies.
+Aucune étape de build n'est nécessaire pour visualiser ce projet.
 
-## Installation locale
+1.  **Clonez ce dépôt :**
+    ```bash
+    git clone https://github.com/killianrms/portfolio.git
+    ```
+2.  **Accédez au dossier du projet :**
+    ```bash
+    cd portfolio
+    ```
+3.  **Ouvrez le fichier `index.html`** directement dans votre navigateur web préféré.
 
-Si vous souhaitez exécuter ce projet en local :
+## 🤝 Contributions
 
-1. Clonez ce dépôt :
-   ```bash
-   git clone https://github.com/ton-utilisateur/ton-depot.git
-   ```
-2. Accédez au dossier du projet :
-   ```bash
-   cd ton-depot
-   ```
-3. Ouvrez `index.html` dans votre navigateur ou servez le projet avec un serveur local (comme `Live Server` pour VSCode).
+Les suggestions d'amélioration ou les rapports de bugs sont les bienvenus. N'hésitez pas à ouvrir une *issue* ou à proposer une *pull request*.
 
-## Contributions
+## 👤 Auteur
 
-Les contributions sont les bienvenues ! Si vous avez des idées d'améliorations ou détectez des bugs, n'hésitez pas à ouvrir une *issue* ou à soumettre une *pull request*.
-
+*   **Killian Ramus**
+    *   GitHub : [@killianrms](https://github.com/killianrms)
+    *   LinkedIn : [Killian Ramus](https://www.linkedin.com/in/killianrms/)
