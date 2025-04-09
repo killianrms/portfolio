@@ -120,9 +120,9 @@ html[data-theme="light"] {
   --shadow-4: 0 15px 25px var(--shadow-color-light);
   --shadow-5: 0 20px 40px var(--shadow-color-light);
 
-  /* Light Theme Font Assignment */
-  --ff-heading: var(--ff-montserrat);
-  --ff-body: var(--ff-lato);
+  /* Light Theme Font Assignment - Use same fonts as dark theme to maintain layout consistency */
+  /* --ff-heading: var(--ff-montserrat); */
+  /* --ff-body: var(--ff-lato); */
 
   /* Background Animation Colors (Light Theme) */
   --anim-bg-color-1: hsl(210, 20%, 95%);
@@ -578,7 +578,7 @@ html[data-theme="light"] .contact-item:has(.contact-link[href^="tel"]):focus-wit
 }
 
 html[data-theme="light"] .navbar {
-  background: hsla(0, 0%, 100%, 0.85); /* Light theme navbar background */
+  background: var(--secondary-bg); /* Use solid secondary background for light theme */
   border-color: var(--border-color); /* Use light theme border color */
 }
 
