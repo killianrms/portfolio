@@ -78,6 +78,11 @@
   --transition-1: 0.25s ease;
   --transition-2: 0.5s ease-in-out;
 
+  /* Background Animation Colors (Dark Theme) */
+  --anim-bg-color-1: hsl(240, 5%, 15%);
+  --anim-bg-color-2: hsl(220, 5%, 18%);
+  --anim-bg-color-3: hsl(240, 3%, 12%);
+  --anim-bg-color-4: hsl(210, 5%, 16%);
 }
 
 /* Light Theme Variables */
@@ -118,6 +123,12 @@ html[data-theme="light"] {
   /* Light Theme Font Assignment */
   --ff-heading: var(--ff-montserrat);
   --ff-body: var(--ff-lato);
+
+  /* Background Animation Colors (Light Theme) */
+  --anim-bg-color-1: hsl(210, 20%, 95%);
+  --anim-bg-color-2: hsl(220, 15%, 97%);
+  --anim-bg-color-3: hsl(210, 25%, 92%);
+  --anim-bg-color-4: hsl(200, 18%, 96%);
 }
 
 *, *::before, *::after {
@@ -154,12 +165,38 @@ input, textarea {
 
 :focus { outline-color: var(--orange-yellow-crayola); }
 
-html { font-family: var(--ff-body); } /* Use body font variable */
+html {
+  font-family: var(--ff-body); /* Use body font variable */
+  overflow: hidden; /* Prevent scrolling */
+}
 
 body {
   background: var(--smoky-black);
   color: var(--light-gray); /* Default text color for body */
-  transition: background var(--transition-1), color var(--transition-1);
+  /* Apply animated background */
+  background: linear-gradient(-45deg, var(--anim-bg-color-1), var(--anim-bg-color-2), var(--anim-bg-color-3), var(--anim-bg-color-4));
+  background-size: 400% 400%;
+  animation: animatedBackground 30s ease infinite;
+  transition: color var(--transition-1); /* Keep color transition, background is now animated */
+
+  /* Prevent scrolling and center content */
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+@keyframes animatedBackground {
+ 0% {
+  background-position: 0% 50%;
+ }
+ 50% {
+  background-position: 100% 50%;
+ }
+ 100% {
+  background-position: 0% 50%;
+ }
 }
 
 html[data-theme="light"] body {
@@ -326,7 +363,7 @@ main {
 
 .sidebar {
   margin-bottom: 15px;
-  max-height: 112px;
+  max-height: 120px; /* Increased base height slightly */
   overflow: hidden;
   transition: var(--transition-2);
 }
@@ -1982,30 +2019,30 @@ article {
 
 .theme-toggle-btn .theme-icon {
   position: absolute;
-  transition: opacity 0.15s ease-out, transform 0.25s ease-out;
+  transition: transform 0.25s ease-out;
   pointer-events: none; /* Prevent icon from capturing clicks */
 }
 
 /* Hide sun icon by default (dark mode) */
 .theme-toggle-btn .sun {
-  opacity: 0;
+  display: none; /* Use display instead of opacity */
   transform: scale(0.5) rotate(-90deg);
 }
 
 /* Show moon icon by default (dark mode) */
 .theme-toggle-btn .moon {
-  opacity: 1;
+  display: block; /* Use display instead of opacity */
   transform: scale(1) rotate(0deg);
 }
 
 /* Light theme: Hide moon, show sun */
 html[data-theme="light"] .theme-toggle-btn .moon {
-  opacity: 0;
+  display: none; /* Use display instead of opacity */
   transform: scale(0.5) rotate(90deg);
 }
 
 html[data-theme="light"] .theme-toggle-btn .sun {
-  opacity: 1;
+  display: block; /* Use display instead of opacity */
   transform: scale(1) rotate(0deg);
 }
 
@@ -2610,7 +2647,7 @@ article.projets.active .filter-select-box { /* Filter dropdown (mobile) */
   }
 
   .sidebar {
-    max-height: 100px; /* Adjust initial collapsed height */
+    max-height: 150px; /* Increased collapsed height for stacked mobile view */
   }
   .sidebar.active {
     max-height: 550px; /* Adjust expanded height */
@@ -2686,6 +2723,18 @@ article.projets.active .filter-select-box { /* Filter dropdown (mobile) */
   .navbar-link ion-icon {
     margin: 0 auto 3px; /* Center icon */
   }
+
+  /* --- Project Detail Button Mobile Adjustments --- */
+  .project-details-btn {
+    font-size: var(--fs-8); /* Use smaller font size */
+    margin-left: 0; /* Remove left margin */
+    padding: 5px 8px; /* Add horizontal padding for tap target */
+  }
+
+  .project-details-btn ion-icon {
+    font-size: 14px; /* Slightly smaller icon */
+  }
+  /* --- End Project Detail Button Mobile Adjustments --- */
 
   /* Reduce font sizes */
   :root {
