@@ -309,40 +309,38 @@
         <li class="skills-item">
             <div class="title-wrapper">
                 <h5 class="h5">Languages</h5>
-                    <img src="https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=java&logoColor=white" alt="Java"/>
-                    <img src="https://img.shields.io/badge/Python-14354C?style=for-the-badge&logo=python&logoColor=white" alt="Python"/>
-                    <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white" alt="HTML5"/>
-                    <img src="https://img.shields.io/badge/SQL-4479A1?style=for-the-badge&logo=postgresql&logoColor=white" alt="SQL"/>
-                    <img src="https://img.shields.io/badge/PHP-777BB4?style=for-the-badge&logo=php&logoColor=white" alt="PHP"/>
-                    <img src="https://img.shields.io/badge/C-00599C?style=for-the-badge&logo=c&logoColor=white" alt="C"/>
+                    <img src="assets/images/skills/java.svg" alt="Java logo" class="skill-logo" height="32">
+                    <img src="assets/images/skills/python.svg" alt="Python logo" class="skill-logo" height="32">
+                    <img src="assets/images/skills/html5.svg" alt="HTML5 logo" class="skill-logo" height="32">
+                    <img src="assets/images/skills/postgresql.svg" alt="PostgreSQL logo" class="skill-logo" height="32">
+                    <img src="assets/images/skills/php.svg" alt="PHP logo" class="skill-logo" height="32">
+                    <img src="assets/images/skills/c.svg" alt="C logo" class="skill-logo" height="32">
             </div>
         </li>
 
         <li class="skills-item">
             <div class="title-wrapper">
                 <h5 class="h5">OS</h5>
-                    <img src="https://img.shields.io/badge/Windows-0078D6?style=for-the-badge&logo=windows&logoColor=white" alt="Windows"/>
-                    <img src="https://img.shields.io/badge/iOS-000000?style=for-the-badge&logo=ios&logoColor=white" alt="iOS"/>
-                    <img src="https://img.shields.io/badge/ANDROID-0078D6?style=for-the-badge&logo=ANDROID&logoColor=white"/>
-                    <img src="https://img.shields.io/badge/Linux-A81D33?style=for-the-badge&logo=Linux&logoColor=white" alt="Linux"/>
+                    <img src="assets/images/skills/windows.svg" alt="Windows logo" class="skill-logo" height="32">
+                    <img src="assets/images/skills/android.svg" alt="Android logo" class="skill-logo" height="32">
+                    <img src="assets/images/skills/linux.svg" alt="Linux logo" class="skill-logo" height="32">
             </div>
         </li>
 
         <li class="skills-item">
             <div class="title-wrapper">
                 <h5 class="h5">Logiciels</h5>
-                    <img src="https://img.shields.io/badge/Google-4285F4?style=for-the-badge&logo=google&logoColor=white" alt="Google"/>
-                    <img src="https://img.shields.io/badge/JetBrains-000000?style=for-the-badge&logo=jetbrains&logoColor=white" alt="JetBrains"/>
-                    <img src="https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white" alt="Docker"/>
-                    <img src="https://img.shields.io/badge/phpMyAdmin-6C78AF?style=for-the-badge&logo=phpmyadmin&logoColor=white" alt="phpMyAdmin"/>
+                    <img src="assets/images/skills/google.svg" alt="Google logo" class="skill-logo" height="32">
+                    <img src="assets/images/skills/jetbrains.svg" alt="JetBrains logo" class="skill-logo" height="32">
+                    <img src="assets/images/skills/docker.svg" alt="Docker logo" class="skill-logo" height="32">
             </div>
         </li>
 
         <li class="skills-item">
             <div class="title-wrapper">
                 <h5 class="h5">Travail d'équipe</h5>
-                    <img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub"/>
-                    <img src="https://img.shields.io/badge/GitLab-FC6D26?style=for-the-badge&logo=gitlab&logoColor=white" alt="GitLab"/>
+                    <img src="assets/images/skills/github.svg" alt="GitHub logo" class="skill-logo" height="32">
+                    <img src="assets/images/skills/gitlab.svg" alt="GitLab logo" class="skill-logo" height="32">
             </div>
         </li>
 
@@ -362,48 +360,84 @@
 
             <section class="projects">
 
-                <div class="filter-select-box">
-
-                    <button class="filter-select" data-select>
-
-                        <div class="select-value" data-select-value>Select category</div>
-
-                        <div class="select-icon">
-                            <ion-icon name="chevron-down"></ion-icon>
-                        </div>
-
-                    </button>
-
-                    <ul class="select-list">
-
-                        <li class="select-item" data-select-item tabindex="0" role="option">All</li>
-
-                        <li class="select-item" data-select-item tabindex="0" role="option">Personnel</li>
-
-                        <li class="select-item" data-select-item tabindex="0" role="option">Universitaire</li>
-
-                    </ul>
-
-
-                </div>
+                <ul class="filter-list">
+                  <li class="filter-item">
+                    <button data-filter="all" class="active">Tous</button>
+                  </li>
+                  <li class="filter-item">
+                    <button data-filter="Professionnel">Professionnel</button>
+                  </li>
+                  <li class="filter-item">
+                    <button data-filter="Personnel">Personnel</button>
+                  </li>
+                  <li class="filter-item">
+                    <button data-filter="Universitaire">Universitaire</button>
+                  </li>
+                  <li class="filter-item">
+                    <button data-filter="Concours">Concours</button>
+                  </li>
+                </ul>
 
                 <ul class="project-list">
 
-                    <li class="project-item active" data-filter-item data-category="Personnel"
+                    <li class="project-item active" data-category="Professionnel"
+                        data-project-title="TamaStat"
+                        data-project-link="https://github.com/killianrms/TamaStat"
+                        data-project-image="./assets/images/tamastat.webp"
+                        data-project-category="PHP, MVC | Professionnel"
+                        data-project-description="Application web PHP développée pour la gestion et la visualisation de statistiques. Elle semble utiliser une architecture de type MVC et inclut des fonctionnalités de gestion des utilisateurs et d'interaction avec une base de données, ainsi qu'un potentiel traitement de fichiers CSV."
+                        data-project-tech="PHP, MVC">
+                        <a data-modal-trigger="project-details" class="project-link-wrapper">
+                            <figure class="project-img">
+                                <picture>
+                                    <source srcset="./assets/images/tamastat.webp" type="image/webp">
+                                    <img src="./assets/images/tamastat.webp" alt="Miniature du projet TamaStat" loading="lazy">
+                                </picture>
+                            </figure>
+                            <h3 class="project-title">TamaStat</h3>
+                            <p class="project-category">PHP, MVC | Professionnel</p>
+                        </a>
+                        <button class="project-details-btn" data-modal-trigger="project-details">
+                            <ion-icon name="information-circle-outline"></ion-icon>
+                            <span>Voir Détails</span>
+                        </button>
+                    </li>
+
+                    <li class="project-item active" data-category="Personnel"
+                        data-project-title="AutoTweetVideoUploader"
+                        data-project-link="https://github.com/killianrms/AutoTweetVideoUploader"
+                        data-project-image="./assets/images/tweet.webp"
+                        data-project-category="Python | Personnel"
+                        data-project-description="Ce script Python permet de télécharger des vidéos depuis des comptes Twitter spécifiques et de les publier automatiquement sur un compte Twitter. Il scrute des comptes, choisit des vidéos à uploader, puis les poste sur un compte Twitter prédéfini. Ce script nécessite une configuration initiale pour fonctionner correctement."
+                        data-project-tech="Python">
+                        <a data-modal-trigger="project-details" class="project-link-wrapper">
+                            <figure class="project-img">
+                                <picture>
+                                    <source srcset="./assets/images/tweet.webp" type="image/webp">
+                                    <img src="./assets/images/tweet.webp" alt="AutoTweetVideoUploader Project" loading="lazy">
+                                </picture>
+                            </figure>
+                            <h3 class="project-title">AutoTweetVideoUploader</h3>
+                            <p class="project-category">Python | Personnel</p>
+                        </a>
+                        <button class="project-details-btn" data-modal-trigger="project-details">
+                            <ion-icon name="information-circle-outline"></ion-icon>
+                            <span>Voir Détails</span>
+                        </button>
+                    </li>
+
+                    <li class="project-item active" data-category="Personnel"
                         data-project-title="Bot en python"
                         data-project-link="https://github.com/killianrms/lobbybot"
-                        data-project-image="./assets/images/project-1.webp"
+                        data-project-image="./assets/images/lobbybot.webp"
                         data-project-category="Librairie + API en python + html/css | Personnel"
                         data-project-description="AerozBot est une bibliothèque Python permettant de créer des bots Fortnite pour simuler des lobbys avec tous les skins/danses, visualiser les nouveautés avant leur sortie, et servir d'outil de développement. Fonctionnalités clés : simulation de lobby, accès anticipé aux nouveautés, commandes de gestion. Premier projet d'équipe rémunéré, axé sur l'apprentissage de GitHub et de la collaboration."
                         data-project-tech="Python, API X, HTML, CSS">
-                        <a href="https://github.com/killianrms/lobbybot" target="_blank" class="project-link-wrapper">
+                        <a data-modal-trigger="project-details" class="project-link-wrapper">
                             <figure class="project-img">
-                                <div class="project-item-icon-box">
-                                    <ion-icon name="eye-outline"></ion-icon>
-                                </div>
                                 <picture>
-                                    <source srcset="./assets/images/project-1.webp" type="image/webp">
-                                    <img src="./assets/images/project-1.webp" alt="Miniature du projet Bot en python" loading="lazy">
+                                    <source srcset="./assets/images/lobbybot.webp" type="image/webp">
+                                    <img src="./assets/images/lobbybot.webp" alt="Miniature du projet Bot en python" loading="lazy">
                                 </picture>
                             </figure>
                             <h3 class="project-title">Bot en python</h3>
@@ -415,21 +449,18 @@
                         </button>
                     </li>
 
-                    <li class="project-item active" data-filter-item data-category="Personnel"
+                    <li class="project-item active" data-category="Personnel"
                         data-project-title="Portfolio"
                         data-project-link="https://github.com/killianrms/portfolio"
-                        data-project-image="./assets/images/projet-portfolio.webp"
+                        data-project-image="./assets/images/portfolio.webp"
                         data-project-category="Site Web en html/css | Personnel"
                         data-project-description="Ce portfolio que vous consultez actuellement. Créé avec HTML, CSS et JavaScript."
                         data-project-tech="HTML, CSS, JavaScript">
-                        <a href="https://github.com/killianrms/portfolio" target="_blank" class="project-link-wrapper">
+                        <a data-modal-trigger="project-details" class="project-link-wrapper">
                             <figure class="project-img">
-                                <div class="project-item-icon-box">
-                                    <ion-icon name="eye-outline"></ion-icon>
-                                </div>
                                 <picture>
-                                    <source srcset="./assets/images/projet-portfolio.webp" type="image/webp">
-                                    <img src="./assets/images/projet-portfolio.webp" alt="Miniature du projet Portfolio" loading="lazy">
+                                    <source srcset="./assets/images/portfolio.webp" type="image/webp">
+                                    <img src="./assets/images/portfolio.webp" alt="Miniature du projet Portfolio" loading="lazy">
                                 </picture>
                             </figure>
                             <h3 class="project-title">Portfolio</h3>
@@ -441,18 +472,15 @@
                         </button>
                     </li>
 
-                    <li class="project-item active" data-filter-item data-category="Universitaire"
+                    <li class="project-item active" data-category="Universitaire"
                         data-project-title="Site e-commerce de parfum"
                         data-project-link="https://github.com/killianrms/ecommerce-parfum"
                         data-project-image="./assets/images/site-ecom.webp"
                         data-project-category="Développement web en PHP | Universitaire"
                         data-project-description="Projet universitaire de création d'un site e-commerce en PHP."
                         data-project-tech="PHP, HTML, CSS, SQL">
-                        <a href="https://github.com/killianrms/ecommerce-parfum" target="_blank" class="project-link-wrapper">
+                        <a data-modal-trigger="project-details" class="project-link-wrapper">
                             <figure class="project-img">
-                                <div class="project-item-icon-box">
-                                    <ion-icon name="eye-outline"></ion-icon>
-                                </div>
                                 <picture>
                                     <source srcset="./assets/images/site-ecom.webp" type="image/webp">
                                     <img src="./assets/images/site-ecom.webp" alt="Miniature du projet Site e-commerce de parfum" loading="lazy">
@@ -466,18 +494,15 @@
                             <span>Voir Détails</span>
                         </button>
                     </li>
-                    <li class="project-item active" data-filter-item data-category="Universitaire"
+                    <li class="project-item active" data-category="Universitaire"
                         data-project-title="Referendum"
                         data-project-link="https://github.com/killianrms/Referendum"
                         data-project-image="./assets/images/ref.webp"
                         data-project-category="Développement d'application en java ~ méthode scrum | Universitaire"
                         data-project-description="Application Java développée en suivant la méthode Scrum pour un projet universitaire."
                         data-project-tech="Java, Scrum">
-                        <a href="https://github.com/killianrms/Referendum" target="_blank" class="project-link-wrapper">
+                        <a data-modal-trigger="project-details" class="project-link-wrapper">
                             <figure class="project-img">
-                                <div class="project-item-icon-box">
-                                    <ion-icon name="eye-outline"></ion-icon>
-                                </div>
                                 <picture>
                                     <source srcset="./assets/images/ref.webp" type="image/webp">
                                     <img src="./assets/images/ref.webp" alt="Miniature du projet Referendum" loading="lazy">
@@ -492,25 +517,22 @@
                         </button>
                     </li>
 
-                    <li class="project-item active" data-filter-item data-category="Universitaire"
+                    <li class="project-item active" data-category="Concours"
                         data-project-title="Code Game Jam"
                         data-project-link="https://github.com/killianrms/CGJ2024"
                         data-project-image="./assets/images/project-4.webp"
                         data-project-category="Développement d'un jeu vidéo avec Unreal Engine 5 | Universitaire"
                         data-project-description="Participation à la Code Game Jam 2024, développement d'un jeu avec Unreal Engine 5."
                         data-project-tech="Unreal Engine 5, C++">
-                        <a href="https://github.com/killianrms/CGJ2024" target="_blank" class="project-link-wrapper">
+                        <a data-modal-trigger="project-details" class="project-link-wrapper">
                             <figure class="project-img">
-                                <div class="project-item-icon-box">
-                                    <ion-icon name="eye-outline"></ion-icon>
-                                </div>
                                 <picture>
                                     <source srcset="./assets/images/project-4.webp" type="image/webp">
                                     <img src="./assets/images/project-4.webp" alt="Miniature du projet Code Game Jam" loading="lazy">
                                 </picture>
                             </figure>
                             <h3 class="project-title">Code Game Jam</h3>
-                            <p class="project-category">Développement d'un jeu vidéo avec Unreal Engine 5 | Universitaire</p>
+                            <p class="project-category">Développement d'un jeu vidéo avec Unreal Engine 5 | Concours</p>
                         </a>
                         <button class="project-details-btn" data-modal-trigger="project-details">
                             <ion-icon name="information-circle-outline"></ion-icon>
@@ -518,30 +540,28 @@
                         </button>
                     </li>
 
-                    <li class="project-item active" data-filter-item data-category="Universitaire"
+                    <li class="project-item active" data-category="Concours"
                         data-project-title="Nuit de L'info"
                         data-project-link="https://github.com/killianrms/Nuit-de-linfo"
                         data-project-image="./assets/images/project-5.webp"
                         data-project-category="Site Web en html/css/js + défis | Universitaire"
                         data-project-description="Participation à la Nuit de l'Info, création d'un site web et résolution de défis."
                         data-project-tech="HTML, CSS, JavaScript">
-                        <a href="https://github.com/killianrms/Nuit-de-linfo" target="_blank" class="project-link-wrapper">
+                        <a data-modal-trigger="project-details" class="project-link-wrapper">
                             <figure class="project-img">
-                                <div class="project-item-icon-box">
-                                    <ion-icon name="eye-outline"></ion-icon>
-                                </div>
                                 <picture>
                                     <source srcset="./assets/images/project-5.webp" type="image/webp">
                                     <img src="./assets/images/project-5.webp" alt="Miniature du projet Nuit de L'info" loading="lazy">
                                 </picture>
                             </figure>
                             <h3 class="project-title">Nuit de L'info</h3>
-                            <p class="project-category">Site Web en html/css/js + défis | Universitaire</p>
+                            <p class="project-category">Site Web en html/css/js + défis | Concours</p>
                         </a>
                         <button class="project-details-btn" data-modal-trigger="project-details">
                             <ion-icon name="information-circle-outline"></ion-icon>
                             <span>Voir Détails</span>
                         </button>
+                    </li>
                     </li>
                 </ul>
 

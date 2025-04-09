@@ -31,73 +31,44 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     }
 
-    // --- Custom Select & Filtering ---
+    // --- Portfolio Filtering ---
 
-    const select = document.querySelector("[data-select]");
-    const selectItems = document.querySelectorAll("[data-select-item]");
-    const selectValue = document.querySelector("[data-select-value]");
-    const filterItems = document.querySelectorAll("[data-filter-item]");
-    const filterBtn = document.querySelectorAll("[data-filter-btn]"); // Desktop filter buttons
+    const filterList = document.querySelector(".filter-list");
+    const filterButtons = document.querySelectorAll(".filter-list button");
+    const projectItems = document.querySelectorAll(".project-item");
 
-    /**
-     * Filters project items based on the selected category.
-     * @param {string} selectedValue - The category value to filter by (lowercase).
-     */
-    const filterFunc = function (selectedValue) {
-      filterItems.forEach(item => {
-        if (selectedValue === "all" || selectedValue === item.dataset.category.toLowerCase()) {
-          item.classList.add("active");
-        } else {
-          item.classList.remove("active");
+    if (filterList && filterButtons.length > 0 && projectItems.length > 0) {
+      filterList.addEventListener("click", (event) => {
+        const clickedButton = event.target.closest("button");
+
+        // Exit if the click wasn't on a button inside the list
+        if (!clickedButton || !filterList.contains(clickedButton)) {
+          return;
         }
-      });
-    }
 
-    // Custom select dropdown functionality
-    if (select && selectItems.length > 0 && selectValue) {
-      select.addEventListener("click", function () { elementToggleFunc(this); });
+        const filterValue = clickedButton.dataset.filter;
 
-      selectItems.forEach(item => {
-        item.setAttribute('tabindex', '0');
-        item.setAttribute('role', 'option');
-
-        const handleSelection = function() {
-          let selectedValueText = this.innerText;
-          let selectedValueData = selectedValueText.toLowerCase();
-          selectValue.innerText = selectedValueText;
-          elementToggleFunc(select);
-          filterFunc(selectedValueData);
-        };
-
-        item.addEventListener("click", handleSelection);
-
-        item.addEventListener("keydown", function (event) {
-          if (event.key === 'Enter' || event.key === ' ') {
-            event.preventDefault(); // Prevent default space scroll
-            handleSelection.call(this); // Trigger the selection
-            select.focus(); // Optionally return focus to the main select button
-          }
+        // Update active button state
+        filterButtons.forEach(button => {
+          button.classList.remove("active");
         });
-      });
-    }
+        clickedButton.classList.add("active");
 
-    // Desktop filter button functionality
-    if (filterBtn.length > 0 && selectValue) {
-      let lastClickedBtn = filterBtn[0]; // Assume first button is active initially
+        // Filter project items
+        projectItems.forEach(item => {
+          const itemCategory = item.dataset.category;
 
-      filterBtn.forEach(btn => {
-        btn.addEventListener("click", function () {
-          let selectedValueText = this.innerText;
-          let selectedValueData = selectedValueText.toLowerCase();
-
-          // Update mobile select display value for consistency (optional)
-          selectValue.innerText = selectedValueText;
-
-          filterFunc(selectedValueData);
-
-          lastClickedBtn.classList.remove("active");
-          this.classList.add("active");
-          lastClickedBtn = this;
+          if (filterValue === "all" || filterValue === itemCategory) {
+            // Show item (resetting display style lets CSS control it)
+            item.style.display = "";
+            // Optionally add 'active' class if needed for animations/transitions later
+            // item.classList.add("active");
+          } else {
+            // Hide item
+            item.style.display = "none";
+            // Optionally remove 'active' class
+            // item.classList.remove("active");
+          }
         });
       });
     }

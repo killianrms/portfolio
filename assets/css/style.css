@@ -1039,14 +1039,17 @@ html[data-theme="light"] .timeline-item:hover {
   grid-template-columns: 1fr;
   gap: 30px;
   margin-bottom: 10px;
+  max-height: 75vh; /* Limit height to 75% of viewport */
+  overflow-y: auto; /* Enable vertical scrollbar when needed */
+  padding-right: 5px; /* Add padding to avoid scrollbar overlap */
+  padding-bottom: 25px; /* Add space at the bottom for last item visibility */
 }
 
 .project-item { display: none; }
 
 .project-item.active {
   display: block;
-  /* Use the new scaleInFadeUp animation */
-  animation: scaleInFadeUp 0.4s ease-out forwards;
+  /* Animation removed */
 }
 
 /* Keep the old scaleUp or remove if unused, adding scaleInFadeUp */
@@ -1068,7 +1071,7 @@ html[data-theme="light"] .timeline-item:hover {
 
 .project-item > a {
   width: 100%;
-  transition: transform var(--transition-1); /* Add transition for the lift effect */
+  /* Transition removed */
 }
 
 .project-img {
@@ -1089,47 +1092,47 @@ html[data-theme="light"] .timeline-item:hover {
   height: 100%;
   background: transparent;
   z-index: 1;
-  transition: var(--transition-1);
+  /* Transition removed */
 }
 
 .project-item > a:hover .project-img::before { background: hsla(0, 0%, 0%, 0.5); }
 
-.project-item-icon-box {
-  --scale: 0.8;
+/*.project-item-icon-box {*/
+/*  --scale: 0.8;*/
+/**/
+/*  background: var(--jet);*/
+/*  color: var(--orange-yellow-crayola);*/
+/*  position: absolute;*/
+/*  top: 50%;*/
+/*  left: 50%;*/
+/*  transform: translate(-50%, -50%) scale(var(--scale));*/
+/*  font-size: 20px;*/
+/*  padding: 18px;*/
+/*  border-radius: 12px;*/
+/*  opacity: 0;*/
+/*  z-index: 1;*/
+/*  transition: var(--transition-1);*/
+/*}*/
+/**/
+/*.project-item > a:hover .project-item-icon-box {*/
+/*  --scale: 1;*/
+/*  opacity: 1;*/
+/*}*/
 
-  background: var(--jet);
-  color: var(--orange-yellow-crayola);
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%) scale(var(--scale));
-  font-size: 20px;
-  padding: 18px;
-  border-radius: 12px;
-  opacity: 0;
-  z-index: 1;
-  transition: var(--transition-1);
-}
-
-.project-item > a:hover .project-item-icon-box {
-  --scale: 1;
-  opacity: 1;
-}
-
-.project-item-icon-box ion-icon { --ionicon-stroke-width: 50px; }
+/*.project-item-icon-box ion-icon { --ionicon-stroke-width: 50px; }*/
 
 .project-img img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform var(--transition-1); /* Only transition transform */
+  /* Transition removed */
 }
 
-.project-item > a:hover img { transform: scale(1.05); } /* Make zoom subtler */
+.project-item > a:hover img { /* Transform removed */ } /* Make zoom subtler */
 
-/* Add the lift effect on hover */
+/* Lift effect on hover removed */
 .project-item > a:hover {
-  transform: translateY(-5px);
+  /* Transform removed */
 }
 
 .project-title,
@@ -1735,9 +1738,10 @@ html[data-theme="light"] .form-status {
 
   .filter-list {
     display: flex;
+    flex-wrap: wrap; /* Allow wrapping on slightly smaller screens */
     justify-content: flex-start;
     align-items: center;
-    gap: 25px;
+    gap: 15px 25px; /* Row and column gap */
     padding-left: 5px;
     margin-bottom: 30px;
   }
@@ -1745,12 +1749,35 @@ html[data-theme="light"] .form-status {
   .filter-item button {
     color: var(--light-gray);
     font-size: var(--fs-5);
-    transition: var(--transition-1);
+    font-weight: var(--fw-300); /* Default weight */
+    background: transparent;
+    border: none;
+    padding: 5px 10px; /* Add some padding */
+    border-radius: 8px; /* Slightly rounded corners */
+    transition: color var(--transition-1), background-color var(--transition-1);
+    cursor: pointer;
   }
 
-  .filter-item button:hover { color: var(--light-gray-70); }
+  .filter-item button:hover {
+    color: var(--light-gray-70);
+    background-color: var(--onyx); /* Subtle background on hover */
+  }
 
-  .filter-item button.active { color: var(--orange-yellow-crayola); }
+  /* Light theme hover */
+  html[data-theme="light"] .filter-item button:hover {
+    color: var(--primary-text);
+    background-color: hsl(0, 0%, 95%);
+  }
+
+  .filter-item button.active {
+    color: var(--orange-yellow-crayola);
+    font-weight: var(--fw-500); /* Make active button bolder */
+  }
+
+  /* Light theme active */
+  html[data-theme="light"] .filter-item button.active {
+    color: var(--primary-accent);
+  }
 
   .project-list { grid-template-columns: 1fr 1fr; }
 
@@ -2788,4 +2815,38 @@ article.projets.active .filter-select-box { /* Filter dropdown (mobile) */
         font-size: var(--fs-3); /* Further reduce if needed */
     }
 }
+}
+/* Custom Scrollbar for Portfolio List */
+.portfolio-list {
+  /* Firefox */
+  scrollbar-width: thin;
+  scrollbar-color: hsl(0, 0%, 80%) hsl(0, 0%, 95%); /* thumb track */
+}
+
+/* WebKit Browsers (Chrome, Safari, Edge, etc.) */
+.portfolio-list::-webkit-scrollbar {
+  width: 8px;
+}
+
+.portfolio-list::-webkit-scrollbar-track {
+  background: hsl(0, 0%, 95%);
+/* Skill Logos Styling */
+.skill-logo {
+  display: inline-block; /* Display logos inline */
+  height: 32px;          /* Set explicit height */
+  width: 32px;           /* Set explicit width */
+  vertical-align: middle;/* Align vertically with text/other elements */
+  object-fit: contain;   /* Ensure logo fits within dimensions without distortion */
+  margin: 5px;           /* Add some spacing around logos */
+}
+  border-radius: 10px;
+}
+
+.portfolio-list::-webkit-scrollbar-thumb {
+  background: hsl(0, 0%, 80%);
+  border-radius: 10px;
+}
+
+.portfolio-list::-webkit-scrollbar-thumb:hover {
+  background: hsl(0, 0%, 70%);
 }
