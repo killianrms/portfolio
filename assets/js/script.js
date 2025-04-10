@@ -338,7 +338,29 @@ document.addEventListener('DOMContentLoaded', () => {
              }
         }
     });
+  // --- Skills Section Interactivity ---
 
-  })(); // End of IIFE
+  const skillItems = document.querySelectorAll(".skill-item");
+
+  if (skillItems.length > 0) {
+    skillItems.forEach(item => {
+      const icon = item.querySelector(".skill-icon img");
+
+      if (icon) {
+        // Add transition directly via JS for simplicity here
+        icon.style.transition = 'transform 0.2s ease-in-out';
+
+        item.addEventListener('mouseenter', () => {
+          icon.style.transform = 'scale(1.15)'; // Scale up the icon
+        });
+
+        item.addEventListener('mouseleave', () => {
+          icon.style.transform = 'scale(1)'; // Reset scale
+        });
+      }
+    });
+  }
+
+})(); // End of IIFE
 
 }); // End of DOMContentLoaded
