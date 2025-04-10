@@ -28,8 +28,6 @@ Le projet est construit avec les technologies web standard :
 *   **HTML5 :** Structure sémantique du contenu.
 *   **CSS3 :** Mise en forme, design responsive, animations et gestion des thèmes (clair/sombre) via des variables CSS.
 *   **JavaScript (ES6+) :** Interactivité, manipulation du DOM, filtrage des projets, gestion des modales, basculement de thème, calcul de l'âge, et soumission AJAX du formulaire de contact.
-*   **IonIcons :** Bibliothèque d'icônes utilisée pour l'interface.
-*   **Google Fonts :** Polices personnalisées (Poppins, Montserrat, Lato) pour améliorer la typographie.
 
 ## 📂 Structure du projet
 

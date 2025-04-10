@@ -320,22 +320,37 @@ document.addEventListener('DOMContentLoaded', () => {
       openModal(modalElement);
     });
 
-    // Event delegation for modal close triggers (buttons and overlay)
+    // Event delegation for modal close triggers (buttons and clicks outside content)
     document.addEventListener('click', function (event) {
-        const closeTrigger = event.target.closest('[data-modal-close]');
-        if (!closeTrigger) return;
-
-        // Find the closest parent modal *section* to close
-        const modalToClose = closeTrigger.closest('section[data-modal]');
-
-        if (modalToClose) {
-            closeModal(modalToClose);
-        } else if (closeTrigger.classList.contains('overlay')) {
-            // If overlay clicked directly, find the active modal *section* within its container
-            const activeModalSection = closeTrigger.closest('.modal-container')?.querySelector('section[data-modal].active');
-             if (activeModalSection) {
-                 closeModal(activeModalSection);
+        // 1. Check for close button click ([data-modal-close])
+        const closeButton = event.target.closest('[data-modal-close]');
+        if (closeButton) {
+            // Find the modal section associated with this close button
+            const modalToClose = closeButton.closest('section[data-modal]');
+            if (modalToClose) {
+                closeModal(modalToClose);
+                return; // Exit: Closed via button within the modal content
+            }
+            // Or, if the close trigger is on the container/overlay itself
+            const containerToClose = closeButton.closest('.modal-container.active');
+             if (containerToClose) {
+                 const modalInSection = containerToClose.querySelector('section[data-modal]');
+                 if (modalInSection) {
+                     closeModal(modalInSection);
+                     return; // Exit: Closed via button on container/overlay
+                 }
              }
+        }
+
+        // 2. Check for click on the active modal container (outside the content section)
+        const activeContainer = document.querySelector('.modal-container.active');
+        // If an active container exists and the click target *is* the container itself
+        if (activeContainer && event.target === activeContainer) {
+            const modalInSection = activeContainer.querySelector('section[data-modal]');
+            if (modalInSection) {
+                closeModal(modalInSection);
+                // No return needed here as it's the last check
+            }
         }
     });
   // --- Skills Section Interactivity ---

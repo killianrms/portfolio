@@ -75,8 +75,9 @@
   --shadow-4: 0 25px 50px hsla(0, 0%, 0%, 0.15);
   --shadow-5: 0 24px 80px hsla(0, 0%, 0%, 0.25);
 
-  --transition-1: 0.25s ease;
-  --transition-2: 0.5s ease-in-out;
+  --transition-1: 0.25s ease; /* DEPRECATED - Use --transition-std */
+  --transition-std: 0.3s ease-in-out; /* Standard transition for hover/focus */
+  --transition-2: 0.5s ease-in-out; /* Slower transition for layout changes */
 
   /* Background Animation Colors (Dark Theme) */
   --anim-bg-color-1: hsl(240, 5%, 15%);
@@ -167,7 +168,8 @@ input, textarea {
 
 html {
   font-family: var(--ff-body); /* Use body font variable */
-  overflow: hidden; /* Prevent scrolling */
+  /* overflow: hidden; */ /* Removed to allow site-wide scrolling */
+  overflow-y: scroll; /* Always show scrollbar to prevent layout shift */
 }
 
 body {
@@ -177,10 +179,10 @@ body {
   background: linear-gradient(-45deg, var(--anim-bg-color-1), var(--anim-bg-color-2), var(--anim-bg-color-3), var(--anim-bg-color-4));
   background-size: 400% 400%;
   animation: animatedBackground 30s ease infinite;
-  transition: color var(--transition-1); /* Keep color transition, background is now animated */
+  transition: color var(--transition-std); /* Keep color transition, background is now animated */
 
   /* Prevent scrolling and center content */
-  overflow: hidden;
+  /* overflow: hidden; */ /* Removed to allow site-wide scrolling */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -211,14 +213,14 @@ article {
   padding: 15px;
   box-shadow: var(--shadow-1); /* Use variable */
   z-index: 1;
-  transition: background var(--transition-1), border-color var(--transition-1), box-shadow var(--transition-1);
+  transition: background var(--transition-std), border-color var(--transition-std), box-shadow var(--transition-std);
 }
 
 .separator {
   width: 100%;
   height: 1px;
   background: var(--jet); /* Use variable */
-  transition: background var(--transition-1);
+  transition: background var(--transition-std);
   margin: 16px 0;
 }
 
@@ -235,7 +237,7 @@ article {
   color: var(--orange-yellow-crayola); /* Use variable */
   box-shadow: var(--shadow-1); /* Use variable */
   z-index: 1;
-  transition: background var(--transition-1), color var(--transition-1), box-shadow var(--transition-1);
+  transition: background var(--transition-std), color var(--transition-std), box-shadow var(--transition-std);
 }
 
 .icon-box::before {
@@ -243,7 +245,7 @@ article {
   position: absolute;
   inset: 1px;
   background: var(--eerie-black-1); /* Use variable */
-  transition: background var(--transition-1);
+  transition: background var(--transition-std);
   border-radius: inherit;
   z-index: -1;
 }
@@ -255,19 +257,15 @@ article { display: none; }
 article.active {
   display: block;
   /* Use the new fadeInUp animation */
-  animation: fadeInUp 0.6s ease-out backwards;
+  animation: fadeInUp 0.5s ease-out forwards; /* Standardized */
 }
 
-/* Keep the old fade or remove if unused, adding fadeInUp */
-@keyframes fade {
-  0% { opacity: 0; }
-  100% { opacity: 1; }
-}
+/* Removed unused @keyframes fade */
 
 @keyframes fadeInUp {
   0% {
     opacity: 0;
-    transform: translateY(20px); /* Start slightly lower */
+    transform: translateY(15px); /* Start slightly lower */
   }
   100% {
     opacity: 1;
@@ -282,7 +280,7 @@ article.active {
   color: var(--white-2); /* Use variable */
   font-family: var(--ff-heading); /* Use heading font variable */
   text-transform: capitalize;
-  transition: color var(--transition-1);
+  transition: color var(--transition-std);
 }
 
 .h2 { font-size: var(--fs-1); }
@@ -309,7 +307,7 @@ article.active {
   width: 30px;
   height: 3px;
   background: var(--text-gradient-yellow); /* Use variable */
-  transition: background var(--transition-1);
+  transition: background var(--transition-std);
   border-radius: 3px;
 }
 
@@ -320,13 +318,13 @@ article.active {
 
 .has-scrollbar::-webkit-scrollbar-track {
   background: var(--onyx); /* Use variable */
-  transition: background var(--transition-1);
+  transition: background var(--transition-std);
   border-radius: 5px;
 }
 
 .has-scrollbar::-webkit-scrollbar-thumb {
   background: var(--orange-yellow-crayola); /* Use variable */
-  transition: background var(--transition-1);
+  transition: background var(--transition-std);
   border-radius: 5px;
 }
 
@@ -341,7 +339,7 @@ article.active {
   box-shadow: var(--shadow-2); /* Use variable */
   cursor: pointer;
   z-index: 1;
-  transition: background var(--transition-1), box-shadow var(--transition-1);
+  transition: background var(--transition-std), box-shadow var(--transition-std);
 }
 
 .content-card::before {
@@ -349,7 +347,7 @@ article.active {
   position: absolute;
   inset: 1px;
   background: var(--bg-gradient-jet); /* Use variable */
-  transition: background var(--transition-1);
+  transition: background var(--transition-std);
   border-radius: inherit;
   z-index: -1;
 }
@@ -365,7 +363,7 @@ main {
   margin-bottom: 15px;
   max-height: 120px; /* Increased base height slightly */
   overflow: hidden;
-  transition: var(--transition-2);
+  transition: max-height var(--transition-2), background var(--transition-std), border-color var(--transition-std), box-shadow var(--transition-std); /* Keep slower transition for height */
 }
 
 .sidebar.active { max-height: 600px; }
@@ -380,13 +378,13 @@ main {
 
 .avatar-box {
   background: var(--bg-gradient-onyx); /* Use variable */
-  transition: background var(--transition-1);
+  transition: background var(--transition-std);
   border-radius: 20px;
 }
 
 .info-content .name {
   color: var(--white-2); /* Use variable */
-  transition: color var(--transition-1);
+  transition: color var(--transition-std);
   font-size: var(--fs-3);
   font-weight: var(--fw-500);
   letter-spacing: -0.25px;
@@ -401,7 +399,7 @@ main {
   width: max-content;
   padding: 3px 12px;
   border-radius: 8px;
-  transition: background var(--transition-1), color var(--transition-1);
+  transition: background var(--transition-std), color var(--transition-std);
 }
 
 .info_more-btn {
@@ -414,7 +412,7 @@ main {
   background: var(--border-gradient-onyx); /* Use variable */
   padding: 10px;
   box-shadow: var(--shadow-2); /* Use variable */
-  transition: background var(--transition-1), color var(--transition-1), box-shadow var(--transition-1);
+  transition: background var(--transition-std), color var(--transition-std), box-shadow var(--transition-std);
   z-index: 1;
 }
 
@@ -424,7 +422,7 @@ main {
   inset: 1px;
   border-radius: inherit;
   background: var(--bg-gradient-jet); /* Use variable */
-  transition: var(--transition-1);
+  transition: background var(--transition-std);
   z-index: -1;
 }
 
@@ -439,7 +437,7 @@ main {
 .sidebar-info_more {
   opacity: 0;
   visibility: hidden;
-  transition: var(--transition-2);
+  transition: opacity var(--transition-2), visibility var(--transition-2); /* Keep slower transition */
 }
 
 .sidebar.active .sidebar-info_more {
@@ -476,7 +474,7 @@ a.contact-link-wrapper {
 
 .contact-title {
   color: var(--light-gray); /* Use variable - Increased contrast */
-  transition: color var(--transition-1);
+  transition: color var(--transition-std);
   font-size: var(--fs-8);
   text-transform: uppercase;
   margin-bottom: 2px;
@@ -484,7 +482,7 @@ a.contact-link-wrapper {
 
 .contact-info :is(.contact-link, time, address) {
   color: var(--white-2); /* Use variable */
-  transition: color var(--transition-1);
+  transition: color var(--transition-std);
   font-size: var(--fs-7);
 }
 
@@ -502,7 +500,7 @@ a.contact-link-wrapper {
 .social-item .social-link {
   color: var(--light-gray); /* Use variable - Increased contrast */
   font-size: 18px;
-  transition: color var(--transition-1);
+  transition: color var(--transition-std);
 }
 
 
@@ -518,7 +516,7 @@ a.contact-link-wrapper {
 {
   padding: 8px 10px;
   border-radius: 8px;
-  transition: background-color var(--transition-1), transform var(--transition-1);
+  transition: background-color var(--transition-std), transform var(--transition-std);
   cursor: pointer;
   margin: -8px -10px; /* Offset padding to maintain alignment */
 }
@@ -558,7 +556,7 @@ html[data-theme="light"] .contact-item:has(.contact-link[href^="tel"]):focus-wit
 /* Ensure default link color transition */
 .contact-info .contact-link,
 .contacts-list > a .contact-info address {
-    transition: color var(--transition-1), text-decoration var(--transition-1);
+    transition: color var(--transition-std), text-decoration var(--transition-std);
 }
 
 /* --- End Enhanced Contact Item Visibility --- */
@@ -574,7 +572,7 @@ html[data-theme="light"] .contact-item:has(.contact-link[href^="tel"]):focus-wit
   border-radius: 12px 12px 0 0;
   box-shadow: var(--shadow-2); /* Use variable */
   z-index: 5;
-  transition: background var(--transition-1), border-color var(--transition-1), box-shadow var(--transition-1);
+  transition: background var(--transition-std), border-color var(--transition-std), box-shadow var(--transition-std);
 }
 
 html[data-theme="light"] .navbar {
@@ -594,7 +592,7 @@ html[data-theme="light"] .navbar {
   color: var(--light-gray); /* Use variable */
   font-size: var(--fs-8);
   padding: 20px 7px;
-  transition: color var(--transition-1), transform var(--transition-1);
+  transition: color var(--transition-std), transform var(--transition-std);
 }
 
 .navbar-link:hover,
@@ -614,7 +612,7 @@ html[data-theme="light"] .navbar {
   font-size: var(--fs-6);
   font-weight: var(--fw-300);
   line-height: 1.6;
-  transition: color var(--transition-1);
+  transition: color var(--transition-std);
 }
 
 .about-text p { margin-bottom: 15px; }
@@ -638,7 +636,7 @@ html[data-theme="light"] .navbar {
   border-radius: 14px;
   box-shadow: var(--shadow-2); /* Use variable */
   z-index: 1;
-  transition: background var(--transition-1), box-shadow var(--transition-1);
+  transition: background var(--transition-std), box-shadow var(--transition-std);
 }
 
 .service-item::before {
@@ -646,7 +644,7 @@ html[data-theme="light"] .navbar {
   position: absolute;
   inset: 1px;
   background: var(--bg-gradient-jet); /* Use variable */
-  transition: background var(--transition-1);
+  transition: background var(--transition-std);
   border-radius: inherit;
   z-index: -1;
 }
@@ -663,7 +661,7 @@ html[data-theme="light"] .navbar {
   color: var(--light-gray); /* Use variable */
   font-size: var(--fs-6);
   line-height: 1.6;
-  transition: color var(--transition-1);
+  transition: color var(--transition-std);
 }
 
 
@@ -748,7 +746,7 @@ html[data-theme="light"] .navbar {
   visibility: hidden;
   pointer-events: none;
   z-index: 1;
-  transition: var(--transition-1);
+  transition: opacity var(--transition-std), visibility var(--transition-std);
 }
 
 .overlay.active {
@@ -767,7 +765,7 @@ html[data-theme="light"] .navbar {
   box-shadow: var(--shadow-5);
   transform: scale(1.2);
   opacity: 0;
-  transition: var(--transition-1);
+  transition: transform var(--transition-std), opacity var(--transition-std);
   z-index: 2;
 }
 
@@ -849,7 +847,7 @@ html[data-theme="light"] .navbar {
 .clients-item img {
   width: 100%;
   filter: grayscale(1);
-  transition: var(--transition-1);
+  transition: filter var(--transition-std);
 }
 
 .clients-item img:hover { filter: grayscale(0); }
@@ -873,7 +871,7 @@ html[data-theme="light"] .navbar {
 
 .timeline-item {
   position: relative;
-  transition: transform var(--transition-1), background-color 0.2s ease; /* Add transition */
+  transition: transform var(--transition-std), background-color var(--transition-std); /* Standardized transition */
   padding: 5px; /* Add some padding for background effect */
   margin-left: -5px; /* Offset padding */
   border-radius: 8px; /* Add border-radius for background effect */
@@ -949,7 +947,7 @@ html[data-theme="light"] .timeline-item:hover {
 
 /* Add hover effect to skill badges */
 .skill .title-wrapper img {
-  transition: transform var(--transition-1), box-shadow var(--transition-1);
+  transition: transform var(--transition-std), box-shadow var(--transition-std);
 }
 
 .skill .title-wrapper img:hover {
@@ -1012,7 +1010,7 @@ html[data-theme="light"] .timeline-item:hover {
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
-  transition: 0.15s ease-in-out;
+  transition: opacity 0.15s ease-in-out, visibility 0.15s ease-in-out; /* Keep fast transition for dropdown */
 }
 
 .filter-select.active + .select-list {
@@ -1049,29 +1047,16 @@ html[data-theme="light"] .timeline-item:hover {
 
 .project-item.active {
   display: block;
-  /* Animation removed */
+  animation: fadeInUp 0.5s ease-out forwards; /* Standardized */
 }
 
-/* Keep the old scaleUp or remove if unused, adding scaleInFadeUp */
-@keyframes scaleUp {
-  0% { transform: scale(0.5); }
-  100% { transform: scale(1); }
-}
+/* Removed unused @keyframes scaleUp */
 
-@keyframes scaleInFadeUp {
-  0% {
-    opacity: 0;
-    transform: scale(0.8) translateY(30px); /* Start smaller, lower, and transparent */
-  }
-  100% {
-    opacity: 1;
-    transform: scale(1) translateY(0); /* End at normal size and position */
-  }
-}
+/* Removed unused @keyframes scaleInFadeUp */
 
 .project-item > a {
   width: 100%;
-  /* Transition removed */
+  transition: transform var(--transition-std); /* Add subtle lift transition */
 }
 
 .project-img {
@@ -1092,7 +1077,7 @@ html[data-theme="light"] .timeline-item:hover {
   height: 100%;
   background: transparent;
   z-index: 1;
-  /* Transition removed */
+  transition: background-color var(--transition-std);
 }
 
 .project-item > a:hover .project-img::before { background: hsla(0, 0%, 0%, 0.5); }
@@ -1111,7 +1096,7 @@ html[data-theme="light"] .timeline-item:hover {
 /*  border-radius: 12px;*/
 /*  opacity: 0;*/
 /*  z-index: 1;*/
-/*  transition: var(--transition-1);*/
+/* transition: var(--transition-std);*/
 /*}*/
 /**/
 /*.project-item > a:hover .project-item-icon-box {*/
@@ -1125,14 +1110,14 @@ html[data-theme="light"] .timeline-item:hover {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  /* Transition removed */
+  transition: transform var(--transition-std);
 }
 
-.project-item > a:hover img { /* Transform removed */ } /* Make zoom subtler */
+.project-item > a:hover img { transform: scale(1.03); } /* Make zoom subtler */
 
-/* Lift effect on hover removed */
+/* Lift effect on hover */
 .project-item > a:hover {
-  /* Transform removed */
+   transform: translateY(-3px); /* Subtle lift */
 }
 
 .project-title,
@@ -1164,7 +1149,7 @@ html[data-theme="light"] .timeline-item:hover {
   font-size: var(--fs-7);
   margin-left: 10px; /* Align with title/category */
   padding: 5px 0; /* Add some padding for easier clicking */
-  transition: color var(--transition-1);
+  transition: color var(--transition-std);
 }
 
 .project-details-btn ion-icon {
@@ -1193,7 +1178,7 @@ html[data-theme="light"] .timeline-item:hover {
   box-shadow: var(--shadow-5);
   transform: scale(1.2);
   opacity: 0;
-  transition: background-color 0.3s ease, border-color 0.3s ease, transform 0.25s ease, opacity 0.25s ease; /* Inherit transitions */
+  transition: background-color var(--transition-std), border-color var(--transition-std), transform var(--transition-std), opacity var(--transition-std); /* Standardized transitions */
   z-index: 2;
   max-width: 700px; /* Limit modal width */
   width: 90%;
@@ -1324,7 +1309,7 @@ html[data-theme="light"] .project-modal .project-modal-category {
   border: 1px solid var(--jet);
   border-radius: 14px;
   outline: none;
-  transition: border-color var(--transition-1), background-color var(--transition-1), color var(--transition-1); /* Add transitions */
+  transition: border-color var(--transition-std), background-color var(--transition-std), color var(--transition-std); /* Standardized transitions */
 }
 
 .form-input::placeholder { font-weight: var(--fw-500); }
@@ -1375,7 +1360,7 @@ textarea.form-input::-webkit-resizer { display: none; }
   text-transform: capitalize;
   box-shadow: var(--shadow-3);
   z-index: 1;
-  transition: var(--transition-1);
+  transition: background var(--transition-std);
 }
 
 .form-btn::before {
@@ -1385,7 +1370,7 @@ textarea.form-input::-webkit-resizer { display: none; }
   background: var(--bg-gradient-jet);
   border-radius: inherit;
   z-index: -1;
-  transition: var(--transition-1);
+  transition: background var(--transition-std);
 }
 
 .form-btn ion-icon { font-size: 16px; }
@@ -1754,7 +1739,7 @@ html[data-theme="light"] .form-status {
     border: none;
     padding: 5px 10px; /* Add some padding */
     border-radius: 8px; /* Slightly rounded corners */
-    transition: color var(--transition-1), background-color var(--transition-1);
+    transition: color var(--transition-std), background-color var(--transition-std);
     cursor: pointer;
   }
 
@@ -1960,13 +1945,13 @@ html[data-theme="light"] .form-status {
 
 body {
   /* Add transition for smooth theme change */
-  transition: background-color 0.3s ease, color 0.3s ease;
+  /* transition: background-color var(--transition-std), color var(--transition-std); */ /* Covered by animated background */
 }
 
 /* Apply transitions to relevant elements using variables */
 .sidebar,
 article {
-  transition: background var(--transition-1), border-color var(--transition-1), box-shadow var(--transition-1);
+  transition: background var(--transition-std), border-color var(--transition-std), box-shadow var(--transition-std);
 }
 
 .h2, .h3, .h4, .h5,
@@ -1978,34 +1963,35 @@ article {
 .project-title,
 .project-category,
 .form-input {
-  transition: color var(--transition-1);
+  transition: color var(--transition-std);
 }
 
 /* Ensure icon box colors transition */
 .icon-box {
-  transition: background var(--transition-1), color var(--transition-1), box-shadow var(--transition-1);
+  transition: background var(--transition-std), color var(--transition-std), box-shadow var(--transition-std);
 }
 .icon-box::before {
-   transition: background var(--transition-1);
+   transition: background var(--transition-std);
 }
 
 /* Ensure content card transitions */
 .content-card {
-  transition: background var(--transition-1), box-shadow var(--transition-1);
+  transition: background var(--transition-std), box-shadow var(--transition-std);
 }
 .content-card::before {
-   transition: background var(--transition-1);
+   transition: background var(--transition-std);
 }
 
 /* Ensure modal transitions */
 .testimonials-modal {
-    transition: background-color 0.3s ease, border-color 0.3s ease, transform 0.25s ease, opacity 0.25s ease;
+    transition: background-color var(--transition-std), border-color var(--transition-std), transform var(--transition-std), opacity var(--transition-std);
 }
 .modal-close-btn {
-    transition: background-color 0.3s ease, color 0.3s ease, opacity 0.3s ease;
+    transition: background-color var(--transition-std), color var(--transition-std), opacity var(--transition-std);
 }
 
 .theme-toggle-btn {
+  position: relative; /* Establish stacking context */
   /* Removed absolute positioning */
   /* top: 15px; */
   /* right: 15px; */
@@ -2020,7 +2006,7 @@ article {
   font-size: 20px; /* Adjust icon size if needed */
   box-shadow: var(--shadow-2);
   /* z-index: 2; */ /* Removed */
-  transition: var(--transition-1);
+  transition: background var(--transition-std), color var(--transition-std), box-shadow var(--transition-std);
   margin: 0 7px; /* Add horizontal margin to align with navbar links */
 }
 
@@ -2031,22 +2017,21 @@ article {
   background: var(--bg-gradient-jet);
   border-radius: inherit;
   z-index: -1;
-  transition: var(--transition-1);
+  transition: background var(--transition-std);
 }
 
-.theme-toggle-btn:hover,
-.theme-toggle-btn:focus {
+.theme-toggle-btn:hover {
   background: var(--bg-gradient-yellow-1);
 }
 
-.theme-toggle-btn:hover::before,
-.theme-toggle-btn:focus::before {
+.theme-toggle-btn:hover::before {
   background: var(--bg-gradient-yellow-2);
 }
+/* Focus state will use default outline or :focus rule */
 
 .theme-toggle-btn .theme-icon {
   position: absolute;
-  transition: transform 0.25s ease-out;
+  transition: transform var(--transition-std);
   pointer-events: none; /* Prevent icon from capturing clicks */
 }
 
@@ -2078,16 +2063,15 @@ html[data-theme="light"] .theme-toggle-btn {
     color: var(--primary-accent); /* Use blue accent for icon */
 }
 
-/* Light theme: Override hover/focus for the toggle button */
-html[data-theme="light"] .theme-toggle-btn:hover,
-html[data-theme="light"] .theme-toggle-btn:focus {
+/* Light theme: Override hover for the toggle button */
+html[data-theme="light"] .theme-toggle-btn:hover {
   background: var(--onyx); /* Use the light subtle background for hover */
 }
 
-html[data-theme="light"] .theme-toggle-btn:hover::before,
-html[data-theme="light"] .theme-toggle-btn:focus::before {
+html[data-theme="light"] .theme-toggle-btn:hover::before {
   background: var(--secondary-bg); /* Use plain white for the inner part on hover */
 }
+/* Focus state will use default outline or :focus rule */
 
 /* Removed adjustment for .info_more-btn as theme button is no longer absolute */
 /* .info_more-btn { */
@@ -2119,32 +2103,32 @@ article.active .animated-item {
 
 /* Animate Biographie elements */
 article.biographie.active header h2 {
-  animation: fadeInUp 0.6s 0.2s ease-out backwards;
+  animation: fadeInUp 0.5s 0.2s ease-out forwards;
 }
 /* Target the direct section children within the main about-text container */
 article.biographie.active section.about-text > section:nth-of-type(1) {
-  animation: fadeInUp 0.6s 0.4s ease-out backwards;
+  animation: fadeInUp 0.5s 0.4s ease-out forwards;
 }
 article.biographie.active section.about-text > section:nth-of-type(2) {
-  animation: fadeInUp 0.6s 0.6s ease-out backwards;
+  animation: fadeInUp 0.5s 0.6s ease-out forwards;
 }
 article.biographie.active section.about-text > section:nth-of-type(3) {
-  animation: fadeInUp 0.6s 0.8s ease-out backwards;
+  animation: fadeInUp 0.5s 0.8s ease-out forwards;
 }
 
 /* Add similar rules for other sections (Parcours, Portfolio) if desired */
 
 /* Animate Parcours elements */
 article.resume.active header h2 { /* Section Title */
-  animation: fadeInUp 0.6s 0.2s ease-out backwards;
+  animation: fadeInUp 0.5s 0.2s ease-out forwards;
 }
 article.resume.active .timeline .title-wrapper { /* Formations Title */
-  animation: fadeInUp 0.6s 0.4s ease-out backwards;
+  animation: fadeInUp 0.5s 0.4s ease-out forwards;
 }
 /* Stagger timeline items - Refined */
 article.resume.active .timeline-list .timeline-item {
   opacity: 0; /* Start hidden */
-  animation: fadeInUp 0.5s ease-out forwards; /* Apply base animation */
+  animation: fadeInUp 0.5s ease-out forwards; /* Apply standard animation */
 }
 article.resume.active .timeline-list .timeline-item:nth-child(1) {
   animation-delay: 0.6s;
@@ -2162,25 +2146,29 @@ article.resume.active .timeline-list .timeline-item:nth-child(4) {
 /* ... and so on */
 
 article.resume.active .skill h3.skills-title { /* Compétences Title */
-  animation: fadeInUp 0.6s 0.9s ease-out backwards;
+  animation: fadeInUp 0.5s 0.9s ease-out forwards;
 }
 article.resume.active .skill ul.skills-list { /* Skills List Container */
-  animation: fadeInUp 0.6s 1.1s ease-out backwards;
+  animation: fadeInUp 0.5s 1.1s ease-out forwards;
 }
 /* Note: Individual skill items within the list are not animated here, but could be added */
 
 /* Animate Portfolio elements */
 article.projets.active header h2 { /* Section Title */
-  animation: fadeInUp 0.6s 0.2s ease-out backwards;
+  animation: fadeInUp 0.5s 0.2s ease-out forwards;
 }
 article.projets.active .filter-list { /* Filter buttons (desktop) */
-  animation: fadeInUp 0.6s 0.4s ease-out backwards;
+  animation: fadeInUp 0.5s 0.4s ease-out forwards;
 }
 
 /* Stagger project items */
 article.projets.active .project-list .project-item {
   /* Base animation is already applied via .project-item.active */
-  /* We just need to add delays */
+  /* Apply standard animation with delays */
+  animation-name: fadeInUp;
+  animation-duration: 0.5s;
+  animation-timing-function: ease-out;
+  animation-fill-mode: forwards;
   animation-delay: calc(0.5s + var(--stagger-delay, 0s)); /* Base delay + stagger */
 }
 
@@ -2193,7 +2181,7 @@ article.projets.active .project-list .project-item:nth-child(5) { --stagger-dela
 article.projets.active .project-list .project-item:nth-child(6) { --stagger-delay: 0.6s; }
 /* Add more if needed */
 article.projets.active .filter-select-box { /* Filter dropdown (mobile) */
-  animation: fadeInUp 0.6s 0.4s ease-out backwards;
+  animation: fadeInUp 0.5s 0.4s ease-out forwards;
 /*-----------------------------------*\
  * #RESPONSIVE
 \*-----------------------------------*/
@@ -2597,7 +2585,7 @@ article.projets.active .filter-select-box { /* Filter dropdown (mobile) */
     padding: 0 20px; /* Adjust padding */
     box-shadow: none; /* Remove shadow */
     transform: translateX(15px); /* Initial position off-screen */
-    transition: transform var(--transition-2); /* Smooth transition */
+    transition: transform var(--transition-2); /* Keep slower transition for slide */
   }
 
   .navbar.active { transform: translateX(0); } /* Slide in when active */
@@ -2613,7 +2601,7 @@ article.projets.active .filter-select-box { /* Filter dropdown (mobile) */
 
   /* Article specific adjustments */
   article.active {
-    animation: fadeInUp 0.5s ease forwards; /* Ensure animation completes */
+    animation: fadeInUp 0.5s ease-out forwards; /* Standardized */
   }
 
   /* Portfolio & Blog */
@@ -2818,6 +2806,7 @@ article.projets.active .filter-select-box { /* Filter dropdown (mobile) */
 }
 /* Custom Scrollbar for Portfolio List */
 .portfolio-list {
+  overflow: hidden; /* Prevent extra scrollbar on this element */
   /* Firefox */
   scrollbar-width: thin;
   scrollbar-color: hsl(0, 0%, 80%) hsl(0, 0%, 95%); /* thumb track */
@@ -2873,7 +2862,7 @@ article.projets.active .filter-select-box { /* Filter dropdown (mobile) */
   border: 1px solid var(--jet);
   border-radius: 14px; /* Match card style */
   box-shadow: var(--shadow-1);
-  transition: background var(--transition-1), border-color var(--transition-1), box-shadow var(--transition-1);
+  transition: background var(--transition-std), border-color var(--transition-std), box-shadow var(--transition-std);
 }
 
 .skill-item {
@@ -2883,7 +2872,7 @@ article.projets.active .filter-select-box { /* Filter dropdown (mobile) */
   padding: 20px 15px;
   text-align: center;
   box-shadow: var(--shadow-2);
-  transition: transform 0.3s ease, box-shadow 0.3s ease, background var(--transition-1), border-color var(--transition-1);
+  transition: transform var(--transition-std), box-shadow var(--transition-std), background var(--transition-std), border-color var(--transition-std);
   cursor: default; /* Or 'pointer' if adding click interactions */
 }
 
@@ -2906,7 +2895,7 @@ article.projets.active .filter-select-box { /* Filter dropdown (mobile) */
   max-height: 100%;
   object-fit: contain;
   filter: grayscale(1); /* Optional: Start grayscale, color on hover */
-  transition: filter 0.3s ease;
+  transition: filter var(--transition-std);
 }
 
 .skill-item:hover .skill-icon img {
@@ -2918,7 +2907,7 @@ article.projets.active .filter-select-box { /* Filter dropdown (mobile) */
   color: var(--white-2);
   font-size: var(--fs-6); /* Adjust font size */
   font-weight: var(--fw-500);
-  transition: color var(--transition-1);
+  transition: color var(--transition-std);
 }
 
 /* Responsive adjustments if needed */
@@ -2942,3 +2931,86 @@ article.projets.active .filter-select-box { /* Filter dropdown (mobile) */
         padding: 25px 20px;
     }
 }
+/* --- Biography Section Enhancements --- */
+
+.about-text {
+  padding: 25px 20px; /* Add horizontal padding and slightly more vertical */
+  margin-bottom: 30px; /* Increase space between bio sections */
+  background: var(--eerie-black-1); /* Add a subtle background tint */
+  border-radius: 12px; /* Slightly round corners */
+  box-shadow: inset 0 2px 4px hsla(0, 0%, 0%, 0.15), var(--shadow-1); /* Add subtle inner shadow + existing shadow */
+  transition: background var(--transition-std), box-shadow var(--transition-std);
+}
+
+.about-text:last-of-type {
+  margin-bottom: 0; /* Remove margin from the last section */
+}
+
+.about-text h3 {
+  margin-bottom: 18px; /* More space below the heading */
+  font-size: var(--fs-2); /* Keep heading size */
+  color: var(--white-2); /* Use the brighter white for headings */
+  font-weight: var(--fw-600); /* Make heading slightly bolder */
+  position: relative;
+  padding-left: 15px; /* Indent text to make space for pseudo-element */
+}
+
+/* Add a small decorative element before the heading */
+.about-text h3::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 5px;
+    height: 20px; /* Adjust height to match font size */
+    background: var(--text-gradient-yellow); /* Use accent gradient */
+    border-radius: 3px;
+}
+
+.about-text p {
+  line-height: 1.7; /* Improve readability */
+  margin-bottom: 15px; /* Space between paragraphs */
+  color: var(--light-gray); /* Use the standard light gray */
+}
+
+.about-text p:last-child {
+  margin-bottom: 0; /* Remove margin from the last paragraph in a section */
+}
+
+/* --- Biography Section Animations --- */
+
+/* Removed unused @keyframes fadeInSmooth */
+
+/* Apply fade-in to title and text when biography is active */
+/* The container article already has a fadeInUp animation */
+.biographie.active .article-title {
+  animation: fadeInUp 0.5s ease-out 0.3s forwards; /* Standardized */
+  opacity: 0; /* Initial state before animation */
+}
+
+.biographie.active .about-text {
+  animation: fadeInUp 0.5s ease-out 0.5s forwards; /* Standardized */
+  opacity: 0; /* Initial state before animation */
+}
+
+.about-text strong {
+  color: var(--orange-yellow-crayola); /* Use the accent color for emphasis */
+  font-weight: var(--fw-500); /* Slightly bolder */
+}
+
+/* Add a subtle separator between the main bio and the 'likes'/'cursus' sections */
+/* Note: This rule might need adjustment if the HTML structure changes */
+.biographie > .about-text + .about-text {
+  border-top: 1px solid var(--jet); /* Use the existing separator color */
+  padding-top: 25px; /* Add padding above the separator */
+  margin-top: 25px; /* Add margin above the separator */
+  background: none; /* Remove background from subsequent sections if desired */
+  box-shadow: var(--shadow-1); /* Remove inner shadow from subsequent sections */
+  border-radius: 0; /* Remove border-radius if using separator */
+  padding-left: 0; /* Reset padding if removing background/border */
+  padding-right: 0;
+}
+
+/* --- End Biography Section Enhancements --- */
+
