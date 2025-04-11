@@ -311,6 +311,16 @@ article.active {
   border-radius: 3px;
 }
 
+/* Mobile Specific Styles (max-width: 767px) */
+@media (max-width: 767px) {
+  .skills-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 columns on mobile */
+    gap: 15px; /* Adjust gap for mobile */
+    padding: 15px 0; /* Adjust padding for mobile */
+  }
+}
+
 .has-scrollbar::-webkit-scrollbar {
   width: 5px; /* for vertical scrollbar */
   height: 5px; /* for horizontal scrollbar */
@@ -544,10 +554,126 @@ html[data-theme="light"] .contact-item:has(.contact-link[href^="tel"]):focus-wit
   background-color: hsl(0, 0%, 95%); /* Lighter background for light theme */
 }
 
+/* --- CV Button Specific Styles --- */
+
+.cv-button-link {
+  /* Reset some inherited styles if needed */
+  padding: 10px 20px; /* Generous padding for button feel */
+  border-radius: 8px;
+  background: var(--onyx); /* Subtle background */
+  border: 1px solid var(--jet);
+  box-shadow: var(--shadow-1);
+  transition: background var(--transition-std), color var(--transition-std), border-color var(--transition-std), transform var(--transition-std), box-shadow var(--transition-std);
+  display: inline-flex; /* Use inline-flex to keep icon and text together */
+  align-items: center;
+  justify-content: center; /* Center content */
+  gap: 10px; /* Space between icon and text */
+  width: auto; /* Override width: 100% from parent */
+  margin-top: 10px; /* Add some space above */
+}
+
+.cv-button-link .icon-box {
+  /* Adjust icon box if needed, maybe remove default background/shadow */
+  background: transparent;
+  box-shadow: none;
+  width: auto; /* Let icon size dictate width */
+  height: auto;
+  color: var(--orange-yellow-crayola); /* Ensure icon color matches theme */
+  font-size: 18px; /* Slightly larger icon */
+}
+
+.cv-button-link .icon-box::before {
+  display: none; /* Hide the inner background element */
+}
+
+.cv-button-link .contact-info {
+  /* Ensure text aligns well */
+  flex-grow: 0; /* Don't let it grow */
+  min-width: auto;
+}
+
+.cv-button-link .contact-title {
+  /* Style the "CV" text */
+  color: var(--white-1); /* Clear text color */
+  font-size: var(--fs-6); /* Adjust font size */
+  font-weight: var(--fw-500);
+  text-transform: none; /* Remove uppercase */
+  margin-bottom: 0; /* Remove bottom margin */
+}
+
+.cv-button-link address {
+  display: none; /* Hide the address line */
+}
+
+/* Hover State */
+.cv-button-link:hover {
+  background: var(--border-gradient-onyx); /* Use gradient for hover */
+  border-color: var(--orange-yellow-crayola);
+  color: var(--orange-yellow-crayola); /* Change text color on hover */
+  transform: translateY(-2px); /* Subtle lift */
+  box-shadow: var(--shadow-3);
+}
+
+.cv-button-link:hover .icon-box {
+  color: inherit; /* Inherit color from parent link */
+}
+
+.cv-button-link:hover .contact-title {
+  color: inherit; /* Inherit color from parent link */
+}
+
+/* Active State */
+.cv-button-link:active {
+  transform: translateY(0px) scale(0.98); /* Press down effect */
+  box-shadow: var(--shadow-1);
+  background: var(--eerie-black-1); /* Slightly darker background */
+}
+
+/* Light Theme Overrides */
+html[data-theme="light"] .cv-button-link {
+  background: var(--secondary-bg); /* Light background */
+  border-color: var(--border-color);
+  box-shadow: var(--shadow-1);
+}
+
+html[data-theme="light"] .cv-button-link .icon-box {
+  color: var(--primary-accent); /* Use primary accent color */
+}
+
+html[data-theme="light"] .cv-button-link .contact-title {
+  color: var(--primary-text); /* Use primary text color */
+}
+
+html[data-theme="light"] .cv-button-link:hover {
+  background: #e9ecef; /* Slightly darker light background */
+  border-color: var(--primary-accent);
+  color: var(--primary-accent);
+}
+
+html[data-theme="light"] .cv-button-link:active {
+  background: #dee2e6; /* Even darker light background */
+  box-shadow: var(--shadow-1);
+}
+
+/* --- End CV Button Specific Styles --- */
+
 /* Enhance hover/focus for the actual links/actionable text */
-.contacts-list > a:hover .contact-info address, /* CV address hover */
-.contacts-list > a:focus .contact-info address, /* CV address focus */
-.contact-item .contact-link:hover, /* Email/Phone link hover */
+/* Note: The CV button link handles its own hover/focus now */
+.contact-item:not(:has(.cv-button-link)) .contact-link:hover, /* Email/Phone link hover */
+.contact-item:not(:has(.cv-button-link)) .contact-link:focus /* Email/Phone link focus */
+{
+  color: var(--orange-yellow-crayola); /* Highlight link text */
+}
+
+/* Light theme link hover/focus */
+html[data-theme="light"] .contact-item:not(:has(.cv-button-link)) .contact-link:hover,
+html[data-theme="light"] .contact-item:not(:has(.cv-button-link)) .contact-link:focus
+{
+  color: var(--primary-accent);
+}
+
+/* Removed original rules targeting CV address hover/focus as button handles it */
+.contact-item:not(:has(.cv-button-link)) .contact-link:hover, /* Email/Phone link hover */
 .contact-item .contact-link:focus { /* Email/Phone link focus */
   color: var(--orange-yellow-crayola); /* Highlight color on hover/focus */
   text-decoration: underline; /* Add underline */
@@ -2699,6 +2825,19 @@ article.projets.active .filter-select-box { /* Filter dropdown (mobile) */
     z-index: 10;      /* Ensure visibility above most content */
     /* Removed absolute positioning relative to avatar-box */
     /* width: auto; /* Keep default width */
+
+    /* Light theme hover/focus override for mobile */
+    html[data-theme="light"] .info_more-btn:hover,
+    html[data-theme="light"] .info_more-btn:focus {
+      background: var(--onyx); /* Use light subtle background */
+      color: var(--primary-accent); /* Use primary accent for icon */
+      box-shadow: var(--shadow-3); /* Maintain some shadow */
+    }
+
+    html[data-theme="light"] .info_more-btn:hover::before,
+    html[data-theme="light"] .info_more-btn:focus::before {
+      background: var(--secondary-bg); /* Use plain white for inner part */
+    }
   }
 
   .icon-box {
