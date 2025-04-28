@@ -258,12 +258,14 @@ article.active {
 @keyframes fadeInUp {
   0% {
     opacity: 0;
-    transform: translateY(15px); /* Commence légèrement plus bas */
   }
   100% {
     opacity: 1;
-    transform: translateY(0);
   }
+}
+/* Ensure consistent minimum height for all main content sections */
+article[data-page] {
+  min-height: 85vh; /* Ensure consistent height across all sections */
 }
 
 .h2,
@@ -2475,7 +2477,7 @@ article.projets.active .filter-select-box {
 
   main {
     display: grid;
-    grid-template-columns: 1fr 3.5fr;
+    grid-template-columns: 330px 1fr; /* Further increased sidebar width */
     align-items: flex-start;
     gap: 25px;
     max-width: 1200px;
@@ -2550,8 +2552,18 @@ article.projets.active .filter-select-box {
 
 
 @media (max-width: 768px) {
+  main {
+    /* Reset horizontal margins on the main container for true full-width */
+    margin-left: 0;
+    margin-right: 0;
+  }
+
   .sidebar, article {
     padding: 20px;
+    width: 100%; /* Ensure full width */
+    max-width: none; /* Override potential max-width from larger breakpoints */
+    margin-left: 0; /* Override margin-inline: auto */
+    margin-right: 0; /* Override margin-inline: auto */
   }
 
   .contacts-list {
@@ -2576,6 +2588,23 @@ article.projets.active .filter-select-box {
     padding: 15px 5px;
     font-size: var(--fs-7);
   }
+
+/* Ensure contact section is also full width */
+      article[data-page="contact"] {
+        width: 100%;
+        max-width: none;
+        margin-left: 0;
+        margin-right: 0;
+      }
+  #contact {
+    padding: 20px; /* Match article padding on mobile for consistency */
+  }
+
+  /* Reset max-width inherited from desktop styles */
+  section.contact-form {
+    max-width: none;
+    width: 100%;
+  }
 }
 
 @media (max-width: 576px) {
@@ -2583,7 +2612,8 @@ article.projets.active .filter-select-box {
   /* Pas besoin de définir explicitement width: 100% s'ils sont des éléments de bloc */
 
   main {
-    margin: 10px 8px;
+    /* Reset horizontal margins on the main container for true full-width */
+    margin: 10px 0; /* Keep top margin, remove horizontal */
     margin-bottom: 60px;
   }
 
@@ -2784,7 +2814,7 @@ article.projets.active .filter-select-box {
 
 .skills-grid {
   display: grid;
-  grid-template-columns: repeat(7, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(80px, 1fr)); /* Make grid responsive */
   gap: 20px;
   padding: 20px;
   background: var(--eerie-black-2);
@@ -2935,3 +2965,11 @@ article.projets.active .filter-select-box {
 }
 
 
+
+/* Style for circular profile picture */
+.sidebar .avatar-box img {
+  border-radius: 50%;
+  width: 80px; /* Ensure width */
+  height: 80px; /* Ensure height for circle */
+  object-fit: cover; /* Prevent distortion */
+}
