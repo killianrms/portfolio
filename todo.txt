@@ -1,0 +1,5 @@
+[DONE] Mettre la page contact à la bonne taille
+[CORRECTED] ajout du bde informatique montpellier de 2024 à maintenant dans parcours (moved to Bénévolat section with details)
+[DONE] enlever les logo qui grossissent dans mes compétences.
+[DONE - Verified] ajouter lien des sites
+[DONE - Placeholder Links] ++ IMPORTANT ! APPRENTISSAGE CRITIQUE (il faut ajouter un bouton dans voir détails qui envoie vers les APPRENTISSAGE CRITIQUE du projet)

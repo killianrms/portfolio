@@ -298,6 +298,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const description = projectItem.dataset.projectDescription || 'No description available.';
         const tech = projectItem.dataset.projectTech || 'N/A';
         const link = projectItem.dataset.projectLink || '#';
+        const learningsLink = projectItem.dataset.projectLearningsLink || '#'; // Get learnings link
 
         // Find content elements within the specific modal section
         const modalImg = modalElement.querySelector("[data-project-modal-img]");
@@ -306,6 +307,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const modalDescription = modalElement.querySelector("[data-project-modal-description]");
         const modalTech = modalElement.querySelector("[data-project-modal-tech]");
         const modalLink = modalElement.querySelector("[data-project-modal-link]");
+        const modalLearningsLink = modalElement.querySelector("[data-project-modal-learnings-link]"); // Find learnings button
 
         // Populate the modal
         if (modalImg) { modalImg.src = image; modalImg.alt = title; }
@@ -314,6 +316,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (modalDescription) modalDescription.textContent = description;
         if (modalTech) modalTech.textContent = tech;
         if (modalLink) modalLink.href = link;
+        if (modalLearningsLink) modalLearningsLink.href = learningsLink; // Set learnings button href
       }
 
       // Open the modal using the generic function (passing the modal *section*)
@@ -353,8 +356,9 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
     });
-  // --- Skills Section Interactivity ---
+  // --- Skills Section Interactivity --- (Removed icon scaling on hover as per todo item 3)
 
+  /*
   const skillItems = document.querySelectorAll(".skill-item");
 
   if (skillItems.length > 0) {
@@ -375,6 +379,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   }
+  */
 
 })(); // End of IIFE
 
