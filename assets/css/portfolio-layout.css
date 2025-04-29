@@ -1,0 +1,160 @@
+/* Mise en page pour ordinateur du Portfolio d'Apprentissage */
+
+/* S'assurer que les styles de base pour competence-bloc existent en dehors de la media query si nécessaire */
+.competence-bloc {
+    background-color: var(--eerie-black-2); /* Correspond à l'arrière-plan de l'article */
+    border: 1px solid var(--jet);
+    border-radius: 15px; /* Légèrement moins arrondi que la barre latérale */
+    padding: 20px;
+    margin-bottom: 25px;
+    box-shadow: var(--shadow-1);
+    transition: background var(--transition-std), border-color var(--transition-std), box-shadow var(--transition-std);
+}
+
+/* Ajustements de style pour le thème clair */
+html[data-theme="light"] .competence-bloc {
+    background-color: var(--secondary-bg);
+    border-color: var(--border-color);
+    box-shadow: var(--shadow-2); /* Utiliser une ombre plus claire */
+}
+
+/* S'assurer que le conteneur principal a un padding de base pour mobile */
+#portfolio-apprentissage main {
+    padding: 20px 15px; /* Padding de base pour mobile */
+}
+
+/* Centrer le titre et le sous-titre sur mobile également */
+#portfolio-apprentissage h1,
+#portfolio-apprentissage .sous-titre {
+    text-align: center;
+    margin-bottom: 15px;
+}
+#portfolio-apprentissage .lien-retour {
+    display: block; /* Mettre en block pour centrer */
+    width: max-content; /* Ajuster à la largeur du contenu */
+    margin: 20px auto 30px auto; /* Centrer le lien et ajouter une marge */
+    padding: 8px 15px;
+    background-color: var(--onyx);
+    color: var(--orange-yellow-crayola);
+    border-radius: 8px;
+    transition: background-color var(--transition-std), color var(--transition-std);
+}
+#portfolio-apprentissage .lien-retour:hover {
+    background-color: var(--orange-yellow-crayola);
+    color: var(--eerie-black-2);
+}
+
+html[data-theme="light"] #portfolio-apprentissage .lien-retour {
+    background-color: var(--primary-accent);
+    color: var(--secondary-bg);
+}
+html[data-theme="light"] #portfolio-apprentissage .lien-retour:hover {
+    background-color: var(--vegas-gold);
+    color: var(--secondary-bg);
+}
+
+
+@media (min-width: 1024px) {
+  #portfolio-apprentissage main {
+    max-width: 1200px; /* Limiter la largeur du contenu */
+    margin-left: auto;  /* Centrer le contenu principal */
+    margin-right: auto;
+    padding: 40px; /* Ajouter du padding autour du contenu principal */
+    /* Utilisation de Flexbox pour une mise en page à 2 colonnes */
+    display: flex;
+    flex-wrap: wrap; /* Autoriser le retour à la ligne des éléments */
+    justify-content: space-between; /* Répartir l'espace */
+    gap: 30px; /* Espace entre les colonnes/lignes */
+  }
+
+  #portfolio-apprentissage main > h1,
+  #portfolio-apprentissage main > .sous-titre,
+  #portfolio-apprentissage main > .lien-retour {
+      width: 100%; /* Faire en sorte que les éléments d'en-tête occupent toute la largeur */
+      text-align: center; /* Centrer le texte de l'en-tête */
+      margin-bottom: 20px;
+      /* Réinitialiser les marges automatiques du mobile */
+      margin-left: 0;
+      margin-right: 0;
+  }
+   #portfolio-apprentissage main > .lien-retour {
+       margin-bottom: 40px; /* Plus d'espace après le lien */
+   }
+
+  #portfolio-apprentissage .competence-bloc {
+      flex: 1 1 calc(50% - 15px); /* Viser 2 colonnes, en soustrayant la moitié de l'espace (gap) */
+      box-sizing: border-box; /* Inclure padding/bordure dans le calcul de la largeur */
+      padding: 30px; /* Ajouter plus de padding à l'intérieur des blocs */
+      /* Supprimer la marge inférieure si 'gap' est utilisé */
+      margin-bottom: 0;
+  }
+
+  /* Ajustements pour une meilleure lisibilité */
+  #portfolio-apprentissage h2 {
+      font-size: 1.8em; /* Titres légèrement plus grands */
+      margin-bottom: 20px;
+  }
+
+  #portfolio-apprentissage h3 {
+      font-size: 1.3em;
+      margin-top: 25px; /* Plus d'espace au-dessus des sous-titres */
+      margin-bottom: 15px;
+  }
+
+   #portfolio-apprentissage .project-learnings li {
+       margin-bottom: 10px; /* Espacer les éléments de la liste */
+       line-height: 1.6; /* Améliorer l'interligne */
+   }
+
+   #portfolio-apprentissage .project-learnings ul {
+       margin-left: 20px; /* Indenter les listes imbriquées */
+       margin-top: 5px;
+   }
+
+   #portfolio-apprentissage .niveau2-description,
+   #portfolio-apprentissage .description-ac {
+       line-height: 1.7; /* Améliorer la lisibilité des paragraphes */
+       margin-bottom: 20px;
+   }
+}
+/* --- Animations --- */
+
+/* État initial pour l'animation fade-in */
+.competence-bloc {
+  opacity: 0;
+  transform: translateY(30px); /* Commencer légèrement plus bas */
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  will-change: opacity, transform; /* Optimiser l'animation */
+}
+
+/* État actif pour l'animation fade-in (appliqué via JS) */
+.competence-bloc.fade-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Effet de survol pour les éléments de la liste de projets */
+ul.project-learnings > li { /* Cibler les enfants li directs */
+  transition: background-color 0.3s ease;
+  padding: 8px 12px; /* Ajouter du padding pour l'effet d'arrière-plan */
+  margin-bottom: 8px; /* Ajuster la marge si nécessaire */
+  border-radius: 4px; /* Optionnel : arrondir les coins */
+  position: relative; /* Nécessaire si utilisation ultérieure de pseudo-éléments, bonne pratique */
+}
+
+ul.project-learnings > li:hover {
+  background-color: rgba(0, 0, 0, 0.04); /* Changement subtil d'arrière-plan */
+}
+
+/* S'assurer que les listes imbriquées n'obtiennent pas directement l'effet de survol ou le padding */
+ul.project-learnings ul li {
+    padding: 2px 0; /* Padding minimal pour les éléments imbriqués */
+    margin-bottom: 2px;
+    border-radius: 0;
+    transition: none;
+}
+ul.project-learnings ul li:hover {
+    background-color: transparent; /* Réinitialiser le survol des li imbriqués */
+}
+
+/* --- Fin Animations --- */

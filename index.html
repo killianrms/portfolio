@@ -8,6 +8,7 @@
     <meta name="description" content="Portfolio de Killian Ramus, étudiant en BUT Informatique à Montpellier, présentant ses projets, compétences et parcours. Recherche une alternance.">
     <title>Killianrms | Projets</title>
     <link rel="stylesheet" href="./assets/css/style.css">
+<link rel="stylesheet" href="./assets/css/portfolio-layout.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -301,7 +302,7 @@
 
                 <div class="title-wrapper">
                     <div class="icon-box">
-                        <ion-icon name="people-outline"></ion-icon> <!-- Icône suggérée pour bénévolat -->
+                        <ion-icon name="people-outline"></ion-icon>
                     </div>
 
                     <h3 class="h3">Bénévolat</h3>
@@ -440,7 +441,6 @@
                     <li class="project-item active" data-category="Professionnel"
                         data-project-title="TamaStat"
                         data-project-link="https://github.com/killianrms/TamaStat"
-                        data-project-learnings-link="#"
                         data-project-image="./assets/images/tamastat.webp"
                         data-project-category="PHP, MVC | Professionnel"
                         data-project-description="Application web PHP développée pour la gestion et la visualisation de statistiques. Elle semble utiliser une architecture de type MVC et inclut des fonctionnalités de gestion des utilisateurs et d'interaction avec une base de données, ainsi qu'un potentiel traitement de fichiers CSV."
@@ -464,7 +464,6 @@
                     <li class="project-item active" data-category="Personnel"
                         data-project-title="AutoTweetVideoUploader"
                         data-project-link="https://github.com/killianrms/AutoTweetVideoUploader"
-                        data-project-learnings-link="#"
                         data-project-image="./assets/images/tweet.webp"
                         data-project-category="Python | Personnel"
                         data-project-description="Ce script Python permet de télécharger des vidéos depuis des comptes Twitter spécifiques et de les publier automatiquement sur un compte Twitter. Il scrute des comptes, choisit des vidéos à uploader, puis les poste sur un compte Twitter prédéfini. Ce script nécessite une configuration initiale pour fonctionner correctement."
@@ -488,7 +487,6 @@
                     <li class="project-item active" data-category="Personnel"
                         data-project-title="Bot fortnite en python"
                         data-project-link="https://github.com/killianrms/lobbybot"
-                        data-project-learnings-link="#"
                         data-project-image="./assets/images/lobbybot.webp"
                         data-project-category="Librairie + API en python + html/css | Personnel"
                         data-project-description="AerozBot est une bibliothèque Python permettant de créer des bots Fortnite pour simuler des lobbys avec tous les skins/danses, visualiser les nouveautés avant leur sortie, et servir d'outil de développement. Fonctionnalités clés : simulation de lobby, accès anticipé aux nouveautés, commandes de gestion. Premier projet d'équipe rémunéré, axé sur l'apprentissage de GitHub et de la collaboration."
@@ -512,7 +510,6 @@
                     <li class="project-item active" data-category="Personnel"
                         data-project-title="Portfolio"
                         data-project-link="https://github.com/killianrms/portfolio"
-                        data-project-learnings-link="#"
                         data-project-image="./assets/images/portfolio.webp"
                         data-project-category="Site Web en html/css | Personnel"
                         data-project-description="Ce site web sert de vitrine pour présenter mon parcours académique, mes compétences techniques, ainsi que les projets sur lesquels j'ai travaillé. Il a été développé avec une attention particulière portée à l'expérience utilisateur et à la présentation des informations."
@@ -536,7 +533,6 @@
                     <li class="project-item active" data-category="Universitaire"
                         data-project-title="Site e-commerce de parfum"
                         data-project-link="https://github.com/killianrms/ecommerce-parfum"
-                        data-project-learnings-link="#"
                         data-project-image="./assets/images/site-ecom.webp"
                         data-project-category="Développement web en PHP | Universitaire"
                         data-project-description="Ce projet a pour objectif de proposer une plateforme complète de gestion de produits et d'utilisateurs avec des fonctionnalités avancées comme l'historique des commandes, un panier d'achat et un espace administrateur."
@@ -559,7 +555,6 @@
                     <li class="project-item active" data-category="Universitaire"
                         data-project-title="Referendum"
                         data-project-link="https://github.com/killianrms/Referendum"
-                        data-project-learnings-link="#"
                         data-project-image="./assets/images/ref.webp"
                         data-project-category="Développement d'application en java ~ méthode scrum | Universitaire"
                         data-project-description="Le projet consiste à créer un système de référendums sécurisés, permettant à une entreprise de gérer des votes de manière cryptée et confidentielle."
@@ -606,7 +601,6 @@
                     <li class="project-item active" data-category="Concours"
                         data-project-title="Nuit de L'info"
                         data-project-link="https://github.com/killianrms/Nuit-de-linfo"
-                        data-project-learnings-link="#"
                         data-project-image="./assets/images/project-5.webp"
                         data-project-category="Site Web en html/css/js + défis | Universitaire"
                         data-project-description="Créer un site web innovant et pertinent pour sensibiliser aux enjeux climatiques (thème: changement climatique) et encourager l'action pour un avenir durable, lors de la Nuit de l'Info 2024."
@@ -696,14 +690,6 @@
                             Technologies list goes here...
                         </p>
 
-                        <h4>Apprentissages critiques</h4>
-                        <div class="learnings-content" style="max-height: 150px; overflow-y: auto; border: 1px solid var(--border-color, #ccc); padding: 10px; margin-bottom: 15px; border-radius: 5px;">
-                            <p data-project-modal-learnings-text>
-                                <!-- Les apprentissages critiques seront ajoutés ici -->
-                                Placeholder pour les apprentissages critiques. Vous pourrez éditer ce texte.
-                            </p>
-                        </div>
-
                         <a href="#" target="_blank" class="form-btn project-link-btn" data-project-modal-link>
                             <ion-icon name="logo-github"></ion-icon>
                             <span>Voir sur GitHub</span>
@@ -721,6 +707,10 @@
 <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 
+<!-- Bouton d'action flottant (FAB) -->
+  <a href="portfolio-apprentissage.html" id="fab-portfolio" title="Voir le Portfolio d'Apprentissage">
+    <ion-icon name="book-outline"></ion-icon>
+  </a>
 </body>
 
 </html>
