@@ -44,7 +44,9 @@ document.addEventListener('DOMContentLoaded', () => {
     } else {
         console.warn('Tab buttons or panes not found on portfolio-apprentissage page.');
     }
-// Prevent page scroll to top when project modals are opened
+
+
+    // Prevent page scroll to top when project modals are opened
     // Assumes modals are triggered by <a> tags with href="#" within tab panes of the portfolio section
     const projectModalTriggers = document.querySelectorAll('#portfolio-apprentissage .tab-pane a[href="#"]');
 
