@@ -1,0 +1,156 @@
+/* Tab Buttons */
+.tab-buttons {
+    display: flex;
+    margin-bottom: 20px;
+    border-bottom: 2px solid var(--jet); /* Match existing separators if any */
+}
+
+.tab-button {
+    padding: 10px 20px;
+    cursor: pointer;
+    background-color: var(--onyx); /* Dark background for better contrast with page */
+    color: var(--light-gray); /* Light text for readability */
+    border: none;
+    border-bottom: 2px solid transparent;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    margin-right: 5px; /* Spacing between buttons */
+    border-radius: 5px 5px 0 0; /* Rounded top corners */
+}
+
+.tab-button:hover {
+    background-color: var(--orange-yellow-crayola); /* Active tab-like yellow */
+    color: var(--onyx); /* Dark text for contrast on yellow */
+}
+
+.tab-button.active {
+    background-color: var(--orange-yellow-crayola); /* Active button color from image */
+    color: var(--white);
+    border-bottom: 2px solid var(--orange-yellow-crayola);
+}
+
+/* Tab Content Panes */
+.tab-content .tab-pane {
+    display: none; /* Hide all panes by default */
+    padding: 20px;
+    border: 1px solid var(--jet);
+    border-top: none; /* Remove top border as buttons have bottom border */
+    border-radius: 0 0 5px 5px;
+    background-color: var(--eerie-black-2); /* Match article background for theme consistency */
+}
+
+.tab-content .tab-pane.active {
+    display: block; /* Show active pane */
+}
+
+/* Return to Home Button */
+.return-home-btn {
+    display: inline-block;
+    margin-top: 30px;
+    padding: 10px 20px;
+    background-color: var(--orange-yellow-crayola);
+    color: var(--white);
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+}
+
+.return-home-btn:hover {
+    background-color: var(--jet); /* Dark background for contrast */
+    color: var(--orange-yellow-crayola); /* Yellow text for accent */
+}
+
+/* Project links within learning portfolio */
+.project-learnings .project-link {
+    color: var(--orange-yellow-crayola);
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+.project-learnings .project-link:hover {
+    color: var(--selective-yellow);
+    text-decoration: none;
+}
+
+/* Ensure main container has some padding if not already present */
+#portfolio-apprentissage main {
+    padding-bottom: 60px; /* Add padding to prevent overlap with FAB or footer */
+}
+/* Project Modal Specific Styles */
+.project-modal-container .project-modal {
+    background-color: var(--eerie-black-2); /* Ensure dark background for consistency */
+    /* Add any other project-specific modal styles here if needed */
+}
+
+.project-modal-container .modal-close-btn {
+    background: var(--onyx);
+    color: var(--orange-yellow-crayola);
+    border: 2px solid var(--orange-yellow-crayola);
+    border-radius: 50%; /* Make it circular */
+    width: 40px; /* Fixed size */
+    height: 40px; /* Fixed size */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+.project-modal-container .modal-close-btn:hover {
+    background-color: var(--orange-yellow-crayola);
+    color: var(--onyx);
+    border-color: var(--orange-yellow-crayola);
+}
+
+.project-modal-container .modal-close-btn ion-icon {
+    color: inherit; /* Inherit color from button */
+    font-size: 24px; /* Slightly larger icon */
+    --ionicon-stroke-width: 40px; /* Adjust stroke for new size */
+    transition: color 0.3s ease;
+}
+
+/* Project Modal GitHub Link Button */
+.project-modal .project-link-btn {
+    display: inline-flex; /* Align icon and text nicely */
+    align-items: center;
+    padding: 10px 20px;
+    background-color: var(--onyx);
+    color: var(--orange-yellow-crayola);
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: 500;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, transform 0.2s ease; /* Added border-color to transition */
+    border: 1px solid var(--orange-yellow-crayola);
+}
+
+.project-modal .project-link-btn:hover {
+    background-color: var(--orange-yellow-crayola); /* Standard hover color */
+    color: var(--onyx);
+    border-color: var(--orange-yellow-crayola); /* Consistent hover border */
+    transform: translateY(-2px); /* Subtle lift effect */
+}
+
+.project-modal .project-link-btn ion-icon {
+    color: var(--orange-yellow-crayola); /* Icon color matches text */
+    font-size: 20px; /* Adjusted icon size */
+    margin-right: 8px; /* Space between icon and text */
+    transition: color 0.3s ease; /* Added transition for icon color */
+}
+
+.project-modal .project-link-btn:hover ion-icon {
+    color: var(--onyx); /* Icon color matches text on hover */
+}
+
+@media (prefers-color-scheme: dark) {
+    /* Active tab button: Ensure text contrasts on yellow background */
+    .tab-button.active {
+        color: var(--onyx); /* Was var(--white) */
+    }
+
+    /* Return to Home button: Ensure text contrasts on yellow background */
+    .return-home-btn {
+        color: var(--onyx); /* Was var(--white) */
+    }
+
+}

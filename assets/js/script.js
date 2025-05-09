@@ -281,19 +281,28 @@ document.addEventListener('DOMContentLoaded', () => {
 
       // Logique Spécifique à la Modale Projet
       if (targetModalId === 'project-details') {
-        const projectItem = triggerButton.closest(".project-item");
-        if (!projectItem) {
-            console.error("Could not find parent .project-item for trigger:", triggerButton);
+        let dataSourceElement = null;
+
+        // Check if the trigger button itself has the project data
+        if (triggerButton.dataset.projectTitle) {
+          dataSourceElement = triggerButton;
+        } else {
+          // Fallback to finding the closest .project-item
+          dataSourceElement = triggerButton.closest(".project-item");
+        }
+
+        if (!dataSourceElement) {
+            console.error("Could not find project data source for trigger:", triggerButton);
             return;
         }
 
         // Obtenir les données de l'élément projet
-        const title = projectItem.dataset.projectTitle || 'N/A';
-        const category = projectItem.dataset.projectCategory || 'N/A';
-        const image = projectItem.dataset.projectImage || '';
-        const description = projectItem.dataset.projectDescription || 'No description available.';
-        const tech = projectItem.dataset.projectTech || 'N/A';
-        const link = projectItem.dataset.projectLink || '#';
+        const title = dataSourceElement.dataset.projectTitle || 'N/A';
+        const category = dataSourceElement.dataset.projectCategory || 'N/A';
+        const image = dataSourceElement.dataset.projectImage || '';
+        const description = dataSourceElement.dataset.projectDescription || 'No description available.';
+        const tech = dataSourceElement.dataset.projectTech || 'N/A';
+        const link = dataSourceElement.dataset.projectLink || '#';
         // Trouver les éléments de contenu dans la section modale spécifique
         const modalImg = modalElement.querySelector("[data-project-modal-img]");
         const modalTitle = modalElement.querySelector("[data-project-modal-title]");

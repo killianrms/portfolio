@@ -364,7 +364,7 @@ main {
 
 .sidebar {
   margin-bottom: 15px;
-  max-height: 120px; /* Hauteur de base légèrement augmentée */
+  max-height: 160px; /* Adjusted for larger avatar */
   overflow: hidden;
   transition: max-height var(--transition-2), background var(--transition-std), border-color var(--transition-std), box-shadow var(--transition-std); /* Conserver la transition plus lente pour la hauteur */
 }
@@ -381,8 +381,15 @@ main {
 
 .avatar-box {
   background: var(--bg-gradient-onyx);
-  transition: background var(--transition-std);
+  transition: background var(--transition-std), padding var(--transition-std);
   border-radius: 20px;
+  padding: 5px; /* Increased frame size */
+}
+
+.avatar-box img {
+  width: 120px;
+  height: auto;
+  border-radius: 20px; /* Match parent .avatar-box rounding */
 }
 
 .info-content .name {
