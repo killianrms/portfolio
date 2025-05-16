@@ -303,6 +303,23 @@ document.addEventListener('DOMContentLoaded', () => {
         const description = dataSourceElement.dataset.projectDescription || 'No description available.';
         const tech = dataSourceElement.dataset.projectTech || 'N/A';
         const link = dataSourceElement.dataset.projectLink || '#';
+
+        // Get the role, group, and time information
+        const role = dataSourceElement.dataset.projectRole || '';
+        const group = dataSourceElement.dataset.projectGroup || '';
+        const time = dataSourceElement.dataset.projectTime || '';
+
+        // Create the project info string
+        const projectInfo = role ? `${role} (${group} | ${time})` : '';
+
+        // Find the project info element in the modal
+        const modalProjectInfo = modalElement.querySelector(".project-info");
+
+        // Set the text content of the project info element
+        if (modalProjectInfo) {
+          modalProjectInfo.textContent = projectInfo;
+        }
+
         // Trouver les éléments de contenu dans la section modale spécifique
         const modalImg = modalElement.querySelector("[data-project-modal-img]");
         const modalTitle = modalElement.querySelector("[data-project-modal-title]");
