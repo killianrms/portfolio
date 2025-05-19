@@ -194,3 +194,43 @@
         display: none; /* Hide the text */
     }
 }
+
+/* Styles for "Retour à l'accueil" button */
+.retour-accueil {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #333; /* Adjust color as needed */
+}
+
+.retour-accueil ion-icon {
+  margin-right: 5px; /* Adjust spacing as needed */
+  font-size: 1.2em; /* Adjust size as needed */
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+  .retour-accueil {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: rgba(255, 255, 255, 0.8); /* Adjust background as needed */
+    border-radius: 50%;
+    width: 50px; /* Adjust size as needed */
+    height: 50px; /* Adjust size as needed */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000; /* Ensure it stays on top */
+    color: #333;
+  }
+
+  .retour-accueil span {
+    display: none; /* Hide the text on mobile */
+  }
+
+  .retour-accueil ion-icon {
+    margin-right: 0; /* Remove spacing */
+    font-size: 1.5em; /* Adjust size as needed */
+  }
+}
