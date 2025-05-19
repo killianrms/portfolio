@@ -46,7 +46,8 @@
 
 /* Return to Home Button */
 .return-home-btn {
-    display: inline-block;
+    display: inline-flex; /* Use flex to align icon and text */
+    align-items: center; /* Vertically center the icon and text */
     margin-top: 30px;
     padding: 10px 20px;
     background-color: var(--orange-yellow-crayola);
@@ -54,12 +55,36 @@
     text-decoration: none;
     border-radius: 5px;
     font-weight: 500;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease; /* Add transition for box-shadow and transform */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Add a subtle shadow */
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+.return-home-btn span {
+    display: none; /* Hide text by default on small screens */
+}
+
+@media (min-width: 768px) {
+    .return-home-btn span {
+        display: inline; /* Show text on larger screens */
+        margin-left: 5px; /* Add some spacing between the icon and text */
+    }
 }
 
 .return-home-btn:hover {
     background-color: var(--jet); /* Dark background for contrast */
     color: var(--orange-yellow-crayola); /* Yellow text for accent */
+    transform: translateY(-2px); /* Slight lift on hover */
+    box-shadow: 0 4px 7px rgba(0, 0, 0, 0.3); /* Darken shadow on hover */
+}
+
+.return-home-btn ion-icon {
+    margin-right: 8px; /* Space between icon and text */
+    font-size: 20px; /* Adjust icon size as needed */
+    vertical-align: middle; /* Align icon vertically */
 }
 
 /* Project links within learning portfolio */
@@ -153,4 +178,19 @@
         color: var(--onyx); /* Was var(--white) */
     }
 
+}
+
+@media (max-width: 768px) {
+    .return-home-btn {
+        width: auto; /* Adjust width as needed */
+        padding: 10px; /* Adjust padding as needed */
+    }
+
+    .return-home-btn > ion-icon {
+        margin-right: 0; /* Remove space between icon and text */
+    }
+
+    .return-home-btn > span {
+        display: none; /* Hide the text */
+    }
 }

@@ -2429,7 +2429,7 @@ section.contact-form {
     right: 15px;
   }
   #fab-portfolio ion-icon {
-    font-size: 1.8rem;
+    font-size: 2.5rem;
   }
 }
 
@@ -2653,36 +2653,65 @@ section.contact-form {
 \*-----------------------------------*/
 
 #fab-portfolio {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  width: 50px;
-  height: 50px;
-  background-color: var(--orange-yellow-crayola); /* Utilisation de la variable de couleur existante */
-  color: var(--white-2); /* Supposant une couleur de texte/icône blanche */
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-  z-index: 10; /* Assurer qu'il est au-dessus des autres éléments */
-  transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Transition douce pour le survol */
-  text-decoration: none; /* Supprimer le soulignement du lien */
-}
-
-#fab-portfolio ion-icon {
-  font-size: 24px; /* Ajuster la taille de l'icône si nécessaire */
+    display: inline-flex; /* Use flex to align icon and text */
+    align-items: center; /* Vertically center the icon and text */
+    margin-top: 30px;
+    padding: 10px 20px;
+    background-color: var(--orange-yellow-crayola);
+    color: var(--smoky-black);
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: 500;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease; /* Add transition for box-shadow and transform */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Add a subtle shadow */
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
 }
 
 #fab-portfolio:hover {
-  background-color: hsl(45, 100%, 60%); /* Teinte légèrement plus claire/brillante pour le survol */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    background-color: var(--vegas-gold); /* Dark background for contrast */
+    color: var(--white-1);
+    transform: translateY(-2px); /* Slight lift on hover */
+    box-shadow: 0 4px 7px rgba(0, 0, 0, 0.3); /* Darken shadow on hover */
 }
 
-/* Mobile adjustment for FAB to avoid overlap */
+#fab-portfolio span {
+    display: none; /* Hide text by default */
+}
+
+@media (min-width: 768px) {
+    #fab-portfolio span {
+        display: inline; /* Show text on larger screens */
+        margin-left: 5px; /* Add some spacing between the icon and text */
+    }
+}
+
+#fab-portfolio:hover {
+    background-color: var(--jet); /* Dark background for contrast */
+    color: var(--orange-yellow-crayola); /* Yellow text for accent */
+    transform: translateY(-2px); /* Slight lift on hover */
+    box-shadow: 0 4px 7px rgba(0, 0, 0, 0.3); /* Darken shadow on hover */
+}
+
 @media (max-width: 767px) {
   #fab-portfolio {
-    bottom: 80px; /* Increase bottom margin to move it up */
+    bottom: 80px; /* Increase bottom margin to move it up */;
+    width: 60px; /* Make the button wider */;\n    height: 60px; /* Make the button taller */;\n    display: flex;\n    justify-content: center;\n    align-items: center;;
+    width: 60px; /* Make the button wider */;\n    height: 60px; /* Make the button taller */;\n    display: flex;\n    justify-content: center;\n    align-items: center;;
+    width: 60px; /* Make the button wider */;
+    height: 60px; /* Make the button taller */;\n    display: flex;\n    justify-content: center;\n    align-items: center;;\n    width: 60px; /* Make the button wider */;\n    height: 60px; /* Make the button taller */;\n    display: flex;\n    justify-content: center;\n    align-items: center;;\n    width: 60px; /* Make the button wider */;\n    height: 60px; /* Make the button taller */;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    width: 60px; /* Make the button wider */;\n    height: 60px; /* Make the button taller */;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    width: 60px; /* Make the button wider */;\n    height: 60px; /* Make the button taller */;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    width: 60px; /* Make the button wider */\n    height: 60px; /* Make the button taller */\n    display: flex;\n    justify-content: center;\n    align-items: center;\n\n    width: 60px; /* Make the button wider */\n    height: 60px; /* Make the button taller */\n    display: flex;\n    justify-content: center;\n    align-items: center;
+    width: 60px; /* Make the button wider */
+    height: 60px; /* Make the button taller */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60px; /* Make the button wider */
+    height: 60px; /* Make the button taller */
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 }
 
@@ -2967,4 +2996,12 @@ html[data-theme="light"] .bouton-projet-ac:focus {
         font-size: var(--fs-7);
         line-height: 1.6;
      }
+}
+
+
+@media (min-width: 768px) {
+    #fab-portfolio .fab-text {
+        display: inline; /* Show text on larger screens */
+        margin-left: 5px; /* Add some spacing between the icon and text */
+    }
 }
