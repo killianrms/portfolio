@@ -317,24 +317,6 @@ article[data-page] {
   }
 }
 
-.has-scrollbar::-webkit-scrollbar {
-  width: 5px;
-  height: 5px;
-}
-
-.has-scrollbar::-webkit-scrollbar-track {
-  background: var(--onyx);
-  transition: background var(--transition-std);
-  border-radius: 5px;
-}
-
-.has-scrollbar::-webkit-scrollbar-thumb {
-  background: var(--orange-yellow-crayola);
-  transition: background var(--transition-std);
-  border-radius: 5px;
-}
-
-.has-scrollbar::-webkit-scrollbar-button { width: 20px; }
 
 .content-card {
   position: relative;
@@ -856,7 +838,6 @@ html[data-theme="light"] .navbar {
   visibility: hidden;
 }
 
-.modal-container::-webkit-scrollbar { display: none; }
 
 .modal-container.active {
   pointer-events: all;
@@ -1810,7 +1791,6 @@ html[data-theme="light"] .form-status {
   .sidebar { width: 700px; } /* Keep sidebar separate */
   article[data-page] { width: 700px; } /* Ensure all articles take full defined width */
 
-  .has-scrollbar::-webkit-scrollbar-button { width: 100px; }
 
 
   .contacts-list {
@@ -1986,21 +1966,6 @@ html[data-theme="light"] .form-status {
 @media (min-width: 1250px) {
 
 
-  body::-webkit-scrollbar { width: 20px; }
-
-  body::-webkit-scrollbar-track { background: var(--smoky-black); }
-
-  body::-webkit-scrollbar-thumb {
-    border: 5px solid var(--smoky-black);
-    background: hsla(0, 0%, 100%, 0.1);
-    border-radius: 20px;
-    box-shadow: inset 1px 1px 0 hsla(0, 0%, 100%, 0.11),
-                inset -1px -1px 0 hsla(0, 0%, 100%, 0.11);
-  }
-
-  body::-webkit-scrollbar-thumb:hover { background: hsla(0, 0%, 100%, 0.15); }
-
-  body::-webkit-scrollbar-button { height: 60px; }
 
 
 
@@ -2513,21 +2478,10 @@ section.contact-form {
         font-size: var(--fs-3);
     };
 }
-/* Barre de défilement personnalisée pour la liste du portfolio */
 .portfolio-list {
-  overflow: hidden; /* Empêcher une barre de défilement supplémentaire sur cet élément */
-  /* Firefox */
-  scrollbar-width: thin;
-  scrollbar-color: hsl(0, 0%, 80%) hsl(0, 0%, 95%); /* pouce piste */
+  overflow: hidden;
 }
 
-/* Navigateurs WebKit (Chrome, Safari, Edge, etc.) */
-.portfolio-list::-webkit-scrollbar {
-  width: 8px;
-}
-
-.portfolio-list::-webkit-scrollbar-track {
-  background: hsl(0, 0%, 95%);
 .skill-logo {
   display: inline-block;
   height: 32px;
@@ -2535,17 +2489,6 @@ section.contact-form {
   vertical-align: middle;
   object-fit: contain;
   margin: 5px;
-}
-  border-radius: 10px;
-}
-
-.portfolio-list::-webkit-scrollbar-thumb {
-  background: hsl(0, 0%, 80%);
-  border-radius: 10px;
-}
-
-.portfolio-list::-webkit-scrollbar-thumb:hover {
-  background: hsl(0, 0%, 70%);
 }
 
 

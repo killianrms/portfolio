@@ -193,18 +193,22 @@ document.addEventListener('DOMContentLoaded', () => {
         link.addEventListener("click", function () {
           const targetPage = this.innerHTML.toLowerCase();
 
-          pages.forEach((page, index) => {
-            const pageName = page.dataset.page;
-            const correspondingLink = navigationLinks[index]; // Suppose que les liens et les pages sont dans un ordre correspondant
-
-            if (targetPage === pageName) {
+          pages.forEach(page => {
+            if (targetPage === page.dataset.page) {
               page.classList.add("active");
-              correspondingLink.classList.add("active");
             } else {
               page.classList.remove("active");
-              correspondingLink.classList.remove("active");
             }
           });
+
+          navigationLinks.forEach(navLink => {
+            if (navLink === this) {
+              navLink.classList.add("active");
+            } else {
+              navLink.classList.remove("active");
+            }
+          });
+
           window.scrollTo(0, 0); // Faire défiler vers le haut lors du changement de page
         });
       });
