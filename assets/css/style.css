@@ -39,9 +39,9 @@
   --smoky-black: hsl(0, 0%, 7%);
   --white-1: hsl(0, 0%, 100%);
   --white-2: hsl(0, 0%, 98%);
-  /* Accents jaunes affinés */
-  --orange-yellow-crayola: #FAD55F;
-  --vegas-gold: #EBCF6B; /* Or moins saturé associé */
+  /* Accents jaunes affinés - plus professionnel */
+  --orange-yellow-crayola: #F9B233;
+  --vegas-gold: #E89611; /* Or plus profond */
   --light-gray: hsl(0, 0%, 84%);
   --light-gray-70: hsla(0, 0%, 84%, 0.7);
   --bittersweet-shimmer: hsl(0, 43%, 51%);
@@ -68,11 +68,11 @@
   --fw-500: 500;
   --fw-600: 600;
 
-  --shadow-1: -4px 8px 24px hsla(0, 0%, 0%, 0.25);
-  --shadow-2: 0 16px 30px hsla(0, 0%, 0%, 0.25);
-  --shadow-3: 0 16px 40px hsla(0, 0%, 0%, 0.25);
-  --shadow-4: 0 25px 50px hsla(0, 0%, 0%, 0.15);
-  --shadow-5: 0 24px 80px hsla(0, 0%, 0%, 0.25);
+  --shadow-1: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-2: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --shadow-3: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  --shadow-4: 0 25px 35px -5px rgba(0, 0, 0, 0.15), 0 15px 15px -5px rgba(0, 0, 0, 0.08);
+  --shadow-5: 0 35px 60px -15px rgba(0, 0, 0, 0.3);
 
   --transition-1: 0.25s ease;
   --transition-std: 0.3s ease-in-out; /* Transition standard pour survol/focus */
@@ -202,11 +202,12 @@ html[data-theme="light"] body {
 article {
   background: var(--eerie-black-2);
   border: 1px solid var(--jet);
-  border-radius: 20px;
-  padding: 15px;
-  box-shadow: var(--shadow-1);
+  border-radius: 24px;
+  padding: 20px;
+  box-shadow: var(--shadow-2);
   z-index: 1;
-  transition: background var(--transition-std), border-color var(--transition-std), box-shadow var(--transition-std);
+  backdrop-filter: blur(10px);
+  transition: all var(--transition-std);
 }
 
 .separator {
@@ -220,17 +221,17 @@ article {
 .icon-box {
   position: relative;
   background: var(--border-gradient-onyx);
-  width: 30px;
-  height: 30px;
-  border-radius: 8px;
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 16px;
+  font-size: 18px;
   color: var(--orange-yellow-crayola);
   box-shadow: var(--shadow-1);
   z-index: 1;
-  transition: background var(--transition-std), color var(--transition-std), box-shadow var(--transition-std);
+  transition: all var(--transition-std);
 }
 
 .icon-box::before {

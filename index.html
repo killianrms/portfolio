@@ -8,11 +8,16 @@
     <meta name="description" content="Portfolio de Killian Ramus, étudiant en BUT Informatique à Montpellier, présentant ses projets, compétences et parcours. Recherche une alternance.">
     <title>Killianrms | Projets</title>
     <link rel="stylesheet" href="./assets/css/style.css">
-<link rel="stylesheet" href="./assets/css/portfolio-layout.css">
+    <link rel="stylesheet" href="./assets/css/portfolio-layout.css">
+    <link rel="stylesheet" href="./assets/css/modern-enhancements.css">
+    <link rel="stylesheet" href="./assets/css/mobile-enhancements.css">
+    <link rel="stylesheet" href="./assets/css/skills-enhancements.css">
+    <link rel="stylesheet" href="./assets/css/typography-improvements.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -321,23 +326,29 @@
                     <h2 class="h2 article-title">Mes Compétences</h2>
                 </header>
                 <div class="skills-grid">
-                    <div class="skill-item" data-skill-name="Java">
+                    <div class="skill-item featured" data-skill-name="Java" data-skill-level="90%" style="--progress: 90%;">
                         <figure class="skill-icon">
                             <img src="assets/images/skills/java.svg" alt="Java Logo" loading="lazy">
                         </figure>
                         <h4 class="skill-name">Java</h4>
+                        <div class="skill-progress"><div class="skill-progress-bar"></div></div>
+                        <span class="skill-category">Backend</span>
                     </div>
-                    <div class="skill-item" data-skill-name="Python">
+                    <div class="skill-item featured" data-skill-name="Python" data-skill-level="85%" style="--progress: 85%;">
                         <figure class="skill-icon">
                             <img src="assets/images/skills/python.svg" alt="Python Logo" loading="lazy">
                         </figure>
                         <h4 class="skill-name">Python</h4>
+                        <div class="skill-progress"><div class="skill-progress-bar"></div></div>
+                        <span class="skill-category">Backend</span>
                     </div>
-                    <div class="skill-item" data-skill-name="HTML5">
+                    <div class="skill-item" data-skill-name="HTML5" data-skill-level="80%" style="--progress: 80%;">
                         <figure class="skill-icon">
                             <img src="assets/images/skills/html5.svg" alt="HTML5 Logo" loading="lazy">
                         </figure>
                         <h4 class="skill-name">HTML5</h4>
+                        <div class="skill-progress"><div class="skill-progress-bar"></div></div>
+                        <span class="skill-category">Frontend</span>
                     </div>
                      <div class="skill-item" data-skill-name="PHP">
                         <figure class="skill-icon">
@@ -716,6 +727,8 @@
 </main>
 
 <script src="./assets/js/script.js"></script>
+<script src="./assets/js/modern-interactions.js"></script>
+<script src="./assets/js/performance-optimizations.js" defer></script>
 
 <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
