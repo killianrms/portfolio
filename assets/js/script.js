@@ -54,17 +54,25 @@ document.addEventListener('DOMContentLoaded', () => {
         });
         clickedButton.classList.add("active");
 
-        // Filtrer les éléments du projet
-        projectItems.forEach(item => {
-          const itemCategory = item.dataset.category;
-
-          if (filterValue === "all" || filterValue === itemCategory) {
-            // Afficher l'élément (réinitialiser le style d'affichage permet au CSS de le contrôler)
-            item.style.display = "";
-          } else {
-            // Masquer l'élément
-            item.style.display = "none";
-          }
+        // Animation de filtre avec effet de propagation
+        projectItems.forEach((item, index) => {
+          item.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+          item.style.opacity = '0';
+          item.style.transform = 'scale(0.95)';
+          
+          setTimeout(() => {
+            const itemCategory = item.dataset.category;
+            
+            if (filterValue === "all" || filterValue === itemCategory) {
+              item.style.display = "";
+              setTimeout(() => {
+                item.style.opacity = '1';
+                item.style.transform = 'scale(1)';
+              }, index * 50);
+            } else {
+              item.style.display = "none";
+            }
+          }, 100);
         });
       });
     }
@@ -409,6 +417,64 @@ document.addEventListener('DOMContentLoaded', () => {
             block.style.transform = 'translateY(0)';
         });
     }
+    // --- Animation de la Machine à Écrire pour le Nom ---
+    const nameElement = document.querySelector('.name');
+    if (nameElement) {
+      const text = nameElement.textContent;
+      nameElement.textContent = '';
+      let index = 0;
+      
+      const typeWriter = () => {
+        if (index < text.length) {
+          nameElement.textContent += text.charAt(index);
+          index++;
+          setTimeout(typeWriter, 100);
+        }
+      };
+      
+      typeWriter();
+    }
+
+    // --- Animations de Défilement pour Timeline et Autres Éléments ---
+    const animateOnScroll = () => {
+      const elements = document.querySelectorAll('.timeline-item, .service-item, .skills-item');
+      
+      if (elements.length > 0 && 'IntersectionObserver' in window) {
+        const observerOptions = {
+          threshold: 0.1,
+          rootMargin: '0px 0px -100px 0px'
+        };
+        
+        const observerCallback = (entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.style.opacity = '1';
+              entry.target.style.transform = 'translateY(0)';
+            }
+          });
+        };
+        
+        const observer = new IntersectionObserver(observerCallback, observerOptions);
+        
+        elements.forEach(element => {
+          element.style.opacity = '0';
+          element.style.transform = 'translateY(20px)';
+          element.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+          observer.observe(element);
+        });
+      }
+    };
+    
+    animateOnScroll();
+
+    // --- Réinitialiser les Animations lors de la Navigation entre Pages ---
+    const navLinks = document.querySelectorAll('[data-nav-link]');
+    navLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        setTimeout(animateOnScroll, 100);
+      });
+    });
+
 })(); // Fin de l'IIFE
 
 }); // Fin de DOMContentLoaded

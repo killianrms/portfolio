@@ -11,10 +11,16 @@ Ce portfolio a été développé avec une attention particulière portée à l'e
 *   **Présentation Complète :** Sections dédiées à ma biographie, mon parcours de formation (BUT Informatique), et mes compétences techniques (langages, OS, outils).
 *   **Galerie de Projets Dynamique :**
     *   Affichage des projets personnels et universitaires.
-    *   Filtrage des projets par catégorie (Personnel, Universitaire).
+    *   Filtrage des projets par catégorie avec animations fluides.
     *   Fenêtres modales pour afficher les détails de chaque projet (description, technologies, lien vers le dépôt GitHub).
+    *   Effets de survol interactifs sur les cartes de projet.
 *   **Design Responsive :** Interface adaptée à tous les types d'écrans (ordinateur, tablette, mobile).
 *   **Thème Clair / Sombre :** Possibilité de basculer entre un thème clair et un thème sombre, avec sauvegarde de la préférence dans le `localStorage` du navigateur.
+*   **Animations et Transitions :**
+    *   Effet machine à écrire pour l'affichage du nom.
+    *   Animations au défilement pour les éléments de timeline et compétences.
+    *   Transitions fluides avec courbes de Bézier personnalisées.
+    *   Effets de survol sophistiqués sur tous les éléments interactifs.
 *   **Interactivité :**
     *   Calcul et affichage dynamique de mon âge.
     *   Navigation fluide entre les différentes sections (style Single Page Application).

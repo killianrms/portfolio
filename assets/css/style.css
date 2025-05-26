@@ -12,8 +12,8 @@
   /* Dégradés jaunes affinés */
   --bg-gradient-yellow-1: linear-gradient(
     to bottom right,
-    #FAD55F 0%,
-    hsla(40, 85%, 65%, 0) 50%
+    #FFD700 0%,
+    hsla(45, 100%, 50%, 0) 50%
   );
   --bg-gradient-yellow-2: linear-gradient(
     135deg,
@@ -28,8 +28,8 @@
   /* Dégradé de texte jaune affiné */
   --text-gradient-yellow: linear-gradient(
     to right,
-    #FAD55F,
-    #F7C95C
+    #FFD700,
+    #FFC700
   );
 
   --jet: hsl(0, 0%, 22%);
@@ -40,8 +40,8 @@
   --white-1: hsl(0, 0%, 100%);
   --white-2: hsl(0, 0%, 98%);
   /* Accents jaunes affinés - plus professionnel */
-  --orange-yellow-crayola: #F9B233;
-  --vegas-gold: #E89611; /* Or plus profond */
+  --orange-yellow-crayola: #FFD700;
+  --vegas-gold: #FFC700;
   --light-gray: hsl(0, 0%, 84%);
   --light-gray-70: hsla(0, 0%, 84%, 0.7);
   --bittersweet-shimmer: hsl(0, 43%, 51%);
@@ -68,15 +68,17 @@
   --fw-500: 500;
   --fw-600: 600;
 
-  --shadow-1: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-  --shadow-2: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-  --shadow-3: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-  --shadow-4: 0 25px 35px -5px rgba(0, 0, 0, 0.15), 0 15px 15px -5px rgba(0, 0, 0, 0.08);
-  --shadow-5: 0 35px 60px -15px rgba(0, 0, 0, 0.3);
+  --shadow-1: 0 2px 4px hsla(0, 0%, 0%, 0.08), 0 4px 8px hsla(0, 0%, 0%, 0.04);
+  --shadow-2: 0 4px 8px hsla(0, 0%, 0%, 0.12), 0 8px 16px hsla(0, 0%, 0%, 0.08);
+  --shadow-3: 0 8px 16px hsla(0, 0%, 0%, 0.15), 0 12px 24px hsla(0, 0%, 0%, 0.1);
+  --shadow-4: 0 12px 24px hsla(0, 0%, 0%, 0.18), 0 16px 32px hsla(0, 0%, 0%, 0.12);
+  --shadow-5: 0 20px 40px hsla(0, 0%, 0%, 0.25), 0 24px 48px hsla(0, 0%, 0%, 0.15);
+  --shadow-hover: 0 10px 20px hsla(0, 0%, 0%, 0.15), 0 6px 10px hsla(0, 0%, 0%, 0.1);
 
   --transition-1: 0.25s ease;
-  --transition-std: 0.3s ease-in-out; /* Transition standard pour survol/focus */
-  --transition-2: 0.5s ease-in-out; /* Transition plus lente pour les changements de layout */
+  --transition-std: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-2: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 
   /* Couleurs d'animation de fond (Thème sombre) */
   --anim-bg-color-1: hsl(240, 5%, 15%);
@@ -509,11 +511,14 @@ a.contact-link-wrapper {
 .social-item .social-link {
   color: var(--light-gray);
   font-size: 18px;
-  transition: color var(--transition-std);
+  transition: all var(--transition-std);
+  display: inline-block;
 }
 
-
-.social-item .social-link:hover { color: var(--light-gray); }
+.social-item .social-link:hover { 
+  color: var(--orange-yellow-crayola);
+  transform: translateY(-3px) scale(1.2);
+}
 
 .contact-item:has(a[href="cv.pdf"]),
 .contact-item:has(.contact-link[href^="mailto"]),
@@ -697,13 +702,31 @@ html[data-theme="light"] .navbar {
   color: var(--light-gray);
   font-size: var(--fs-8);
   padding: 20px 7px;
-  transition: color var(--transition-std), transform var(--transition-std);
+  transition: all var(--transition-std);
+  position: relative;
+}
+
+.navbar-link::after {
+  content: '';
+  position: absolute;
+  bottom: 15px;
+  left: 50%;
+  transform: translateX(-50%) scaleX(0);
+  width: 30px;
+  height: 2px;
+  background: var(--orange-yellow-crayola);
+  transition: transform var(--transition-std);
 }
 
 .navbar-link:hover,
 .navbar-link:focus {
-  color: var(--light-gray-70);
-  transform: scale(1.1);
+  color: var(--white-1);
+  transform: translateY(-2px);
+}
+
+.navbar-link:hover::after,
+.navbar-link:focus::after {
+  transform: translateX(-50%) scaleX(1);
 }
 
 .navbar-link.active { color: var(--orange-yellow-crayola); }
@@ -976,15 +999,18 @@ html[data-theme="light"] .navbar {
 
 .timeline-item {
   position: relative;
-  transition: transform var(--transition-std), background-color var(--transition-std);
-  padding: 5px;
-  margin-left: -5px;
-  border-radius: 8px;
+  transition: all var(--transition-std);
+  padding: 10px;
+  margin-left: -10px;
+  border-radius: 12px;
+  border: 1px solid transparent;
 }
 
 .timeline-item:hover {
-  transform: scale(1.02);
+  transform: translateX(5px);
   background-color: var(--onyx);
+  border-color: var(--orange-yellow-crayola);
+  box-shadow: var(--shadow-2);
 }
 
 html[data-theme="light"] .timeline-item:hover {
@@ -1156,7 +1182,9 @@ html[data-theme="light"] .timeline-item:hover {
 
 .project-item > a {
   width: 100%;
-  transition: transform var(--transition-std);
+  display: block;
+  transition: all var(--transition-std);
+  border-radius: 16px;
 }
 
 .project-img {
@@ -1180,7 +1208,27 @@ html[data-theme="light"] .timeline-item:hover {
   transition: background-color var(--transition-std);
 }
 
-.project-item > a:hover .project-img::before { background: hsla(0, 0%, 0%, 0.5); }
+.project-item > a:hover .project-img::before { 
+  background: hsla(0, 0%, 0%, 0.5);
+}
+
+.project-img::after {
+  content: 'Voir détails';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: var(--white-1);
+  font-size: var(--fs-6);
+  font-weight: var(--fw-500);
+  opacity: 0;
+  z-index: 2;
+  transition: opacity var(--transition-std);
+}
+
+.project-item > a:hover .project-img::after {
+  opacity: 1;
+}
 
 
 .project-img img {
@@ -1190,10 +1238,11 @@ html[data-theme="light"] .timeline-item:hover {
   transition: transform var(--transition-std);
 }
 
-.project-item > a:hover img { transform: scale(1.03); }
+.project-item > a:hover img { transform: scale(1.1); }
 
 .project-item > a:hover {
-   transform: translateY(-3px);
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-hover);
 }
 
 .project-title,
@@ -1797,18 +1846,39 @@ html[data-theme="light"] .form-status {
   .filter-item button {
     color: var(--light-gray);
     font-size: var(--fs-5);
-    font-weight: var(--fw-300); /* Default weight */
+    font-weight: var(--fw-300);
     background: transparent;
     border: none;
-    padding: 5px 10px; /* Add some padding */
-    border-radius: 8px; /* Slightly rounded corners */
-    transition: color var(--transition-std), background-color var(--transition-std);
+    padding: 8px 16px;
+    border-radius: 20px;
+    transition: all var(--transition-std);
     cursor: pointer;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .filter-item button::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: var(--bg-gradient-yellow-1);
+    transform: translate(-50%, -50%);
+    transition: width var(--transition-std), height var(--transition-std);
+    z-index: -1;
   }
 
   .filter-item button:hover {
-    color: var(--light-gray-70);
-    background-color: var(--onyx); /* Subtle background on hover */
+    color: var(--white-1);
+    transform: translateY(-2px);
+  }
+
+  .filter-item button:hover::before {
+    width: 120%;
+    height: 120%;
   }
 
   /* Light theme hover */
