@@ -123,23 +123,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // ===== CUSTOM CURSOR (Desktop only) =====
-  if (window.matchMedia('(hover: hover)').matches) {
-    const cursor = document.createElement('div');
-    cursor.classList.add('custom-cursor');
-    document.body.appendChild(cursor);
-
-    document.addEventListener('mousemove', (e) => {
-      cursor.style.left = e.clientX + 'px';
-      cursor.style.top = e.clientY + 'px';
-    });
-
-    const hoverElements = document.querySelectorAll('a, button, .project-item, .service-item');
-    hoverElements.forEach(el => {
-      el.addEventListener('mouseenter', () => cursor.classList.add('hover'));
-      el.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
-    });
-  }
+  // ===== CUSTOM CURSOR REMOVED =====
 
   // ===== PROGRESS BARS ANIMATION =====
   const progressBars = document.querySelectorAll('.skills-item[data-skill-level]');
@@ -174,37 +158,8 @@ document.addEventListener('DOMContentLoaded', () => {
     observer.observe(bar);
   });
 
-  // ===== SMOOTH PAGE TRANSITIONS =====
-  const navLinks = document.querySelectorAll('[data-nav-link]');
-  const pages = document.querySelectorAll('[data-page]');
-
-  navLinks.forEach(link => {
-    link.addEventListener('click', function(e) {
-      e.preventDefault();
-      
-      const targetPage = this.dataset.navLink;
-      
-      // Remove active class from all links and pages
-      navLinks.forEach(l => l.classList.remove('active'));
-      pages.forEach(p => {
-        p.classList.remove('active');
-        p.style.animation = 'fadeOut 0.3s ease forwards';
-      });
-      
-      // Add active class to clicked link
-      this.classList.add('active');
-      
-      // Show target page with animation
-      setTimeout(() => {
-        pages.forEach(p => {
-          if (p.dataset.page === targetPage) {
-            p.classList.add('active');
-            p.style.animation = 'fadeIn 0.5s ease forwards';
-          }
-        });
-      }, 300);
-    });
-  });
+  // ===== SMOOTH PAGE TRANSITIONS - REMOVED TO FIX NAVIGATION =====
+  // Navigation is now handled by script.js without preventing default behavior
 
   // ===== FORM VALIDATION WITH VISUAL FEEDBACK =====
   const formInputs = document.querySelectorAll('.form-input, textarea[data-form-input]');

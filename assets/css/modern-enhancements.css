@@ -404,21 +404,4 @@ html {
   transition: transform 0.1s ease-out;
 }
 
-/* ===== CURSOR EFFECTS ===== */
-@media (hover: hover) {
-  .custom-cursor {
-    width: 20px;
-    height: 20px;
-    border: 2px solid var(--orange-yellow-crayola);
-    border-radius: 50%;
-    position: fixed;
-    pointer-events: none;
-    transition: all 0.1s ease;
-    z-index: 9999;
-  }
-  
-  .custom-cursor.hover {
-    transform: scale(1.5);
-    background: rgba(250, 213, 95, 0.2);
-  }
-}
+/* ===== CURSOR EFFECTS REMOVED ===== */
