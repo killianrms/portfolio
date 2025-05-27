@@ -711,7 +711,20 @@ html[data-theme="light"] .navbar {
   transform: translateX(-50%) scaleX(1);
 }
 
-.navbar-link.active { color: var(--orange-yellow-crayola); }
+.navbar-link.active { 
+  color: var(--orange-yellow-crayola);
+}
+
+.navbar-link.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 30px;
+  height: 2px;
+  background: var(--orange-yellow-crayola);
+}
 
 
 
@@ -2596,10 +2609,20 @@ section.contact-form {
 @media (min-width: 1024px) {
     .skills-grid {
         padding: 35px;
-        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        grid-template-columns: repeat(4, 1fr);
+        gap: 35px;
     }
     .skill-item {
-        padding: 30px 25px;
+        padding: 35px 30px;
+        min-height: 150px;
+    }
+    .skill-icon {
+        width: 56px;
+        height: 56px;
+        margin-bottom: 20px;
+    }
+    .skill-name {
+        font-size: var(--fs-4);
     }
   }
 
