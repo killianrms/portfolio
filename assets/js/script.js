@@ -178,9 +178,13 @@ document.addEventListener('DOMContentLoaded', () => {
             // Succès
             form.reset();
             formBtn.innerHTML = '<ion-icon name="checkmark-circle"></ion-icon><span>Envoyé !</span>';
+            formBtn.style.background = 'var(--orange-yellow-crayola)';
+            formBtn.style.color = 'var(--smoky-black)';
             setTimeout(() => {
               formBtn.innerHTML = '<ion-icon name="paper-plane"></ion-icon><span>Envoyer</span>';
               formBtn.disabled = false;
+              formBtn.style.background = '';
+              formBtn.style.color = '';
             }, 3000);
           } else {
             throw new Error('Erreur lors de l\'envoi');
@@ -189,9 +193,13 @@ document.addEventListener('DOMContentLoaded', () => {
         .catch(error => {
           // Erreur
           formBtn.innerHTML = '<ion-icon name="close-circle"></ion-icon><span>Erreur</span>';
+          formBtn.style.background = 'var(--bittersweet-shimmer)';
+          formBtn.style.color = 'var(--white-1)';
           setTimeout(() => {
             formBtn.innerHTML = '<ion-icon name="paper-plane"></ion-icon><span>Envoyer</span>';
             formBtn.disabled = false;
+            formBtn.style.background = '';
+            formBtn.style.color = '';
           }, 3000);
         });
       });
