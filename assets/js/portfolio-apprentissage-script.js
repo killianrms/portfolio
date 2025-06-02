@@ -58,4 +58,28 @@ document.addEventListener('DOMContentLoaded', () => {
             // and should still work as expected.
         });
     });
+
+    // Accordion functionality for AC sections
+    const accordionHeaders = document.querySelectorAll('#portfolio-apprentissage .ac-header');
+    
+    accordionHeaders.forEach(header => {
+        header.addEventListener('click', () => {
+            const targetId = header.dataset.target;
+            const targetContent = document.getElementById(targetId);
+            const accordionItem = header.closest('.ac-item');
+            
+            if (accordionItem && targetContent) {
+                // Toggle active state
+                accordionItem.classList.toggle('active');
+                
+                // Optional: Close other accordion items (uncomment for exclusive behavior)
+                // const allItems = document.querySelectorAll('#portfolio-apprentissage .ac-item');
+                // allItems.forEach(item => {
+                //     if (item !== accordionItem) {
+                //         item.classList.remove('active');
+                //     }
+                // });
+            }
+        });
+    });
 });

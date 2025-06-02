@@ -16,7 +16,8 @@
       "Bash(touch:*)",
       "Bash(rm:*)",
       "Bash(rg:*)",
-      "Bash(git pull:*)"
+      "Bash(git pull:*)",
+      "Bash(mv:*)"
     ],
     "deny": []
   }

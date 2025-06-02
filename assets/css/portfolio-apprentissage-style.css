@@ -234,3 +234,246 @@
     font-size: 1.5em; /* Adjust size as needed */
   }
 }
+
+/* CE/AC Modern Layout Styles */
+.ce-ac-container {
+    margin-top: 2rem;
+}
+
+.ce-section {
+    margin-bottom: 3rem;
+}
+
+.section-title {
+    color: var(--orange-yellow-crayola);
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--orange-yellow-crayola);
+}
+
+/* CE Cards Grid */
+.ce-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.ce-card {
+    background: linear-gradient(135deg, var(--onyx) 0%, var(--eerie-black-2) 100%);
+    border: 1px solid var(--jet);
+    border-radius: 10px;
+    padding: 1.5rem;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.ce-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: var(--orange-yellow-crayola);
+    transition: width 0.3s ease;
+}
+
+.ce-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    border-color: var(--orange-yellow-crayola);
+}
+
+.ce-card:hover::before {
+    width: 8px;
+}
+
+.ce-card h4 {
+    color: var(--orange-yellow-crayola);
+    font-size: 1.2rem;
+    margin-bottom: 0.8rem;
+    font-weight: 600;
+}
+
+.ce-card p {
+    color: var(--light-gray);
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* AC Accordion Styles */
+.ac-accordion {
+    margin-top: 2rem;
+}
+
+.ac-item {
+    margin-bottom: 1rem;
+    border: 1px solid var(--jet);
+    border-radius: 10px;
+    overflow: hidden;
+    background: var(--eerie-black-2);
+    transition: all 0.3s ease;
+}
+
+.ac-item:hover {
+    border-color: var(--orange-yellow-crayola);
+}
+
+.ac-header {
+    background: linear-gradient(135deg, var(--onyx) 0%, var(--eerie-black-1) 100%);
+    padding: 1.5rem;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.ac-header::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 4px;
+    background: var(--orange-yellow-crayola);
+    transition: width 0.3s ease;
+}
+
+.ac-header:hover {
+    background: linear-gradient(135deg, var(--jet) 0%, var(--onyx) 100%);
+}
+
+.ac-header:hover::before {
+    width: 8px;
+}
+
+.ac-header h4 {
+    color: var(--white);
+    margin: 0;
+    font-size: 1.1rem;
+    font-weight: 500;
+    flex: 1;
+}
+
+.ac-toggle {
+    color: var(--orange-yellow-crayola);
+    font-size: 1.5rem;
+    font-weight: bold;
+    transition: transform 0.3s ease;
+    margin-left: 1rem;
+}
+
+.ac-item.active .ac-toggle {
+    transform: rotate(45deg);
+}
+
+.ac-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+    background: var(--eerie-black-2);
+}
+
+.ac-item.active .ac-content {
+    max-height: 2000px;
+}
+
+/* Project Examples */
+.project-examples {
+    padding: 2rem;
+}
+
+.project-card {
+    background: linear-gradient(135deg, var(--onyx) 0%, var(--eerie-black-1) 100%);
+    border: 1px solid var(--jet);
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.project-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 3px;
+    height: 100%;
+    background: var(--selective-yellow);
+    transition: width 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateX(5px);
+    border-color: var(--selective-yellow);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.project-card:hover::before {
+    width: 6px;
+}
+
+.project-card:last-child {
+    margin-bottom: 0;
+}
+
+.project-card h5 {
+    color: var(--orange-yellow-crayola);
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.project-card a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.project-card a:hover h5 {
+    color: var(--selective-yellow);
+}
+
+.ce-justification {
+    margin-bottom: 0.8rem;
+    line-height: 1.6;
+    color: var(--light-gray-70);
+}
+
+.ce-justification:last-child {
+    margin-bottom: 0;
+}
+
+.ce-justification strong {
+    color: var(--orange-yellow-crayola);
+    font-weight: 600;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .ce-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .ac-header {
+        padding: 1rem;
+    }
+    
+    .ac-header h4 {
+        font-size: 1rem;
+    }
+    
+    .project-examples {
+        padding: 1rem;
+    }
+    
+    .project-card {
+        padding: 1rem;
+    }
+}
