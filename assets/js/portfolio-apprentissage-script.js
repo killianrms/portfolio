@@ -82,4 +82,55 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
+
+    // CE Modal functionality
+    const ceDefinitions = {
+        'CE2.01': 'En formalisant et modélisant des situations complexes',
+        'CE2.02': 'En recensant les algorithmes et les structures de données usuels',
+        'CE2.03': 'En s\'appuyant sur des schémas de raisonnement',
+        'CE2.04': 'En justifiant les choix et validant les résultats',
+        'CE4.01': 'En respectant les réglementations sur le respect de la vie privée et la protection des données personnelles',
+        'CE4.02': 'En respectant les enjeux économiques, sociétaux et écologiques de l\'utilisation du stockage de données',
+        'CE4.03': 'En s\'appuyant sur des bases mathématiques',
+        'CE4.04': 'En assurant la cohérence et la qualité',
+        'CE5.01': 'En communiquant efficacement avec les différents acteurs d\'un projet',
+        'CE5.02': 'En respectant les règles juridiques et les normes en vigueur',
+        'CE5.03': 'En sensibilisant à une gestion éthique, responsable, durable et interculturelle',
+        'CE5.04': 'En adoptant une démarche proactive, créative et critique'
+    };
+
+    const ceModal = document.querySelector('[data-ce-modal-container]');
+    const ceModalTitle = document.querySelector('[data-ce-modal-title]');
+    const ceModalDescription = document.querySelector('[data-ce-modal-description]');
+    const ceCloseButtons = document.querySelectorAll('[data-ce-modal-close]');
+
+    // Handle CE clicks
+    document.addEventListener('click', (e) => {
+        if (e.target.classList.contains('ce-clickable')) {
+            e.preventDefault();
+            const ceCode = e.target.dataset.ce;
+            const ceDescription = ceDefinitions[ceCode];
+            
+            if (ceDescription) {
+                ceModalTitle.textContent = ceCode;
+                ceModalDescription.textContent = ceDescription;
+                ceModal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+        }
+    });
+
+    // Handle CE modal close
+    ceCloseButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            ceModal.classList.remove('active');
+            document.body.style.overflow = '';
+        });
+    });
+
+    // Close modal on overlay click
+    ceModal.querySelector('.overlay').addEventListener('click', () => {
+        ceModal.classList.remove('active');
+        document.body.style.overflow = '';
+    });
 });

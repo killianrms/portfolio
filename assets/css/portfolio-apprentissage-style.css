@@ -454,6 +454,74 @@
     font-weight: 600;
 }
 
+/* CE Clickable Elements */
+.ce-clickable {
+    color: var(--orange-yellow-crayola);
+    cursor: pointer;
+    border-bottom: 1px dotted var(--orange-yellow-crayola);
+    transition: all 0.3s ease;
+    padding: 2px 4px;
+    border-radius: 3px;
+}
+
+.ce-clickable:hover {
+    background-color: var(--orange-yellow-crayola);
+    color: var(--onyx);
+    border-bottom: 1px solid var(--orange-yellow-crayola);
+}
+
+/* CE Modal Styles */
+.ce-modal-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none;
+    z-index: 1000;
+    transition: opacity 0.25s ease;
+}
+
+.ce-modal-container.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.ce-modal {
+    background: var(--eerie-black-2);
+    max-width: 500px;
+    width: calc(100% - 2rem);
+    max-height: calc(100vh - 2rem);
+    overflow-y: auto;
+    border-radius: 10px;
+    padding: 2rem;
+    position: relative;
+    border: 1px solid var(--jet);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+    transform: scale(0.8);
+    transition: transform 0.25s ease;
+}
+
+.ce-modal-container.active .ce-modal {
+    transform: scale(1);
+}
+
+.ce-modal-info h3 {
+    color: var(--orange-yellow-crayola);
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+}
+
+.ce-modal-info p {
+    color: var(--light-gray);
+    line-height: 1.6;
+    margin: 0;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
     .ce-grid {
@@ -475,5 +543,10 @@
     
     .project-card {
         padding: 1rem;
+    }
+
+    .ce-modal {
+        padding: 1.5rem;
+        width: calc(100% - 1rem);
     }
 }
