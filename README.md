@@ -8,6 +8,7 @@ Bienvenue sur le dépôt GitHub du code source de mon portfolio personnel. Ce si
 
 Ce portfolio a été développé avec une attention particulière portée à l'expérience utilisateur et à la présentation des informations :
 
+### 🏠 Page Principale
 *   **Présentation Complète :** Sections dédiées à ma biographie, mon parcours de formation (BUT Informatique), et mes compétences techniques (langages, OS, outils).
 *   **Galerie de Projets Dynamique :**
     *   Affichage des projets personnels et universitaires.
@@ -25,7 +26,18 @@ Ce portfolio a été développé avec une attention particulière portée à l'e
     *   Calcul et affichage dynamique de mon âge.
     *   Navigation fluide entre les différentes sections (style Single Page Application).
     *   Sidebar rétractable en vue mobile pour les informations de contact.
-*   **Formulaire de Contact Fonctionnel :** Formulaire avec validation côté client et envoi des messages via AJAX (en utilisant Formspree ou un service similaire configuré dans le HTML).
+*   **Formulaire de Contact Fonctionnel :** Formulaire avec validation côté client et envoi des messages via AJAX.
+
+### 📚 Portfolio d'Apprentissage
+*   **Validation des Compétences BUT :** Documentation complète des compétences du Niveau 2 - Parcours DACS (Développement d'Applications et Conception de Systèmes).
+*   **Navigation par Onglets :** Organisation claire en 3 compétences principales :
+    *   **Optimiser :** Analyser et améliorer la qualité et la performance d'applications
+    *   **Gérer :** Concevoir et exploiter des bases de données de manière efficace et sécurisée
+    *   **Conduire :** Planifier et piloter les différentes phases d'un projet informatique
+*   **Système d'Accordéons Interactifs :** Chaque Activité/Compétence (AC) est présentée dans un accordéon déployable pour une navigation optimisée.
+*   **Critères d'Évaluation Cliquables :** Les références CE sont interactives et affichent leurs descriptions dans des modales popup.
+*   **Justifications Détaillées :** Chaque projet est associé à ses CE/AC correspondants avec des explications techniques précises.
+*   **Design Moderne :** Interface épurée avec cartes projet, dégradés, et animations fluides.
 
 ## 🛠️ Technologies utilisées
 
@@ -41,17 +53,28 @@ Le code source est organisé comme suit :
 
 ```
 /
-├── index.html             # Fichier principal de la page web
-├── README.md              # Ce fichier
-├── cv.pdf                 # Mon Curriculum Vitae
-├── sitemap.xml            # Plan du site pour le référencement
-├── favicon.ico            # Icône du site
+├── index.html                           # Page principale du portfolio
+├── portfolio-apprentissage.html        # Portfolio d'apprentissage (validation BUT)
+├── README.md                           # Ce fichier
+├── cv.pdf                              # Mon Curriculum Vitae
+├── sitemap.xml                         # Plan du site pour le référencement
+├── favicon.ico                         # Icône du site
 └── assets/
     ├── css/
-    │   └── style.css      # Feuille de style principale (inclut responsive et thèmes)
+    │   ├── style.css                   # Styles principaux (responsive, thèmes)
+    │   ├── portfolio-layout.css        # Layout spécifique au portfolio
+    │   ├── portfolio-apprentissage-style.css  # Styles pour le portfolio d'apprentissage
+    │   ├── modern-enhancements.css     # Améliorations visuelles modernes
+    │   ├── mobile-enhancements.css     # Optimisations mobiles
+    │   └── typography-improvements.css  # Améliorations typographiques
     ├── js/
-    │   └── script.js      # Logique JavaScript pour l'interactivité
-    └── images/            # Images utilisées (photo, miniatures de projets, etc.)
+    │   ├── script.js                   # Logique principale (filtrage, modales, thèmes)
+    │   ├── portfolio-apprentissage-script.js  # Interactions pour le portfolio BUT
+    │   ├── modern-interactions.js      # Interactions avancées
+    │   └── performance-optimizations.js # Optimisations de performance
+    └── images/
+        ├── skills/                     # Logos des compétences techniques
+        └── *.webp                      # Images optimisées des projets
 ```
 
 ## 🚀 Comment lancer le projet localement
@@ -67,6 +90,11 @@ Aucune étape de build n'est nécessaire pour visualiser ce projet.
     cd portfolio
     ```
 3.  **Ouvrez le fichier `index.html`** directement dans votre navigateur web préféré.
+
+## 📋 Pages disponibles
+
+*   **Page principale :** `index.html` - Portfolio complet avec projets et compétences
+*   **Portfolio d'apprentissage :** `portfolio-apprentissage.html` - Validation des compétences BUT avec CE/AC détaillés
 
 ## 🤝 Contributions
 
