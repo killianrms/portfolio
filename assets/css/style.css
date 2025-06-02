@@ -1456,7 +1456,8 @@ textarea.form-input {
 textarea.form-input::-webkit-resizer { display: none; }
 
 .form-input:focus:invalid,
-.form-input.invalid {
+.form-input.invalid,
+.form-input.error {
   border-color: var(--bittersweet-shimmer);
 }
 
@@ -1504,8 +1505,9 @@ textarea.form-input::-webkit-resizer { display: none; }
 
 
 .form-btn:disabled {
-  opacity: 0.7;
+  opacity: 0.6;
   cursor: not-allowed;
+  background: var(--border-gradient-onyx);
 }
 
 .form-btn:disabled:hover { 
@@ -1557,49 +1559,23 @@ html[data-theme="light"] .form-btn:disabled::before {
   background: transparent;
 }
 
-/* Styles pour les messages d'erreur */
+/* Formulaire de contact refait */
+.form-group {
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.form-group .form-input {
+  width: 100%;
+  margin-bottom: 0;
+}
+
 .error-message {
-  display: block;
-  color: var(--bittersweet-shimmer);
-  font-size: var(--fs-8);
+  font-size: 12px;
+  color: #ff4444;
   margin-top: 5px;
-  margin-bottom: 10px;
-  min-height: 20px;
-  transition: opacity 0.3s ease;
-}
-
-.error-message:empty {
-  opacity: 0;
-}
-
-.form-input.invalid {
-  border-color: var(--bittersweet-shimmer);
-  animation: shake 0.3s ease-in-out;
-}
-
-@keyframes shake {
-  0%, 100% { transform: translateX(0); }
-  25% { transform: translateX(-5px); }
-  75% { transform: translateX(5px); }
-}
-
-/* Ajustement de la structure du formulaire */
-.input-wrapper {
-  display: flex;
-  flex-direction: column;
-  gap: 0;
-}
-
-.input-wrapper .form-input {
-  margin-bottom: 0;
-}
-
-.contact-form .form-input {
-  margin-bottom: 0;
-}
-
-.contact-form textarea.form-input {
-  margin-bottom: 0;
+  display: block;
+  min-height: 18px;
 }
 
 html[data-theme="light"] .error-message {

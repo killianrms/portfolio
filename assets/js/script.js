@@ -100,108 +100,99 @@ document.addEventListener('DOMContentLoaded', () => {
     const form = document.querySelector("[data-form]");
     const formInputs = document.querySelectorAll("[data-form-input]");
     const formBtn = document.querySelector("[data-form-btn]");
-    const formStatus = document.querySelector(".form-status");
 
-    if (form && formInputs.length > 0 && formBtn && formStatus) {
-      // Messages d'erreur personnalisés en français
-      const getCustomErrorMessage = (input) => {
-        if (input.validity.valueMissing) {
-          if (input.type === 'email') {
-            return 'Veuillez saisir votre adresse email';
-          } else if (input.name === 'fullname') {
-            return 'Veuillez saisir votre nom complet';
-          } else if (input.name === 'message') {
-            return 'Veuillez saisir votre message';
-          }
-          return 'Ce champ est requis';
+    if (form && formInputs.length > 0 && formBtn) {
+      // Messages d'erreur en français
+      const errorMessages = {
+        fullname: {
+          valueMissing: 'Veuillez entrer votre nom'
+        },
+        email: {
+          valueMissing: 'Veuillez entrer votre email',
+          typeMismatch: 'Veuillez entrer un email valide'
+        },
+        message: {
+          valueMissing: 'Veuillez entrer votre message'
         }
-        if (input.validity.typeMismatch && input.type === 'email') {
-          return 'Veuillez saisir une adresse email valide';
-        }
-        if (input.validity.tooShort) {
-          return `Le texte doit contenir au moins ${input.minLength} caractères`;
-        }
-        if (input.validity.tooLong) {
-          return `Le texte ne doit pas dépasser ${input.maxLength} caractères`;
-        }
-        return 'Veuillez corriger ce champ';
       };
 
-      // Retour de validation des entrées
+      // Validation en temps réel
       formInputs.forEach(input => {
-        input.addEventListener("input", function () {
-          const errorSpan = this.nextElementSibling;
+        input.addEventListener('blur', function() {
+          validateInput(this);
+        });
 
-          if (!this.checkValidity()) {
-            this.classList.add("invalid");
-            if (errorSpan && errorSpan.classList.contains('error-message')) {
-              errorSpan.textContent = getCustomErrorMessage(this);
-            }
-          } else {
-            this.classList.remove("invalid");
-            if (errorSpan && errorSpan.classList.contains('error-message')) {
-              errorSpan.textContent = "";
-            }
+        input.addEventListener('input', function() {
+          if (this.classList.contains('error')) {
+            validateInput(this);
           }
-
-          // Vérifier la validité globale du formulaire pour activer/désactiver le bouton de soumission
+          // Activer/désactiver le bouton
           formBtn.disabled = !form.checkValidity();
         });
       });
 
-      // Soumission du formulaire AJAX
-      form.addEventListener("submit", function (event) {
-        event.preventDefault();
-        formBtn.disabled = true; // Désactiver le bouton pendant la soumission
-        formStatus.style.display = "none"; // Masquer le statut précédent
-        formStatus.textContent = "Envoi en cours..."; // Indiquer le traitement
-        formStatus.style.color = "var(--light-gray)"; // Couleur neutre
-        formStatus.style.display = "block";
+      function validateInput(input) {
+        const errorSpan = input.parentElement.querySelector('.error-message');
+        
+        if (!input.validity.valid) {
+          input.classList.add('error');
+          
+          if (input.validity.valueMissing) {
+            errorSpan.textContent = errorMessages[input.name].valueMissing;
+          } else if (input.validity.typeMismatch) {
+            errorSpan.textContent = errorMessages[input.name].typeMismatch;
+          }
+        } else {
+          input.classList.remove('error');
+          errorSpan.textContent = '';
+        }
+      }
 
+      // Soumission du formulaire
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        // Valider tous les champs
+        let isValid = true;
+        formInputs.forEach(input => {
+          validateInput(input);
+          if (!input.validity.valid) isValid = false;
+        });
 
-        const formData = new FormData(form);
-        const formAction = form.getAttribute("action");
+        if (!isValid) return;
 
-        fetch(formAction, {
-          method: "POST",
-          body: formData,
-          headers: { 'Accept': 'application/json' }
+        // Désactiver le bouton et afficher le chargement
+        formBtn.disabled = true;
+        formBtn.innerHTML = '<ion-icon name="hourglass-outline"></ion-icon><span>Envoi...</span>';
+
+        // Envoyer le formulaire
+        fetch(form.action, {
+          method: 'POST',
+          body: new FormData(form),
+          headers: {
+            'Accept': 'application/json'
+          }
         })
         .then(response => {
           if (response.ok) {
-            formStatus.innerHTML = "Merci ! Votre message a été envoyé.";
-            formStatus.style.color = "var(--orange-yellow-crayola)"; // Couleur de succès
+            // Succès
             form.reset();
-            formInputs.forEach(input => input.classList.remove('invalid')); // Effacer les états de validation
-            formBtn.disabled = true; // Garder désactivé après une réinitialisation réussie
+            formBtn.innerHTML = '<ion-icon name="checkmark-circle"></ion-icon><span>Envoyé !</span>';
+            setTimeout(() => {
+              formBtn.innerHTML = '<ion-icon name="paper-plane"></ion-icon><span>Envoyer</span>';
+              formBtn.disabled = false;
+            }, 3000);
           } else {
-            return response.json().then(data => {
-              let errorMessage = "Oups ! Une erreur s'est produite.";
-              if (data && data.errors) {
-                errorMessage = data.errors.map(error => error.message).join(", ");
-              }
-              throw new Error(errorMessage); // Lancer une erreur pour être attrapée ci-dessous
-            }).catch(() => {
-              // Attraper une erreur potentielle d'analyse JSON ou relancer une erreur générique
-              throw new Error("Oups ! Une erreur serveur s'est produite.");
-            });
+            throw new Error('Erreur lors de l\'envoi');
           }
         })
         .catch(error => {
-          formStatus.innerHTML = error.message || "Oups ! Une erreur réseau s'est produite.";
-          formStatus.style.color = "var(--bittersweet-shimmer)"; // Couleur d'erreur
-          formBtn.disabled = false; // Réactiver le bouton en cas d'erreur
-        })
-        .finally(() => {
-           formStatus.style.display = "block"; // S'assurer que le statut est visible
-           // Réactiver le bouton seulement si le formulaire est valide (peut être désactivé par l'événement d'entrée)
-           if (form.checkValidity()) {
-               formBtn.disabled = false;
-           }
-           // Si la réinitialisation a réussi, le bouton reste désactivé jusqu'à une nouvelle entrée
-           if (formStatus.textContent.includes("Merci")) {
-               formBtn.disabled = true;
-           }
+          // Erreur
+          formBtn.innerHTML = '<ion-icon name="close-circle"></ion-icon><span>Erreur</span>';
+          setTimeout(() => {
+            formBtn.innerHTML = '<ion-icon name="paper-plane"></ion-icon><span>Envoyer</span>';
+            formBtn.disabled = false;
+          }, 3000);
         });
       });
     }
