@@ -1508,7 +1508,10 @@ textarea.form-input::-webkit-resizer { display: none; }
   cursor: not-allowed;
 }
 
-.form-btn:disabled:hover { background: var(--border-gradient-onyx); }
+.form-btn:disabled:hover { 
+  background: var(--border-gradient-onyx);
+  color: var(--light-gray);
+}
 
 .form-btn:disabled:hover::before { background: var(--bg-gradient-jet); }
 
@@ -1547,10 +1550,60 @@ html[data-theme="light"] .form-btn:disabled {
 
 html[data-theme="light"] .form-btn:disabled:hover {
   background: var(--border-color);
+  color: var(--light-gray);
 }
 
 html[data-theme="light"] .form-btn:disabled::before {
   background: transparent;
+}
+
+/* Styles pour les messages d'erreur */
+.error-message {
+  display: block;
+  color: var(--bittersweet-shimmer);
+  font-size: var(--fs-8);
+  margin-top: 5px;
+  margin-bottom: 10px;
+  min-height: 20px;
+  transition: opacity 0.3s ease;
+}
+
+.error-message:empty {
+  opacity: 0;
+}
+
+.form-input.invalid {
+  border-color: var(--bittersweet-shimmer);
+  animation: shake 0.3s ease-in-out;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  75% { transform: translateX(5px); }
+}
+
+/* Ajustement de la structure du formulaire */
+.input-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.input-wrapper .form-input {
+  margin-bottom: 0;
+}
+
+.contact-form .form-input {
+  margin-bottom: 0;
+}
+
+.contact-form textarea.form-input {
+  margin-bottom: 0;
+}
+
+html[data-theme="light"] .error-message {
+  color: #d32f2f;
 }
 
 .form-status {

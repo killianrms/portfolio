@@ -103,6 +103,30 @@ document.addEventListener('DOMContentLoaded', () => {
     const formStatus = document.querySelector(".form-status");
 
     if (form && formInputs.length > 0 && formBtn && formStatus) {
+      // Messages d'erreur personnalisés en français
+      const getCustomErrorMessage = (input) => {
+        if (input.validity.valueMissing) {
+          if (input.type === 'email') {
+            return 'Veuillez saisir votre adresse email';
+          } else if (input.name === 'fullname') {
+            return 'Veuillez saisir votre nom complet';
+          } else if (input.name === 'message') {
+            return 'Veuillez saisir votre message';
+          }
+          return 'Ce champ est requis';
+        }
+        if (input.validity.typeMismatch && input.type === 'email') {
+          return 'Veuillez saisir une adresse email valide';
+        }
+        if (input.validity.tooShort) {
+          return `Le texte doit contenir au moins ${input.minLength} caractères`;
+        }
+        if (input.validity.tooLong) {
+          return `Le texte ne doit pas dépasser ${input.maxLength} caractères`;
+        }
+        return 'Veuillez corriger ce champ';
+      };
+
       // Retour de validation des entrées
       formInputs.forEach(input => {
         input.addEventListener("input", function () {
@@ -111,7 +135,7 @@ document.addEventListener('DOMContentLoaded', () => {
           if (!this.checkValidity()) {
             this.classList.add("invalid");
             if (errorSpan && errorSpan.classList.contains('error-message')) {
-              errorSpan.textContent = this.validationMessage;
+              errorSpan.textContent = getCustomErrorMessage(this);
             }
           } else {
             this.classList.remove("invalid");
