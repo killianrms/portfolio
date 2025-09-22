@@ -2710,9 +2710,9 @@ html[data-theme="light"] .skill-name {
 }
 
 .skill-icon-small {
-  margin: 0 auto 4px;
-  width: 16px;
-  height: 16px;
+  margin: 0 auto 4px !important;
+  width: 16px !important;
+  height: 16px !important;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -2746,8 +2746,8 @@ html[data-theme="light"] .skill-name {
   }
 
   .skill-icon-small {
-    width: 18px;
-    height: 18px;
+    width: 18px !important;
+    height: 18px !important;
   }
 }
 
@@ -2762,8 +2762,8 @@ html[data-theme="light"] .skill-name {
         min-height: 60px;
     }
     .skill-icon-small {
-        width: 20px;
-        height: 20px;
+        width: 20px !important;
+        height: 20px !important;
         margin-bottom: 6px;
     }
     .skill-name-small {
