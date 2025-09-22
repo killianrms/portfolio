@@ -2677,12 +2677,12 @@ html[data-theme="light"] .skill-name {
 /* Styles pour les compétences en taille réduite dans la biographie */
 .skills-grid-small {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
-  gap: 15px;
-  padding: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));
+  gap: 8px;
+  padding: 15px;
   background: var(--eerie-black-2);
   border: 1px solid var(--jet);
-  border-radius: 12px;
+  border-radius: 8px;
   box-shadow: var(--shadow-1);
   transition: background var(--transition-std), border-color var(--transition-std), box-shadow var(--transition-std);
 }
@@ -2690,13 +2690,13 @@ html[data-theme="light"] .skill-name {
 .skill-item-small {
   background: var(--eerie-black-1);
   border: 1px solid var(--jet);
-  border-radius: 8px;
-  padding: 15px 10px;
+  border-radius: 6px;
+  padding: 8px 6px;
   text-align: center;
   box-shadow: var(--shadow-2);
   transition: transform var(--transition-std), box-shadow var(--transition-std), background var(--transition-std), border-color var(--transition-std);
   cursor: default;
-  min-height: 80px;
+  min-height: 50px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -2704,15 +2704,15 @@ html[data-theme="light"] .skill-name {
 }
 
 .skill-item-small:hover {
-  transform: translateY(-3px);
+  transform: translateY(-2px);
   box-shadow: var(--shadow-3);
   border-color: var(--orange-yellow-crayola);
 }
 
 .skill-icon-small {
-  margin: 0 auto 8px;
-  width: 24px;
-  height: 24px;
+  margin: 0 auto 4px;
+  width: 16px;
+  height: 16px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -2732,42 +2732,42 @@ html[data-theme="light"] .skill-name {
 
 .skill-name-small {
   color: var(--white-2);
-  font-size: var(--fs-7);
-  font-weight: var(--fw-500);
+  font-size: var(--fs-8);
+  font-weight: var(--fw-400);
   transition: color var(--transition-std);
   margin: 0;
-  line-height: 1.2;
+  line-height: 1.1;
 }
 
 @media (min-width: 580px) {
   .skills-grid-small {
-    grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
-    gap: 18px;
+    grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
+    gap: 10px;
   }
 
   .skill-icon-small {
-    width: 28px;
-    height: 28px;
+    width: 18px;
+    height: 18px;
   }
 }
 
 @media (min-width: 1024px) {
     .skills-grid-small {
-        padding: 25px;
-        grid-template-columns: repeat(6, 1fr);
-        gap: 20px;
+        padding: 18px;
+        grid-template-columns: repeat(8, 1fr);
+        gap: 12px;
     }
     .skill-item-small {
-        padding: 20px 15px;
-        min-height: 90px;
+        padding: 10px 8px;
+        min-height: 60px;
     }
     .skill-icon-small {
-        width: 32px;
-        height: 32px;
-        margin-bottom: 10px;
+        width: 20px;
+        height: 20px;
+        margin-bottom: 6px;
     }
     .skill-name-small {
-        font-size: var(--fs-6);
+        font-size: var(--fs-7);
     }
 }
 
