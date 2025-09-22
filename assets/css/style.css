@@ -2674,6 +2674,122 @@ html[data-theme="light"] .skill-name {
   color: var(--primary-text);
 }
 
+/* Styles pour les compétences en taille réduite dans la biographie */
+.skills-grid-small {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+  gap: 15px;
+  padding: 20px;
+  background: var(--eerie-black-2);
+  border: 1px solid var(--jet);
+  border-radius: 12px;
+  box-shadow: var(--shadow-1);
+  transition: background var(--transition-std), border-color var(--transition-std), box-shadow var(--transition-std);
+}
+
+.skill-item-small {
+  background: var(--eerie-black-1);
+  border: 1px solid var(--jet);
+  border-radius: 8px;
+  padding: 15px 10px;
+  text-align: center;
+  box-shadow: var(--shadow-2);
+  transition: transform var(--transition-std), box-shadow var(--transition-std), background var(--transition-std), border-color var(--transition-std);
+  cursor: default;
+  min-height: 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.skill-item-small:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-3);
+  border-color: var(--orange-yellow-crayola);
+}
+
+.skill-icon-small {
+  margin: 0 auto 8px;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.skill-icon-small img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  filter: grayscale(1);
+  transition: filter var(--transition-std);
+}
+
+.skill-item-small:hover .skill-icon-small img {
+   filter: grayscale(0);
+}
+
+.skill-name-small {
+  color: var(--white-2);
+  font-size: var(--fs-7);
+  font-weight: var(--fw-500);
+  transition: color var(--transition-std);
+  margin: 0;
+  line-height: 1.2;
+}
+
+@media (min-width: 580px) {
+  .skills-grid-small {
+    grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
+    gap: 18px;
+  }
+
+  .skill-icon-small {
+    width: 28px;
+    height: 28px;
+  }
+}
+
+@media (min-width: 1024px) {
+    .skills-grid-small {
+        padding: 25px;
+        grid-template-columns: repeat(6, 1fr);
+        gap: 20px;
+    }
+    .skill-item-small {
+        padding: 20px 15px;
+        min-height: 90px;
+    }
+    .skill-icon-small {
+        width: 32px;
+        height: 32px;
+        margin-bottom: 10px;
+    }
+    .skill-name-small {
+        font-size: var(--fs-6);
+    }
+}
+
+/* Light theme styles for small skills */
+html[data-theme="light"] .skills-grid-small {
+  background: var(--secondary-bg);
+  border-color: var(--border-color);
+}
+
+html[data-theme="light"] .skill-item-small {
+  background: var(--primary-bg);
+  border-color: var(--border-color);
+}
+
+html[data-theme="light"] .skill-item-small:hover {
+  border-color: var(--primary-accent);
+}
+
+html[data-theme="light"] .skill-name-small {
+  color: var(--primary-text);
+}
+
 .about-text {
   margin-bottom: 30px;
   background: var(--eerie-black-1);
