@@ -367,14 +367,15 @@ main {
 .avatar-box {
   background: var(--bg-gradient-onyx);
   transition: background var(--transition-std), padding var(--transition-std);
-  border-radius: 20px;
-  padding: 5px; /* Increased frame size */
+  border-radius: 50%;
+  padding: 5px;
 }
 
 .avatar-box img {
   width: 120px;
-  height: auto;
-  border-radius: 20px; /* Match parent .avatar-box rounding */
+  height: 120px;
+  object-fit: cover;
+  border-radius: 50%;
 }
 
 .info-content .name {
@@ -1672,7 +1673,7 @@ html[data-theme="light"] .form-status {
 
   .sidebar-info { gap: 25px; }
 
-  .avatar-box { border-radius: 30px; }
+  .avatar-box { border-radius: 50%; }
 
   .avatar-box img { width: 120px; }
 
@@ -2400,8 +2401,14 @@ section.contact-form {
     width: 80px;
     height: 80px;
     margin-bottom: 10px;
+    border-radius: 50%;
   }
-  .avatar-box img { width: 100%; }
+  .avatar-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+  }
 
   .info-content .name {
     font-size: var(--fs-2);
