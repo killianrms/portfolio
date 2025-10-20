@@ -270,9 +270,8 @@ document.addEventListener('DOMContentLoaded', () => {
       if (savedTheme) {
         applyTheme(savedTheme);
       } else {
-        // Par défaut, utiliser la préférence système ou 'dark' si la préférence n'est pas disponible/détectable
-        const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-        applyTheme(prefersDark ? 'dark' : 'light');
+        // Par défaut, utiliser le mode sombre (dark)
+        applyTheme('dark');
       }
     }
 
@@ -450,7 +449,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const text = nameElement.textContent;
       nameElement.textContent = '';
       let index = 0;
-      
+
       const typeWriter = () => {
         if (index < text.length) {
           nameElement.textContent += text.charAt(index);
@@ -458,9 +457,117 @@ document.addEventListener('DOMContentLoaded', () => {
           setTimeout(typeWriter, 100);
         }
       };
-      
+
       typeWriter();
     }
+
+    // --- Indicateur de Progression de Lecture ---
+    const progressBar = document.getElementById('reading-progress-bar');
+    if (progressBar) {
+      const updateProgressBar = () => {
+        const scrollTotal = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        const scrollProgress = (window.pageYOffset / scrollTotal) * 100;
+        progressBar.style.width = scrollProgress + '%';
+      };
+
+      window.addEventListener('scroll', updateProgressBar);
+      updateProgressBar(); // Initial call
+    }
+
+    // --- Compteur Animé pour les Badges ---
+    const animateCounters = () => {
+      const badges = document.querySelectorAll('.badge-number');
+
+      badges.forEach(badge => {
+        const target = badge.textContent;
+        const isPlus = target.includes('+');
+        const numericValue = parseInt(target.replace(/\D/g, ''));
+
+        if (isNaN(numericValue)) return;
+
+        const duration = 2000; // 2 secondes
+        const increment = numericValue / (duration / 16); // 60 FPS
+        let current = 0;
+
+        const updateCounter = () => {
+          current += increment;
+          if (current < numericValue) {
+            badge.textContent = Math.floor(current) + (isPlus ? '+' : '');
+            requestAnimationFrame(updateCounter);
+          } else {
+            badge.textContent = numericValue + (isPlus ? '+' : '');
+          }
+        };
+
+        // Observer pour démarrer l'animation quand le badge est visible
+        if ('IntersectionObserver' in window) {
+          const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+              if (entry.isIntersecting) {
+                updateCounter();
+                observer.unobserve(entry.target);
+              }
+            });
+          }, { threshold: 0.5 });
+
+          observer.observe(badge.closest('.badge'));
+        } else {
+          updateCounter();
+        }
+      });
+    };
+
+    animateCounters();
+
+    // --- Support Clavier pour les Modales (Touche Escape) ---
+    document.addEventListener('keydown', function(event) {
+      if (event.key === 'Escape' || event.key === 'Esc') {
+        const activeContainer = document.querySelector('.modal-container.active');
+        if (activeContainer) {
+          const modalInSection = activeContainer.querySelector('section[data-modal]');
+          if (modalInSection) {
+            closeModal(modalInSection);
+          }
+        }
+      }
+    });
+
+    // --- Boutons de Partage Social ---
+    document.addEventListener('click', function(event) {
+      const shareTwitter = event.target.closest('[data-share-twitter]');
+      const shareLinkedin = event.target.closest('[data-share-linkedin]');
+      const shareCopy = event.target.closest('[data-share-copy]');
+
+      const activeModal = document.querySelector('.project-modal-container.active');
+      if (!activeModal) return;
+
+      const projectTitle = activeModal.querySelector('[data-project-modal-title]')?.textContent || '';
+      const projectLink = activeModal.querySelector('[data-project-modal-link]')?.href || window.location.href;
+
+      if (shareTwitter) {
+        const twitterUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent('Découvrez mon projet : ' + projectTitle)}&url=${encodeURIComponent(projectLink)}`;
+        window.open(twitterUrl, '_blank', 'noopener,noreferrer');
+      }
+
+      if (shareLinkedin) {
+        const linkedinUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(projectLink)}`;
+        window.open(linkedinUrl, '_blank', 'noopener,noreferrer');
+      }
+
+      if (shareCopy) {
+        navigator.clipboard.writeText(projectLink).then(() => {
+          const originalText = shareCopy.querySelector('span').textContent;
+          shareCopy.querySelector('span').textContent = 'Lien copié !';
+          shareCopy.style.color = 'var(--orange-yellow-crayola)';
+          setTimeout(() => {
+            shareCopy.querySelector('span').textContent = originalText;
+            shareCopy.style.color = '';
+          }, 2000);
+        }).catch(err => {
+          console.error('Erreur lors de la copie:', err);
+        });
+      }
+    });
 
     // --- Animations de Défilement pour Timeline et Autres Éléments ---
     const animateOnScroll = () => {
