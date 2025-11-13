@@ -23,8 +23,9 @@ Ce portfolio a été conçu comme une vitrine professionnelle destinée aux recr
 ## 🚀 Mon Parcours Professionnel
 
 ### 🏢 Expérience Actuelle
-**Assistant Project Engineer** chez **Itesoft** (Sept. 2024 - Présent)
-- Développement et gestion de projets en mode hybride (Aimargues)
+**Assistant Project Engineer** chez **ITESOFT** (Sept. 2025 - Présent)
+- Basé à Aimargues (30470) en mode hybride
+- Développement et gestion de projets logiciels
 - Participation active aux cycles de développement logiciel
 - Collaboration avec les équipes techniques sur des solutions innovantes
 
@@ -35,10 +36,17 @@ Ce portfolio a été conçu comme une vitrine professionnelle destinée aux recr
 - Validation des compétences professionnelles via portfolio d'apprentissage
 
 ### 💡 Engagement Étudiant
-**Responsable Événementiel & Communication** - BDE Informatique Montpellier
-- Organisation d'événements étudiants (2024-2026)
-- Gestion des communications digitales et réseaux sociaux
+**Responsable Événementiel & Communication** - BDE Informatique Montpellier (Mai 2024 - Avril 2026)
+- Organisation d'événements étudiants (soirées, tournois)
+- Gestion des communications digitales et réseaux sociaux (Discord, Instagram)
 - Développement des compétences en gestion de projet et leadership
+
+### 🎯 Objectifs Professionnels
+**Poursuite de formation en alternance**
+- Candidature au **CNAM en cybersécurité** ou à l'**École Polytech Montpellier (formation DevOps)**
+- Évolution souhaitée du pôle **Project Delivery** vers le pôle **Sécurité IT** chez ITESOFT
+- Alignement de l'alternance avec la formation pour développer une expertise en sécurité informatique
+- Ambition de contribuer à des projets d'envergure alliant expertise technique et sécurité
 
 ---
 
@@ -96,11 +104,12 @@ Ce portfolio démontre :
 ## 📈 Évolution Continue
 
 Ce portfolio évolue en parallèle de mon parcours professionnel, intégrant :
-- Nouvelles compétences acquises chez Itesoft
+- Nouvelles compétences acquises chez ITESOFT
 - Projets professionnels et personnels récents
-- Certifications et formations complémentaires
-- Retours d'expérience et best practices
+- Certifications et formations complémentaires en cybersécurité et DevOps
+- Retours d'expérience et best practices du pôle Project Delivery
+- Préparation à l'évolution vers le domaine de la sécurité IT
 
 ---
 
-*Portfolio développé avec passion pour refléter mon engagement dans l'excellence technique et l'innovation.*
+*Portfolio développé avec passion pour refléter mon engagement dans l'excellence technique, l'innovation et la sécurité informatique.*
