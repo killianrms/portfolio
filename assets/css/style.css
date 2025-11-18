@@ -1280,7 +1280,7 @@ html[data-theme="light"] .timeline-item:hover {
 .project-modal {
   background: var(--eerie-black-2);
   position: relative;
-  padding: 25px;
+  padding: 35px;
   margin: 15px 12px;
   border: 1px solid var(--jet);
   border-radius: 14px;
@@ -1289,8 +1289,10 @@ html[data-theme="light"] .timeline-item:hover {
   opacity: 0;
   transition: background-color var(--transition-std), border-color var(--transition-std), transform var(--transition-std), opacity var(--transition-std);
   z-index: 2;
-  max-width: 700px;
-  width: 90%;
+  max-width: 1000px;
+  width: 95%;
+  max-height: 90vh;
+  overflow-y: auto;
 }
 
 .project-modal-container.active .project-modal {

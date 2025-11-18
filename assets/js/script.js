@@ -16,6 +16,23 @@ document.addEventListener('DOMContentLoaded', () => {
       elem.classList.toggle("active");
     }
 
+    /**
+     * Extrait l'ID d'une vidéo YouTube depuis différents formats d'URL
+     * @param {string} url - L'URL YouTube
+     * @returns {string|null} - L'ID de la vidéo ou null si non trouvé
+     */
+    const extractYouTubeID = function(url) {
+      if (!url) return null;
+
+      // Formats supportés:
+      // https://www.youtube.com/watch?v=VIDEO_ID
+      // https://youtu.be/VIDEO_ID
+      // https://www.youtube.com/embed/VIDEO_ID
+      const regExp = /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#&?]*).*/;
+      const match = url.match(regExp);
+      return (match && match[7].length === 11) ? match[7] : null;
+    }
+
     // --- Barre Latérale ---
 
     const sidebar = document.querySelector("[data-sidebar]");
@@ -295,6 +312,13 @@ document.addEventListener('DOMContentLoaded', () => {
      */
     const closeModal = function (modalElement) {
       if (!modalElement) return;
+
+      // Arrêter la vidéo YouTube si elle est en cours de lecture
+      const modalVideo = modalElement.querySelector("[data-project-modal-video]");
+      if (modalVideo) {
+        modalVideo.src = '';
+      }
+
       modalElement.closest('.modal-container')?.classList.remove("active"); // Désactiver le conteneur
       // Envisager de retourner le focus à l'élément déclencheur ici
     }
@@ -337,6 +361,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const description = dataSourceElement.dataset.projectDescription || 'No description available.';
         const tech = dataSourceElement.dataset.projectTech || 'N/A';
         const link = dataSourceElement.dataset.projectLink || '#';
+        const videoUrl = dataSourceElement.dataset.projectVideo || '';
 
         // Get the role, group, and time information
         const role = dataSourceElement.dataset.projectRole || '';
@@ -347,7 +372,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const projectInfo = role ? `${role} (${group} | ${time})` : '';
 
         // Find the project info element in the modal
-        const modalProjectInfo = modalElement.querySelector(".project-info");
+        const modalProjectInfo = modalElement.querySelector("[data-project-modal-info]");
 
         // Set the text content of the project info element
         if (modalProjectInfo) {
@@ -361,6 +386,8 @@ document.addEventListener('DOMContentLoaded', () => {
         const modalDescription = modalElement.querySelector("[data-project-modal-description]");
         const modalTech = modalElement.querySelector("[data-project-modal-tech]");
         const modalLink = modalElement.querySelector("[data-project-modal-link]");
+        const modalVideoContainer = modalElement.querySelector("[data-project-video-container]");
+        const modalVideo = modalElement.querySelector("[data-project-modal-video]");
 
         // Remplir la modale
         if (modalImg) { modalImg.src = image; modalImg.alt = title; }
@@ -369,6 +396,23 @@ document.addEventListener('DOMContentLoaded', () => {
         if (modalDescription) modalDescription.textContent = description;
         if (modalTech) modalTech.textContent = tech;
         if (modalLink) modalLink.href = link;
+
+        // Gérer la vidéo YouTube
+        if (modalVideoContainer && modalVideo) {
+          if (videoUrl) {
+            // Convertir l'URL YouTube en format embed
+            const videoId = extractYouTubeID(videoUrl);
+            if (videoId) {
+              modalVideo.src = `https://www.youtube.com/embed/${videoId}`;
+              modalVideoContainer.style.display = 'block';
+            } else {
+              modalVideoContainer.style.display = 'none';
+            }
+          } else {
+            modalVideoContainer.style.display = 'none';
+            modalVideo.src = '';
+          }
+        }
       }
 
       // Ouvrir la modale en utilisant la fonction générique (en passant la *section* modale)
