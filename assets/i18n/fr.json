@@ -29,9 +29,9 @@
         "title": "Projets",
         "filter": {
             "all": "Tous",
-            "professional": "Professionnel",
-            "personal": "Personnel",
-            "university": "Universitaire",
+            "pro": "Professionnel",
+            "perso": "Personnel",
+            "univ": "Universitaire",
             "contest": "Concours"
         },
         "view_details": "Voir Détails",

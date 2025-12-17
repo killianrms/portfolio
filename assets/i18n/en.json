@@ -29,10 +29,10 @@
         "title": "Projects",
         "filter": {
             "all": "All",
-            "professional": "Professional",
-            "personal": "Personal",
-            "university": "University",
-            "contest": "Contest"
+            "pro": "Professional",
+            "perso": "Personal",
+            "univ": "Academic",
+            "contest": "Contests"
         },
         "view_details": "View Details",
         "modal": {

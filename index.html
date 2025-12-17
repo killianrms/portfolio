@@ -30,6 +30,7 @@
     <title>Killianrms</title>
     <link rel="icon" type="image/webp" href="assets/images/photo.webp">
     <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/visual-enhancements.css">
     <link rel="stylesheet" href="./assets/css/portfolio-layout.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -175,6 +176,7 @@
 
 
         <div class="main-content">
+            <canvas id="bg-canvas"></canvas>
 
 
             <nav class="navbar">
@@ -182,19 +184,20 @@
                 <ul class="navbar-list">
 
                     <li class="navbar-item">
-                        <button class="navbar-link  active" data-nav-link data-i18n="navbar.about">Biographie</button>
+                        <button class="navbar-link  active" data-nav-link="biographie"
+                            data-i18n="navbar.about">Biographie</button>
                     </li>
 
                     <li class="navbar-item">
-                        <button class="navbar-link" data-nav-link data-i18n="navbar.resume">Parcours</button>
+                        <button class="navbar-link" data-nav-link="parcours" data-i18n="navbar.resume">Parcours</button>
                     </li>
 
                     <li class="navbar-item">
-                        <button class="navbar-link" data-nav-link data-i18n="navbar.projects">Projets</button>
+                        <button class="navbar-link" data-nav-link="projets" data-i18n="navbar.projects">Projets</button>
                     </li>
 
                     <li class="navbar-item">
-                        <button class="navbar-link" data-nav-link data-i18n="navbar.contact">Contact</button>
+                        <button class="navbar-link" data-nav-link="contact" data-i18n="navbar.contact">Contact</button>
                     </li>
 
                     <li class="navbar-item">
@@ -205,9 +208,27 @@
                     </li>
                     <!-- Language Switcher -->
                     <li class="navbar-item">
-                        <button class="lang-toggle-btn" aria-label="Toggle language" data-lang-btn>
-                            <span class="lang-text">FR</span>
-                        </button>
+                        <div class="lang-dropdown">
+                            <button class="lang-toggle-btn" aria-label="Toggle language" data-lang-btn>
+                                <span class="flag">🇫🇷</span>
+                                <span class="lang-text">FR</span>
+                                <ion-icon name="chevron-down-outline" class="chevron"></ion-icon>
+                            </button>
+                            <ul class="lang-menu">
+                                <li>
+                                    <button class="lang-option" data-lang-select="fr">
+                                        <span class="flag">🇫🇷</span>
+                                        <span>Français</span>
+                                    </button>
+                                </li>
+                                <li>
+                                    <button class="lang-option" data-lang-select="en">
+                                        <span class="flag">🇬🇧</span>
+                                        <span>English</span>
+                                    </button>
+                                </li>
+                            </ul>
+                        </div>
                     </li>
                     </li>
                 </ul>
@@ -545,25 +566,25 @@
 
                     <ul class="filter-list">
                         <li class="filter-item">
-                            <button data-filter="all" class="active">Tous</button>
+                            <button data-filter="all" class="active" data-i18n="projects.filter.all">Tous</button>
                         </li>
                         <li class="filter-item">
-                            <button data-filter="Professionnel">Professionnel</button>
+                            <button data-filter="professional" data-i18n="projects.filter.pro">Professionnel</button>
                         </li>
                         <li class="filter-item">
-                            <button data-filter="Personnel">Personnel</button>
+                            <button data-filter="personal" data-i18n="projects.filter.perso">Personnel</button>
                         </li>
                         <li class="filter-item">
-                            <button data-filter="Universitaire">Universitaire</button>
+                            <button data-filter="academic" data-i18n="projects.filter.univ">Universitaire</button>
                         </li>
                         <li class="filter-item">
-                            <button data-filter="Concours">Concours</button>
+                            <button data-filter="contest" data-i18n="projects.filter.contest">Concours</button>
                         </li>
                     </ul>
 
                     <ul class="project-list">
 
-                        <li class="project-item active" data-category="Professionnel"
+                        <li class="project-item active" data-category="professional"
                             data-project-title="Itesoft - Assistant Project Engineer"
                             data-project-link="https://www.itesoft.com"
                             data-project-image="./assets/images/itesoft_projet.webp"
@@ -592,7 +613,7 @@
                             </button>
                         </li>
 
-                        <li class="project-item active" data-category="Professionnel" data-project-title="TamaStat"
+                        <li class="project-item active" data-category="professional" data-project-title="TamaStat"
                             data-project-link="https://github.com/killianrms/TamaStat"
                             data-project-image="./assets/images/tamastat.webp"
                             data-project-category="Stage | Professionnel"
@@ -618,7 +639,7 @@
                             </button>
                         </li>
 
-                        <li class="project-item active" data-category="Universitaire"
+                        <li class="project-item active" data-category="academic"
                             data-project-title="Site e-commerce de parfum"
                             data-project-link="https://github.com/killianrms/Site-e-commerce"
                             data-project-image="./assets/images/site-ecom.webp"
@@ -646,7 +667,7 @@
                             </button>
                         </li>
 
-                        <li class="project-item active" data-category="Universitaire" data-project-title="Referendum"
+                        <li class="project-item active" data-category="academic" data-project-title="Referendum"
                             data-project-link="https://github.com/killianrms/Referendum"
                             data-project-image="./assets/images/ref.webp"
                             data-project-category="Développement d'application | Universitaire"
@@ -672,7 +693,7 @@
                             </button>
                         </li>
 
-                        <li class="project-item active" data-category="Personnel"
+                        <li class="project-item active" data-category="personal"
                             data-project-title="Bot fortnite en python"
                             data-project-link="https://github.com/killianrms/lobbybot"
                             data-project-image="./assets/images/lobbybot.webp"
@@ -700,7 +721,7 @@
                             </button>
                         </li>
 
-                        <li class="project-item active" data-category="Personnel"
+                        <li class="project-item active" data-category="personal"
                             data-project-title="AutoTweetVideoUploader"
                             data-project-link="https://github.com/killianrms/AutoTweetVideoUploader"
                             data-project-image="./assets/images/tweet.webp"
@@ -728,7 +749,7 @@
                             </button>
                         </li>
 
-                        <li class="project-item active" data-category="Personnel" data-project-title="Portfolio"
+                        <li class="project-item active" data-category="personal" data-project-title="Portfolio"
                             data-project-link="https://github.com/killianrms/portfolio"
                             data-project-image="./assets/images/portfolio.webp"
                             data-project-category="Portfolio | Personnel"
@@ -754,7 +775,7 @@
                             </button>
                         </li>
 
-                        <li class="project-item active" data-category="Concours" data-project-title="Code Game Jam"
+                        <li class="project-item active" data-category="contest" data-project-title="Code Game Jam"
                             data-project-link="https://github.com/killianrms/CGJ2024"
                             data-project-image="./assets/images/project-4.webp"
                             data-project-category="Code Game Jam 2023 | Concours"
@@ -779,7 +800,7 @@
                             </button>
                         </li>
 
-                        <li class="project-item active" data-category="Concours" data-project-title="Nuit de L'info"
+                        <li class="project-item active" data-category="contest" data-project-title="Nuit de L'info"
                             data-project-link="https://github.com/killianrms/Nuit-de-linfo"
                             data-project-image="./assets/images/project-5.webp"
                             data-project-category="Site Web - Nuit de l'Info 2023 | Concours"

@@ -1,0 +1,185 @@
+/* --- Language Dropdown --- */
+.lang-dropdown {
+    position: relative;
+    margin-left: 20px;
+}
+
+.lang-toggle-btn {
+    background: var(--border-gradient-onyx);
+    color: var(--orange-yellow-crayola);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 12px;
+    border-radius: 12px;
+    font-size: var(--fs-6);
+    font-weight: var(--fw-500);
+    border: 1px solid var(--jet);
+    cursor: pointer;
+    transition: var(--transition-1);
+}
+
+.lang-toggle-btn:hover {
+    background: var(--onyx);
+}
+
+.lang-toggle-btn .flag {
+    font-size: 18px;
+    line-height: 1;
+}
+
+.lang-toggle-btn .chevron {
+    font-size: 12px;
+    transition: transform 0.3s ease;
+}
+
+.lang-dropdown.active .chevron {
+    transform: rotate(180deg);
+}
+
+.lang-menu {
+    position: absolute;
+    top: calc(100% + 10px);
+    right: 0;
+    background: var(--eerie-black-2);
+    border: 1px solid var(--jet);
+    border-radius: 12px;
+    padding: 8px;
+    min-width: 140px;
+    box-shadow: var(--shadow-2);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: var(--transition-1);
+    z-index: 20;
+}
+
+.lang-dropdown.active .lang-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.lang-option {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    padding: 8px 12px;
+    border-radius: 8px;
+    color: var(--light-gray);
+    font-size: var(--fs-6);
+    background: transparent;
+    transition: var(--transition-1);
+    cursor: pointer;
+}
+
+.lang-option:hover {
+    background: var(--onyx);
+    color: var(--white-1);
+}
+
+.lang-option .flag {
+    font-size: 18px;
+}
+
+/* --- Contact Form Premium Upgrade --- */
+.input-wrapper {
+    margin-bottom: 25px;
+    position: relative;
+}
+
+.form-input {
+    background: var(--eerie-black-2);
+    /* Darker background */
+    border: 1px solid var(--jet);
+    padding: 15px 20px;
+    border-radius: 14px;
+    color: var(--white-2);
+    font-size: var(--fs-6);
+    font-weight: var(--fw-400);
+    transition: var(--transition-1);
+    width: 100%;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.form-input:focus {
+    border-color: var(--orange-yellow-crayola);
+    background: var(--onyx);
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(255, 219, 112, 0.2);
+}
+
+.form-input::placeholder {
+    color: var(--light-gray-70);
+    transition: var(--transition-1);
+}
+
+.form-input:focus::placeholder {
+    opacity: 0.5;
+    transform: translateX(5px);
+}
+
+/* Floating error message style */
+.input-wrapper .error-message {
+    position: absolute;
+    bottom: -20px;
+    left: 10px;
+    font-size: 12px;
+    color: var(--bittersweet-shimmer);
+}
+
+.form-btn {
+    background: linear-gradient(to bottom right, var(--orange-yellow-crayola), var(--vegas-gold));
+    color: var(--smoky-black);
+    font-weight: var(--fw-600);
+    padding: 16px 30px;
+    border-radius: 14px;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    transition: var(--transition-1);
+    box-shadow: var(--shadow-3);
+    width: auto;
+    margin-left: auto;
+    /* Right align */
+}
+
+.form-btn:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255, 219, 112, 0.4);
+}
+
+.form-btn:disabled {
+    background: var(--onyx);
+    color: var(--light-gray);
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+.form-btn ion-icon {
+    font-size: 18px;
+}
+
+/* --- Particle Background --- */
+#bg-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    /* Behind everything */
+    pointer-events: none;
+    opacity: 0.4;
+    /* Subtle */
+}
+
+@media (min-width: 580px) {
+    .lang-dropdown {
+        margin-left: 30px;
+    }
+}
