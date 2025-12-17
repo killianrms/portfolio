@@ -1,0 +1,390 @@
+{
+    "sidebar": {
+        "more_info": "Plus d'informations",
+        "role": "Assistant Project Engineer",
+        "contacts": {
+            "cv": "CV",
+            "email": "Email",
+            "phone": "Téléphone",
+            "birthday": "Date de naissance",
+            "location": "Localisation"
+        }
+    },
+    "navbar": {
+        "about": "Biographie",
+        "resume": "Parcours",
+        "projects": "Projets",
+        "contact": "Contact"
+    },
+    "about": {
+        "title": "Biographie",
+        "intro_title": "Bonjour, Je suis <strong>Killian</strong> 👋",
+        "p1": "À 21 ans, étudiant en BUT Informatique (parcours DACS - Sécurité) à l'IUT de Montpellier-Sète, je suis un passionné de technologie particulièrement attiré par les défis de la cybersécurité. Pour moi, l'informatique est une discipline qui allie rigueur technique et dimension humaine.",
+        "p2": "Actuellement Assistant Project Engineer chez <strong>ITESOFT</strong> à Aimargues (30470) en mode hybride, je mets mon énergie et mes compétences au service d'une entreprise innovante dans le secteur du développement logiciel. Mon objectif est de poursuivre ma formation en intégrant le CNAM en cybersécurité ou l'École Polytech Montpellier en formation DevOps, de préférence, tout en poursuivant mon alternance chez Itesoft. J'aspire à évoluer du pôle Project Delivery vers le pôle Sécurité IT afin d'aligner mon alternance avec ma formation et de développer une expertise en sécurité informatique, domaine qui me passionne particulièrement.",
+        "p3": "Engagé activement depuis deux ans au sein du Bureau des Étudiants (BDE) en tant que responsable événementiel et communication, j'ai développé des compétences en gestion de projet, en organisation d'événements fédérateurs et en communication. Cette expérience m'a permis de renforcer mon aisance relationnelle et ma capacité à mener des initiatives de A à Z, illustrant mon aptitude à concilier rigueur technique et dynamisme interpersonnel.",
+        "p4": "Originaire du Var et étudiant à Montpellier, ma pratique passée du handball m'a transmis un solide esprit d'équipe et une grande persévérance, des qualités que j'applique pour surmonter les défis techniques comme organisationnels.",
+        "skills_title": "Mes Compétences"
+    },
+    "projects": {
+        "title": "Projets",
+        "filter": {
+            "all": "Tous",
+            "professional": "Professionnel",
+            "personal": "Personnel",
+            "university": "Universitaire",
+            "contest": "Concours"
+        },
+        "view_details": "Voir Détails",
+        "modal": {
+            "role_group_time": "{{role}} ({{group}} | {{time}})"
+        },
+        "items": {
+            "itesoft": {
+                "title": "Itesoft - Assistant Project Engineer",
+                "category": "Alternance en entreprise | Professionnel",
+                "role": "Assistant Project Engineer",
+                "tech": "Java, JavaScript, Angular, Docker, Termius, FileZilla",
+                "group": "équipe",
+                "time": "Septembre 2025 - Septembre 2026",
+                "desc": "<strong>SITUATION:</strong> Alternance chez Itesoft, leader de la dématérialisation.<br><strong>MISSION:</strong> Adapter la solution Streamline Invoice aux besoins clients.<br><strong>ACTION:</strong> Développement Fullstack (Java/Angular), conteneurisation Docker et scripting.<br><strong>RÉSULTAT:</strong> Livraison de personnalisations critiques et support utilisateur réactif."
+            },
+            "tamastat": {
+                "title": "TamaStat",
+                "category": "Stage | Professionnel",
+                "role": "Développeur",
+                "tech": "PHP, Architecture MVC, MySQL, CSV, JavaScript",
+                "group": "seul",
+                "time": "10 semaines",
+                "desc": "<strong>SITUATION:</strong> Stage chez Tamabox, besoin de visualiser des données complexes.<br><strong>MISSION:</strong> Créer un tableau de bord statistique interactif.<br><strong>ACTION:</strong> Conception d'une architecture MVC en PHP/MySQL avec import CSV optimisé.<br><strong>RÉSULTAT:</strong> Outil en production permettant l'analyse en temps réel des performances."
+            },
+            "ecommerce": {
+                "title": "Site e-commerce de parfum",
+                "category": "Développement web en PHP | Universitaire",
+                "role": "Scrum Master",
+                "tech": "HTML, CSS, JavaScript, PHP, MySQL",
+                "group": "groupe de 3",
+                "time": "1 mois",
+                "desc": "<strong>SITUATION:</strong> Projet universitaire de développement web.<br><strong>MISSION:</strong> Créer un site e-commerce complet avec administration.<br><strong>ACTION:</strong> Développement Fullstack PHP/MySQL, gestion de panier et historique.<br><strong>RÉSULTAT:</strong> Plateforme fonctionnelle avec back-office sécurisé."
+            },
+            "referendum": {
+                "title": "Referendum",
+                "category": "Développement d'application | Universitaire",
+                "role": "Product Owner",
+                "tech": "Java, Agile (Scrum)",
+                "group": "groupe de 4",
+                "time": "projet de troisième année de but",
+                "desc": "<strong>SITUATION:</strong> Projet académique de vote sécurisé.<br><strong>MISSION:</strong> Garantir l'anonymat et l'intégrité des votes.<br><strong>ACTION:</strong> Implémentation d'algorithmes de cryptographie en Java et gestion de projet Agile.<br><strong>RÉSULTAT:</strong> Prototype fonctionnel validé avec mention."
+            },
+            "lobbybot": {
+                "title": "Bot fortnite en python",
+                "category": "Librairie + API | Personnel",
+                "role": "Développeur",
+                "tech": "Python, API REST, HTML, CSS, Discord",
+                "group": "seul",
+                "time": "Juillet 2022 - Juin 2025 (arrêté)",
+                "desc": "<strong>SITUATION:</strong> Passion pour le développement d'outils de jeu.<br><strong>MISSION:</strong> Créer une librairie Python pour simuler des lobbys Fortnite.<br><strong>ACTION:</strong> Développement d'une API REST et d'une intégration Discord massivement utilisée.<br><strong>RÉSULTAT:</strong> Communauté de +8500 membres, premier revenu généré."
+            },
+            "tweet": {
+                "title": "AutoTweetVideoUploader",
+                "category": "Bot de post Twitter | Personnel",
+                "role": "Développeur",
+                "tech": "Python",
+                "group": "groupe de 3",
+                "time": "15 heures",
+                "desc": "<strong>SITUATION:</strong> Besoin d'automatiser le partage de contenu vidéo.<br><strong>MISSION:</strong> Bot qui télécharge et reposte des vidéos X (Twitter).<br><strong>ACTION:</strong> Scripting Python avec gestion de files d'attente et API Twitter.<br><strong>RÉSULTAT:</strong> Automatisation complète du flux de partage."
+            },
+            "portfolio": {
+                "title": "Portfolio",
+                "category": "Portfolio | Personnel",
+                "role": "Développeur",
+                "tech": "HTML5, CSS3, JavaScript",
+                "group": "seul",
+                "time": "6 jours",
+                "desc": "<strong>SITUATION:</strong> Besoin d'une vitrine professionnelle moderne.<br><strong>MISSION:</strong> Créer un portfolio performant, accessible et 'Wow'.<br><strong>ACTION:</strong> Développement from scratch, optimisation PWA, i18n et micro-interactions.<br><strong>RÉSULTAT:</strong> Site rapide (Score Lighthouse 95+), bilingue et attractif."
+            },
+            "gamejam": {
+                "title": "Code Game Jam",
+                "category": "Code Game Jam 2023 | Concours",
+                "role": "Développeur",
+                "tech": "Unreal Engine 5",
+                "group": "groupe de 2",
+                "time": "2 jours",
+                "desc": "<strong>SITUATION:</strong> Concours de développement de jeu vidéo (30h).<br><strong>MISSION:</strong> Créer un jeu complet 'Shadow Of Memory'.<br><strong>ACTION:</strong> Prototypage rapide sous Unreal Engine 5, gestion du stress et du temps.<br><strong>RÉSULTAT:</strong> Jeu jouable et finalisé dans les temps impartis."
+            },
+            "nuitinfo": {
+                "title": "Nuit de L'info",
+                "category": "Site Web - Nuit de l'Info 2023 | Concours",
+                "role": "Chef de projet",
+                "tech": "HTML, CSS, JavaScript, Replit",
+                "group": "groupe de 6 personnes",
+                "time": "une nuit",
+                "desc": "<strong>SITUATION:</strong> Hackathon national sur le thème du climat.<br><strong>MISSION:</strong> Créer un site de sensibilisation interactif en une nuit.<br><strong>ACTION:</strong> Coordination d'une équipe de 6, développement web collaboratif.<br><strong>RÉSULTAT:</strong> Site déployé et fonctionnel, expérience de gestion d'équipe intense."
+            }
+        }
+    },
+    "contact": {
+        "title": "Contact",
+        "form_title": "Me contacter",
+        "fullname_placeholder": "Nom complet",
+        "email_placeholder": "Adresse Email",
+        "message_placeholder": "Votre Message",
+        "submit_btn": "Envoyer",
+        "sending": "Envoi...",
+        "sent": "Envoyé !",
+        "error": "Erreur",
+        "validation": {
+            "fullname": "Veuillez entrer votre nom",
+            "email_missing": "Veuillez entrer votre email",
+            "email_invalid": "Veuillez entrer un email valide",
+            "message": "Veuillez entrer votre message"
+        }
+    },
+    "share": {
+        "text": "Découvrez mon projet : ",
+        "copied": "Lien copié !"
+    },
+    "portfolio_app": {
+        "title": "Portfolio d'Apprentissage",
+        "subtitle": "Validation des compétences du Niveau 2 - Parcours DACS",
+        "back_home": "Retour à l'accueil",
+        "tabs": {
+            "optimiser": "Optimiser",
+            "gerer": "Gérer",
+            "conduire": "Conduire"
+        },
+        "justifications": {
+            "optimiser": {
+                "ac1": {
+                    "tweet": {
+                        "ce2_02": "Utilisation stratégique de dictionnaires Python pour indexer les comptes Twitter et listes pour gérer les files d'attente de vidéos, optimisant la recherche et le traitement séquentiel.",
+                        "ce2_04": "Validation des structures choisies par des tests de performance sur différents volumes de données."
+                    },
+                    "lobbybot": {
+                        "ce2_01": "Modélisation complexe des états de jeu avec des structures hiérarchiques (classes, dictionnaires imbriqués) pour représenter les lobbys et leurs propriétés.",
+                        "ce2_02": "Implémentation d'arbres de décision pour la gestion des commandes et hashmaps pour l'accès rapide aux données de jeu."
+                    }
+                },
+                "ac2": {
+                    "tamastat": {
+                        "ce2_03": "Application d'algorithmes statistiques avancés (moyennes mobiles, corrélations) selon des schémas de raisonnement mathématiques rigoureux.",
+                        "ce2_04": "Validation statistique des résultats par comparaison avec des datasets de référence et tests de cohérence."
+                    },
+                    "tweet": {
+                        "ce2_03": "Implémentation d'algorithmes de scraping optimisés avec gestion des rate-limits API selon une approche méthodique.",
+                        "ce2_01": "Formalisation du processus de sélection de contenu par des règles algorithmiques complexes (popularité, timing, pertinence)."
+                    }
+                },
+                "ac3": {
+                    "ecommerce": {
+                        "ce2_04": "Justification des choix de sécurité par analyse des vulnérabilités (OWASP Top 10) et validation par tests de pénétration.",
+                        "ce2_03": "Application rigoureuse des principes de sécurité : hachage bcrypt, requêtes préparées, validation des entrées."
+                    },
+                    "referendum": {
+                        "ce2_01": "Modélisation complexe d'un système de vote crypté avec contraintes de confidentialité et d'intégrité.",
+                        "ce2_02": "Utilisation d'algorithmes cryptographiques avancés (RSA, hachage) pour sécuriser les votes."
+                    }
+                },
+                "ac4": {
+                    "nuitinfo": {
+                        "ce2_01": "Formalisation des enjeux climatiques en modèles de données interactifs pour maximiser l'impact pédagogique.",
+                        "ce2_04": "Validation de l'efficacité de sensibilisation par métriques d'engagement et retours utilisateurs.",
+                        "impact": "Optimisation du code pour réduire la consommation énergétique (minification, lazy loading) et sensibilisation de 200+ participants aux enjeux environnementaux."
+                    },
+                    "lobbybot": {
+                        "ce2_03": "Réflexion sur l'éthique du gaming : limitation des fonctionnalités pour éviter les abus et promotion d'un usage responsable.",
+                        "impact": "Mise en place de garde-fous contre l'addiction gaming et documentation sur l'usage responsable des outils d'automatisation."
+                    }
+                }
+            },
+            "gerer": {
+                "ac1": {
+                    "ecommerce": {
+                        "ce4_03": "Conception du modèle relationnel basé sur les formes normales (1FN, 2FN, 3FN) pour éliminer la redondance et optimiser les performances.",
+                        "ce4_04": "Mise en place de contraintes d'intégrité référentielle et de triggers pour maintenir la cohérence des stocks et commandes.",
+                        "optimisation": "Indexation stratégique des clés de recherche (produits, catégories) réduisant les temps de requête de 60%."
+                    },
+                    "tamastat": {
+                        "ce4_02": "Optimisation du stockage par compression des données historiques et archivage automatique, réduisant l'empreinte énergétique de 40%.",
+                        "ce4_03": "Application de modèles statistiques (moyennes mobiles, variance) pour structurer efficacement les données temporelles."
+                    }
+                },
+                "ac2": {
+                    "referendum": {
+                        "ce4_01": "Implémentation complète du RGPD : anonymisation des votes, droit à l'oubli, consentement explicite et chiffrement bout-en-bout.",
+                        "ce4_04": "Système de vérification cryptographique garantissant l'intégrité (hachage SHA-256) et l'authenticité (signatures numériques) des votes.",
+                        "securite": "Architecture zero-trust avec chiffrement AES-256, authentification multi-facteurs et audit trail complet."
+                    },
+                    "ecommerce": {
+                        "ce4_01": "Conformité RGPD complète avec politique de confidentialité, gestion des cookies, et opt-in explicite pour la newsletter.",
+                        "ce4_04": "Protection contre les injections SQL par requêtes préparées et validation stricte des entrées utilisateur."
+                    }
+                },
+                "ac3": {
+                    "tamastat": {
+                        "ce4_03": "Développement d'algorithmes de visualisation basés sur la théorie des graphiques pour représenter les corrélations statistiques.",
+                        "ce4_04": "Système de cache intelligent et pagination pour assurer la cohérence et les performances sur de gros volumes de données.",
+                        "visualisation": "Graphiques dynamiques (Chart.js), filtres temps réel, et export multi-formats (PDF, Excel, JSON)."
+                    },
+                    "ecommerce": {
+                        "ce4_02": "Optimisation des requêtes de reporting pour réduire la consommation serveur et améliorer l'expérience utilisateur.",
+                        "restitution": "Tableaux de bord avec métriques temps réel (ventes, stock, utilisateurs actifs) et système d'alertes automatisé."
+                    }
+                },
+                "ac4": {
+                    "tweet": {
+                        "ce4_03": "Application d'algorithmes de parsing pour traiter des formats hétérogènes : JSON (metadata), MP4/WebM (vidéos), et texte (descriptions).",
+                        "ce4_04": "Validation et normalisation des données multi-sources avec gestion des erreurs et des formats corrompus.",
+                        "heterogeneite": "Traitement unifié de données API REST, fichiers multimédias et métadonnées, avec système de mapping automatique."
+                    },
+                    "tamastat": {
+                        "ce4_01": "Gestion sécurisée de l'import de fichiers CSV, Excel et JSON avec validation des données personnelles selon le RGPD.",
+                        "manipulation": "Parser universel avec détection automatique du format, nettoyage des données et transformation vers un schéma unifié."
+                    }
+                }
+            },
+            "conduire": {
+                "ac1": {
+                    "tamastat": {
+                        "ce5_04": "Approche proactive d'analyse des flux de données existants pour identifier les goulots d'étranglement et proposer des améliorations.",
+                        "ce5_01": "Communication régulière avec les utilisateurs finaux pour comprendre leurs besoins et contraintes opérationnelles.",
+                        "amelioration": "Automatisation des rapports manuels, réduisant le temps de traitement de 70% et améliorant la fiabilité des données."
+                    },
+                    "portfolio": {
+                        "ce5_04": "Démarche créative dans la conception d'une interface intuitive pour présenter efficacement les compétences et projets.",
+                        "processus": "Identification des parcours utilisateurs (recruteurs, collègues, clients) pour optimiser la navigation et la présentation de l'information."
+                    }
+                },
+                "ac2": {
+                    "ecommerce": {
+                        "ce5_01": "Animation d'ateliers utilisateurs pour recueillir et formaliser les besoins fonctionnels (gestion produits, commandes, administration).",
+                        "ce5_02": "Prise en compte des contraintes légales (RGPD, e-commerce) dans la formalisation des spécifications.",
+                        "formalisation": "Rédaction de user stories détaillées avec critères d'acceptation et priorisation selon la valeur métier."
+                    },
+                    "referendum": {
+                        "ce5_03": "Sensibilisation aux enjeux démocratiques et éthiques d'un système de vote électronique sécurisé.",
+                        "ce5_01": "Facilitation d'entretiens avec les parties prenantes pour identifier les exigences de sécurité et d'utilisabilité."
+                    }
+                },
+                "ac3": {
+                    "lobbybot": {
+                        "ce5_04": "Analyse critique des contraintes techniques (API, rate limits) et légales (ToS) pour évaluer la viabilité du projet.",
+                        "ce5_03": "Évaluation des risques éthiques et mise en place de garde-fous pour un usage responsable.",
+                        "faisabilite": "Étude approfondie des coûts d'hébergement, de maintenance et de conformité réglementaire sur le long terme."
+                    },
+                    "nuitinfo": {
+                        "ce5_01": "Coordination d'équipe sous contrainte temporelle extrême (12h) avec allocation des ressources selon les compétences.",
+                        "faisabilite": "Priorisation drastique des fonctionnalités selon la valeur ajoutée et la complexité de développement."
+                    }
+                },
+                "ac4": {
+                    "referendum": {
+                        "ce5_01": "Animation des cérémonies Scrum (dailies, retrospectives, reviews) pour maintenir l'alignement équipe.",
+                        "ce5_02": "Respect des normes de développement et des standards de qualité logicielle tout au long du projet.",
+                        "suivi": "Utilisation d'outils collaboratifs (Jira, Git) pour tracer les évolutions et mesurer la vélocité de l'équipe."
+                    },
+                    "tamastat": {
+                        "ce5_04": "Démarche proactive de documentation continue et de tests automatisés pour assurer la qualité du livrable.",
+                        "suivi": "Mise en place d'un tableau Kanban avec métriques de performance (lead time, cycle time) pour optimiser le flux de développement."
+                    },
+                    "nuitinfo": {
+                        "ce5_03": "Sensibilisation de l'équipe aux enjeux environnementaux tout en maintenant les objectifs de développement.",
+                        "suivi_intensif": "Points de synchronisation toutes les 2h avec réajustement des priorités selon l'avancement et les défis disponibles."
+                    }
+                }
+            }
+        },
+        "optimiser": {
+            "title": "Optimiser",
+            "desc": "Optimiser des applications : Analyser et améliorer la qualité et la performance d'une application existante ou en développement.",
+            "ac1": "AC1 : Choisir des structures de données complexes adaptées au problème",
+            "ac2": "AC2 : Utiliser des techniques algorithmiques adaptées pour des problèmes complexes",
+            "ac3": "AC3 : Comprendre les enjeux et moyens de sécurisation des données et du code",
+            "ac4": "AC4 : Évaluer l'impact environnemental et sociétal des solutions proposées"
+        },
+        "gerer": {
+            "title": "Gérer",
+            "desc": "Gérer les données : Concevoir, mettre en place et exploiter une base de données pour stocker et accéder aux informations de manière efficace et sécurisée.",
+            "ac1": "AC1 : Optimiser les modèles de données de l'entreprise",
+            "ac2": "AC2 : Assurer la confidentialité des données (intégrité et sécurité)",
+            "ac3": "AC3 : Organiser la restitution de données à travers la programmation et la visualisation",
+            "ac4": "AC4 : Manipuler des données hétérogènes"
+        },
+        "conduire": {
+            "title": "Conduire",
+            "desc": "Conduire un projet : Planifier, organiser et piloter les différentes phases d'un projet informatique, de la conception à la livraison, en respectant les délais et le budget.",
+            "ac1": "AC1 : Identifier les processus présents dans une organisation en vue d'améliorer les systèmes d'information",
+            "ac2": "AC2 : Formaliser les besoins du client et de l'utilisateur",
+            "ac3": "AC3 : Identifier les critères de faisabilité d'un projet informatique",
+            "ac4": "AC4 : Définir et mettre en œuvre une démarche de suivi de projet"
+        }
+    },
+    "ce_definitions": {
+        "ac1": "Optimiser des applications",
+        "ac2": "Administrer des systèmes",
+        "ac3": "Gérer des données",
+        "ac4": "Conduire des projets",
+        "details_ac1": "Choisir et implémenter des structures de données et algorithmes efficaces.",
+        "details_ac2": "Installer et configurer des postes et services réseaux.",
+        "details_ac3": "Concevoir et manipuler des bases de données SQL et NoSQL.",
+        "details_ac4": "Planifier et suivre un projet en équipe avec des outils agiles.",
+        "CE2.01": "En formalisant et modélisant des situations complexes",
+        "CE2.02": "En recensant les algorithmes et les structures de données usuels",
+        "CE2.03": "En s'appuyant sur des schémas de raisonnement",
+        "CE2.04": "En justifiant les choix et validant les résultats",
+        "CE4.01": "En respectant les réglementations sur le respect de la vie privée et la protection des données personnelles",
+        "CE4.02": "En respectant les enjeux économiques, sociétaux et écologiques de l'utilisation du stockage de données",
+        "CE4.03": "En s'appuyant sur des bases mathématiques",
+        "CE4.04": "En assurant la cohérence et la qualité",
+        "CE5.01": "En communiquant efficacement avec les différents acteurs d'un projet",
+        "CE5.02": "En respectant les règles juridiques et les normes en vigueur",
+        "CE5.03": "En sensibilisant à une gestion éthique, responsable, durable et interculturelle",
+        "CE5.04": "En adoptant une démarche proactive, créative et critique"
+    },
+    "resume": {
+        "title": "Parcours",
+        "experience": {
+            "title": "Expériences",
+            "itesoft": {
+                "title": "Assistant Project Engineer",
+                "date": "Septembre 2025 - Maintenant",
+                "desc": "Itesoft · Alternance · Aimargues (Hybride)"
+            },
+            "tamabox": {
+                "title": "Stagiaire en informatique",
+                "date": "Janvier 2025 - Avril 2025",
+                "desc": "Tamabox · Stage · 4 mois"
+            }
+        },
+        "education": {
+            "title": "Formations",
+            "iut": {
+                "title": "IUT Montpellier-Sète",
+                "date": "Septembre 2022 - Maintenant",
+                "desc1": "99 avenue d'Occitanie 34090 Montpellier",
+                "desc2": "Formation Informatique"
+            },
+            "lycee": {
+                "title": "Lycée Thomas Edison",
+                "date": "Septembre 2019 — Juin 2022",
+                "desc1": "1 Rue Emile Héraud, 83510 Lorgues",
+                "desc2": "Bac Technologique, Fillière STI2D (Sciences et technologies de l'industrie et du développement durable)"
+            }
+        },
+        "volunteering": {
+            "title": "Bénévolat",
+            "bde": {
+                "title": "BDE Informatique Montpellier",
+                "date": "Mai 2024 - Avril 2026",
+                "desc": "Responsable Événementiel et Communication. Organisation d'événements (soirées, tournois) et gestion de la communication (Discord, Instagram)."
+            }
+        },
+        "future": {
+            "title": "Futur",
+            "studies": {
+                "title": "Poursuite d'études",
+                "date": "Septembre 2026",
+                "desc": "Mon objectif est de poursuivre mes études en alternance à Montpellier, soit au CNAM en cybersécurité, soit à Polytech Montpellier en DevOps, afin de me spécialiser dans les domaines qui me passionnent."
+            }
+        }
+    }
+}

@@ -4,7 +4,86 @@
 document.addEventListener('DOMContentLoaded', () => {
 
   // IIFE pour encapsuler le script et éviter la pollution de la portée globale
-  (function() {
+  (async function () {
+
+    // --- Internationalisation (i18n) ---
+    let currentLang = localStorage.getItem('lang') || 'fr';
+    let translations = {};
+
+    const loadTranslations = async (lang) => {
+      try {
+        const response = await fetch(`./assets/i18n/${lang}.json`);
+        return await response.json();
+      } catch (error) {
+        console.error('Error loading translations:', error);
+        return null;
+      }
+    };
+
+    const updateText = () => {
+      document.querySelectorAll('[data-i18n]').forEach(element => {
+        const key = element.getAttribute('data-i18n');
+        const keys = key.split('.');
+        let text = translations;
+        for (const k of keys) {
+          text = text ? text[k] : null;
+        }
+        if (text) {
+          // Handle placeholders if any (simple implementation)
+          element.innerHTML = text;
+        }
+      });
+
+      // Update specific attributes like placeholders
+      document.querySelectorAll('[data-i18n-attr]').forEach(element => {
+        // attribute:key,attribute:key
+        const attrs = element.getAttribute('data-i18n-attr').split(',');
+        attrs.forEach(attrPair => {
+          const [attr, key] = attrPair.split(':');
+          const keys = key.split('.');
+          let text = translations;
+          for (const k of keys) {
+            text = text ? text[k] : null;
+          }
+          if (text) {
+            element.setAttribute(attr, text);
+          }
+        });
+      });
+
+      // Update language button text
+      const langBtnText = document.querySelector('.lang-text');
+      if (langBtnText) {
+        langBtnText.textContent = currentLang.toUpperCase();
+      }
+
+      // Update html lang attribute
+      document.documentElement.lang = currentLang;
+    };
+
+    const setLanguage = async (lang) => {
+      currentLang = lang;
+      localStorage.setItem('lang', lang);
+      translations = await loadTranslations(lang);
+      if (translations) {
+        window.portfolioTranslations = translations; // Expose globally
+        updateText();
+        // Dispatch event for other scripts
+        document.dispatchEvent(new CustomEvent('translationsLoaded', { detail: { lang, translations } }));
+      }
+    };
+
+    // Initialize translations
+    await setLanguage(currentLang);
+
+    // Language Toggle Button
+    const langBtn = document.querySelector('[data-lang-btn]');
+    if (langBtn) {
+      langBtn.addEventListener('click', () => {
+        const newLang = currentLang === 'fr' ? 'en' : 'fr';
+        setLanguage(newLang);
+      });
+    }
 
     // --- Fonctions Utilitaires ---
 
@@ -21,7 +100,7 @@ document.addEventListener('DOMContentLoaded', () => {
      * @param {string} url - L'URL YouTube
      * @returns {string|null} - L'ID de la vidéo ou null si non trouvé
      */
-    const extractYouTubeID = function(url) {
+    const extractYouTubeID = function (url) {
       if (!url) return null;
 
       // Formats supportés:
@@ -76,10 +155,10 @@ document.addEventListener('DOMContentLoaded', () => {
           item.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
           item.style.opacity = '0';
           item.style.transform = 'scale(0.95)';
-          
+
           setTimeout(() => {
             const itemCategory = item.dataset.category;
-            
+
             if (filterValue === "all" || filterValue === itemCategory) {
               item.style.display = "";
               setTimeout(() => {
@@ -104,7 +183,7 @@ document.addEventListener('DOMContentLoaded', () => {
         let age = today.getFullYear() - birthDate.getFullYear();
         const monthDifference = today.getMonth() - birthDate.getMonth();
         if (monthDifference < 0 || (monthDifference === 0 && today.getDate() < birthDate.getDate())) {
-            age--;
+          age--;
         }
         ageElement.textContent = age;
       };
@@ -119,27 +198,37 @@ document.addEventListener('DOMContentLoaded', () => {
     const formBtn = document.querySelector("[data-form-btn]");
 
     if (form && formInputs.length > 0 && formBtn) {
-      // Messages d'erreur en français
-      const errorMessages = {
-        fullname: {
-          valueMissing: 'Veuillez entrer votre nom'
-        },
-        email: {
-          valueMissing: 'Veuillez entrer votre email',
-          typeMismatch: 'Veuillez entrer un email valide'
-        },
-        message: {
-          valueMissing: 'Veuillez entrer votre message'
-        }
+      // Messages d'erreur dynamiques
+      const getErrorMessages = () => {
+        const t = window.portfolioTranslations?.contact?.validation || {};
+        return {
+          fullname: {
+            valueMissing: t.fullname || 'Veuillez entrer votre nom'
+          },
+          email: {
+            valueMissing: t.email_missing || 'Veuillez entrer votre email',
+            typeMismatch: t.email_invalid || 'Veuillez entrer un email valide'
+          },
+          message: {
+            valueMissing: t.message || 'Veuillez entrer votre message'
+          }
+        };
       };
+
+      let errorMessages = getErrorMessages();
+
+      // Mettre à jour les messages si la langue change
+      document.addEventListener('translationsLoaded', () => {
+        errorMessages = getErrorMessages();
+      });
 
       // Validation en temps réel
       formInputs.forEach(input => {
-        input.addEventListener('blur', function() {
+        input.addEventListener('blur', function () {
           validateInput(this);
         });
 
-        input.addEventListener('input', function() {
+        input.addEventListener('input', function () {
           if (this.classList.contains('error')) {
             validateInput(this);
           }
@@ -150,10 +239,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
       function validateInput(input) {
         const errorSpan = input.parentElement.querySelector('.error-message');
-        
+
         if (!input.validity.valid) {
           input.classList.add('error');
-          
+          input.setAttribute('aria-invalid', 'true');
+          input.setAttribute('aria-describedby', errorSpan.id || (errorSpan.id = 'error-' + input.name));
+
           if (input.validity.valueMissing) {
             errorSpan.textContent = errorMessages[input.name].valueMissing;
           } else if (input.validity.typeMismatch) {
@@ -161,14 +252,16 @@ document.addEventListener('DOMContentLoaded', () => {
           }
         } else {
           input.classList.remove('error');
+          input.removeAttribute('aria-invalid');
+          input.removeAttribute('aria-describedby');
           errorSpan.textContent = '';
         }
       }
 
       // Soumission du formulaire
-      form.addEventListener('submit', function(e) {
+      form.addEventListener('submit', function (e) {
         e.preventDefault();
-        
+
         // Valider tous les champs
         let isValid = true;
         formInputs.forEach(input => {
@@ -190,35 +283,35 @@ document.addEventListener('DOMContentLoaded', () => {
             'Accept': 'application/json'
           }
         })
-        .then(response => {
-          if (response.ok) {
-            // Succès
-            form.reset();
-            formBtn.innerHTML = '<ion-icon name="checkmark-circle"></ion-icon><span>Envoyé !</span>';
-            formBtn.style.background = 'var(--orange-yellow-crayola)';
-            formBtn.style.color = 'var(--smoky-black)';
+          .then(response => {
+            if (response.ok) {
+              // Succès
+              form.reset();
+              formBtn.innerHTML = '<ion-icon name="checkmark-circle"></ion-icon><span>Envoyé !</span>';
+              formBtn.style.background = 'var(--orange-yellow-crayola)';
+              formBtn.style.color = 'var(--smoky-black)';
+              setTimeout(() => {
+                formBtn.innerHTML = '<ion-icon name="paper-plane"></ion-icon><span>Envoyer</span>';
+                formBtn.disabled = false;
+                formBtn.style.background = '';
+                formBtn.style.color = '';
+              }, 3000);
+            } else {
+              throw new Error('Erreur lors de l\'envoi');
+            }
+          })
+          .catch(error => {
+            // Erreur
+            formBtn.innerHTML = '<ion-icon name="close-circle"></ion-icon><span>Erreur</span>';
+            formBtn.style.background = 'var(--bittersweet-shimmer)';
+            formBtn.style.color = 'var(--white-1)';
             setTimeout(() => {
               formBtn.innerHTML = '<ion-icon name="paper-plane"></ion-icon><span>Envoyer</span>';
               formBtn.disabled = false;
               formBtn.style.background = '';
               formBtn.style.color = '';
             }, 3000);
-          } else {
-            throw new Error('Erreur lors de l\'envoi');
-          }
-        })
-        .catch(error => {
-          // Erreur
-          formBtn.innerHTML = '<ion-icon name="close-circle"></ion-icon><span>Erreur</span>';
-          formBtn.style.background = 'var(--bittersweet-shimmer)';
-          formBtn.style.color = 'var(--white-1)';
-          setTimeout(() => {
-            formBtn.innerHTML = '<ion-icon name="paper-plane"></ion-icon><span>Envoyer</span>';
-            formBtn.disabled = false;
-            formBtn.style.background = '';
-            formBtn.style.color = '';
-          }, 3000);
-        });
+          });
       });
     }
 
@@ -350,8 +443,8 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         if (!dataSourceElement) {
-            console.error("Could not find project data source for trigger:", triggerButton);
-            return;
+          console.error("Could not find project data source for trigger:", triggerButton);
+          return;
         }
 
         // Obtenir les données de l'élément projet
@@ -421,41 +514,41 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Délégation d'événements pour les déclencheurs de fermeture de modale (boutons et clics hors contenu)
     document.addEventListener('click', function (event) {
-        // 1. Vérifier le clic sur le bouton de fermeture ([data-modal-close])
-        const closeButton = event.target.closest('[data-modal-close]');
-        if (closeButton) {
-            // Trouver la section modale associée à ce bouton de fermeture
-            const modalToClose = closeButton.closest('section[data-modal]');
-            if (modalToClose) {
-                closeModal(modalToClose);
-                return; // Sortie : Fermé via un bouton dans le contenu de la modale
-            }
-            // Ou, si le déclencheur de fermeture est sur le conteneur/overlay lui-même
-            const containerToClose = closeButton.closest('.modal-container.active');
-             if (containerToClose) {
-                 const modalInSection = containerToClose.querySelector('section[data-modal]');
-                 if (modalInSection) {
-                     closeModal(modalInSection);
-                     return; // Sortie : Fermé via un bouton sur le conteneur/overlay
-                 }
-             }
+      // 1. Vérifier le clic sur le bouton de fermeture ([data-modal-close])
+      const closeButton = event.target.closest('[data-modal-close]');
+      if (closeButton) {
+        // Trouver la section modale associée à ce bouton de fermeture
+        const modalToClose = closeButton.closest('section[data-modal]');
+        if (modalToClose) {
+          closeModal(modalToClose);
+          return; // Sortie : Fermé via un bouton dans le contenu de la modale
         }
+        // Ou, si le déclencheur de fermeture est sur le conteneur/overlay lui-même
+        const containerToClose = closeButton.closest('.modal-container.active');
+        if (containerToClose) {
+          const modalInSection = containerToClose.querySelector('section[data-modal]');
+          if (modalInSection) {
+            closeModal(modalInSection);
+            return; // Sortie : Fermé via un bouton sur le conteneur/overlay
+          }
+        }
+      }
 
-        // 2. Vérifier le clic sur le conteneur modal actif (en dehors de la section de contenu)
-        const activeContainer = document.querySelector('.modal-container.active');
-        // Si un conteneur actif existe et que la cible du clic *est* le conteneur lui-même
-        if (activeContainer && event.target === activeContainer) {
-            const modalInSection = activeContainer.querySelector('section[data-modal]');
-            if (modalInSection) {
-                closeModal(modalInSection);
-                // Pas besoin de return ici car c'est la dernière vérification
-            }
+      // 2. Vérifier le clic sur le conteneur modal actif (en dehors de la section de contenu)
+      const activeContainer = document.querySelector('.modal-container.active');
+      // Si un conteneur actif existe et que la cible du clic *est* le conteneur lui-même
+      if (activeContainer && event.target === activeContainer) {
+        const modalInSection = activeContainer.querySelector('section[data-modal]');
+        if (modalInSection) {
+          closeModal(modalInSection);
+          // Pas besoin de return ici car c'est la dernière vérification
         }
+      }
     });
-  // --- Interactivité de la Section Compétences --- (Mise à l'échelle de l'icône au survol supprimée selon le point 3 du todo)
+    // --- Interactivité de la Section Compétences --- (Mise à l'échelle de l'icône au survol supprimée selon le point 3 du todo)
 
 
-// --- Animation d'Apparition pour les Blocs de Compétences ---
+    // --- Animation d'Apparition pour les Blocs de Compétences ---
 
     const competenceBlocks = document.querySelectorAll('.competence-bloc');
 
@@ -481,11 +574,11 @@ document.addEventListener('DOMContentLoaded', () => {
         competenceObserver.observe(block);
       });
     } else if (competenceBlocks.length > 0) {
-        // Solution de repli pour les navigateurs plus anciens : afficher simplement les éléments immédiatement
-        competenceBlocks.forEach(block => {
-            block.style.opacity = 1;
-            block.style.transform = 'translateY(0)';
-        });
+      // Solution de repli pour les navigateurs plus anciens : afficher simplement les éléments immédiatement
+      competenceBlocks.forEach(block => {
+        block.style.opacity = 1;
+        block.style.transform = 'translateY(0)';
+      });
     }
     // --- Animation de la Machine à Écrire pour le Nom ---
     const nameElement = document.querySelector('.name');
@@ -564,7 +657,7 @@ document.addEventListener('DOMContentLoaded', () => {
     animateCounters();
 
     // --- Support Clavier pour les Modales (Touche Escape) ---
-    document.addEventListener('keydown', function(event) {
+    document.addEventListener('keydown', function (event) {
       if (event.key === 'Escape' || event.key === 'Esc') {
         const activeContainer = document.querySelector('.modal-container.active');
         if (activeContainer) {
@@ -577,7 +670,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // --- Boutons de Partage Social ---
-    document.addEventListener('click', function(event) {
+    document.addEventListener('click', function (event) {
       const shareTwitter = event.target.closest('[data-share-twitter]');
       const shareLinkedin = event.target.closest('[data-share-linkedin]');
       const shareCopy = event.target.closest('[data-share-copy]');
@@ -588,8 +681,11 @@ document.addEventListener('DOMContentLoaded', () => {
       const projectTitle = activeModal.querySelector('[data-project-modal-title]')?.textContent || '';
       const projectLink = activeModal.querySelector('[data-project-modal-link]')?.href || window.location.href;
 
+      const shareText = window.portfolioTranslations?.share?.text || 'Découvrez mon projet : ';
+      const copyText = window.portfolioTranslations?.share?.copied || 'Lien copié !';
+
       if (shareTwitter) {
-        const twitterUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent('Découvrez mon projet : ' + projectTitle)}&url=${encodeURIComponent(projectLink)}`;
+        const twitterUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText + projectTitle)}&url=${encodeURIComponent(projectLink)}`;
         window.open(twitterUrl, '_blank', 'noopener,noreferrer');
       }
 
@@ -601,7 +697,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if (shareCopy) {
         navigator.clipboard.writeText(projectLink).then(() => {
           const originalText = shareCopy.querySelector('span').textContent;
-          shareCopy.querySelector('span').textContent = 'Lien copié !';
+          shareCopy.querySelector('span').textContent = copyText;
           shareCopy.style.color = 'var(--orange-yellow-crayola)';
           setTimeout(() => {
             shareCopy.querySelector('span').textContent = originalText;
@@ -616,13 +712,13 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- Animations de Défilement pour Timeline et Autres Éléments ---
     const animateOnScroll = () => {
       const elements = document.querySelectorAll('.timeline-item, .service-item, .skills-item');
-      
+
       if (elements.length > 0 && 'IntersectionObserver' in window) {
         const observerOptions = {
           threshold: 0.1,
           rootMargin: '0px 0px -100px 0px'
         };
-        
+
         const observerCallback = (entries) => {
           entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -631,9 +727,9 @@ document.addEventListener('DOMContentLoaded', () => {
             }
           });
         };
-        
+
         const observer = new IntersectionObserver(observerCallback, observerOptions);
-        
+
         elements.forEach(element => {
           element.style.opacity = '0';
           element.style.transform = 'translateY(20px)';
@@ -642,7 +738,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
       }
     };
-    
+
     animateOnScroll();
 
     // --- Réinitialiser les Animations lors de la Navigation entre Pages ---
@@ -653,6 +749,57 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
 
-})(); // Fin de l'IIFE
+
+    // --- Bouton Retour en Haut ---
+    const backToTopBtn = document.querySelector("[data-back-to-top]");
+
+    if (backToTopBtn) {
+      window.addEventListener("scroll", function () {
+        if (window.scrollY >= 100) {
+          backToTopBtn.classList.add("active");
+        } else {
+          backToTopBtn.classList.remove("active");
+        }
+      });
+    }
+
+    // --- Accessibilité : Gestion du Focus dans les Modales (Trap Focus) ---
+    /**
+     * Garde le focus à l'intérieur de l'élément modal
+     * @param {HTMLElement} element - L'élément modal
+     * @param {KeyboardEvent} e - L'événement clavier
+     */
+    const trapFocus = (element, e) => {
+      const focusableEls = element.querySelectorAll('a[href]:not([disabled]), button:not([disabled]), textarea:not([disabled]), input[type="text"]:not([disabled]), input[type="radio"]:not([disabled]), input[type="checkbox"]:not([disabled]), select:not([disabled])');
+      const firstFocusableEl = focusableEls[0];
+      const lastFocusableEl = focusableEls[focusableEls.length - 1];
+      const KEYCODE_TAB = 9;
+
+      if (e.key === 'Tab' || e.keyCode === KEYCODE_TAB) {
+        if (e.shiftKey) /* shift + tab */ {
+          if (document.activeElement === firstFocusableEl) {
+            lastFocusableEl.focus();
+            e.preventDefault();
+          }
+        } else /* tab */ {
+          if (document.activeElement === lastFocusableEl) {
+            firstFocusableEl.focus();
+            e.preventDefault();
+          }
+        }
+      }
+    }
+
+    // Ajouter l'écouteur pour le trap focus quand une modale est ouverte
+    const modalContainers = document.querySelectorAll('.modal-container');
+    modalContainers.forEach(container => {
+      container.addEventListener('keydown', function (e) {
+        if (this.classList.contains('active')) {
+          trapFocus(this, e);
+        }
+      });
+    });
+
+  })(); // Fin de l'IIFE
 
 }); // Fin de DOMContentLoaded

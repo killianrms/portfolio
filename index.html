@@ -5,858 +5,939 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Portfolio de Killian Ramus, Assistant Project Engineer chez Itesoft. Étudiant en BUT Informatique (DACS - Sécurité) à Montpellier. Découvrez mes projets en développement web, Python, Java et cybersécurité.">
-    <meta name="keywords" content="Killian Ramus, développeur, BUT Informatique, Montpellier, cybersécurité, développement web, Python, Java, portfolio">
+    <meta name="description"
+        content="Portfolio de Killian Ramus, Assistant Project Engineer chez Itesoft. Étudiant en BUT Informatique (DACS - Sécurité) à Montpellier. Découvrez mes projets en développement web, Python, Java et cybersécurité.">
+    <meta name="keywords"
+        content="Killian Ramus, développeur, BUT Informatique, Montpellier, cybersécurité, développement web, Python, Java, portfolio">
     <meta name="author" content="Killian Ramus">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://killianrms.com/">
     <meta property="og:title" content="Killian Ramus - Portfolio | Assistant Project Engineer">
-    <meta property="og:description" content="Portfolio de Killian Ramus, Assistant Project Engineer chez Itesoft. Découvrez mes projets en développement web, Python, Java et cybersécurité.">
+    <meta property="og:description"
+        content="Portfolio de Killian Ramus, Assistant Project Engineer chez Itesoft. Découvrez mes projets en développement web, Python, Java et cybersécurité.">
     <meta property="og:image" content="https://killianrms.com/assets/images/photo.webp">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://killianrms.com/">
     <meta property="twitter:title" content="Killian Ramus - Portfolio | Assistant Project Engineer">
-    <meta property="twitter:description" content="Portfolio de Killian Ramus, Assistant Project Engineer chez Itesoft. Découvrez mes projets en développement web, Python, Java et cybersécurité.">
+    <meta property="twitter:description"
+        content="Portfolio de Killian Ramus, Assistant Project Engineer chez Itesoft. Découvrez mes projets en développement web, Python, Java et cybersécurité.">
     <meta property="twitter:image" content="https://killianrms.com/assets/images/photo.webp">
 
     <title>Killianrms</title>
+    <link rel="icon" type="image/webp" href="assets/images/photo.webp">
     <link rel="stylesheet" href="./assets/css/style.css">
     <link rel="stylesheet" href="./assets/css/portfolio-layout.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="manifest" href="manifest.json">
 </head>
 
 <body>
 
-<!-- Reading Progress Indicator -->
-<div id="reading-progress">
-    <div id="reading-progress-bar"></div>
-</div>
+    <!-- Reading Progress Indicator -->
+    <div id="reading-progress">
+        <div id="reading-progress-bar"></div>
+    </div>
 
-<main>
+    <main>
 
-    <aside class="sidebar" data-sidebar>
+        <aside class="sidebar" data-sidebar>
 
-        <div class="sidebar-info">
+            <div class="sidebar-info">
 
-            <figure class="avatar-box">
-                <img src="./assets/images/photo.webp" alt="Photo de Killian Ramus" width="80" height="80" loading="eager">
-                <button class="info_more-btn" data-sidebar-btn aria-controls="sidebar-content" aria-expanded="false">
-                    <span>Plus d'informations</span>
-                    <ion-icon name="chevron-down"></ion-icon>
-                </button>
-            </figure>
+                <figure class="avatar-box">
+                    <img src="./assets/images/photo.webp" alt="Photo de Killian Ramus" width="80" height="80"
+                        loading="eager">
+                    <button class="info_more-btn" data-sidebar-btn aria-controls="sidebar-content"
+                        aria-expanded="false">
+                        <span data-i18n="sidebar.more_info">Plus d'informations</span>
+                        <ion-icon name="chevron-down"></ion-icon>
+                    </button>
+                </figure>
 
-            <div class="info-content">
-                <h1 class="name" title="Killian Ramus">Killian RAMUS</h1>
+                <div class="info-content">
+                    <h1 class="name" title="Killian Ramus">Killian RAMUS</h1>
 
-                <p class="title">Assistant Project Engineer</p>
+                    <p class="title" data-i18n="sidebar.role">Assistant Project Engineer</p>
+                </div>
+
+
             </div>
 
+            <div class="sidebar-info_more" id="sidebar-content">
 
-        </div>
+                <div class="separator"></div>
 
-        <div class="sidebar-info_more" id="sidebar-content">
+                <ul class="contacts-list">
 
-            <div class="separator"></div>
+                    <li class="contact-item">
+                        <a href="cv.pdf" target="_blank" class="contact-link-wrapper cv-button-link">
+                            <div class="icon-box">
+                                <ion-icon name="cloud-download-outline"></ion-icon>
+                            </div>
+                            <div class="contact-info">
+                                <p class="contact-title" data-i18n="sidebar.contacts.cv">CV</p>
+                                <address>killianrms.com/cv.pdf</address>
+                            </div>
+                        </a>
+                    </li>
 
-            <ul class="contacts-list">
+                    <li class="contact-item">
 
-                <li class="contact-item">
-                    <a href="cv.pdf" target="_blank" class="contact-link-wrapper cv-button-link">
                         <div class="icon-box">
-                            <ion-icon name="cloud-download-outline"></ion-icon>
+                            <ion-icon name="mail-outline"></ion-icon>
                         </div>
+
                         <div class="contact-info">
-                            <p class="contact-title">CV</p>
-                            <address>killianrms.com/cv.pdf</address>
+                            <p class="contact-title" data-i18n="sidebar.contacts.email">Email</p>
+
+                            <a href="mailto:contact@killianrms.com" class="contact-link">contact@killianrms.com</a>
                         </div>
-                    </a>
-                </li>
 
-                <li class="contact-item">
+                    </li>
 
-                    <div class="icon-box">
-                        <ion-icon name="mail-outline"></ion-icon>
-                    </div>
+                    <li class="contact-item">
 
-                    <div class="contact-info">
-                        <p class="contact-title">Email</p>
-
-                        <a href="mailto:contact@killianrms.com" class="contact-link">contact@killianrms.com</a>
-                    </div>
-
-                </li>
-
-                <li class="contact-item">
-
-                    <div class="icon-box">
-                        <ion-icon name="phone-portrait-outline"></ion-icon>
-                    </div>
-
-                    <div class="contact-info">
-                        <p class="contact-title">Phone</p>
-
-                        <a href="tel:+33698006329" class="contact-link">+33 6 98 00 63 29</a>
-                    </div>
-
-                </li>
-
-                <li class="contact-item">
-
-                    <div class="icon-box">
-                        <ion-icon name="calendar-outline"></ion-icon>
-                    </div>
-
-                    <div class="contact-info">
-                        <p class="contact-title">Date de naissance</p>
-
-                        <time datetime="2004-06-28">28 Juin 2004</time>
-                    </div>
-
-                </li>
-
-                <li class="contact-item">
-
-                    <div class="icon-box">
-                        <ion-icon name="location-outline"></ion-icon>
-                    </div>
-
-                    <div class="contact-info">
-                        <p class="contact-title">Localisation</p>
-
-                        <address>Montpellier, France</address>
-                    </div>
-
-                </li>
-            </ul>
-
-
-            <div class="separator"></div>
-
-            <ul class="social-list">
-
-                <li class="social-item">
-                    <a href="https://github.com/killianrms" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="GitHub de Killian Ramus">
-                        <ion-icon name="logo-github"></ion-icon>
-                    </a>
-                </li>
-
-                <li class="social-item">
-                    <a href="https://www.linkedin.com/in/killianrms/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="LinkedIn de Killian Ramus">
-                        <ion-icon name="logo-linkedin"></ion-icon>
-                    </a>
-                </li>
-
-
-            </ul>
-
-        </div>
-
-    </aside>
-
-
-    <div class="main-content">
-
-
-        <nav class="navbar">
-
-            <ul class="navbar-list">
-
-                <li class="navbar-item">
-                    <button class="navbar-link  active" data-nav-link>Biographie</button>
-                </li>
-
-                <li class="navbar-item">
-                    <button class="navbar-link" data-nav-link>Parcours</button>
-                </li>
-
-                <li class="navbar-item">
-                    <button class="navbar-link" data-nav-link>Projets</button>
-                </li>
-
-                <li class="navbar-item">
-                    <button class="navbar-link" data-nav-link>Contact</button>
-                </li>
-
-                <li class="navbar-item">
-                  <button class="theme-toggle-btn" aria-label="Toggle light/dark theme" data-theme-btn>
-                    <ion-icon name="moon-outline" class="theme-icon moon"></ion-icon>
-                    <ion-icon name="sunny-outline" class="theme-icon sun"></ion-icon>
-                  </button>
-                </li>
-            </ul>
-
-        </nav>
-
-        <article class="biographie  active" data-page="biographie">
-
-            <header>
-                <h2 class="h2 article-title">Biographie</h2>
-            </header>
-            <section class="about-text">
-                <h3>Bonjour, Je suis <strong>Killian</strong> 👋</h3>
-                <p>
-                    À 21 ans, étudiant en BUT Informatique (parcours DACS - Sécurité) à l'IUT de Montpellier-Sète, je suis un passionné de technologie particulièrement attiré par les défis de la cybersécurité. Pour moi, l'informatique est une discipline qui allie rigueur technique et dimension humaine.
-                </p>
-                <p>
-                    Actuellement Assistant Project Engineer chez <strong>ITESOFT</strong> à Aimargues (30470) en mode hybride, je mets mon énergie et mes compétences au service d'une entreprise innovante dans le secteur du développement logiciel. Mon objectif est de poursuivre ma formation en intégrant le CNAM en cybersécurité ou l'École Polytech Montpellier en formation DevOps, de préférence, tout en poursuivant mon alternance chez Itesoft. J'aspire à évoluer du pôle Project Delivery vers le pôle Sécurité IT afin d'aligner mon alternance avec ma formation et de développer une expertise en sécurité informatique, domaine qui me passionne particulièrement.
-                </p>
-                <p>
-                    Engagé activement depuis deux ans au sein du Bureau des Étudiants (BDE) en tant que responsable événementiel et communication, j'ai développé des compétences en gestion de projet, en organisation d'événements fédérateurs et en communication. Cette expérience m'a permis de renforcer mon aisance relationnelle et ma capacité à mener des initiatives de A à Z, illustrant mon aptitude à concilier rigueur technique et dynamisme interpersonnel.
-                </p>
-                <p>
-                    Originaire du Var et étudiant à Montpellier, ma pratique passée du handball m'a transmis un solide esprit d'équipe et une grande persévérance, des qualités que j'applique pour surmonter les défis techniques comme organisationnels.
-                </p>
-
-                <section class="skills" id="skills">
-                    <h3 class="h3">Mes Compétences</h3>
-                    <div class="skills-grid-small">
-                        <div class="skill-item-small" data-skill-name="Java">
-                            <figure class="skill-icon-small">
-                                <img src="assets/images/skills/java.svg" alt="Java Logo" loading="lazy">
-                            </figure>
-                            <h4 class="skill-name-small">Java</h4>
+                        <div class="icon-box">
+                            <ion-icon name="phone-portrait-outline"></ion-icon>
                         </div>
-                        <div class="skill-item-small" data-skill-name="Python">
-                            <figure class="skill-icon-small">
-                                <img src="assets/images/skills/python.svg" alt="Python Logo" loading="lazy">
-                            </figure>
-                            <h4 class="skill-name-small">Python</h4>
+
+                        <div class="contact-info">
+                            <p class="contact-title" data-i18n="sidebar.contacts.phone">Phone</p>
+
+                            <a href="tel:+33698006329" class="contact-link">+33 6 98 00 63 29</a>
                         </div>
-                         <div class="skill-item-small" data-skill-name="C">
-                            <figure class="skill-icon-small">
-                                <img src="assets/images/skills/c.svg" alt="C Logo" loading="lazy">
-                            </figure>
-                            <h4 class="skill-name-small">C</h4>
+
+                    </li>
+
+                    <li class="contact-item">
+
+                        <div class="icon-box">
+                            <ion-icon name="calendar-outline"></ion-icon>
                         </div>
-                        <div class="skill-item-small" data-skill-name="JavaScript">
-                            <figure class="skill-icon-small">
-                                <img src="assets/images/skills/javascript.svg" alt="JavaScript Logo" loading="lazy">
-                            </figure>
-                            <h4 class="skill-name-small">JavaScript</h4>
+
+                        <div class="contact-info">
+                            <p class="contact-title" data-i18n="sidebar.contacts.birthday">Date de naissance</p>
+
+                            <time datetime="2004-06-28">28 Juin 2004</time>
                         </div>
-                        <div class="skill-item-small" data-skill-name="HTML5">
-                            <figure class="skill-icon-small">
-                                <img src="assets/images/skills/html5.svg" alt="HTML5 Logo" loading="lazy">
-                            </figure>
-                            <h4 class="skill-name-small">HTML5</h4>
+
+                    </li>
+
+                    <li class="contact-item">
+
+                        <div class="icon-box">
+                            <ion-icon name="location-outline"></ion-icon>
                         </div>
-                         <div class="skill-item-small" data-skill-name="PHP">
-                            <figure class="skill-icon-small">
-                                <img src="assets/images/skills/php.svg" alt="PHP Logo" loading="lazy">
-                            </figure>
-                            <h4 class="skill-name-small">PHP</h4>
+
+                        <div class="contact-info">
+                            <p class="contact-title" data-i18n="sidebar.contacts.location">Localisation</p>
+
+                            <address>Montpellier, France</address>
                         </div>
-                        <div class="skill-item-small" data-skill-name="SQL">
-                            <figure class="skill-icon-small">
-                                <img src="assets/images/skills/sql.svg" alt="SQL Logo" loading="lazy">
-                            </figure>
-                            <h4 class="skill-name-small">SQL</h4>
+
+                    </li>
+                </ul>
+
+
+                <div class="separator"></div>
+
+                <ul class="social-list">
+
+                    <li class="social-item">
+                        <a href="https://github.com/killianrms" target="_blank" rel="noopener noreferrer"
+                            class="social-link" aria-label="GitHub de Killian Ramus">
+                            <ion-icon name="logo-github"></ion-icon>
+                        </a>
+                    </li>
+
+                    <li class="social-item">
+                        <a href="https://www.linkedin.com/in/killianrms/" target="_blank" rel="noopener noreferrer"
+                            class="social-link" aria-label="LinkedIn de Killian Ramus">
+                            <ion-icon name="logo-linkedin"></ion-icon>
+                        </a>
+                    </li>
+
+
+                </ul>
+
+            </div>
+
+        </aside>
+
+
+        <div class="main-content">
+
+
+            <nav class="navbar">
+
+                <ul class="navbar-list">
+
+                    <li class="navbar-item">
+                        <button class="navbar-link  active" data-nav-link data-i18n="navbar.about">Biographie</button>
+                    </li>
+
+                    <li class="navbar-item">
+                        <button class="navbar-link" data-nav-link data-i18n="navbar.resume">Parcours</button>
+                    </li>
+
+                    <li class="navbar-item">
+                        <button class="navbar-link" data-nav-link data-i18n="navbar.projects">Projets</button>
+                    </li>
+
+                    <li class="navbar-item">
+                        <button class="navbar-link" data-nav-link data-i18n="navbar.contact">Contact</button>
+                    </li>
+
+                    <li class="navbar-item">
+                        <button class="theme-toggle-btn" aria-label="Toggle light/dark theme" data-theme-btn>
+                            <ion-icon name="moon-outline" class="theme-icon moon"></ion-icon>
+                            <ion-icon name="sunny-outline" class="theme-icon sun"></ion-icon>
+                        </button>
+                    </li>
+                    <!-- Language Switcher -->
+                    <li class="navbar-item">
+                        <button class="lang-toggle-btn" aria-label="Toggle language" data-lang-btn>
+                            <span class="lang-text">FR</span>
+                        </button>
+                    </li>
+                    </li>
+                </ul>
+
+            </nav>
+
+            <article class="biographie  active" data-page="biographie">
+
+                <header>
+                    <h2 class="h2 article-title" data-i18n="about.title">Biographie</h2>
+                </header>
+                <section class="about-text">
+                    <h3 data-i18n="about.intro_title">Bonjour, Je suis <strong>Killian</strong> 👋</h3>
+                    <p data-i18n="about.p1">
+                        À 21 ans, étudiant en BUT Informatique (parcours DACS - Sécurité) à l'IUT de Montpellier-Sète,
+                        je suis un passionné de technologie particulièrement attiré par les défis de la cybersécurité.
+                        Pour moi, l'informatique est une discipline qui allie rigueur technique et dimension humaine.
+                    </p>
+                    <p data-i18n="about.p2">
+                        Actuellement Assistant Project Engineer chez <strong>ITESOFT</strong> à Aimargues (30470) en
+                        mode hybride, je mets mon énergie et mes compétences au service d'une entreprise innovante dans
+                        le secteur du développement logiciel. Mon objectif est de poursuivre ma formation en intégrant
+                        le CNAM en cybersécurité ou l'École Polytech Montpellier en formation DevOps, de préférence,
+                        tout en poursuivant mon alternance chez Itesoft. J'aspire à évoluer du pôle Project Delivery
+                        vers le pôle Sécurité IT afin d'aligner mon alternance avec ma formation et de développer une
+                        expertise en sécurité informatique, domaine qui me passionne particulièrement.
+                    </p>
+                    <p data-i18n="about.p3">
+                        Engagé activement depuis deux ans au sein du Bureau des Étudiants (BDE) en tant que responsable
+                        événementiel et communication, j'ai développé des compétences en gestion de projet, en
+                        organisation d'événements fédérateurs et en communication. Cette expérience m'a permis de
+                        renforcer mon aisance relationnelle et ma capacité à mener des initiatives de A à Z, illustrant
+                        mon aptitude à concilier rigueur technique et dynamisme interpersonnel.
+                    </p>
+                    <p data-i18n="about.p4">
+                        Originaire du Var et étudiant à Montpellier, ma pratique passée du handball m'a transmis un
+                        solide esprit d'équipe et une grande persévérance, des qualités que j'applique pour surmonter
+                        les défis techniques comme organisationnels.
+                    </p>
+
+                    <section class="skills" id="skills">
+                        <h3 class="h3" data-i18n="about.skills_title">Mes Compétences</h3>
+                        <div class="skills-grid-small">
+                            <div class="skill-item-small" data-skill-name="Java">
+                                <figure class="skill-icon-small">
+                                    <img src="assets/images/skills/java.svg" alt="Java Logo" loading="lazy" width="16"
+                                        height="16">
+                                </figure>
+                                <h4 class="skill-name-small">Java</h4>
+                            </div>
+                            <div class="skill-item-small" data-skill-name="Python">
+                                <figure class="skill-icon-small">
+                                    <img src="assets/images/skills/python.svg" alt="Python Logo" loading="lazy"
+                                        width="16" height="16">
+                                </figure>
+                                <h4 class="skill-name-small">Python</h4>
+                            </div>
+                            <div class="skill-item-small" data-skill-name="C">
+                                <figure class="skill-icon-small">
+                                    <img src="assets/images/skills/c.svg" alt="C Logo" loading="lazy" width="16"
+                                        height="16">
+                                </figure>
+                                <h4 class="skill-name-small">C</h4>
+                            </div>
+                            <div class="skill-item-small" data-skill-name="JavaScript">
+                                <figure class="skill-icon-small">
+                                    <img src="assets/images/skills/javascript.svg" alt="JavaScript Logo" loading="lazy"
+                                        width="16" height="16">
+                                </figure>
+                                <h4 class="skill-name-small">JavaScript</h4>
+                            </div>
+                            <div class="skill-item-small" data-skill-name="HTML5">
+                                <figure class="skill-icon-small">
+                                    <img src="assets/images/skills/html5.svg" alt="HTML5 Logo" loading="lazy" width="16"
+                                        height="16">
+                                </figure>
+                                <h4 class="skill-name-small">HTML5</h4>
+                            </div>
+                            <div class="skill-item-small" data-skill-name="PHP">
+                                <figure class="skill-icon-small">
+                                    <img src="assets/images/skills/php.svg" alt="PHP Logo" loading="lazy" width="16"
+                                        height="16">
+                                </figure>
+                                <h4 class="skill-name-small">PHP</h4>
+                            </div>
+                            <div class="skill-item-small" data-skill-name="SQL">
+                                <figure class="skill-icon-small">
+                                    <img src="assets/images/skills/sql.svg" alt="SQL Logo" loading="lazy" width="16"
+                                        height="16">
+                                </figure>
+                                <h4 class="skill-name-small">SQL</h4>
+                            </div>
+                            <div class="skill-item-small" data-skill-name="Angular">
+                                <figure class="skill-icon-small">
+                                    <img src="assets/images/skills/angular.svg" alt="Angular Logo" loading="lazy"
+                                        width="16" height="16">
+                                </figure>
+                                <h4 class="skill-name-small">Angular</h4>
+                            </div>
+                            <div class="skill-item-small" data-skill-name="GitHub">
+                                <figure class="skill-icon-small">
+                                    <img src="assets/images/skills/github.svg" alt="GitHub Logo" loading="lazy"
+                                        width="16" height="16">
+                                </figure>
+                                <h4 class="skill-name-small">GitHub</h4>
+                            </div>
+                            <div class="skill-item-small" data-skill-name="GitLab">
+                                <figure class="skill-icon-small">
+                                    <img src="assets/images/skills/gitlab.svg" alt="GitLab Logo" loading="lazy"
+                                        width="16" height="16">
+                                </figure>
+                                <h4 class="skill-name-small">GitLab</h4>
+                            </div>
+                            <div class="skill-item-small" data-skill-name="Azure DevOps">
+                                <figure class="skill-icon-small">
+                                    <img src="assets/images/skills/azure-devops.svg" alt="Azure DevOps Logo"
+                                        loading="lazy" width="16" height="16">
+                                </figure>
+                                <h4 class="skill-name-small">Azure DevOps</h4>
+                            </div>
+                            <div class="skill-item-small" data-skill-name="Docker">
+                                <figure class="skill-icon-small">
+                                    <img src="assets/images/skills/docker.svg" alt="Docker Logo" loading="lazy"
+                                        width="16" height="16">
+                                </figure>
+                                <h4 class="skill-name-small">Docker</h4>
+                            </div>
+                            <div class="skill-item-small" data-skill-name="Windows">
+                                <figure class="skill-icon-small">
+                                    <img src="assets/images/skills/windows.svg" alt="Windows Logo" loading="lazy"
+                                        width="16" height="16">
+                                </figure>
+                                <h4 class="skill-name-small">Windows</h4>
+                            </div>
+                            <div class="skill-item-small" data-skill-name="Linux">
+                                <figure class="skill-icon-small">
+                                    <img src="assets/images/skills/linux.png" alt="Linux Logo" loading="lazy" width="16"
+                                        height="16">
+                                </figure>
+                                <h4 class="skill-name-small">Linux</h4>
+                            </div>
+                            <div class="skill-item-small" data-skill-name="JetBrains IDEs">
+                                <figure class="skill-icon-small">
+                                    <img src="assets/images/skills/jetbrain.svg" alt="JetBrains IDEs Logo"
+                                        loading="lazy" width="16" height="16">
+                                </figure>
+                                <h4 class="skill-name-small">JetBrains IDEs</h4>
+                            </div>
+                            <div class="skill-item-small" data-skill-name="Termius">
+                                <figure class="skill-icon-small">
+                                    <img src="assets/images/skills/termius.svg" alt="Termius Logo" loading="lazy"
+                                        width="16" height="16">
+                                </figure>
+                                <h4 class="skill-name-small">Termius</h4>
+                            </div>
                         </div>
-                         <div class="skill-item-small" data-skill-name="Angular">
-                            <figure class="skill-icon-small">
-                                <img src="assets/images/skills/angular.svg" alt="Angular Logo" loading="lazy">
-                            </figure>
-                            <h4 class="skill-name-small">Angular</h4>
-                        </div>
-                         <div class="skill-item-small" data-skill-name="GitHub">
-                            <figure class="skill-icon-small">
-                                <img src="assets/images/skills/github.svg" alt="GitHub Logo" loading="lazy">
-                            </figure>
-                            <h4 class="skill-name-small">GitHub</h4>
-                        </div>
-                         <div class="skill-item-small" data-skill-name="GitLab">
-                            <figure class="skill-icon-small">
-                                <img src="assets/images/skills/gitlab.svg" alt="GitLab Logo" loading="lazy">
-                            </figure>
-                            <h4 class="skill-name-small">GitLab</h4>
-                        </div>
-                         <div class="skill-item-small" data-skill-name="Azure DevOps">
-                            <figure class="skill-icon-small">
-                                <img src="assets/images/skills/azure-devops.svg" alt="Azure DevOps Logo" loading="lazy">
-                            </figure>
-                            <h4 class="skill-name-small">Azure DevOps</h4>
-                        </div>
-                         <div class="skill-item-small" data-skill-name="Docker">
-                            <figure class="skill-icon-small">
-                                <img src="assets/images/skills/docker.svg" alt="Docker Logo" loading="lazy">
-                            </figure>
-                            <h4 class="skill-name-small">Docker</h4>
-                        </div>
-                         <div class="skill-item-small" data-skill-name="Windows">
-                            <figure class="skill-icon-small">
-                                <img src="assets/images/skills/windows.svg" alt="Windows Logo" loading="lazy">
-                            </figure>
-                            <h4 class="skill-name-small">Windows</h4>
-                        </div>
-                         <div class="skill-item-small" data-skill-name="Linux">
-                            <figure class="skill-icon-small">
-                                <img src="assets/images/skills/linux.png" alt="Linux Logo" loading="lazy">
-                            </figure>
-                            <h4 class="skill-name-small">Linux</h4>
-                        </div>
-                         <div class="skill-item-small" data-skill-name="JetBrains IDEs">
-                            <figure class="skill-icon-small">
-                                <img src="assets/images/skills/jetbrain.svg" alt="JetBrains IDEs Logo" loading="lazy">
-                            </figure>
-                            <h4 class="skill-name-small">JetBrains IDEs</h4>
-                        </div>
-                         <div class="skill-item-small" data-skill-name="Termius">
-                            <figure class="skill-icon-small">
-                                <img src="assets/images/skills/termius.svg" alt="Termius Logo" loading="lazy">
-                            </figure>
-                            <h4 class="skill-name-small">Termius</h4>
-                        </div>
-                    </div>
+                    </section>
                 </section>
-            </section>
 
-            <div class="modal-container" data-modal-container>
+            </article>
 
-                <div class="overlay" data-overlay></div>
 
-                <section class="testimonials-modal">
+            <article class="resume" data-page="parcours">
 
-                    <button class="modal-close-btn" data-modal-close-btn>
+                <header>
+                    <h2 class="h2 article-title" data-i18n="resume.title">Parcours</h2>
+                </header>
+
+                <section class="timeline">
+
+                    <div class="title-wrapper">
+                        <div class="icon-box">
+                            <ion-icon name="briefcase-outline"></ion-icon>
+                        </div>
+
+                        <h3 class="h3" data-i18n="resume.experience.title">Expériences</h3>
+                    </div>
+
+                    <ol class="timeline-list">
+
+                        <li class="timeline-item">
+
+                            <h4 class="h4 timeline-item-title timeline-item-title-wrapper">
+                                <span data-i18n="resume.experience.itesoft.title">Assistant Project Engineer</span>
+                                <img src="./assets/images/itesoft.webp" alt="Logo Itesoft" class="company-logo"
+                                    width="50" height="50">
+                            </h4>
+
+                            <span data-i18n="resume.experience.itesoft.date">Septembre 2025 - Maintenant</span>
+
+                            <p class="timeline-text" data-i18n="resume.experience.itesoft.desc">
+                                Itesoft · Alternance · Aimargues (Hybride)
+                            </p>
+
+                        </li>
+
+                        <li class="timeline-item">
+
+                            <h4 class="h4 timeline-item-title" data-i18n="resume.experience.tamabox.title">Stagiaire de
+                                projet</h4>
+
+                            <span data-i18n="resume.experience.tamabox.date">Janvier 2025 - Avril 2025</span>
+
+                            <p class="timeline-text" data-i18n="resume.experience.tamabox.desc">
+                                Tamabox · Stage · 4 mois
+                            </p>
+
+                        </li>
+
+                    </ol>
+
+                </section>
+
+                <section class="timeline">
+
+                    <div class="title-wrapper">
+                        <div class="icon-box">
+                            <ion-icon name="book-outline"></ion-icon>
+                        </div>
+
+                        <h3 class="h3" data-i18n="resume.education.title">Formations</h3>
+                    </div>
+
+                    <ol class="timeline-list">
+
+                        <li class="timeline-item">
+
+                            <h4 class="h4 timeline-item-title" data-i18n="resume.education.iut.title">IUT
+                                Montpellier-Sète</h4>
+
+                            <span data-i18n="resume.education.iut.date">Septembre 2022 - Maintenant</span>
+
+                            <p class="timeline-text">
+                                <span data-i18n="resume.education.iut.desc1">99 avenue d'Occitanie 34090
+                                    Montpellier</span>
+                            </p>
+                            <p class="timeline-text" data-i18n="resume.education.iut.desc2">
+                                Formation Informatique
+                            </p>
+
+                        </li>
+                        <li class="timeline-item">
+
+                            <h4 class="h4 timeline-item-title" data-i18n="resume.education.lycee.title">Lycée Thomas
+                                Edison</h4>
+
+                            <span data-i18n="resume.education.lycee.date">Septembre 2019 — Juin 2022</span>
+
+                            <p class="timeline-text">
+                                <span data-i18n="resume.education.lycee.desc1">1 Rue Emile Héraud, 83510 Lorgues</span>
+                            </p>
+                            <p class="timeline-text" data-i18n="resume.education.lycee.desc2">
+                                Bac Technologique, Fillière STI2D (Sciences et technologies de l'industrie et du
+                                développement durable)
+                            </p>
+
+                        </li>
+
+                    </ol>
+
+                </section>
+
+                <section class="timeline">
+
+                    <div class="title-wrapper">
+                        <div class="icon-box">
+                            <ion-icon name="people-outline"></ion-icon>
+                        </div>
+
+                        <h3 class="h3" data-i18n="resume.volunteering.title">Bénévolat</h3>
+                    </div>
+
+                    <ol class="timeline-list">
+
+                        <li class="timeline-item">
+
+                            <h4 class="h4 timeline-item-title" data-i18n="resume.volunteering.bde.title">BDE
+                                Informatique Montpellier</h4>
+
+                            <span data-i18n="resume.volunteering.bde.date">Mai 2024 - Avril 2026</span>
+
+                            <p class="timeline-text" data-i18n="resume.volunteering.bde.desc">
+                                Responsable Événementiel et Communication. Organisation d'événements (soirées, tournois)
+                                et gestion de la communication (Discord, Instagram).
+                            </p>
+
+                        </li>
+
+                    </ol>
+
+                </section>
+
+                <section class="timeline">
+
+                    <div class="title-wrapper">
+                        <div class="icon-box">
+                            <ion-icon name="rocket-outline"></ion-icon>
+                        </div>
+
+                        <h3 class="h3" data-i18n="resume.future.title">Futur</h3>
+                    </div>
+
+                    <ol class="timeline-list">
+
+                        <li class="timeline-item">
+
+                            <h4 class="h4 timeline-item-title" data-i18n="resume.future.studies.title">Poursuite
+                                d'études</h4>
+
+                            <span data-i18n="resume.future.studies.date">Septembre 2026</span>
+
+                            <p class="timeline-text" data-i18n="resume.future.studies.desc">
+                                Mon objectif est de poursuivre mes études en alternance à Montpellier, soit au CNAM en
+                                cybersécurité, soit à Polytech Montpellier en DevOps, afin de me spécialiser dans les
+                                domaines qui me passionnent.
+                            </p>
+
+                        </li>
+
+                    </ol>
+
+                </section>
+
+
+
+            </article>
+
+            <article class="projets" data-page="projets">
+
+                <header>
+                    <h2 class="h2 article-title" data-i18n="projects.title">Projets</h2>
+                </header>
+
+                <section class="projects">
+
+                    <ul class="filter-list">
+                        <li class="filter-item">
+                            <button data-filter="all" class="active">Tous</button>
+                        </li>
+                        <li class="filter-item">
+                            <button data-filter="Professionnel">Professionnel</button>
+                        </li>
+                        <li class="filter-item">
+                            <button data-filter="Personnel">Personnel</button>
+                        </li>
+                        <li class="filter-item">
+                            <button data-filter="Universitaire">Universitaire</button>
+                        </li>
+                        <li class="filter-item">
+                            <button data-filter="Concours">Concours</button>
+                        </li>
+                    </ul>
+
+                    <ul class="project-list">
+
+                        <li class="project-item active" data-category="Professionnel"
+                            data-project-title="Itesoft - Assistant Project Engineer"
+                            data-project-link="https://www.itesoft.com"
+                            data-project-image="./assets/images/itesoft_projet.webp"
+                            data-project-category="Alternance en entreprise | Professionnel"
+                            data-project-description="Alternance en tant qu'Assistant Project Engineer chez Itesoft..."
+                            data-project-tech="Java, JavaScript, Angular, Docker, Termius, FileZilla"
+                            data-project-role="Assistant Project Engineer" data-project-group="équipe"
+                            data-project-time="Septembre 2025 - Septembre 2026"
+                            data-i18n-attr="data-project-title:projects.items.itesoft.title,data-project-category:projects.items.itesoft.category,data-project-role:projects.items.itesoft.role,data-project-group:projects.items.itesoft.group,data-project-time:projects.items.itesoft.time,data-project-description:projects.items.itesoft.desc">
+                            <a data-modal-trigger="project-details" class="project-link-wrapper">
+                                <figure class="project-img">
+                                    <picture>
+                                        <source srcset="./assets/images/itesoft_projet.webp" type="image/webp">
+                                        <img src="./assets/images/itesoft_projet.webp" alt="Miniature du projet Itesoft"
+                                            loading="lazy">
+                                    </picture>
+                                </figure>
+                                <h3 class="project-title" data-i18n="projects.items.itesoft.title">Itesoft - Assistant
+                                    Project Engineer</h3>
+                                <p class="project-category" data-i18n="projects.items.itesoft.category">Alternance en
+                                    entreprise | Professionnel</p>
+                            </a>
+                            <button class="project-details-btn" data-modal-trigger="project-details">
+                                <ion-icon name="information-circle-outline"></ion-icon>
+                                <span>Voir Détails</span>
+                            </button>
+                        </li>
+
+                        <li class="project-item active" data-category="Professionnel" data-project-title="TamaStat"
+                            data-project-link="https://github.com/killianrms/TamaStat"
+                            data-project-image="./assets/images/tamastat.webp"
+                            data-project-category="Stage | Professionnel"
+                            data-project-description="Application web PHP développée en architecture MVC..."
+                            data-project-tech="PHP, Architecture MVC, MySQL, CSV, JavaScript"
+                            data-project-role="Développeur" data-project-group="seul" data-project-time="10 semaines"
+                            data-i18n-attr="data-project-title:projects.items.tamastat.title,data-project-category:projects.items.tamastat.category,data-project-role:projects.items.tamastat.role,data-project-group:projects.items.tamastat.group,data-project-time:projects.items.tamastat.time,data-project-description:projects.items.tamastat.desc">
+                            <a data-modal-trigger="project-details" class="project-link-wrapper">
+                                <figure class="project-img">
+                                    <picture>
+                                        <source srcset="./assets/images/tamastat.webp" type="image/webp">
+                                        <img src="./assets/images/tamastat.webp" alt="Miniature du projet TamaStat"
+                                            loading="lazy">
+                                    </picture>
+                                </figure>
+                                <h3 class="project-title" data-i18n="projects.items.tamastat.title">TamaStat</h3>
+                                <p class="project-category" data-i18n="projects.items.tamastat.category">Stage |
+                                    Professionnel</p>
+                            </a>
+                            <button class="project-details-btn" data-modal-trigger="project-details">
+                                <ion-icon name="information-circle-outline"></ion-icon>
+                                <span>Voir Détails</span>
+                            </button>
+                        </li>
+
+                        <li class="project-item active" data-category="Universitaire"
+                            data-project-title="Site e-commerce de parfum"
+                            data-project-link="https://github.com/killianrms/Site-e-commerce"
+                            data-project-image="./assets/images/site-ecom.webp"
+                            data-project-category="Développement web en PHP | Universitaire"
+                            data-project-description="Création d'un site e-commerce complet..."
+                            data-project-tech="HTML, CSS, JavaScript, PHP, MySQL" data-project-role="Scrum Master"
+                            data-project-group="groupe de 3" data-project-time="1 mois"
+                            data-i18n-attr="data-project-title:projects.items.ecommerce.title,data-project-category:projects.items.ecommerce.category,data-project-role:projects.items.ecommerce.role,data-project-group:projects.items.ecommerce.group,data-project-time:projects.items.ecommerce.time,data-project-description:projects.items.ecommerce.desc">
+                            <a data-modal-trigger="project-details" class="project-link-wrapper">
+                                <figure class="project-img">
+                                    <picture>
+                                        <source srcset="./assets/images/site-ecom.webp" type="image/webp">
+                                        <img src="./assets/images/site-ecom.webp"
+                                            alt="Miniature du projet Site e-commerce" loading="lazy">
+                                    </picture>
+                                </figure>
+                                <h3 class="project-title" data-i18n="projects.items.ecommerce.title">Site e-commerce de
+                                    parfum</h3>
+                                <p class="project-category" data-i18n="projects.items.ecommerce.category">Développement
+                                    web en PHP | Universitaire</p>
+                            </a>
+                            <button class="project-details-btn" data-modal-trigger="project-details">
+                                <ion-icon name="information-circle-outline"></ion-icon>
+                                <span>Voir Détails</span>
+                            </button>
+                        </li>
+
+                        <li class="project-item active" data-category="Universitaire" data-project-title="Referendum"
+                            data-project-link="https://github.com/killianrms/Referendum"
+                            data-project-image="./assets/images/ref.webp"
+                            data-project-category="Développement d'application | Universitaire"
+                            data-project-description="Le projet consiste à créer un système de référendums sécurisés..."
+                            data-project-tech="Java, Agile (Scrum)" data-project-role="Product Owner"
+                            data-project-group="groupe de 4" data-project-time="projet de troisième année de but"
+                            data-i18n-attr="data-project-title:projects.items.referendum.title,data-project-category:projects.items.referendum.category,data-project-role:projects.items.referendum.role,data-project-group:projects.items.referendum.group,data-project-time:projects.items.referendum.time,data-project-description:projects.items.referendum.desc">
+                            <a data-modal-trigger="project-details" class="project-link-wrapper">
+                                <figure class="project-img">
+                                    <picture>
+                                        <source srcset="./assets/images/ref.webp" type="image/webp">
+                                        <img src="./assets/images/ref.webp" alt="Miniature du projet Referendum"
+                                            loading="lazy">
+                                    </picture>
+                                </figure>
+                                <h3 class="project-title" data-i18n="projects.items.referendum.title">Referendum</h3>
+                                <p class="project-category" data-i18n="projects.items.referendum.category">Développement
+                                    d'application | Universitaire</p>
+                            </a>
+                            <button class="project-details-btn" data-modal-trigger="project-details">
+                                <ion-icon name="information-circle-outline"></ion-icon>
+                                <span>Voir Détails</span>
+                            </button>
+                        </li>
+
+                        <li class="project-item active" data-category="Personnel"
+                            data-project-title="Bot fortnite en python"
+                            data-project-link="https://github.com/killianrms/lobbybot"
+                            data-project-image="./assets/images/lobbybot.webp"
+                            data-project-category="Librairie + API | Personnel"
+                            data-project-description="AerozBot est une bibliothèque Python..."
+                            data-project-tech="Python, API REST, HTML, CSS, Discord" data-project-role="Développeur"
+                            data-project-group="seul" data-project-time="Juillet 2022 - Juin 2025 (arrêté)"
+                            data-i18n-attr="data-project-title:projects.items.lobbybot.title,data-project-category:projects.items.lobbybot.category,data-project-role:projects.items.lobbybot.role,data-project-group:projects.items.lobbybot.group,data-project-time:projects.items.lobbybot.time,data-project-description:projects.items.lobbybot.desc">
+                            <a data-modal-trigger="project-details" class="project-link-wrapper">
+                                <figure class="project-img">
+                                    <picture>
+                                        <source srcset="./assets/images/lobbybot.webp" type="image/webp">
+                                        <img src="./assets/images/lobbybot.webp" alt="Miniature du projet Bot en python"
+                                            loading="lazy">
+                                    </picture>
+                                </figure>
+                                <h3 class="project-title" data-i18n="projects.items.lobbybot.title">Bot fortnite en
+                                    python</h3>
+                                <p class="project-category" data-i18n="projects.items.lobbybot.category">Librairie + API
+                                    | Personnel</p>
+                            </a>
+                            <button class="project-details-btn" data-modal-trigger="project-details">
+                                <ion-icon name="information-circle-outline"></ion-icon>
+                                <span>Voir Détails</span>
+                            </button>
+                        </li>
+
+                        <li class="project-item active" data-category="Personnel"
+                            data-project-title="AutoTweetVideoUploader"
+                            data-project-link="https://github.com/killianrms/AutoTweetVideoUploader"
+                            data-project-image="./assets/images/tweet.webp"
+                            data-project-category="Bot de post Twitter | Personnel"
+                            data-project-description="Ce script Python permet de télécharger des vidéos..."
+                            data-project-tech="Python" data-project-role="Développeur" data-project-group="groupe de 3"
+                            data-project-time="15 heures"
+                            data-i18n-attr="data-project-title:projects.items.tweet.title,data-project-category:projects.items.tweet.category,data-project-role:projects.items.tweet.role,data-project-group:projects.items.tweet.group,data-project-time:projects.items.tweet.time,data-project-description:projects.items.tweet.desc">
+                            <a data-modal-trigger="project-details" class="project-link-wrapper">
+                                <figure class="project-img">
+                                    <picture>
+                                        <source srcset="./assets/images/tweet.webp" type="image/webp">
+                                        <img src="./assets/images/tweet.webp" alt="AutoTweetVideoUploader Project"
+                                            loading="lazy">
+                                    </picture>
+                                </figure>
+                                <h3 class="project-title" data-i18n="projects.items.tweet.title">AutoTweetVideoUploader
+                                </h3>
+                                <p class="project-category" data-i18n="projects.items.tweet.category">Bot de post
+                                    Twitter | Personnel</p>
+                            </a>
+                            <button class="project-details-btn" data-modal-trigger="project-details">
+                                <ion-icon name="information-circle-outline"></ion-icon>
+                                <span>Voir Détails</span>
+                            </button>
+                        </li>
+
+                        <li class="project-item active" data-category="Personnel" data-project-title="Portfolio"
+                            data-project-link="https://github.com/killianrms/portfolio"
+                            data-project-image="./assets/images/portfolio.webp"
+                            data-project-category="Portfolio | Personnel"
+                            data-project-description="Ce site web sert de vitrine..."
+                            data-project-tech="HTML5, CSS3, JavaScript" data-project-role="Développeur"
+                            data-project-group="seul" data-project-time="6 jours"
+                            data-i18n-attr="data-project-title:projects.items.portfolio.title,data-project-category:projects.items.portfolio.category,data-project-role:projects.items.portfolio.role,data-project-group:projects.items.portfolio.group,data-project-time:projects.items.portfolio.time,data-project-description:projects.items.portfolio.desc">
+                            <a data-modal-trigger="project-details" class="project-link-wrapper">
+                                <figure class="project-img">
+                                    <picture>
+                                        <source srcset="./assets/images/portfolio.webp" type="image/webp">
+                                        <img src="./assets/images/portfolio.webp" alt="Miniature du projet Portfolio"
+                                            loading="lazy">
+                                    </picture>
+                                </figure>
+                                <h3 class="project-title" data-i18n="projects.items.portfolio.title">Portfolio</h3>
+                                <p class="project-category" data-i18n="projects.items.portfolio.category">Portfolio |
+                                    Personnel</p>
+                            </a>
+                            <button class="project-details-btn" data-modal-trigger="project-details">
+                                <ion-icon name="information-circle-outline"></ion-icon>
+                                <span>Voir Détails</span>
+                            </button>
+                        </li>
+
+                        <li class="project-item active" data-category="Concours" data-project-title="Code Game Jam"
+                            data-project-link="https://github.com/killianrms/CGJ2024"
+                            data-project-image="./assets/images/project-4.webp"
+                            data-project-category="Code Game Jam 2023 | Concours"
+                            data-project-description="Développer un jeu vidéo..." data-project-tech="Unreal Engine 5"
+                            data-project-role="Développeur" data-project-group="groupe de 2" data-project-time="2 jours"
+                            data-i18n-attr="data-project-title:projects.items.gamejam.title,data-project-category:projects.items.gamejam.category,data-project-role:projects.items.gamejam.role,data-project-group:projects.items.gamejam.group,data-project-time:projects.items.gamejam.time,data-project-description:projects.items.gamejam.desc">
+                            <a data-modal-trigger="project-details" class="project-link-wrapper">
+                                <figure class="project-img">
+                                    <picture>
+                                        <source srcset="./assets/images/project-4.webp" type="image/webp">
+                                        <img src="./assets/images/project-4.webp"
+                                            alt="Miniature du projet Code Game Jam" loading="lazy">
+                                    </picture>
+                                </figure>
+                                <h3 class="project-title" data-i18n="projects.items.gamejam.title">Code Game Jam</h3>
+                                <p class="project-category" data-i18n="projects.items.gamejam.category">Code Game Jam
+                                    2023 | Concours</p>
+                            </a>
+                            <button class="project-details-btn" data-modal-trigger="project-details">
+                                <ion-icon name="information-circle-outline"></ion-icon>
+                                <span>Voir Détails</span>
+                            </button>
+                        </li>
+
+                        <li class="project-item active" data-category="Concours" data-project-title="Nuit de L'info"
+                            data-project-link="https://github.com/killianrms/Nuit-de-linfo"
+                            data-project-image="./assets/images/project-5.webp"
+                            data-project-category="Site Web - Nuit de l'Info 2023 | Concours"
+                            data-project-description="Créer un site web innovant..."
+                            data-project-tech="HTML, CSS, JavaScript, Replit" data-project-role="Chef de projet"
+                            data-project-group="groupe de 6 personnes" data-project-time="une nuit"
+                            data-i18n-attr="data-project-title:projects.items.nuitinfo.title,data-project-category:projects.items.nuitinfo.category,data-project-role:projects.items.nuitinfo.role,data-project-group:projects.items.nuitinfo.group,data-project-time:projects.items.nuitinfo.time,data-project-description:projects.items.nuitinfo.desc">
+                            <a data-modal-trigger="project-details" class="project-link-wrapper">
+                                <figure class="project-img">
+                                    <picture>
+                                        <source srcset="./assets/images/project-5.webp" type="image/webp">
+                                        <img src="./assets/images/project-5.webp"
+                                            alt="Miniature du projet Nuit de L'info" loading="lazy">
+                                    </picture>
+                                </figure>
+                                <h3 class="project-title" data-i18n="projects.items.nuitinfo.title">Nuit de L'info</h3>
+                                <p class="project-category" data-i18n="projects.items.nuitinfo.category">Site Web - Nuit
+                                    de l'Info 2023 | Concours</p>
+                            </a>
+                            <button class="project-details-btn" data-modal-trigger="project-details">
+                                <ion-icon name="information-circle-outline"></ion-icon>
+                                <span>Voir Détails</span>
+                            </button>
+                        </li>
+                    </ul>
+
+                </section>
+
+            </article>
+
+            <article class="contact" data-page="contact">
+
+                <header>
+                    <h2 class="h2 article-title" data-i18n="contact.title">Contact</h2>
+                </header>
+
+                <section class="contact-form">
+
+                    <h3 class="h3 form-title" data-i18n="contact.form_title">Me contacter</h3>
+
+                    <form action="https://formspree.io/f/mnnpozzn" method="POST" class="form" data-form>
+
+                        <div class="form-group">
+                            <input type="text" name="fullname" class="form-input" placeholder="Votre nom" required
+                                data-form-input data-i18n-attr="placeholder:contact.fullname_placeholder">
+                            <span class="error-message"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <input type="email" name="email" class="form-input" placeholder="Votre email" required
+                                data-form-input data-i18n-attr="placeholder:contact.email_placeholder">
+                            <span class="error-message"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <textarea name="message" class="form-input" placeholder="Votre message" required
+                                data-form-input rows="5"
+                                data-i18n-attr="placeholder:contact.message_placeholder"></textarea>
+                            <span class="error-message"></span>
+                        </div>
+
+                        <button class="form-btn" type="submit" data-form-btn>
+                            <ion-icon name="paper-plane"></ion-icon>
+                            <span data-i18n="contact.submit_btn">Envoyer</span>
+                        </button>
+
+                    </form>
+
+                </section>
+
+            </article>
+
+            <div class="modal-container project-modal-container" data-project-modal-container>
+                <div class="overlay" data-modal-close></div>
+                <section class="project-modal" role="dialog" aria-modal="true" aria-labelledby="project-modal-title"
+                    data-modal="project-details">
+                    <button class="modal-close-btn" data-modal-close aria-label="Fermer les détails du projet">
                         <ion-icon name="close-outline"></ion-icon>
                     </button>
 
-                    <div class="modal-img-wrapper">
-                        <figure class="modal-avatar-box">
-                            <img src="./assets/images/avatar-1.webp" alt="Daniel lewis" width="80" data-modal-img>
+                    <div class="modal-content">
+                        <figure class="modal-img-wrapper">
+                            <img src="" alt="" data-project-modal-img>
                         </figure>
 
-                        <img src="./assets/images/icon-quote.svg" alt="quote icon">
-                    </div>
-
-                    <div class="modal-content">
-
-                        <h4 class="h3 modal-title" data-modal-title>Daniel lewis</h4>
-
-                        <time datetime="2021-06-14">10 Avril 2024</time>
-
-                        <div data-modal-text>
-                            <p>
-                                Test blablabla
-                            </p>
-                        </div>
-
-                    </div>
-
-                </section>
-
-            </div>
-        </article>
-
-
-        <article class="resume" data-page="parcours">
-
-            <header>
-                <h2 class="h2 article-title">Parcours</h2>
-            </header>
-
-            <section class="timeline">
-
-                <div class="title-wrapper">
-                    <div class="icon-box">
-                        <ion-icon name="briefcase-outline"></ion-icon>
-                    </div>
-
-                    <h3 class="h3">Expériences</h3>
-                </div>
-
-                <ol class="timeline-list">
-
-                    <li class="timeline-item">
-
-                        <h4 class="h4 timeline-item-title" style="display: flex; align-items: center; gap: 15px;">
-                            Assistant Project Engineer
-                            <img src="./assets/images/itesoft.webp" alt="Logo Itesoft" style="height: 50px; border-radius: 8px; object-fit: contain; box-shadow: 0 3px 10px rgba(0,0,0,0.12); background: white; padding: 8px;">
-                        </h4>
-
-                        <span>Septembre 2025 - Maintenant</span>
-
-                        <p class="timeline-text">
-                            Itesoft · Alternance · Aimargues (Hybride)
-                        </p>
-
-                    </li>
-
-                    <li class="timeline-item">
-
-                        <h4 class="h4 timeline-item-title">Stagiaire en informatique</h4>
-
-                        <span>Janvier 2025 - Avril 2025</span>
-
-                        <p class="timeline-text">
-                            Tamabox · Stage · 4 mois
-                        </p>
-
-                    </li>
-
-                </ol>
-
-            </section>
-
-            <section class="timeline">
-
-                <div class="title-wrapper">
-                    <div class="icon-box">
-                        <ion-icon name="book-outline"></ion-icon>
-                    </div>
-
-                    <h3 class="h3">Formations</h3>
-                </div>
-
-                <ol class="timeline-list">
-
-                    <li class="timeline-item">
-
-                        <h4 class="h4 timeline-item-title">IUT Montpellier-Sète</h4>
-
-                        <span>Septembre 2022 - Maintenant</span>
-
-                        <p class="timeline-text">
-                            99 avenue d'Occitanie 34090 Montpellier
-                        </p>
-                        <p class="timeline-text">
-                            Formation Informatique
-                        </p>
-
-                    </li>
-                    <li class="timeline-item">
-
-                        <h4 class="h4 timeline-item-title">Lycée Thomas Edison</h4>
-
-                        <span>Septembre 2019 — Juin 2022</span>
-
-                        <p class="timeline-text">
-                            1 Rue Emile Héraud, 83510 Lorgues
-                        </p>
-                        <p class="timeline-text">
-                            Bac Technologique, Fillière STI2D (Sciences et technologies de l'industrie et du
-                            développement durable)
-                        </p>
-
-                    </li>
-
-                </ol>
-
-            </section>
-
-            <section class="timeline">
-
-                <div class="title-wrapper">
-                    <div class="icon-box">
-                        <ion-icon name="people-outline"></ion-icon>
-                    </div>
-
-                    <h3 class="h3">Bénévolat</h3>
-                </div>
-
-                <ol class="timeline-list">
-
-                    <li class="timeline-item">
-
-                        <h4 class="h4 timeline-item-title">BDE Informatique Montpellier</h4>
-
-                        <span>Mai 2024 - Avril 2026</span>
-
-                        <p class="timeline-text">
-                            Responsable Événementiel et Communication. Organisation d'événements (soirées, tournois) et gestion de la communication (Discord, Instagram).
-                        </p>
-
-                    </li>
-
-                </ol>
-
-            </section>
-
-            <section class="timeline">
-
-                <div class="title-wrapper">
-                    <div class="icon-box">
-                        <ion-icon name="rocket-outline"></ion-icon>
-                    </div>
-
-                    <h3 class="h3">Futur</h3>
-                </div>
-
-                <ol class="timeline-list">
-
-                    <li class="timeline-item">
-
-                        <h4 class="h4 timeline-item-title">Poursuite d'études</h4>
-
-                        <span>Septembre 2026</span>
-
-                        <p class="timeline-text">
-                            Mon objectif est de poursuivre mes études en alternance à Montpellier, soit au CNAM en cybersécurité, soit à Polytech Montpellier en DevOps, afin de me spécialiser dans les domaines qui me passionnent.
-                        </p>
-
-                    </li>
-
-                </ol>
-
-            </section>
-
-
-
-        </article>
-
-        <article class="projets" data-page="projets">
-
-            <header>
-                <h2 class="h2 article-title">Projets</h2>
-            </header>
-
-            <section class="projects">
-
-                <ul class="filter-list">
-                  <li class="filter-item">
-                    <button data-filter="all" class="active">Tous</button>
-                  </li>
-                  <li class="filter-item">
-                    <button data-filter="Professionnel">Professionnel</button>
-                  </li>
-                  <li class="filter-item">
-                    <button data-filter="Personnel">Personnel</button>
-                  </li>
-                  <li class="filter-item">
-                    <button data-filter="Universitaire">Universitaire</button>
-                  </li>
-                  <li class="filter-item">
-                    <button data-filter="Concours">Concours</button>
-                  </li>
-                </ul>
-
-                <ul class="project-list">
-
-                    <li class="project-item active" data-category="Professionnel"
-                        data-project-title="Itesoft - Assistant Project Engineer"
-                        data-project-link="https://www.itesoft.com"
-                        data-project-image="./assets/images/itesoft_projet.webp"
-                        data-project-category="Alternance en entreprise | Professionnel"
-                        data-project-description="Alternance en tant qu'Assistant Project Engineer chez Itesoft. Mes missions incluent la personnalisation de Streamline Invoice (solution comptable développée par Itesoft) pour répondre aux besoins spécifiques des clients, la réalisation de tests de recette pour garantir la qualité de la solution déployée, ainsi que la gestion de tickets de support technique pour accompagner les utilisateurs au quotidien."
-                        data-project-tech="Java, JavaScript, Angular, Docker, Termius, FileZilla"
-                        data-project-role="Assistant Project Engineer"
-                        data-project-group="équipe"
-                        data-project-time="Septembre 2025 - Septembre 2026">
-                        <a data-modal-trigger="project-details" class="project-link-wrapper">
-                            <figure class="project-img">
-                                <picture>
-                                    <source srcset="./assets/images/itesoft_projet.webp" type="image/webp">
-                                    <img src="./assets/images/itesoft_projet.webp" alt="Miniature du projet Itesoft" loading="lazy">
-                                </picture>
-                            </figure>
-                            <h3 class="project-title">Itesoft - Assistant Project Engineer</h3>
-                            <p class="project-category">Alternance en entreprise | Professionnel</p>
-                        </a>
-                        <button class="project-details-btn" data-modal-trigger="project-details">
-                            <ion-icon name="information-circle-outline"></ion-icon>
-                            <span>Voir Détails</span>
-                        </button>
-                    </li>
-
-                    <li class="project-item active" data-category="Professionnel"
-                        data-project-title="TamaStat"
-                        data-project-link="https://github.com/killianrms/TamaStat"
-                        data-project-image="./assets/images/tamastat.webp"
-                        data-project-category="Stage | Professionnel"
-                        data-project-description="Application web PHP développée en architecture MVC pour la gestion et la visualisation de statistiques professionnelles. Système complet de gestion des utilisateurs avec authentification, traitement et import de fichiers CSV, génération de graphiques interactifs et tableaux de bord personnalisables. Actuellement utilisée en production chez Tamabox."
-                        data-project-tech="PHP, Architecture MVC, MySQL, CSV, JavaScript"
-                        data-project-role="Développeur"
-                        data-project-group="seul"
-                        data-project-time="10 semaines">
-                        <a data-modal-trigger="project-details" class="project-link-wrapper">
-                            <figure class="project-img">
-                                <picture>
-                                    <source srcset="./assets/images/tamastat.webp" type="image/webp">
-                                    <img src="./assets/images/tamastat.webp" alt="Miniature du projet TamaStat" loading="lazy">
-                                </picture>
-                            </figure>
-                            <h3 class="project-title">TamaStat</h3>
-                            <p class="project-category">Stage | Professionnel</p>
-                        </a>
-                        <button class="project-details-btn" data-modal-trigger="project-details">
-                            <ion-icon name="information-circle-outline"></ion-icon>
-                            <span>Voir Détails</span>
-                        </button>
-                    </li>
-
-                    <li class="project-item active" data-category="Universitaire"
-                        data-project-title="Referendum"
-                        data-project-link="https://github.com/killianrms/Referendum"
-                        data-project-image="./assets/images/ref.webp"
-                        data-project-category="Développement d'application | Universitaire"
-                        data-project-description="Le projet consiste à créer un système de référendums sécurisés, permettant à une entreprise de gérer des votes de manière cryptée et confidentielle."
-                        data-project-tech="Java, Agile (Scrum)"
-                        data-project-role="Product Owner"
-                        data-project-group="groupe de 4"
-                        data-project-time="projet de troisième année de but">
-                        <a data-modal-trigger="project-details" class="project-link-wrapper">
-                            <figure class="project-img">
-                                <picture>
-                                    <source srcset="./assets/images/ref.webp" type="image/webp">
-                                    <img src="./assets/images/ref.webp" alt="Miniature du projet Referendum" loading="lazy">
-                                </picture>
-                            </figure>
-                            <h3 class="project-title">Referendum</h3>
-                            <p class="project-category">Développement d'application | Universitaire</p>
-                        </a>
-                        <button class="project-details-btn" data-modal-trigger="project-details">
-                            <ion-icon name="information-circle-outline"></ion-icon>
-                            <span>Voir Détails</span>
-                        </button>
-                    </li>
-
-                    <li class="project-item active" data-category="Personnel"
-                        data-project-title="Bot fortnite en python"
-                        data-project-link="https://github.com/killianrms/lobbybot"
-                        data-project-image="./assets/images/lobbybot.webp"
-                        data-project-category="Librairie + API | Personnel"
-                        data-project-description="AerozBot est une bibliothèque Python permettant de créer des bots Fortnite pour simuler des lobbys avec tous les skins/danses et visualiser les nouveautés avant leur sortie. Projet personnel maintenu depuis Juillet 2022 jusqu'en Juin 2025 (arrêt suite à un blocage Epic Games). Communauté Discord active de 8500+ membres. Premier projet rémunéré en équipe, excellent apprentissage de GitHub et de la collaboration. Discord: https://discord.gg/WRWcnmzBvy"
-                        data-project-tech="Python, API REST, HTML, CSS, Discord"
-                        data-project-role="Développeur"
-                        data-project-group="seul"
-                        data-project-time="Juillet 2022 - Juin 2025 (arrêté)">
-                        <a data-modal-trigger="project-details" class="project-link-wrapper">
-                            <figure class="project-img">
-                                <picture>
-                                    <source srcset="./assets/images/lobbybot.webp" type="image/webp">
-                                    <img src="./assets/images/lobbybot.webp" alt="Miniature du projet Bot en python" loading="lazy">
-                                </picture>
-                            </figure>
-                            <h3 class="project-title">Bot fortnite en python</h3>
-                            <p class="project-category">Librairie + API | Personnel</p>
-                        </a>
-                        <button class="project-details-btn" data-modal-trigger="project-details">
-                            <ion-icon name="information-circle-outline"></ion-icon>
-                            <span>Voir Détails</span>
-                        </button>
-                    </li>
-
-                    <li class="project-item active" data-category="Personnel"
-                        data-project-title="AutoTweetVideoUploader"
-                        data-project-link="https://github.com/killianrms/AutoTweetVideoUploader"
-                        data-project-image="./assets/images/tweet.webp"
-                        data-project-category="Bot de post Twitter | Personnel"
-                        data-project-description="Ce script Python permet de télécharger des vidéos depuis des comptes Twitter spécifiques et de les publier automatiquement sur un compte Twitter. Il scrute des comptes, choisit des vidéos à uploader, puis les poste sur un compte Twitter prédéfini. Ce script nécessite une configuration initiale pour fonctionner correctement."
-                        data-project-tech="Python"
-                        data-project-role="Développeur"
-                        data-project-group="groupe de 3"
-                        data-project-time="15 heures">
-                        <a data-modal-trigger="project-details" class="project-link-wrapper">
-                            <figure class="project-img">
-                                <picture>
-                                    <source srcset="./assets/images/tweet.webp" type="image/webp">
-                                    <img src="./assets/images/tweet.webp" alt="AutoTweetVideoUploader Project" loading="lazy">
-                                </picture>
-                            </figure>
-                            <h3 class="project-title">AutoTweetVideoUploader</h3>
-                            <p class="project-category">Bot de post Twitter | Personnel</p>
-                        </a>
-                        <button class="project-details-btn" data-modal-trigger="project-details">
-                            <ion-icon name="information-circle-outline"></ion-icon>
-                            <span>Voir Détails</span>
-                        </button>
-                    </li>
-
-                    <li class="project-item active" data-category="Personnel"
-                        data-project-title="Portfolio"
-                        data-project-link="https://github.com/killianrms/portfolio"
-                        data-project-image="./assets/images/portfolio.webp"
-                        data-project-category="Portfolio | Personnel"
-                        data-project-description="Ce site web sert de vitrine pour présenter mon parcours académique, mes compétences techniques, ainsi que les projets sur lesquels j'ai travaillé. Il a été développé avec une attention particulière portée à l'expérience utilisateur et à la présentation des informations."
-                        data-project-tech="HTML5, CSS3, JavaScript"
-                        data-project-role="Développeur"
-                        data-project-group="seul"
-                        data-project-time="6jours">
-                        <a data-modal-trigger="project-details" class="project-link-wrapper">
-                            <figure class="project-img">
-                                <picture>
-                                    <source srcset="./assets/images/portfolio.webp" type="image/webp">
-                                    <img src="./assets/images/portfolio.webp" alt="Miniature du projet Portfolio" loading="lazy">
-                                </picture>
-                            </figure>
-                            <h3 class="project-title">Portfolio</h3>
-                            <p class="project-category">Portfolio | Personnel</p>
-                        </a>
-                        <button class="project-details-btn" data-modal-trigger="project-details">
-                            <ion-icon name="information-circle-outline"></ion-icon>
-                            <span>Voir Détails</span>
-                        </button>
-                    </li>
-
-                    <li class="project-item active" data-category="Concours"
-                        data-project-title="Code Game Jam"
-                        data-project-link="https://github.com/killianrms/CGJ2024"
-                        data-project-image="./assets/images/project-4.webp"
-                        data-project-category="Code Game Jam 2023 | Concours"
-                        data-project-description="Développer un jeu vidéo ("Shadow Of Memory") en seulement 30 heures lors de la CodeGameJam2024."
-                        data-project-tech="Unreal Engine 5"
-                        data-project-role="Développeur"
-                        data-project-group="groupe de 2"
-                        data-project-time="2 jours">
-                        <a data-modal-trigger="project-details" class="project-link-wrapper">
-                            <figure class="project-img">
-                                <picture>
-                                    <source srcset="./assets/images/project-4.webp" type="image/webp">
-                                    <img src="./assets/images/project-4.webp" alt="Miniature du projet Code Game Jam" loading="lazy">
-                                </picture>
-                            </figure>
-                            <h3 class="project-title">Code Game Jam</h3>
-                            <p class="project-category">Code Game Jam 2023 | Concours</p>
-                        </a>
-                        <button class="project-details-btn" data-modal-trigger="project-details">
-                            <ion-icon name="information-circle-outline"></ion-icon>
-                            <span>Voir Détails</span>
-                        </button>
-                    </li>
-
-                    <li class="project-item active" data-category="Concours"
-                        data-project-title="Nuit de L'info"
-                        data-project-link="https://github.com/killianrms/Nuit-de-linfo"
-                        data-project-image="./assets/images/project-5.webp"
-                        data-project-category="Site Web - Nuit de l'Info 2023 | Concours"
-                        data-project-description="Créer un site web innovant et pertinent pour sensibiliser aux enjeux climatiques (thème: changement climatique) et encourager l'action pour un avenir durable, lors de la Nuit de l'Info 2024."
-                        data-project-tech="HTML, CSS, JavaScript, Replit"
-                        data-project-role="Chef de projet"
-                        data-project-group="groupe de 6 personnes"
-                        data-project-time="une nuit">
-                        <a data-modal-trigger="project-details" class="project-link-wrapper">
-                            <figure class="project-img">
-                                <picture>
-                                    <source srcset="./assets/images/project-5.webp" type="image/webp">
-                                    <img src="./assets/images/project-5.webp" alt="Miniature du projet Nuit de L'info" loading="lazy">
-                                </picture>
-                            </figure>
-                            <h3 class="project-title">Nuit de L'info</h3>
-                            <p class="project-category">Site Web - Nuit de l'Info 2023 | Concours</p>
-                        </a>
-                        <button class="project-details-btn" data-modal-trigger="project-details">
-                            <ion-icon name="information-circle-outline"></ion-icon>
-                            <span>Voir Détails</span>
-                        </button>
-                    </li>
-                </ul>
-
-            </section>
-
-        </article>
-
-        <article class="contact" data-page="contact">
-
-            <header>
-                <h2 class="h2 article-title">Contact</h2>
-            </header>
-
-            <section class="contact-form">
-
-                <h3 class="h3 form-title">Me contacter</h3>
-
-                <form action="https://formspree.io/f/mnnpozzn" method="POST" class="form" data-form>
-                    
-                    <div class="form-group">
-                        <input type="text" name="fullname" class="form-input" placeholder="Votre nom" required data-form-input>
-                        <span class="error-message"></span>
-                    </div>
-
-                    <div class="form-group">
-                        <input type="email" name="email" class="form-input" placeholder="Votre email" required data-form-input>
-                        <span class="error-message"></span>
-                    </div>
-
-                    <div class="form-group">
-                        <textarea name="message" class="form-input" placeholder="Votre message" required data-form-input rows="5"></textarea>
-                        <span class="error-message"></span>
-                    </div>
-
-                    <button class="form-btn" type="submit" data-form-btn>
-                        <ion-icon name="paper-plane"></ion-icon>
-                        <span>Envoyer</span>
-                    </button>
-
-                </form>
-
-            </section>
-
-        </article>
-
-        <div class="modal-container project-modal-container" data-project-modal-container>
-            <div class="overlay" data-modal-close></div>
-            <section class="project-modal" role="dialog" aria-modal="true" aria-labelledby="project-modal-title" data-modal="project-details">
-                <button class="modal-close-btn" data-modal-close aria-label="Fermer les détails du projet">
-                    <ion-icon name="close-outline"></ion-icon>
-                </button>
-
-                <div class="modal-content">
-                    <figure class="modal-img-wrapper">
-                        <img src="" alt="" data-project-modal-img>
-                    </figure>
-
-                    <div class="modal-info">
-                        <div class="project-info" data-project-modal-info style="display: inline-block; background: rgba(255, 255, 255, 0.05); padding: 8px 16px; border-radius: 8px; margin-bottom: 15px; font-size: 0.9em; border-left: 3px solid var(--orange-yellow-crayola);"></div>
-                        <h3 class="h3 modal-title" data-project-modal-title id="project-modal-title" style="font-size: 1.8em; margin: 15px 0;">Titre du Projet</h3>
-                        <p class="project-modal-category" data-project-modal-category style="background: linear-gradient(135deg, var(--bg-gradient-onyx)); padding: 10px 18px; border-radius: 10px; display: inline-block; margin-bottom: 20px; font-weight: 500; border: 1px solid rgba(255, 255, 255, 0.1);">Catégorie</p>
-
-                        <div class="project-video-container" data-project-video-container style="display: none; margin: 25px 0;">
-                            <h4 style="margin-bottom: 15px; padding-bottom: 10px; border-bottom: 1px solid rgba(255, 255, 255, 0.1);">📹 Démonstration</h4>
-                            <div class="video-wrapper" style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 20px; margin-top: 10px;">
-                                <iframe data-project-modal-video
-                                    style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;"
-                                    src=""
-                                    title="Vidéo de démonstration du projet"
-                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                    allowfullscreen>
-                                </iframe>
+                        <div class="modal-info">
+                            <div class="project-info" data-project-modal-info
+                                style="display: inline-block; background: rgba(255, 255, 255, 0.05); padding: 8px 16px; border-radius: 8px; margin-bottom: 15px; font-size: 0.9em; border-left: 3px solid var(--orange-yellow-crayola);">
                             </div>
-                        </div>
+                            <h3 class="h3 modal-title" data-project-modal-title id="project-modal-title"
+                                style="font-size: 1.8em; margin: 15px 0;">Titre du Projet</h3>
+                            <p class="project-modal-category" data-project-modal-category
+                                style="background: linear-gradient(135deg, var(--bg-gradient-onyx)); padding: 10px 18px; border-radius: 10px; display: inline-block; margin-bottom: 20px; font-weight: 500; border: 1px solid rgba(255, 255, 255, 0.1);">
+                                Catégorie</p>
 
-                        <div style="margin: 25px 0;">
-                            <h4 style="margin-bottom: 15px; padding-bottom: 10px; border-bottom: 1px solid rgba(255, 255, 255, 0.1);">📝 Description</h4>
-                            <p data-project-modal-description style="line-height: 1.8;">
-                                Description du projet...
-                            </p>
-                        </div>
+                            <div class="project-video-container" data-project-video-container
+                                style="display: none; margin: 25px 0;">
+                                <h4
+                                    style="margin-bottom: 15px; padding-bottom: 10px; border-bottom: 1px solid rgba(255, 255, 255, 0.1);">
+                                    📹 Démonstration</h4>
+                                <div class="video-wrapper"
+                                    style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 20px; margin-top: 10px;">
+                                    <iframe data-project-modal-video
+                                        style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;"
+                                        src="" title="Vidéo de démonstration du projet"
+                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                        allowfullscreen>
+                                    </iframe>
+                                </div>
+                            </div>
 
-                        <div style="margin: 25px 0;">
-                            <h4 style="margin-bottom: 15px; padding-bottom: 10px; border-bottom: 1px solid rgba(255, 255, 255, 0.1);">🛠️ Technologies Utilisées</h4>
-                            <p data-project-modal-tech style="line-height: 1.8;">
-                                Liste des technologies...
-                            </p>
-                        </div>
+                            <div style="margin: 25px 0;">
+                                <h4
+                                    style="margin-bottom: 15px; padding-bottom: 10px; border-bottom: 1px solid rgba(255, 255, 255, 0.1);">
+                                    📝 Description</h4>
+                                <p data-project-modal-description style="line-height: 1.8;">
+                                    Description du projet...
+                                </p>
+                            </div>
 
-                        <a href="#" target="_blank" rel="noopener noreferrer" class="form-btn project-link-btn" data-project-modal-link style="margin-top: 25px;">
-                            <ion-icon name="logo-github"></ion-icon>
-                            <span>Voir sur GitHub</span>
-                        </a>
+                            <div style="margin: 25px 0;">
+                                <h4
+                                    style="margin-bottom: 15px; padding-bottom: 10px; border-bottom: 1px solid rgba(255, 255, 255, 0.1);">
+                                    🛠️ Technologies Utilisées</h4>
+                                <p data-project-modal-tech style="line-height: 1.8;">
+                                    Liste des technologies...
+                                </p>
+                            </div>
+
+                            <a href="#" target="_blank" rel="noopener noreferrer" class="form-btn project-link-btn"
+                                data-project-modal-link style="margin-top: 25px;">
+                                <ion-icon name="logo-github"></ion-icon>
+                                <span>Voir sur GitHub</span>
+                            </a>
+                        </div>
                     </div>
-                </div>
-            </section>
+                </section>
+            </div>
         </div>
-    </div>
 
-</main>
+    </main>
 
-<script src="./assets/js/script.js"></script>
+    <!-- Back to Top Button -->
+    <a href="#top" class="back-to-top" aria-label="Retour en haut" data-back-to-top>
+        <ion-icon name="arrow-up-outline"></ion-icon>
+    </a>
 
-<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script src="./assets/js/script.js"></script>
 
-<!-- Bouton d'action flottant (FAB) -->
-<a href="portfolio-apprentissage.html" id="fab-portfolio" title="Portfolio d'Apprentissage">
-  <ion-icon name="book-outline"></ion-icon>
-  <span class="fab-text">Portfolio d'Apprentissage</span>
-</a>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+    <!-- Bouton d'action flottant (FAB) -->
+    <a href="portfolio-apprentissage.html" id="fab-portfolio" title="Portfolio d'Apprentissage"
+        data-i18n-attr="title:portfolio_app.title">
+        <ion-icon name="book-outline"></ion-icon>
+        <span class="fab-text" data-i18n="portfolio_app.title">Portfolio d'Apprentissage</span>
+    </a>
 </body>
 
 </html>

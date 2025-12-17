@@ -550,3 +550,11 @@
         width: calc(100% - 1rem);
     }
 }
+
+/* Language Switcher Position */
+.lang-switcher-wrapper {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+}
