@@ -666,36 +666,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- Animation d'Apparition pour les Blocs de Compétences ---
 
-    const competenceBlocks = document.querySelectorAll('.competence-bloc');
 
-    if (competenceBlocks.length > 0 && 'IntersectionObserver' in window) {
-      const observerOptions = {
-        root: null, // relatif à la fenêtre d'affichage du document
-        rootMargin: '0px',
-        threshold: 0.1 // déclencher lorsque 10% de l'élément est visible
-      };
-
-      const observerCallback = (entries, observer) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('fade-in');
-            observer.unobserve(entry.target); // Arrêter d'observer une fois l'apparition effectuée
-          }
-        });
-      };
-
-      const competenceObserver = new IntersectionObserver(observerCallback, observerOptions);
-
-      competenceBlocks.forEach(block => {
-        competenceObserver.observe(block);
-      });
-    } else if (competenceBlocks.length > 0) {
-      // Solution de repli pour les navigateurs plus anciens : afficher simplement les éléments immédiatement
-      competenceBlocks.forEach(block => {
-        block.style.opacity = 1;
-        block.style.transform = 'translateY(0)';
-      });
-    }
     // --- Animation de la Machine à Écrire pour le Nom ---
     const nameElement = document.querySelector('.name');
     if (nameElement) {
