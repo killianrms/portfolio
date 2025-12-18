@@ -1289,8 +1289,9 @@ html[data-theme="light"] .timeline-item:hover {
   background: hsla(0, 0%, 0%, 0.5);
 }
 
-.project-img::after {
+.project-hover-text {
   content: 'Voir détails';
+  /* Fallback */
   position: absolute;
   top: 50%;
   left: 50%;
@@ -1301,9 +1302,12 @@ html[data-theme="light"] .timeline-item:hover {
   opacity: 0;
   z-index: 2;
   transition: opacity var(--transition-std);
+  pointer-events: none;
+  width: 100%;
+  text-align: center;
 }
 
-.project-item>a:hover .project-img::after {
+.project-item>a:hover .project-hover-text {
   opacity: 1;
 }
 
@@ -2108,9 +2112,9 @@ html[data-theme="light"] .form-status {
     /* background-color handled by ::before expansion */
   }
 
-  /* Ensure ::before is primary-accent (Blue) in light mode instead of Yellow */
+  /* Ensure ::before is primary-accent (Blue) in light mode instead of Yellow - Use Gradient like dark mode */
   html[data-theme="light"] .filter-item button:hover::before {
-    background: var(--primary-accent);
+    background: linear-gradient(to bottom right, var(--primary-accent) 0%, transparent 50%);
   }
 
   .filter-item button.active {

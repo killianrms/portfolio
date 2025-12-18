@@ -100,17 +100,31 @@
     font-weight: var(--fw-500);
     transition: all 0.3s ease;
     width: 100%;
-    box-shadow: inset 2px 2px 5px rgba(0,0,0,0.3), 
-                inset -2px -2px 5px rgba(255,255,255,0.02);
+    box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.3),
+        inset -2px -2px 5px rgba(255, 255, 255, 0.02);
     backdrop-filter: blur(5px);
 }
+
+html[data-theme="light"] .form-input {
+    background: var(--secondary-bg);
+    border-color: var(--border-color);
+    color: var(--primary-text);
+    box-shadow: inset 1px 1px 4px rgba(0, 0, 0, 0.1);
+}
+
+html[data-theme="light"] .form-input:focus {
+    background: var(--primary-bg);
+    border-color: var(--primary-accent);
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.2);
+}
+
 
 .form-input:focus {
     border-color: var(--orange-yellow-crayola);
     background: linear-gradient(135deg, var(--onyx), var(--eerie-black-1));
     outline: none;
-    box-shadow: 0 0 0 2px rgba(255, 219, 112, 0.2), 
-                0 10px 20px rgba(0,0,0,0.4);
+    box-shadow: 0 0 0 2px rgba(255, 219, 112, 0.2),
+        0 10px 20px rgba(0, 0, 0, 0.4);
     transform: translateY(-2px);
 }
 
@@ -174,7 +188,7 @@
     left: -100%;
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
     transition: 0.5s;
 }
 
