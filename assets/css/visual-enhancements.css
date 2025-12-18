@@ -84,25 +84,32 @@
 }
 
 /* --- Contact Form Premium Upgrade --- */
-.input-wrapper {
-    margin-bottom: 25px;
-    position: relative;
-    z-index: 1;
-}
-
 .form-input {
     background: linear-gradient(135deg, var(--eerie-black-2), var(--onyx));
     border: 1px solid var(--jet);
     padding: 16px 24px;
+    padding-right: 45px;
+    /* Prevent text overlap with icon */
     border-radius: 16px;
     color: var(--white-2);
     font-size: var(--fs-6);
     font-weight: var(--fw-500);
     transition: all 0.3s ease;
     width: 100%;
+    /* Ensure full width */
     box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.3),
         inset -2px -2px 5px rgba(255, 255, 255, 0.02);
     backdrop-filter: blur(5px);
+}
+
+.input-wrapper {
+    margin-bottom: 25px;
+    position: relative;
+    z-index: 1;
+    margin-right: 1px;
+    /* Avoid pixel-perfect edge sticking if overflow issue */
+    width: calc(100% - 2px);
+    /* Slight reduction to ensure borders show */
 }
 
 html[data-theme="light"] .form-input {
@@ -112,10 +119,13 @@ html[data-theme="light"] .form-input {
     box-shadow: inset 1px 1px 4px rgba(0, 0, 0, 0.1);
 }
 
-html[data-theme="light"] .form-input:focus {
-    background: var(--primary-bg);
+html[data-theme="light"] .form-input:focus,
+html[data-theme="light"] .form-input:not(:placeholder-shown),
+html[data-theme="light"] .form-input:valid {
+    background: var(--primary-bg) !important;
     border-color: var(--primary-accent);
     box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.2);
+    color: var(--primary-text) !important;
 }
 
 
