@@ -143,10 +143,63 @@
         "text": "Check out my project: ",
         "copied": "Link copied!"
     },
+    "meta": {
+        "description": "Portfolio of Killian Ramus, Assistant Project Engineer at Itesoft. Student in Computer Science (DACS - Security) in Montpellier. Discover my projects in web development, Python, Java and cybersecurity.",
+        "keywords": "Killian Ramus, developer, Computer Science, Montpellier, cybersecurity, web development, Python, Java, portfolio",
+        "og_title": "Killian Ramus - Portfolio | Assistant Project Engineer",
+        "og_description": "Portfolio of Killian Ramus, Assistant Project Engineer at Itesoft. Discover my projects in web development, Python, Java and cybersecurity.",
+        "twitter_title": "Killian Ramus - Portfolio | Assistant Project Engineer",
+        "twitter_description": "Portfolio of Killian Ramus, Assistant Project Engineer at Itesoft. Discover my projects in web development, Python, Java and cybersecurity."
+    },
+    "alt": {
+        "photo": "Photo of Killian Ramus",
+        "itesoft_logo": "Itesoft Logo",
+        "tamastat": "Thumbnail of TamaStat project",
+        "site_ecom": "Thumbnail of E-commerce Site project",
+        "referendum": "Thumbnail of Referendum project",
+        "lobbybot": "Thumbnail of Python Bot project",
+        "tweet": "AutoTweetVideoUploader Project",
+        "portfolio": "Thumbnail of Portfolio project",
+        "gamejam": "Thumbnail of Code Game Jam project",
+        "itesoft_project": "Thumbnail of Itesoft project",
+        "skills": {
+            "java": "Java Logo",
+            "python": "Python Logo",
+            "c": "C Logo",
+            "javascript": "JavaScript Logo",
+            "html5": "HTML5 Logo",
+            "php": "PHP Logo",
+            "sql": "SQL Logo",
+            "angular": "Angular Logo",
+            "github": "GitHub Logo",
+            "gitlab": "GitLab Logo",
+            "azure": "Azure DevOps Logo",
+            "docker": "Docker Logo",
+            "windows": "Windows Logo",
+            "linux": "Linux Logo",
+            "jetbrains": "JetBrains IDEs Logo",
+            "termius": "Termius Logo"
+        }
+    },
     "portfolio_app": {
         "title": "Learning Portfolio",
         "subtitle": "Level 2 Skills Validation - DACS Track",
         "back_home": "Back to Home",
+        "labels": {
+            "impact": "Impact:",
+            "societal_impact": "Societal Impact:",
+            "optimization": "Optimization:",
+            "security": "Security:",
+            "heterogeneity": "Heterogeneity:",
+            "manipulation": "Manipulation:",
+            "improvement": "Improvement:",
+            "process": "Process:",
+            "formalization": "Formalization:",
+            "feasibility": "Feasibility:",
+            "tracking": "Tracking:",
+            "intensive_tracking": "Intensive Tracking:",
+            "restitution": "Restitution:"
+        },
         "tabs": {
             "optimiser": "Optimize",
             "gerer": "Manage",
@@ -191,6 +244,7 @@
                         "impact": "Code optimization to reduce energy consumption (minification, lazy loading) and awareness raising of 200+ participants on environmental issues."
                     },
                     "lobbybot": {
+                        "title": "Fortnite Bot - Ethical Considerations",
                         "ce2_03": "Reflection on gaming ethics: limiting features to avoid abuse and promoting responsible usage.",
                         "impact": "Implementation of safeguards against gaming addiction and documentation on the responsible use of automation tools."
                     }
@@ -237,6 +291,7 @@
                         "heterogeneite": "Unified processing of REST API data, multimedia files, and metadata, with automatic mapping system."
                     },
                     "tamastat": {
+                        "title": "TamaStat - Multi-format Import",
                         "ce4_01": "Secure management of CSV, Excel, and JSON file imports with personal data validation according to GDPR.",
                         "manipulation": "Universal parser with automatic format detection, data cleaning, and transformation to a unified schema."
                     }
@@ -245,48 +300,57 @@
             "conduire": {
                 "ac1": {
                     "tamastat": {
+                        "title": "TamaStat - Process Analysis",
                         "ce5_04": "Proactive approach to analyzing existing data flows to identify bottlenecks and propose improvements.",
                         "ce5_01": "Regular communication with end-users to understand their needs and operational constraints.",
                         "amelioration": "Automation of manual reports, reducing processing time by 70% and improving data reliability."
                     },
                     "portfolio": {
+                        "title": "Portfolio - UX Optimization",
                         "ce5_04": "Creative approach in designing an intuitive interface to effectively present skills and projects.",
                         "processus": "Identification of user journeys (recruiters, colleagues, clients) to optimize navigation and information presentation."
                     }
                 },
                 "ac2": {
                     "ecommerce": {
+                        "title": "E-commerce - Requirement Elicitation",
                         "ce5_01": "Facilitation of user workshops to gather and formalize functional needs (product management, orders, administration).",
                         "ce5_02": "Consideration of legal constraints (GDPR, e-commerce) in the formalization of specifications.",
                         "formalisation": "Drafting of detailed user stories with acceptance criteria and prioritization according to business value."
                     },
                     "referendum": {
+                        "title": "Referendum - Needs Analysis",
                         "ce5_03": "Awareness raising on democratic and ethical issues of a secure electronic voting system.",
                         "ce5_01": "Facilitation of interviews with stakeholders to identify security and usability requirements."
                     }
                 },
                 "ac3": {
                     "lobbybot": {
+                        "title": "Fortnite Bot - Feasibility Study",
                         "ce5_04": "Critical analysis of technical constraints (API, rate limits) and legal ones (ToS) to evaluate project viability.",
                         "ce5_03": "Evaluation of ethical risks and implementation of safeguards for responsible usage.",
                         "faisabilite": "In-depth study of hosting costs, maintenance, and regulatory compliance over the long term."
                     },
                     "nuitinfo": {
+                        "title": "Night of Info - Constraints Management",
                         "ce5_01": "Team coordination under extreme time constraint (12h) with resource allocation according to skills.",
                         "faisabilite": "Drastic prioritization of features according to added value and development complexity."
                     }
                 },
                 "ac4": {
                     "referendum": {
+                        "title": "Referendum - Scrum Method",
                         "ce5_01": "Facilitation of Scrum ceremonies (dailies, retrospectives, reviews) to maintain team alignment.",
                         "ce5_02": "Respect for development standards and software quality standards throughout the project.",
                         "suivi": "Use of collaborative tools (Jira, Git) to track developments and measure team velocity."
                     },
                     "tamastat": {
+                        "title": "TamaStat - Kanban Tracking",
                         "ce5_04": "Proactive approach to continuous documentation and automated tests to ensure deliverable quality.",
                         "suivi": "Implementation of a Kanban board with performance metrics (lead time, cycle time) to optimize development flow."
                     },
                     "nuitinfo": {
+                        "title": "Night of Info - Crisis Management",
                         "ce5_03": "Awareness raising of the team to environmental issues while maintaining development objectives.",
                         "suivi_intensif": "Synchronization points every 2h with reprioritization according to progress and available challenges."
                     }

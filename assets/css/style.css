@@ -2102,10 +2102,15 @@ html[data-theme="light"] .form-status {
     height: 120%;
   }
 
-  /* Light theme hover */
+  /* Light theme hover - FIX: Ensure text is white against the colored background (primary accent) */
   html[data-theme="light"] .filter-item button:hover {
-    color: var(--primary-text);
-    background-color: hsl(0, 0%, 95%);
+    color: var(--white-1);
+    /* background-color handled by ::before expansion */
+  }
+
+  /* Ensure ::before is primary-accent (Blue) in light mode instead of Yellow */
+  html[data-theme="light"] .filter-item button:hover::before {
+    background: var(--primary-accent);
   }
 
   .filter-item button.active {
@@ -3970,4 +3975,111 @@ body {
 
 .lang-toggle-btn:active {
   transform: translateY(1px);
+}
+
+/* --- Redesigned Contact Form --- */
+.contact-form .input-wrapper {
+  margin-bottom: 25px;
+  display: grid;
+  gap: 25px;
+}
+
+@media (min-width: 768px) {
+  .contact-form .input-wrapper {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.contact-form .form-input {
+  background: var(--eerie-black-1);
+  border: 1px solid var(--jet);
+  padding: 15px 20px;
+  border-radius: 14px;
+  color: var(--white-1);
+  outline: none;
+  font-size: var(--fs-6);
+  transition: border-color var(--transition-std), box-shadow var(--transition-std);
+  width: 100%;
+}
+
+.contact-form textarea.form-input {
+  min-height: 150px;
+  resize: vertical;
+}
+
+.contact-form .form-input:focus {
+  border-color: var(--orange-yellow-crayola);
+  box-shadow: 0 0 0 4px rgba(255, 215, 0, 0.1);
+}
+
+.contact-form .form-input::placeholder {
+  color: var(--light-gray-70);
+  font-weight: var(--fw-300);
+}
+
+/* Light Theme Contact Form */
+html[data-theme="light"] .contact-form .form-input {
+  background: var(--primary-bg);
+  border-color: var(--border-color);
+  color: var(--primary-text);
+}
+
+html[data-theme="light"] .contact-form .form-input:focus {
+  border-color: var(--primary-accent);
+  box-shadow: 0 0 0 4px rgba(0, 123, 255, 0.1);
+}
+
+/* --- Navbar Toggles Adjustment --- */
+/* Ensure toggles fit in the navbar */
+.navbar-item .theme-toggle-btn,
+.navbar-item .lang-toggle-btn {
+  box-shadow: none;
+  /* Remove heavy shadow in navbar */
+  background: transparent;
+  /* Cleaner look */
+  border: 1px solid transparent;
+}
+
+.navbar-item .theme-toggle-btn:hover,
+.navbar-item .lang-toggle-btn:hover {
+  background: var(--border-gradient-onyx);
+  border-color: var(--jet);
+}
+
+html[data-theme="light"] .navbar-item .theme-toggle-btn:hover,
+html[data-theme="light"] .navbar-item .lang-toggle-btn:hover {
+  background: var(--secondary-bg);
+  border-color: var(--border-color);
+}
+
+/* Mobile Navbar Tweaks */
+@media (max-width: 576px) {
+  .navbar-list {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    justify-content: flex-start;
+    /* Align left to allow scroll */
+    gap: 5px;
+    padding-bottom: 5px;
+    /* Space for scrollbar if any */
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Hide specific elements on very small screens if needed */
+  .lang-toggle-btn .lang-text {
+    display: none;
+  }
+
+  .lang-toggle-btn .chevron {
+    display: none;
+  }
+
+  .lang-toggle-btn {
+    width: 38px;
+    padding: 0;
+  }
+
+  .theme-toggle-btn {
+    width: 38px;
+  }
 }

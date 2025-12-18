@@ -1,0 +1,165 @@
+
+/* --- Integration Portfolio Apprentissage --- */
+/* Tab Buttons */
+.tab-buttons {
+    display: flex;
+    margin-bottom: 20px;
+    border-bottom: 2px solid var(--jet);
+}
+
+.tab-button {
+    padding: 10px 20px;
+    cursor: pointer;
+    background-color: var(--onyx);
+    color: var(--light-gray);
+    border: none;
+    border-bottom: 2px solid transparent;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    margin-right: 5px;
+    border-radius: 5px 5px 0 0;
+}
+
+.tab-button:hover {
+    background-color: var(--orange-yellow-crayola);
+    color: var(--onyx);
+}
+
+.tab-button.active {
+    background-color: var(--orange-yellow-crayola);
+    color: var(--smoky-black);
+    border-bottom: 2px solid var(--orange-yellow-crayola);
+}
+
+/* Tab Content */
+.tab-content .tab-pane {
+    display: none;
+    padding: 20px;
+    border: 1px solid var(--jet);
+    border-top: none;
+    border-radius: 0 0 5px 5px;
+    background-color: var(--eerie-black-2);
+}
+
+.tab-content .tab-pane.active {
+    display: block;
+    animation: fadeEffect 1s; /* Match existing animation */
+}
+
+/* CE/AC Layout */
+.ce-ac-container { margin-top: 2rem; }
+.ce-section { margin-bottom: 3rem; }
+.section-title {
+    color: var(--orange-yellow-crayola);
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--orange-yellow-crayola);
+}
+
+.ac-item {
+    margin-bottom: 1rem;
+    border: 1px solid var(--jet);
+    border-radius: 10px;
+    overflow: hidden;
+    background: var(--eerie-black-2);
+    transition: all 0.3s ease;
+}
+.ac-header {
+    background: linear-gradient(135deg, var(--onyx) 0%, var(--eerie-black-1) 100%);
+    padding: 1.5rem;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.ac-header h4 {
+    color: var(--white-1);
+    margin: 0;
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+.ac-toggle {
+    color: var(--orange-yellow-crayola);
+    font-size: 1.5rem;
+    font-weight: bold;
+    transition: transform 0.3s ease;
+}
+.ac-item.active .ac-toggle { transform: rotate(45deg); }
+.ac-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+    background: var(--eerie-black-2);
+}
+.ac-item.active .ac-content { max-height: 2000px; }
+
+/* Project Cards in IO */
+.project-examples { padding: 2rem; }
+.project-card {
+    background: linear-gradient(135deg, var(--onyx) 0%, var(--eerie-black-1) 100%);
+    border: 1px solid var(--jet);
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    transition: all 0.3s ease;
+    position: relative;
+}
+.project-card h5 {
+    color: var(--orange-yellow-crayola);
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+.ce-justification {
+    margin-bottom: 0.8rem;
+    line-height: 1.6;
+    color: var(--light-gray-70);
+}
+.ce-clickable {
+    color: var(--orange-yellow-crayola);
+    cursor: pointer;
+    border-bottom: 1px dotted var(--orange-yellow-crayola);
+}
+
+/* CE Modal */
+.ce-modal-container {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100vh;
+    display: flex; justify-content: center; align-items: center;
+    background: rgba(0,0,0,0.8);
+    opacity: 0; pointer-events: none; z-index: 1000;
+    transition: opacity 0.25s ease;
+}
+.ce-modal-container.active { opacity: 1; pointer-events: auto; }
+.ce-modal {
+    background: var(--eerie-black-2);
+    max-width: 500px;
+    width: 90%;
+    padding: 2rem;
+    border-radius: 10px;
+    border: 1px solid var(--jet);
+    position: relative;
+}
+
+/* Fix Filter Hover Color in Light Mode */
+html[data-theme="light"] .filter-item button:hover,
+html[data-theme="light"] .filter-select-box .select-item button:hover {
+    color: var(--primary-accent);
+    background-color: var(--onyx); /* Light gray in light mode context */
+}
+
+/* Sidebar Toggles Layout */
+.sidebar-toggles {
+    margin-top: 15px;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    border-top: 1px solid var(--jet);
+    padding-top: 15px;
+}
+
+html[data-theme="light"] .sidebar-toggles {
+    border-color: var(--border-color);
+}

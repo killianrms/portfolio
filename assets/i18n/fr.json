@@ -143,10 +143,63 @@
         "text": "Découvrez mon projet : ",
         "copied": "Lien copié !"
     },
+    "meta": {
+        "description": "Portfolio de Killian Ramus, Assistant Project Engineer chez Itesoft. Étudiant en BUT Informatique (DACS - Sécurité) à Montpellier. Découvrez mes projets en développement web, Python, Java et cybersécurité.",
+        "keywords": "Killian Ramus, développeur, BUT Informatique, Montpellier, cybersécurité, développement web, Python, Java, portfolio",
+        "og_title": "Killian Ramus - Portfolio | Assistant Project Engineer",
+        "og_description": "Portfolio de Killian Ramus, Assistant Project Engineer chez Itesoft. Découvrez mes projets en développement web, Python, Java et cybersécurité.",
+        "twitter_title": "Killian Ramus - Portfolio | Assistant Project Engineer",
+        "twitter_description": "Portfolio de Killian Ramus, Assistant Project Engineer chez Itesoft. Découvrez mes projets en développement web, Python, Java et cybersécurité."
+    },
+    "alt": {
+        "photo": "Photo de Killian Ramus",
+        "itesoft_logo": "Logo Itesoft",
+        "tamastat": "Miniature du projet TamaStat",
+        "site_ecom": "Miniature du projet Site e-commerce",
+        "referendum": "Miniature du projet Referendum",
+        "lobbybot": "Miniature du projet Bot en python",
+        "tweet": "AutoTweetVideoUploader Project",
+        "portfolio": "Miniature du projet Portfolio",
+        "gamejam": "Miniature du projet Code Game Jam",
+        "itesoft_project": "Miniature du projet Itesoft",
+        "skills": {
+            "java": "Logo Java",
+            "python": "Logo Python",
+            "c": "Logo C",
+            "javascript": "Logo JavaScript",
+            "html5": "Logo HTML5",
+            "php": "Logo PHP",
+            "sql": "Logo SQL",
+            "angular": "Logo Angular",
+            "github": "Logo GitHub",
+            "gitlab": "Logo GitLab",
+            "azure": "Logo Azure DevOps",
+            "docker": "Logo Docker",
+            "windows": "Logo Windows",
+            "linux": "Logo Linux",
+            "jetbrains": "Logo JetBrains IDEs",
+            "termius": "Logo Termius"
+        }
+    },
     "portfolio_app": {
         "title": "Portfolio d'Apprentissage",
         "subtitle": "Validation des compétences du Niveau 2 - Parcours DACS",
         "back_home": "Retour à l'accueil",
+        "labels": {
+            "impact": "Impact :",
+            "societal_impact": "Impact sociétal :",
+            "optimization": "Optimisation :",
+            "security": "Sécurité :",
+            "heterogeneity": "Hétérogénéité :",
+            "manipulation": "Manipulation :",
+            "improvement": "Amélioration :",
+            "process": "Processus :",
+            "formalization": "Formalisation :",
+            "feasibility": "Faisabilité :",
+            "tracking": "Suivi :",
+            "intensive_tracking": "Suivi intensif :",
+            "restitution": "Restitution :"
+        },
         "tabs": {
             "optimiser": "Optimiser",
             "gerer": "Gérer",
@@ -191,6 +244,7 @@
                         "impact": "Optimisation du code pour réduire la consommation énergétique (minification, lazy loading) et sensibilisation de 200+ participants aux enjeux environnementaux."
                     },
                     "lobbybot": {
+                        "title": "Bot Fortnite - Considérations Éthiques",
                         "ce2_03": "Réflexion sur l'éthique du gaming : limitation des fonctionnalités pour éviter les abus et promotion d'un usage responsable.",
                         "impact": "Mise en place de garde-fous contre l'addiction gaming et documentation sur l'usage responsable des outils d'automatisation."
                     }
@@ -237,6 +291,7 @@
                         "heterogeneite": "Traitement unifié de données API REST, fichiers multimédias et métadonnées, avec système de mapping automatique."
                     },
                     "tamastat": {
+                        "title": "TamaStat - Import Multi-formats",
                         "ce4_01": "Gestion sécurisée de l'import de fichiers CSV, Excel et JSON avec validation des données personnelles selon le RGPD.",
                         "manipulation": "Parser universel avec détection automatique du format, nettoyage des données et transformation vers un schéma unifié."
                     }
@@ -245,48 +300,57 @@
             "conduire": {
                 "ac1": {
                     "tamastat": {
+                        "title": "TamaStat - Analyse des Processus",
                         "ce5_04": "Approche proactive d'analyse des flux de données existants pour identifier les goulots d'étranglement et proposer des améliorations.",
                         "ce5_01": "Communication régulière avec les utilisateurs finaux pour comprendre leurs besoins et contraintes opérationnelles.",
                         "amelioration": "Automatisation des rapports manuels, réduisant le temps de traitement de 70% et améliorant la fiabilité des données."
                     },
                     "portfolio": {
+                        "title": "Portfolio - Optimisation UX",
                         "ce5_04": "Démarche créative dans la conception d'une interface intuitive pour présenter efficacement les compétences et projets.",
                         "processus": "Identification des parcours utilisateurs (recruteurs, collègues, clients) pour optimiser la navigation et la présentation de l'information."
                     }
                 },
                 "ac2": {
                     "ecommerce": {
-                        "ce5_01": "Animation d'ateliers utilisateurs pour recueillir et formaliser les besoins fonctionnels (gestion produits, commandes, administration).",
+                        "title": "E-commerce - Expression de Besoins",
+                        "ce5_01": "Animation des ateliers utilisateurs pour recueillir et formaliser les besoins fonctionnels (gestion produits, commandes, administration).",
                         "ce5_02": "Prise en compte des contraintes légales (RGPD, e-commerce) dans la formalisation des spécifications.",
                         "formalisation": "Rédaction de user stories détaillées avec critères d'acceptation et priorisation selon la valeur métier."
                     },
                     "referendum": {
+                        "title": "Référendum - Analyse des Besoins",
                         "ce5_03": "Sensibilisation aux enjeux démocratiques et éthiques d'un système de vote électronique sécurisé.",
                         "ce5_01": "Facilitation d'entretiens avec les parties prenantes pour identifier les exigences de sécurité et d'utilisabilité."
                     }
                 },
                 "ac3": {
                     "lobbybot": {
+                        "title": "Bot Fortnite - Étude de Faisabilité",
                         "ce5_04": "Analyse critique des contraintes techniques (API, rate limits) et légales (ToS) pour évaluer la viabilité du projet.",
                         "ce5_03": "Évaluation des risques éthiques et mise en place de garde-fous pour un usage responsable.",
                         "faisabilite": "Étude approfondie des coûts d'hébergement, de maintenance et de conformité réglementaire sur le long terme."
                     },
                     "nuitinfo": {
+                        "title": "Nuit de l'Info - Gestion Contraintes",
                         "ce5_01": "Coordination d'équipe sous contrainte temporelle extrême (12h) avec allocation des ressources selon les compétences.",
                         "faisabilite": "Priorisation drastique des fonctionnalités selon la valeur ajoutée et la complexité de développement."
                     }
                 },
                 "ac4": {
                     "referendum": {
+                        "title": "Référendum - Méthode Scrum",
                         "ce5_01": "Animation des cérémonies Scrum (dailies, retrospectives, reviews) pour maintenir l'alignement équipe.",
                         "ce5_02": "Respect des normes de développement et des standards de qualité logicielle tout au long du projet.",
                         "suivi": "Utilisation d'outils collaboratifs (Jira, Git) pour tracer les évolutions et mesurer la vélocité de l'équipe."
                     },
                     "tamastat": {
+                        "title": "TamaStat - Suivi Kanban",
                         "ce5_04": "Démarche proactive de documentation continue et de tests automatisés pour assurer la qualité du livrable.",
                         "suivi": "Mise en place d'un tableau Kanban avec métriques de performance (lead time, cycle time) pour optimiser le flux de développement."
                     },
                     "nuitinfo": {
+                        "title": "Nuit de l'Info - Gestion de Crise",
                         "ce5_03": "Sensibilisation de l'équipe aux enjeux environnementaux tout en maintenant les objectifs de développement.",
                         "suivi_intensif": "Points de synchronisation toutes les 2h avec réajustement des priorités selon l'avancement et les défis disponibles."
                     }

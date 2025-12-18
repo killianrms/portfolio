@@ -66,7 +66,7 @@ document.addEventListener('DOMContentLoaded', () => {
       localStorage.setItem('lang', lang);
       translations = await loadTranslations(lang);
       if (translations) {
-        window.portfolioTranslations = translations; // Expose globally
+        window.translations = translations; // Expose globally
         updateText();
         // Dispatch event for other scripts
         document.dispatchEvent(new CustomEvent('translationsLoaded', { detail: { lang, translations } }));
@@ -316,7 +316,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (form && formInputs.length > 0 && formBtn) {
       // Messages d'erreur dynamiques
       const getErrorMessages = () => {
-        const t = window.portfolioTranslations?.contact?.validation || {};
+        const t = window.translations?.contact?.validation || {};
         return {
           fullname: {
             valueMissing: t.fullname || 'Veuillez entrer votre nom'
@@ -602,7 +602,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (modalImg) { modalImg.src = image; modalImg.alt = title; }
         if (modalTitle) modalTitle.textContent = title;
         if (modalCategory) modalCategory.textContent = category;
-        if (modalDescription) modalDescription.textContent = description;
+        if (modalDescription) modalDescription.innerHTML = description;
         if (modalTech) modalTech.textContent = tech;
         if (modalLink) modalLink.href = link;
 
