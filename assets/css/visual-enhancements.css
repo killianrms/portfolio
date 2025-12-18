@@ -87,81 +87,105 @@
 .input-wrapper {
     margin-bottom: 25px;
     position: relative;
+    z-index: 1;
 }
 
 .form-input {
-    background: var(--eerie-black-2);
-    /* Darker background */
+    background: linear-gradient(135deg, var(--eerie-black-2), var(--onyx));
     border: 1px solid var(--jet);
-    padding: 15px 20px;
-    border-radius: 14px;
+    padding: 16px 24px;
+    border-radius: 16px;
     color: var(--white-2);
     font-size: var(--fs-6);
-    font-weight: var(--fw-400);
-    transition: var(--transition-1);
+    font-weight: var(--fw-500);
+    transition: all 0.3s ease;
     width: 100%;
-    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
+    box-shadow: inset 2px 2px 5px rgba(0,0,0,0.3), 
+                inset -2px -2px 5px rgba(255,255,255,0.02);
+    backdrop-filter: blur(5px);
 }
 
 .form-input:focus {
     border-color: var(--orange-yellow-crayola);
-    background: var(--onyx);
+    background: linear-gradient(135deg, var(--onyx), var(--eerie-black-1));
     outline: none;
-    box-shadow: 0 0 0 2px rgba(255, 219, 112, 0.2);
+    box-shadow: 0 0 0 2px rgba(255, 219, 112, 0.2), 
+                0 10px 20px rgba(0,0,0,0.4);
+    transform: translateY(-2px);
 }
 
 .form-input::placeholder {
     color: var(--light-gray-70);
     transition: var(--transition-1);
+    font-weight: var(--fw-300);
 }
 
 .form-input:focus::placeholder {
-    opacity: 0.5;
+    opacity: 0.7;
     transform: translateX(5px);
 }
 
 /* Floating error message style */
 .input-wrapper .error-message {
     position: absolute;
-    bottom: -20px;
-    left: 10px;
-    font-size: 12px;
+    bottom: -22px;
+    left: 15px;
+    font-size: 13px;
     color: var(--bittersweet-shimmer);
+    font-weight: 500;
+    pointer-events: none;
+    transition: all 0.3s ease;
+    opacity: 0;
+    transform: translateY(-5px);
+}
+
+.input-wrapper.error .error-message {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .form-btn {
-    background: linear-gradient(to bottom right, var(--orange-yellow-crayola), var(--vegas-gold));
+    position: relative;
+    background: linear-gradient(135deg, var(--orange-yellow-crayola), var(--vegas-gold));
     color: var(--smoky-black);
-    font-weight: var(--fw-600);
-    padding: 16px 30px;
-    border-radius: 14px;
+    font-weight: var(--fw-700);
+    padding: 16px 36px;
+    border-radius: 16px;
     border: none;
     cursor: pointer;
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 10px;
-    transition: var(--transition-1);
-    box-shadow: var(--shadow-3);
+    gap: 12px;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 4px 15px rgba(255, 219, 112, 0.3);
     width: auto;
     margin-left: auto;
-    /* Right align */
+    text-transform: uppercase;
+    font-size: 14px;
+    letter-spacing: 0.5px;
+    overflow: hidden;
+}
+
+.form-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+    transition: 0.5s;
+}
+
+.form-btn:hover::before {
+    left: 100%;
 }
 
 .form-btn:hover:not(:disabled) {
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(255, 219, 112, 0.4);
-}
-
-.form-btn:disabled {
-    background: var(--onyx);
-    color: var(--light-gray);
-    cursor: not-allowed;
-    box-shadow: none;
-}
-
-.form-btn ion-icon {
-    font-size: 18px;
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: 0 8px 25px rgba(255, 219, 112, 0.5);
+    background: linear-gradient(135deg, #ffdb70, #ffd050);
 }
 
 /* --- Particle Background --- */

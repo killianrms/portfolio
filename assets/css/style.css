@@ -2122,6 +2122,14 @@ html[data-theme="light"] .form-status {
   /* Light theme active */
   html[data-theme="light"] .filter-item button.active {
     color: var(--primary-accent);
+    background: transparent;
+    /* Ensure no solid background */
+  }
+
+  /* Ensure ::before (which creates the circle) uses the correct color but doesn't cover text if z-index is issue */
+  html[data-theme="light"] .filter-item button.active::before {
+    background: rgba(0, 123, 255, 0.1);
+    /* Subtle background instead of full solid if that was the case */
   }
 
   .project-list {
@@ -2646,9 +2654,7 @@ article.projets.active .filter-select-box {
   /* Rule removed for consistent article padding */
 
   /* Rule removed - Handled by general article[data-page] width rules */
-  section.contact-form {
-    /* Rule removed for consistent article padding */
-  }
+
 }
 
 @media (max-width: 576px) {
@@ -4027,3 +4033,4 @@ html[data-theme="light"] .bouton-projet-ac:focus {
       width: 38px;
     }
   }
+}
