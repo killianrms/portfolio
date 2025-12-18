@@ -21,6 +21,9 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     const updateText = () => {
+      // Expose translations globally for other functions (e.g. modal)
+      window.portfolioTranslations = translations;
+
       document.querySelectorAll('[data-i18n]').forEach(element => {
         const key = element.getAttribute('data-i18n');
         const keys = key.split('.');
@@ -584,8 +587,13 @@ document.addEventListener('DOMContentLoaded', () => {
         const modalProjectInfo = modalElement.querySelector("[data-project-modal-info]");
 
         // Set the text content of the project info element
+        // Set the text content of the project info element
         if (modalProjectInfo) {
-          modalProjectInfo.textContent = projectInfo;
+          const t = window.portfolioTranslations || {};
+          const translatedInfo = t.modal?.role_group_time
+            ? t.modal.role_group_time.replace('{{role}}', role).replace('{{group}}', group).replace('{{time}}', time)
+            : projectInfo;
+          modalProjectInfo.textContent = translatedInfo;
         }
 
         // Trouver les éléments de contenu dans la section modale spécifique
@@ -599,12 +607,41 @@ document.addEventListener('DOMContentLoaded', () => {
         const modalVideo = modalElement.querySelector("[data-project-modal-video]");
 
         // Remplir la modale
+        const t = window.portfolioTranslations || {};
         if (modalImg) { modalImg.src = image; modalImg.alt = title; }
         if (modalTitle) modalTitle.textContent = title;
         if (modalCategory) modalCategory.textContent = category;
-        if (modalDescription) modalDescription.innerHTML = description;
+
+        // Dynamic labels
+        const descLabel = t.modal?.description || '📝 Description';
+        const techLabel = t.modal?.technologies || '🛠️ Technologies Utilisées';
+        const githubLabel = t.modal?.view_github || 'Voir sur GitHub';
+
+        if (modalDescription) {
+          // Inject label before content if not present or just replace content? 
+          // The HTML structure might need the label to be separate. 
+          // Looking at previous view_file, the labels seem to be H4 tags in the JS template... 
+          // WAIT. The file being edited uses `modalElement` which is an EXISTING DOM element, NOT a template string generator?
+          // Let's re-read lines 600-610 carefully.
+          // Lines 608: `if (modalDescription) modalDescription.innerHTML = description;`
+          // The "Description" LABEL is likely static in the HTML of the modal itself, OR generated dynamically.
+          // Reviewing index.html for the modal structure is safer.
+          // BUT the previous plan assumed generating HTML string.
+          // Line 550 starts `if (targetModalId === 'project-details')`.
+          // It populates EXISTING elements.
+          // So I need to find where the "Description" H4 header is.
+          // If it's static in HTML, I should add data-i18n to it in index.html.
+          // IF the modal is dynamic, I need to see where it comes from.
+          // The `project-details` modal in index.html... let's check it.
+          modalDescription.innerHTML = description;
+        }
         if (modalTech) modalTech.textContent = tech;
-        if (modalLink) modalLink.href = link;
+        if (modalLink) {
+          modalLink.href = link;
+          // Update the link text
+          const span = modalLink.querySelector('span');
+          if (span) span.textContent = githubLabel;
+        }
 
         // Gérer la vidéo YouTube
         if (modalVideoContainer && modalVideo) {

@@ -36,7 +36,10 @@
         },
         "view_details": "Voir Détails",
         "modal": {
-            "role_group_time": "{{role}} ({{group}} | {{time}})"
+            "role_group_time": "{{role}} ({{group}} | {{time}})",
+            "description": "📝 Description",
+            "technologies": "🛠️ Technologies Utilisées",
+            "view_github": "Voir sur GitHub"
         },
         "items": {
             "itesoft": {

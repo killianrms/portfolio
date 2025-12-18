@@ -2373,6 +2373,11 @@ article {
   transition: color var(--transition-std);
 }
 
+.about-text p {
+  padding-right: 30px;
+  /* Add spacing to match contact form aesthetic */
+}
+
 .icon-box {
   transition: background var(--transition-std), color var(--transition-std), box-shadow var(--transition-std);
 }
