@@ -1296,7 +1296,8 @@ html[data-theme="light"] .timeline-item:hover {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  color: var(--white-1);
+  color: #FFFFFF;
+  /* Ensure white text regardless of theme */
   font-size: var(--fs-6);
   font-weight: var(--fw-500);
   opacity: 0;
