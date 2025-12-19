@@ -75,7 +75,7 @@
                 "role": "Product Owner",
                 "tech": "Java, Agile (Scrum)",
                 "group": "groupe de 4",
-                "time": "projet de troisième année de but",
+                "time": "projet de deuxième année de but",
                 "desc": "<strong>SITUATION:</strong> Projet académique de vote sécurisé.<br><strong>MISSION:</strong> Garantir l'anonymat et l'intégrité des votes.<br><strong>ACTION:</strong> Implémentation d'algorithmes de cryptographie en Java et gestion de projet Agile.<br><strong>RÉSULTAT:</strong> Prototype fonctionnel validé avec mention."
             },
             "lobbybot": {

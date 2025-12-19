@@ -75,7 +75,7 @@
                 "role": "Product Owner",
                 "tech": "Java, Agile (Scrum)",
                 "group": "group of 4",
-                "time": "3rd year degree project",
+                "time": "second year degree project",
                 "desc": "<strong>SITUATION:</strong> Academic secure voting project.<br><strong>MISSION:</strong> Guarantee anonymity and integrity of votes.<br><strong>ACTION:</strong> Implementation of cryptographic algorithms in Java and Agile project management.<br><strong>RESULT:</strong> Functional prototype validated with honors."
             },
             "lobbybot": {
