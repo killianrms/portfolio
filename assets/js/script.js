@@ -607,6 +607,12 @@ document.addEventListener('DOMContentLoaded', () => {
         const tech = dataSourceElement.dataset.projectTech || 'N/A';
         const link = dataSourceElement.dataset.projectLink || '#';
         const videoUrl = dataSourceElement.dataset.projectVideo || '';
+        // New data attributes for rich content
+        const carouselImages = dataSourceElement.dataset.projectCarouselImages ? dataSourceElement.dataset.projectCarouselImages.split(',') : [];
+        const youtubeLink = dataSourceElement.dataset.projectYoutube || ''; // Use this for the button link if needed, or videoUrl for iframe? 
+        // Actually, the plan mentions data-project-youtube for the VIDEO.
+        // Let's stick to the plan: data-project-youtube for the video URL.
+        const youtubeVideoUrl = dataSourceElement.dataset.projectYoutube || '';
 
         // Get the role, group, and time information
         const role = dataSourceElement.dataset.projectRole || '';
@@ -620,7 +626,6 @@ document.addEventListener('DOMContentLoaded', () => {
         const modalProjectInfo = modalElement.querySelector("[data-project-modal-info]");
 
         // Set the text content of the project info element
-        // Set the text content of the project info element
         if (modalProjectInfo) {
           const t = window.portfolioTranslations || {};
           const translatedInfo = t.modal?.role_group_time
@@ -629,7 +634,7 @@ document.addEventListener('DOMContentLoaded', () => {
           modalProjectInfo.textContent = translatedInfo;
         }
 
-        // Trouver les éléments de contenu dans la section modale spécifique
+        // Find modal elements
         const modalImg = modalElement.querySelector("[data-project-modal-img]");
         const modalTitle = modalElement.querySelector("[data-project-modal-title]");
         const modalCategory = modalElement.querySelector("[data-project-modal-category]");
@@ -639,21 +644,50 @@ document.addEventListener('DOMContentLoaded', () => {
         const modalVideoContainer = modalElement.querySelector("[data-project-video-container]");
         const modalVideo = modalElement.querySelector("[data-project-modal-video]");
 
-        // Remplir la modale
+        // Populate Modal Image / Carousel
         if (modalImg) {
-          modalImg.innerHTML = ''; // Clear previous
-          const carouselContainer = dataSourceElement.querySelector('.carousel-container');
-          if (carouselContainer) {
-            const clonedCarousel = carouselContainer.cloneNode(true);
-            clonedCarousel.dataset.initialized = 'false'; // Reset for re-init
-            modalImg.appendChild(clonedCarousel);
+          modalImg.innerHTML = ''; // Clear previous content
+
+          if (carouselImages.length > 0) {
+            // Create Carousel dynamically
+            const carouselContainer = document.createElement('div');
+            carouselContainer.className = 'carousel-container';
+
+            carouselImages.forEach((imgSrc, index) => {
+              const img = document.createElement('img');
+              img.src = imgSrc.trim();
+              img.className = index === 0 ? 'carousel-slide active' : 'carousel-slide';
+              img.alt = `${title} - Slide ${index + 1}`;
+              img.loading = 'lazy';
+              carouselContainer.appendChild(img);
+            });
+
+            modalImg.appendChild(carouselContainer);
             initCarousel(modalImg);
-          } else {
-            if (image) {
-              modalImg.innerHTML = `<img src="${image}" alt="${title}" width="800" height="600" loading="lazy">`;
-            }
+          } else if (image) {
+            // Fallback to single image
+            modalImg.innerHTML = `<img src="${image}" alt="${title}" width="800" height="600" loading="lazy">`;
           }
         }
+
+        // Populate Modal Video
+        if (modalVideoContainer && modalVideo) {
+          if (youtubeVideoUrl) {
+            const videoId = extractYouTubeID(youtubeVideoUrl);
+            if (videoId) {
+              modalVideo.src = `https://www.youtube.com/embed/${videoId}`;
+              modalVideoContainer.style.display = "block";
+            } else {
+              modalVideoContainer.style.display = "none";
+              modalVideo.src = "";
+            }
+          } else {
+            modalVideoContainer.style.display = "none";
+            modalVideo.src = "";
+          }
+        }
+
+        // Continue with other modal fields
         if (modalTitle) modalTitle.textContent = title;
         if (modalCategory) modalCategory.textContent = category;
 
