@@ -308,14 +308,38 @@ html[data-theme="light"] .form-input:valid {
     /* Match design */
 }
 
-/* HIDE Mobile Navbar on Desktop (Sidebar is visible) */
-@media (min-width: 1200px) {
+/* HIDE Mobile Navbar on Desktop (Sidebar is visible) - REMOVED */
+/* FIX: Restore Desktop Menu (Top Right Pill Validation) */
+@media (min-width: 1024px) {
     .navbar {
-        display: none !important;
+        position: absolute;
+        bottom: auto;
+        top: 0;
+        right: 0;
+        width: auto;
+        background: transparent;
+        border: none;
+        padding: 20px 40px;
+        border-radius: 0;
+        backdrop-filter: none;
+        box-shadow: none;
     }
 
-    /* Ensure styles don't conflict */
-    main {
-        margin-bottom: 0 !important;
+    .navbar-list {
+        display: flex;
+        gap: 30px;
+        background: var(--border-gradient-onyx);
+        padding: 10px 20px;
+        border-radius: 12px;
+        border: 1px solid var(--jet);
+        box-shadow: var(--shadow-2);
+        justify-content: center;
+        align-items: center;
+    }
+
+    .navbar-link {
+         padding: 0;
+         font-size: var(--fs-5);
     }
 }
+
