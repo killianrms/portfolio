@@ -698,13 +698,23 @@ document.addEventListener('DOMContentLoaded', () => {
         const modalCategory = modalElement.querySelector("[data-project-modal-category]");
         const modalDescription = modalElement.querySelector("[data-project-modal-description]");
         const modalTech = modalElement.querySelector("[data-project-modal-tech]");
-        const modalLink = modalElement.querySelector("[data-project-modal-link]");
-        const modalVideoContainer = modalElement.querySelector("[data-project-video-container]");
-        const modalVideo = modalElement.querySelector("[data-project-modal-video]");
 
-        // Remplir la modale
-        const t = window.portfolioTranslations || {};
+        // ... (rest of logic)
 
+        // Dynamic labels
+        const descLabel = t.modal?.description || '📝 Description';
+        const techLabel = t.modal?.technologies || '🛠️ Technologies Utilisées';
+        const githubLabel = t.modal?.view_github || 'Voir sur GitHub';
+
+        if (modalDescription) {
+          modalDescription.innerHTML = description;
+        }
+
+        // Format Tech as Badges
+        if (modalTech) {
+          const techs = tech.split(',').map(t => t.trim());
+          modalTech.innerHTML = `<div class="tech-container">${techs.map(t => `<span class="tech-badge">${t}</span>`).join('')}</div>`;
+        }
         // --- Carousel Logic (REMOVED from Modal) ---
         // Images are now in the grid. Modal shows text only.
         const modalImgWrapper = modalElement.querySelector('.modal-img-wrapper');
@@ -715,15 +725,12 @@ document.addEventListener('DOMContentLoaded', () => {
         if (modalTitle) modalTitle.textContent = title;
         if (modalCategory) modalCategory.textContent = category;
 
-        // Dynamic labels
-        const descLabel = t.modal?.description || '📝 Description';
-        const techLabel = t.modal?.technologies || '🛠️ Technologies Utilisées';
-        const githubLabel = t.modal?.view_github || 'Voir sur GitHub';
+
 
         if (modalDescription) {
           modalDescription.innerHTML = description;
         }
-        if (modalTech) modalTech.textContent = tech;
+
         if (modalLink) {
           modalLink.href = link;
           // Update the link text and icon
