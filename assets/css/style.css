@@ -1244,13 +1244,10 @@ html[data-theme="light"] .timeline-item:hover {
   gap: 30px;
   margin-bottom: 10px;
   margin-left: 0;
-  max-height: 75vh;
-  /* Limiter la hauteur à 75% de la fenêtre */
-  overflow-y: auto;
   padding-left: 0 !important;
   /* Fix mobile width indentation */
-  padding-right: 5px;
-  /* Ajouter du padding pour éviter le chevauchement de la barre de défilement */
+  padding-right: 0;
+  /* Remove right padding as scrollbar is gone */
   padding-bottom: 25px;
   /* Ajouter de l'espace en bas pour la visibilité du dernier élément */
 }

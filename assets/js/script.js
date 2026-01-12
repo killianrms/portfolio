@@ -694,8 +694,18 @@ document.addEventListener('DOMContentLoaded', () => {
         const t = window.portfolioTranslations || {};
 
         // --- 1. Basic Text Content ---
+        // --- 1. Basic Text Content ---
         if (modalTitle) modalTitle.textContent = title;
         if (modalCategory) modalCategory.textContent = category;
+
+
+        // Dynamic labels defined here to be available for button logic below
+        const modalTrans = t.projects?.modal || {};
+        const descLabel = modalTrans.description || '📝 Description';
+        const techLabel = modalTrans.technologies || '🛠️ Technologies Utilisées';
+        const githubLabel = modalTrans.view_github || 'Voir sur GitHub';
+        const websiteLabel = modalTrans.view_website || 'Voir la page web';
+
         if (modalDescription) modalDescription.innerHTML = description;
 
         // --- 2. Project Info (Role/Group/Time) ---
@@ -720,7 +730,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // --- 4. GitHub Link ---
         if (modalLink) {
           modalLink.href = link;
-          const githubLabel = (t.modal && t.modal.view_github) ? t.modal.view_github : 'Voir sur GitHub';
+          // githubLabel is already defined above
           const span = modalLink.querySelector('span');
           if (span) span.textContent = githubLabel;
         }
@@ -747,7 +757,7 @@ document.addEventListener('DOMContentLoaded', () => {
           webLinkBtn.target = '_blank';
           webLinkBtn.rel = 'noopener noreferrer';
           webLinkBtn.href = webLink;
-          webLinkBtn.innerHTML = '<ion-icon name="globe-outline"></ion-icon><span>Voir la page web</span>';
+          webLinkBtn.innerHTML = `<ion-icon name="globe-outline"></ion-icon><span>${websiteLabel}</span>`;
           btnWrapper.appendChild(webLinkBtn);
         }
 
@@ -755,7 +765,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (modalLink) {
           // Update its href and text first
           modalLink.href = link;
-          const githubLabel = (t.modal && t.modal.view_github) ? t.modal.view_github : 'Voir sur GitHub';
+          // githubLabel reused
           const span = modalLink.querySelector('span');
           if (span) span.textContent = githubLabel;
 
