@@ -52,11 +52,13 @@
 
 .project-modal-content {
     width: 90%;
-    max-width: 650px;
-    max-height: 90vh;
+    max-width: 500px;
+    /* Reduced from 650px */
+    max-height: 85vh;
     display: flex;
     flex-direction: column;
-    padding: 40px;
+    padding: 30px;
+    /* Reduced from 40px */
     overflow-y: auto;
     text-align: center;
     background: var(--eerie-black-2);
