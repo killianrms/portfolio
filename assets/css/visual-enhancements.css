@@ -89,6 +89,8 @@
     background: linear-gradient(135deg, var(--eerie-black-2), var(--onyx));
     border: 1px solid var(--jet);
     padding: 16px 24px;
+    padding-left: 50px;
+    /* Restore space for icon */
     padding-right: 45px;
     /* Prevent text overlap with icon */
     border-radius: 16px;
@@ -316,4 +318,52 @@ html[data-theme="light"] .form-input:valid {
 .project-weblink-btn:hover {
     background: var(--orange-yellow-crayola);
     color: var(--onyx);
+}
+
+/* --- FIXES REGRESSIONS (Menu, Images) --- */
+
+/* Enforce uniform image size for project cards */
+.project-img picture,
+.project-img img {
+    width: 100%;
+    height: 200px;
+    /* Fixed height for consistency */
+    object-fit: cover;
+    /* Crop to fill */
+    border-radius: 10px;
+    /* Match design */
+}
+
+/* FIX: Restore Desktop Menu (Top Right Pill Validation) */
+@media (min-width: 1024px) {
+    .navbar {
+        position: absolute;
+        bottom: auto;
+        top: 0;
+        right: 0;
+        width: auto;
+        background: transparent;
+        border: none;
+        padding: 20px 40px;
+        border-radius: 0;
+        backdrop-filter: none;
+        box-shadow: none;
+    }
+
+    .navbar-list {
+        display: flex;
+        gap: 30px;
+        background: var(--border-gradient-onyx);
+        padding: 10px 20px;
+        border-radius: 12px;
+        border: 1px solid var(--jet);
+        box-shadow: var(--shadow-2);
+        justify-content: center;
+        align-items: center;
+    }
+
+    .navbar-link {
+        padding: 0;
+        font-size: var(--fs-5);
+    }
 }

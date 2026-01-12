@@ -221,20 +221,29 @@
                     <li class="navbar-item">
                         <div class="lang-dropdown">
                             <button class="lang-toggle-btn" aria-label="Toggle language" data-lang-btn>
-                                <span class="flag">🇫🇷</span>
+                                <span class="flag">
+                                    <img src="./assets/images/flags/fr.svg" alt="Drapeau Français" width="20"
+                                        height="14">
+                                </span>
                                 <span class="lang-text">FR</span>
                                 <ion-icon name="chevron-down-outline" class="chevron"></ion-icon>
                             </button>
                             <ul class="lang-menu">
                                 <li>
                                     <button class="lang-option" data-lang-select="fr">
-                                        <span class="flag">🇫🇷</span>
+                                        <span class="flag">
+                                            <img src="./assets/images/flags/fr.svg" alt="Drapeau Français" width="20"
+                                                height="14">
+                                        </span>
                                         <span>Français</span>
                                     </button>
                                 </li>
                                 <li>
                                     <button class="lang-option" data-lang-select="en">
-                                        <span class="flag">🇬🇧</span>
+                                        <span class="flag">
+                                            <img src="./assets/images/flags/gb.svg" alt="English Flag" width="20"
+                                                height="14">
+                                        </span>
                                         <span>English</span>
                                     </button>
                                 </li>
@@ -376,8 +385,8 @@
                             </div>
                             <div class="skill-item-small" data-skill-name="Linux">
                                 <figure class="skill-icon-small">
-                                    <img src="assets/images/skills/linux.png" alt="Linux Logo" loading="lazy" width="16"
-                                        height="16" data-i18n-attr="alt:alt.skills.linux">
+                                    <img src="assets/images/skills/linux.webp" alt="Linux Logo" loading="lazy"
+                                        width="16" height="16" data-i18n-attr="alt:alt.skills.linux">
                                 </figure>
                                 <h4 class="skill-name-small">Linux</h4>
                             </div>
@@ -653,6 +662,7 @@
                             data-project-description="Création d'un site e-commerce complet..."
                             data-project-tech="HTML, CSS, JavaScript, PHP, MySQL" data-project-role="Scrum Master"
                             data-project-group="groupe de 3" data-project-time="1 mois"
+                            data-project-carousel-images="./assets/images/E-Commerce0.webp, ./assets/images/E-Commerce1.webp, ./assets/images/E-Commerce2.webp, ./assets/images/E-Commerce3.webp, ./assets/images/E-Commerce4.webp"
                             data-i18n-attr="data-project-title:projects.items.ecommerce.title,data-project-category:projects.items.ecommerce.category,data-project-role:projects.items.ecommerce.role,data-project-group:projects.items.ecommerce.group,data-project-time:projects.items.ecommerce.time,data-project-description:projects.items.ecommerce.desc">
                             <a data-modal-trigger="project-details" class="project-link-wrapper">
                                 <figure class="project-img">
@@ -680,6 +690,8 @@
                             data-project-description="Le projet consiste à créer un système de référendums sécurisés..."
                             data-project-tech="Java, Agile (Scrum)" data-project-role="Product Owner"
                             data-project-group="groupe de 4" data-project-time="projet de troisième année de but"
+                            data-project-carousel-images="./assets/images/referendum1.webp, ./assets/images/referendum2.webp, ./assets/images/referendum3.webp, ./assets/images/referendum4.webp, ./assets/images/referendum5.webp"
+                            data-project-youtube="https://www.youtube.com/watch?v=F3I_4daMcuk"
                             data-i18n-attr="data-project-title:projects.items.referendum.title,data-project-category:projects.items.referendum.category,data-project-role:projects.items.referendum.role,data-project-group:projects.items.referendum.group,data-project-time:projects.items.referendum.time,data-project-description:projects.items.referendum.desc">
                             <a data-modal-trigger="project-details" class="project-link-wrapper">
                                 <figure class="project-img">
@@ -705,19 +717,21 @@
                             data-project-description="AerozBot est une bibliothèque Python..."
                             data-project-tech="Python, API REST, HTML, CSS, Discord" data-project-role="Développeur"
                             data-project-group="seul" data-project-time="Juillet 2022 - Juin 2025 (arrêté)"
+                            data-project-youtube="https://www.youtube.com/watch?v=tja-34-FpnY"
                             data-i18n-attr="data-project-title:projects.items.lobbybot.title,data-project-category:projects.items.lobbybot.category,data-project-role:projects.items.lobbybot.role,data-project-group:projects.items.lobbybot.group,data-project-time:projects.items.lobbybot.time,data-project-description:projects.items.lobbybot.desc">
                             <a data-modal-trigger="project-details" class="project-link-wrapper">
                                 <figure class="project-img">
                                     <picture>
                                         <source srcset="./assets/images/lobbybot.webp" type="image/webp">
                                         <img src="./assets/images/lobbybot.webp" alt="Miniature du projet Bot en python"
-                                            loading="lazy" data-i18n-attr="alt:alt.lobbybot">
+                                            loading="lazy" width="1536" height="1024" data-i18n-attr="alt:alt.lobbybot">
                                     </picture>
                                     <div class="project-hover-text" data-i18n="projects.view_details"></div>
                                 </figure>
                                 <h3 class="project-title" data-i18n="projects.items.lobbybot.title">Bot fortnite en
                                     python</h3>
-                                <p class="project-category" data-i18n="projects.items.lobbybot.category">Librairie + API
+                                <p class="project-category" data-i18n="projects.items.lobbybot.category">Librairie +
+                                    API
                                     | Personnel</p>
                             </a>
                         </li>
@@ -800,20 +814,24 @@
                             data-project-category="Code Game Jam 2023 | Concours"
                             data-project-description="Développer un jeu vidéo..." data-project-tech="Unreal Engine 5"
                             data-project-role="Développeur" data-project-group="groupe de 2" data-project-time="2 jours"
-                            data-project-video="https://www.youtube.com/watch?v=OoIJkiQOXEQ"
+                            <<<<<<< HEAD
+                            data-project-video="https://www.youtube.com/watch?v=OoIJkiQOXEQ"=======data-project-youtube="https://www.youtube.com/watch?v=OoIJkiQOXEQ">
+                            >>>>>> 348ed26431a1feb2a7c656e6dd04b6b48c60358a
                             data-i18n-attr="data-project-title:projects.items.gamejam.title,data-project-category:projects.items.gamejam.category,data-project-role:projects.items.gamejam.role,data-project-group:projects.items.gamejam.group,data-project-time:projects.items.gamejam.time,data-project-description:projects.items.gamejam.desc">
                             <a data-modal-trigger="project-details" class="project-link-wrapper">
                                 <figure class="project-img">
                                     <picture>
                                         <source srcset="./assets/images/project-4.webp" type="image/webp">
                                         <img src="./assets/images/project-4.webp"
-                                            alt="Miniature du projet Code Game Jam" loading="lazy"
-                                            data-i18n-attr="alt:alt.gamejam">
+                                            alt="Miniature du projet Code Game Jam" loading="lazy" width="1536"
+                                            height="1024" data-i18n-attr="alt:alt.gamejam">
                                     </picture>
                                     <div class="project-hover-text" data-i18n="projects.view_details"></div>
                                 </figure>
-                                <h3 class="project-title" data-i18n="projects.items.gamejam.title">Code Game Jam</h3>
-                                <p class="project-category" data-i18n="projects.items.gamejam.category">Code Game Jam
+                                <h3 class="project-title" data-i18n="projects.items.gamejam.title">Code Game Jam
+                                </h3>
+                                <p class="project-category" data-i18n="projects.items.gamejam.category">Code Game
+                                    Jam
                                     2023 | Concours</p>
                             </a>
                         </li>
@@ -961,7 +979,7 @@
                             <a href="#" target="_blank" rel="noopener noreferrer" class="form-btn project-link-btn"
                                 data-project-modal-link style="margin-top: 25px;">
                                 <ion-icon name="logo-github"></ion-icon>
-                                <span data-i18n="modal.view_github">Voir sur GitHub</span>
+                                <span data-i18n="modal.view_github">GitHub</span>
                             </a>
                         </div>
                     </div>

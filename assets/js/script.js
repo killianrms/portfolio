@@ -57,7 +57,14 @@ document.addEventListener('DOMContentLoaded', () => {
       const langFlag = document.querySelector('.lang-toggle-btn .flag');
       if (langText && langFlag) {
         langText.textContent = currentLang.toUpperCase();
-        langFlag.textContent = currentLang === 'fr' ? '🇫🇷' : '🇬🇧';
+        const flagImg = langFlag.querySelector('img');
+        if (flagImg) {
+          flagImg.src = `./assets/images/flags/${currentLang === 'fr' ? 'fr' : 'gb'}.svg`;
+          flagImg.alt = currentLang === 'fr' ? 'Drapeau Français' : 'English Flag';
+        } else {
+          // Fallback if structure is different (initial load might not have img yet if we didn't update HTML)
+          // But we will update HTML.
+        }
       }
 
       // Update html lang attribute
@@ -202,7 +209,33 @@ document.addEventListener('DOMContentLoaded', () => {
 
       init();
       animate();
+      init();
+      animate();
     }
+
+    // --- Carousel Logic ---
+    function initCarousel(scope = document) {
+      const carousels = scope.querySelectorAll('.carousel-container');
+      carousels.forEach(carousel => {
+        if (carousel.dataset.initialized === 'true') return;
+
+        const slides = carousel.querySelectorAll('.carousel-slide');
+        if (slides.length <= 1) return;
+
+        // Ensure first is active
+        slides[0].classList.add('active');
+        carousel.dataset.initialized = 'true';
+
+        let currentIndex = 0;
+        setInterval(() => {
+          slides[currentIndex].classList.remove('active');
+          currentIndex = (currentIndex + 1) % slides.length;
+          slides[currentIndex].classList.add('active');
+        }, 3000);
+      });
+    }
+    // Initialize globally
+    initCarousel();
 
     // --- Fonctions Utilitaires ---
 
@@ -540,6 +573,8 @@ document.addEventListener('DOMContentLoaded', () => {
       const triggerButton = event.target.closest('[data-modal-trigger]');
       if (!triggerButton) return;
 
+      event.preventDefault(); // Prevent default link behavior (jumping/reloading)
+
       const targetModalId = triggerButton.dataset.modalTrigger;
       // Trouver la *section* modale en utilisant l'attribut data-modal
       const modalElement = document.querySelector(`section[data-modal="${targetModalId}"]`);
@@ -574,6 +609,12 @@ document.addEventListener('DOMContentLoaded', () => {
         const tech = dataSourceElement.dataset.projectTech || 'N/A';
         const link = dataSourceElement.dataset.projectLink || '#';
         const videoUrl = dataSourceElement.dataset.projectVideo || '';
+        // New data attributes for rich content
+        const carouselImages = dataSourceElement.dataset.projectCarouselImages ? dataSourceElement.dataset.projectCarouselImages.split(',') : [];
+        const youtubeLink = dataSourceElement.dataset.projectYoutube || ''; // Use this for the button link if needed, or videoUrl for iframe? 
+        // Actually, the plan mentions data-project-youtube for the VIDEO.
+        // Let's stick to the plan: data-project-youtube for the video URL.
+        const youtubeVideoUrl = dataSourceElement.dataset.projectYoutube || '';
 
         // Get the role, group, and time information
         const role = dataSourceElement.dataset.projectRole || '';
@@ -587,7 +628,6 @@ document.addEventListener('DOMContentLoaded', () => {
         const modalProjectInfo = modalElement.querySelector("[data-project-modal-info]");
 
         // Set the text content of the project info element
-        // Set the text content of the project info element
         if (modalProjectInfo) {
           const t = window.portfolioTranslations || {};
           const translatedInfo = t.modal?.role_group_time
@@ -596,7 +636,7 @@ document.addEventListener('DOMContentLoaded', () => {
           modalProjectInfo.textContent = translatedInfo;
         }
 
-        // Trouver les éléments de contenu dans la section modale spécifique
+        // Find modal elements
         const modalImg = modalElement.querySelector("[data-project-modal-img]");
         const modalTitle = modalElement.querySelector("[data-project-modal-title]");
         const modalCategory = modalElement.querySelector("[data-project-modal-category]");
@@ -655,7 +695,6 @@ document.addEventListener('DOMContentLoaded', () => {
           // Single Image
           modalImgWrapper.innerHTML = `<img src="${image}" alt="${title}" data-project-modal-img>`;
         }
-
         if (modalTitle) modalTitle.textContent = title;
         if (modalCategory) modalCategory.textContent = category;
 
@@ -670,7 +709,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (modalTech) modalTech.textContent = tech;
         if (modalLink) {
           modalLink.href = link;
-          // Update the link text
+          // Update the link text and icon
           const span = modalLink.querySelector('span');
           if (span) span.textContent = githubLabel;
         }
