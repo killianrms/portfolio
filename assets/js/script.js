@@ -649,6 +649,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
 
       // Logique Spécifique à la Modale Projet
+      // Logique Spécifique à la Modale Projet
       if (targetModalId === 'project-details') {
         let dataSourceElement = null;
 
@@ -668,120 +669,101 @@ document.addEventListener('DOMContentLoaded', () => {
         // Obtenir les données de l'élément projet
         const title = dataSourceElement.dataset.projectTitle || 'N/A';
         const category = dataSourceElement.dataset.projectCategory || 'N/A';
-        const image = dataSourceElement.dataset.projectImage || '';
         const description = dataSourceElement.dataset.projectDescription || 'No description available.';
         const tech = dataSourceElement.dataset.projectTech || 'N/A';
         const link = dataSourceElement.dataset.projectLink || '#';
         const videoUrl = dataSourceElement.dataset.projectVideo || '';
-        // New data attributes for rich content
-        const carouselImages = dataSourceElement.dataset.projectCarouselImages ? dataSourceElement.dataset.projectCarouselImages.split(',') : [];
-        const youtubeLink = dataSourceElement.dataset.projectYoutube || ''; // Use this for the button link if needed, or videoUrl for iframe? 
-        // Actually, the plan mentions data-project-youtube for the VIDEO.
-        // Let's stick to the plan: data-project-youtube for the video URL.
-        const youtubeVideoUrl = dataSourceElement.dataset.projectYoutube || '';
+        const webLink = dataSourceElement.dataset.projectWeblink || '';
 
         // Get the role, group, and time information
         const role = dataSourceElement.dataset.projectRole || '';
         const group = dataSourceElement.dataset.projectGroup || '';
         const time = dataSourceElement.dataset.projectTime || '';
 
-        // Create the project info string
-        const projectInfo = role ? `${role} (${group} | ${time})` : '';
-
-        // Find the project info element in the modal
-        const modalProjectInfo = modalElement.querySelector("[data-project-modal-info]");
-
-        // Set the text content of the project info element
-        if (modalProjectInfo) {
-          const t = window.portfolioTranslations || {};
-          const translatedInfo = t.modal?.role_group_time
-            ? t.modal.role_group_time.replace('{{role}}', role).replace('{{group}}', group).replace('{{time}}', time)
-            : projectInfo;
-          modalProjectInfo.textContent = translatedInfo;
-        }
-
         // Find modal elements
-        const modalImg = modalElement.querySelector("[data-project-modal-img]");
         const modalTitle = modalElement.querySelector("[data-project-modal-title]");
         const modalCategory = modalElement.querySelector("[data-project-modal-category]");
         const modalDescription = modalElement.querySelector("[data-project-modal-description]");
         const modalTech = modalElement.querySelector("[data-project-modal-tech]");
+        const modalLink = modalElement.querySelector("[data-project-modal-link]");
+        const modalProjectInfo = modalElement.querySelector("[data-project-modal-info]");
+        const modalVideoContainer = modalElement.querySelector("[data-project-video-container]");
+        const modalVideo = modalElement.querySelector("[data-project-modal-video]");
 
-        // ... (rest of logic)
+        // Translations
+        const t = window.portfolioTranslations || {};
 
-        // Dynamic labels
-        const descLabel = t.modal?.description || '📝 Description';
-        const techLabel = t.modal?.technologies || '🛠️ Technologies Utilisées';
-        const githubLabel = t.modal?.view_github || 'Voir sur GitHub';
-
-        if (modalDescription) {
-          modalDescription.innerHTML = description;
-        }
-
-        // Format Tech as Badges
-        if (modalTech) {
-          const techs = tech.split(',').map(t => t.trim());
-          modalTech.innerHTML = `<div class="tech-container">${techs.map(t => `<span class="tech-badge">${t}</span>`).join('')}</div>`;
-        }
-        // --- Carousel Logic (REMOVED from Modal) ---
-        // Images are now in the grid. Modal shows text only.
-        const modalImgWrapper = modalElement.querySelector('.modal-img-wrapper');
-        if (modalImgWrapper) {
-          modalImgWrapper.style.display = 'none'; // Ensure hidden
-          modalImgWrapper.innerHTML = ''; // Clear content
-        }
+        // --- 1. Basic Text Content ---
         if (modalTitle) modalTitle.textContent = title;
         if (modalCategory) modalCategory.textContent = category;
+        if (modalDescription) modalDescription.innerHTML = description;
 
+        // --- 2. Project Info (Role/Group/Time) ---
+        if (modalProjectInfo) {
+          let infoText = role ? `${role} (${group} | ${time})` : '';
+          if (t.modal && t.modal.role_group_time) {
+            infoText = t.modal.role_group_time.replace('{{role}}', role)
+              .replace('{{group}}', group)
+              .replace('{{time}}', time);
+          }
+          modalProjectInfo.textContent = infoText;
+        }
+
+        // --- 3. Technologies (Badges) ---
+        if (modalTech) {
+          // Ensure tech is a string
+          const techStr = String(tech);
+          const techs = techStr.split(',').map(s => s.trim());
+          modalTech.innerHTML = `<div class="tech-container">${techs.map(item => `<span class="tech-badge">${item}</span>`).join('')}</div>`;
+        }
+
+        // --- 4. GitHub Link ---
         if (modalLink) {
           modalLink.href = link;
-          // Update the link text and icon
+          const githubLabel = (t.modal && t.modal.view_github) ? t.modal.view_github : 'Voir sur GitHub';
           const span = modalLink.querySelector('span');
           if (span) span.textContent = githubLabel;
         }
 
-        // --- Web Link Button ---
-        const webLink = dataSourceElement.dataset.projectWeblink;
-        // Check if button already exists
-        let webLinkBtn = modalElement.querySelector('.project-weblink-btn');
-        if (webLink) {
-          if (!webLinkBtn) {
-            // Create it
-            webLinkBtn = document.createElement('a');
-            webLinkBtn.className = 'form-btn project-link-btn project-weblink-btn';
-            webLinkBtn.target = '_blank';
-            webLinkBtn.rel = 'noopener noreferrer';
-            webLinkBtn.innerHTML = '<ion-icon name="globe-outline"></ion-icon><span>Voir la page web</span>';
-            // Insert before GitHub link
-            if (modalLink) {
-              modalLink.parentNode.insertBefore(webLinkBtn, modalLink);
-            }
-          }
+        // --- 5. Web Link Button ---
+        // Remove existing web button if any to avoid duplicates
+        const existingWebBtn = modalElement.querySelector('.project-weblink-btn');
+        if (existingWebBtn) existingWebBtn.remove();
+
+        if (webLink && modalLink) {
+          const webLinkBtn = document.createElement('a');
+          webLinkBtn.className = 'form-btn project-link-btn project-weblink-btn';
+          webLinkBtn.target = '_blank';
+          webLinkBtn.rel = 'noopener noreferrer';
           webLinkBtn.href = webLink;
           webLinkBtn.style.display = 'inline-flex';
-        } else {
-          if (webLinkBtn) webLinkBtn.remove();
+          webLinkBtn.style.marginRight = '15px'; // Spacing
+          webLinkBtn.innerHTML = '<ion-icon name="globe-outline"></ion-icon><span>Voir la page web</span>';
+          // Insert before GitHub link
+          modalLink.parentNode.insertBefore(webLinkBtn, modalLink);
         }
 
-        // Gérer la vidéo YouTube
+        // --- 6. Video (YouTube) ---
         if (modalVideoContainer && modalVideo) {
+          modalVideoContainer.style.display = 'none';
+          modalVideo.src = '';
+
           if (videoUrl) {
-            // Convertir l'URL YouTube en format embed
             const videoId = extractYouTubeID(videoUrl);
             if (videoId) {
               modalVideo.src = `https://www.youtube.com/embed/${videoId}`;
               modalVideoContainer.style.display = 'block';
-            } else {
-              modalVideoContainer.style.display = 'none';
             }
-          } else {
-            modalVideoContainer.style.display = 'none';
-            modalVideo.src = '';
           }
         }
+
+        // --- 7. Hide Carousel/Images (Safety) ---
+        const modalImgWrapper = modalElement.querySelector('.modal-img-wrapper');
+        if (modalImgWrapper) modalImgWrapper.style.display = 'none';
+
       }
 
-      // Ouvrir la modale en utilisant la fonction générique (en passant la *section* modale)
+      // Ouvrir la modale
       openModal(modalElement);
     });
 

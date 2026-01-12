@@ -218,7 +218,7 @@ article {
   box-shadow: var(--shadow-2);
   z-index: 1;
   backdrop-filter: blur(10px);
-  transition: all var(--transition-std);
+  /* transition: all var(--transition-std); Removed to prevent flicker */
 }
 
 .separator {
@@ -265,7 +265,8 @@ article {
 
 article.active {
   display: block;
-  /* animation: fadeInUp 0.5s ease-out forwards; */
+  animation: none !important;
+  transition: none !important;
 }
 
 
