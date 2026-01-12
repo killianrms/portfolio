@@ -51,14 +51,15 @@
 }
 
 .project-modal-content {
-    width: 90%;
-    max-width: 500px;
-    /* Reduced from 650px */
+    width: 95%;
+    /* More responsive on small phones */
+    max-width: 450px;
+    /* Reduced to 450px */
     max-height: 85vh;
     display: flex;
     flex-direction: column;
-    padding: 30px;
-    /* Reduced from 40px */
+    padding: 25px;
+    /* Slightly tighter padding */
     overflow-y: auto;
     text-align: center;
     background: var(--eerie-black-2);
