@@ -39,7 +39,8 @@
 
 .lang-menu {
     position: absolute;
-    top: calc(100% + 10px);
+    bottom: calc(100% + 15px);
+    top: auto;
     right: 0;
     background: var(--eerie-black-2);
     border: 1px solid var(--jet);
@@ -49,7 +50,7 @@
     box-shadow: var(--shadow-2);
     opacity: 0;
     visibility: hidden;
-    transform: translateY(-10px);
+    transform: translateY(10px);
     transition: var(--transition-1);
     z-index: 20;
 }
@@ -230,4 +231,89 @@ html[data-theme="light"] .form-input:valid {
     .lang-dropdown {
         margin-left: 30px;
     }
+}
+
+/* --- Carousel Styles --- */
+.modal-img-wrapper {
+    position: relative;
+    overflow: hidden;
+    min-height: 200px;
+    /* Prevent collapse */
+}
+
+.carousel-slide {
+    display: none;
+    width: 100%;
+    height: 100%;
+}
+
+.carousel-slide.active {
+    display: block;
+    animation: fadeEffect 0.5s;
+}
+
+.carousel-slide img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    border-radius: 12px;
+}
+
+.carousel-prev,
+.carousel-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 18px;
+    border-radius: 50%;
+    transition: 0.3s;
+    user-select: none;
+    z-index: 2;
+}
+
+.carousel-prev {
+    left: 10px;
+}
+
+.carousel-next {
+    right: 10px;
+}
+
+.carousel-prev:hover,
+.carousel-next:hover {
+    background-color: var(--orange-yellow-crayola);
+    color: var(--onyx);
+}
+
+@keyframes fadeEffect {
+    from {
+        opacity: 0.4
+    }
+
+    to {
+        opacity: 1
+    }
+}
+
+/* Web Link Button */
+.project-weblink-btn {
+    margin-top: 10px;
+    margin-bottom: 25px;
+    /* Spacing */
+    background: transparent;
+    border: 1px solid var(--orange-yellow-crayola);
+    color: var(--orange-yellow-crayola);
+    display: inline-flex !important;
+    /* Force display if needed */
+    margin-right: 15px;
+}
+
+.project-weblink-btn:hover {
+    background: var(--orange-yellow-crayola);
+    color: var(--onyx);
 }

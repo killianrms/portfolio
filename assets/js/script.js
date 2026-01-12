@@ -608,7 +608,54 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Remplir la modale
         const t = window.portfolioTranslations || {};
-        if (modalImg) { modalImg.src = image; modalImg.alt = title; }
+
+        // --- Carousel Logic ---
+        const images = dataSourceElement.dataset.projectImages ? dataSourceElement.dataset.projectImages.split(';') : [];
+        const modalImgWrapper = modalElement.querySelector('.modal-img-wrapper');
+
+        // Nettoyer l'intervalle existant
+        if (window.carouselInterval) clearInterval(window.carouselInterval);
+
+        if (images.length > 1) {
+          let slidesHtml = '';
+          images.forEach((imgSrc, index) => {
+            const activeClass = index === 0 ? 'active' : '';
+            slidesHtml += `<div class="carousel-slide ${activeClass}"><img src="${imgSrc.trim()}" alt="${title}"></div>`;
+          });
+          slidesHtml += '<button class="carousel-prev" onclick="plusSlides(-1)">&#10094;</button>';
+          slidesHtml += '<button class="carousel-next" onclick="plusSlides(1)">&#10095;</button>';
+          modalImgWrapper.innerHTML = slidesHtml;
+
+          // Global logic for carousel (injected or defined globally)
+          window.slideIndex = 1;
+          window.showSlides = function (n) {
+            let i;
+            let slides = document.getElementsByClassName("carousel-slide");
+            if (!slides.length) return;
+            if (n > slides.length) { window.slideIndex = 1 }
+            if (n < 1) { window.slideIndex = slides.length }
+            for (i = 0; i < slides.length; i++) {
+              slides[i].style.display = "none";
+              slides[i].classList.remove('active');
+            }
+            slides[window.slideIndex - 1].style.display = "block";
+            slides[window.slideIndex - 1].classList.add('active');
+          }
+          window.plusSlides = function (n) {
+            window.showSlides(window.slideIndex += n);
+            // Reset timer
+            if (window.carouselInterval) clearInterval(window.carouselInterval);
+            window.carouselInterval = setInterval(() => window.plusSlides(1), 4000);
+          }
+
+          // Auto slide
+          window.carouselInterval = setInterval(() => window.plusSlides(1), 4000);
+
+        } else {
+          // Single Image
+          modalImgWrapper.innerHTML = `<img src="${image}" alt="${title}" data-project-modal-img>`;
+        }
+
         if (modalTitle) modalTitle.textContent = title;
         if (modalCategory) modalCategory.textContent = category;
 
@@ -618,21 +665,6 @@ document.addEventListener('DOMContentLoaded', () => {
         const githubLabel = t.modal?.view_github || 'Voir sur GitHub';
 
         if (modalDescription) {
-          // Inject label before content if not present or just replace content? 
-          // The HTML structure might need the label to be separate. 
-          // Looking at previous view_file, the labels seem to be H4 tags in the JS template... 
-          // WAIT. The file being edited uses `modalElement` which is an EXISTING DOM element, NOT a template string generator?
-          // Let's re-read lines 600-610 carefully.
-          // Lines 608: `if (modalDescription) modalDescription.innerHTML = description;`
-          // The "Description" LABEL is likely static in the HTML of the modal itself, OR generated dynamically.
-          // Reviewing index.html for the modal structure is safer.
-          // BUT the previous plan assumed generating HTML string.
-          // Line 550 starts `if (targetModalId === 'project-details')`.
-          // It populates EXISTING elements.
-          // So I need to find where the "Description" H4 header is.
-          // If it's static in HTML, I should add data-i18n to it in index.html.
-          // IF the modal is dynamic, I need to see where it comes from.
-          // The `project-details` modal in index.html... let's check it.
           modalDescription.innerHTML = description;
         }
         if (modalTech) modalTech.textContent = tech;
@@ -641,6 +673,29 @@ document.addEventListener('DOMContentLoaded', () => {
           // Update the link text
           const span = modalLink.querySelector('span');
           if (span) span.textContent = githubLabel;
+        }
+
+        // --- Web Link Button ---
+        const webLink = dataSourceElement.dataset.projectWeblink;
+        // Check if button already exists
+        let webLinkBtn = modalElement.querySelector('.project-weblink-btn');
+        if (webLink) {
+          if (!webLinkBtn) {
+            // Create it
+            webLinkBtn = document.createElement('a');
+            webLinkBtn.className = 'form-btn project-link-btn project-weblink-btn';
+            webLinkBtn.target = '_blank';
+            webLinkBtn.rel = 'noopener noreferrer';
+            webLinkBtn.innerHTML = '<ion-icon name="globe-outline"></ion-icon><span>Voir la page web</span>';
+            // Insert before GitHub link
+            if (modalLink) {
+              modalLink.parentNode.insertBefore(webLinkBtn, modalLink);
+            }
+          }
+          webLinkBtn.href = webLink;
+          webLinkBtn.style.display = 'inline-flex';
+        } else {
+          if (webLinkBtn) webLinkBtn.remove();
         }
 
         // Gérer la vidéo YouTube

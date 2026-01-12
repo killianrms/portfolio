@@ -265,7 +265,7 @@ article {
 
 article.active {
   display: block;
-  animation: fadeInUp 0.5s ease-out forwards;
+  /* animation: fadeInUp 0.5s ease-out forwards; */
 }
 
 
@@ -1526,6 +1526,7 @@ section.contact-form {
   font-size: var(--fs-6);
   font-weight: var(--fw-400);
   padding: 16px 20px;
+  padding-left: 45px;
   min-height: 55px;
   border: 2px solid transparent;
   border-radius: 14px;
