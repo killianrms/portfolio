@@ -252,6 +252,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
           item.dataset.carouselInitialized = 'true';
 
+          // Auto-rotate logic (3 seconds)
+          let autoRotateInterval = setInterval(() => {
+            if (item.matches(':hover')) return; // Check hover on main item
+            moveGridSlide(imgContainer, 1);
+          }, 3000);
+          // Store interval for potential cleanup
+          item.dataset.intervalId = autoRotateInterval;
+
           // Add event listeners for this specific card
           const prevBtn = imgContainer.querySelector('.grid-carousel-prev');
           const nextBtn = imgContainer.querySelector('.grid-carousel-next');
@@ -725,7 +733,10 @@ document.addEventListener('DOMContentLoaded', () => {
         if (modalTitle) modalTitle.textContent = title;
         if (modalCategory) modalCategory.textContent = category;
 
-
+        // Dynamic labels - Restored
+        const descLabel = t.modal?.description || '📝 Description';
+        const techLabel = t.modal?.technologies || '🛠️ Technologies Utilisées';
+        const githubLabel = t.modal?.view_github || 'Voir sur GitHub';
 
         if (modalDescription) {
           modalDescription.innerHTML = description;
