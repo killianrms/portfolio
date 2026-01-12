@@ -293,3 +293,29 @@ html[data-theme="light"] .form-input:valid {
 .youtube-btn ion-icon {
     font-size: 18px;
 }
+
+/* --- FIXES REGRESSIONS (Menu, Images) --- */
+
+/* Enforce uniform image size for project cards */
+.project-img picture,
+.project-img img {
+    width: 100%;
+    height: 200px;
+    /* Fixed height for consistency */
+    object-fit: cover;
+    /* Crop to fill */
+    border-radius: 10px;
+    /* Match design */
+}
+
+/* HIDE Mobile Navbar on Desktop (Sidebar is visible) */
+@media (min-width: 1200px) {
+    .navbar {
+        display: none !important;
+    }
+
+    /* Ensure styles don't conflict */
+    main {
+        margin-bottom: 0 !important;
+    }
+}

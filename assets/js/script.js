@@ -573,6 +573,8 @@ document.addEventListener('DOMContentLoaded', () => {
       const triggerButton = event.target.closest('[data-modal-trigger]');
       if (!triggerButton) return;
 
+      event.preventDefault(); // Prevent default link behavior (jumping/reloading)
+
       const targetModalId = triggerButton.dataset.modalTrigger;
       // Trouver la *section* modale en utilisant l'attribut data-modal
       const modalElement = document.querySelector(`section[data-modal="${targetModalId}"]`);
