@@ -213,29 +213,85 @@ document.addEventListener('DOMContentLoaded', () => {
       animate();
     }
 
-    // --- Carousel Logic ---
-    function initCarousel(scope = document) {
-      const carousels = scope.querySelectorAll('.carousel-container');
-      carousels.forEach(carousel => {
-        if (carousel.dataset.initialized === 'true') return;
+    // --- Grid Carousel Logic ---
+    function initGridCarousels() {
+      const projectItems = document.querySelectorAll('.project-item');
 
-        const slides = carousel.querySelectorAll('.carousel-slide');
-        if (slides.length <= 1) return;
+      projectItems.forEach(item => {
+        // Prevent double init
+        if (item.dataset.carouselInitialized === 'true') return;
 
-        // Ensure first is active
-        slides[0].classList.add('active');
-        carousel.dataset.initialized = 'true';
+        const imagesData = item.dataset.projectImages;
+        const imgContainer = item.querySelector('.project-img');
 
-        let currentIndex = 0;
-        setInterval(() => {
-          slides[currentIndex].classList.remove('active');
-          currentIndex = (currentIndex + 1) % slides.length;
-          slides[currentIndex].classList.add('active');
-        }, 3000);
+        if (imagesData && imgContainer) {
+          const images = imagesData.split(';');
+          // If only 1 image, do nothing (static img is fine)
+          if (images.length <= 1) return;
+
+          // Generate Slides HTML
+          let slidesHtml = '';
+          images.forEach((img, index) => {
+            const activeClass = index === 0 ? 'active' : '';
+            slidesHtml += `<div class="carousel-slide ${activeClass}">
+                                 <img src="${img.trim()}" alt="Slide ${index + 1}" loading="lazy">
+                               </div>`;
+          });
+
+          // Add Navigation HTML
+          const navHtml = `
+                <button class="grid-carousel-prev" type="button">&#10094;</button>
+                <button class="grid-carousel-next" type="button">&#10095;</button>
+            `;
+
+          // Keep hover text
+          const hoverText = imgContainer.querySelector('.project-hover-text');
+
+          imgContainer.innerHTML = slidesHtml + navHtml;
+          if (hoverText) imgContainer.appendChild(hoverText);
+
+          item.dataset.carouselInitialized = 'true';
+
+          // Add event listeners for this specific card
+          const prevBtn = imgContainer.querySelector('.grid-carousel-prev');
+          const nextBtn = imgContainer.querySelector('.grid-carousel-next');
+
+          prevBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            moveGridSlide(imgContainer, -1);
+          });
+
+          nextBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            moveGridSlide(imgContainer, 1);
+          });
+        }
       });
     }
+
+    function moveGridSlide(container, n) {
+      const slides = container.querySelectorAll('.carousel-slide');
+      let slideIndex = 0;
+
+      // Find current active
+      slides.forEach((slide, index) => {
+        if (slide.classList.contains('active')) {
+          slideIndex = index;
+          slide.classList.remove('active');
+        }
+      });
+
+      slideIndex += n;
+      if (slideIndex >= slides.length) { slideIndex = 0; }
+      if (slideIndex < 0) { slideIndex = slides.length - 1; }
+
+      slides[slideIndex].classList.add('active');
+    }
+
     // Initialize globally
-    initCarousel();
+    initGridCarousels();
 
     // --- Fonctions Utilitaires ---
 
@@ -649,51 +705,12 @@ document.addEventListener('DOMContentLoaded', () => {
         // Remplir la modale
         const t = window.portfolioTranslations || {};
 
-        // --- Carousel Logic ---
-        const images = dataSourceElement.dataset.projectImages ? dataSourceElement.dataset.projectImages.split(';') : [];
+        // --- Carousel Logic (REMOVED from Modal) ---
+        // Images are now in the grid. Modal shows text only.
         const modalImgWrapper = modalElement.querySelector('.modal-img-wrapper');
-
-        // Nettoyer l'intervalle existant
-        if (window.carouselInterval) clearInterval(window.carouselInterval);
-
-        if (images.length > 1) {
-          let slidesHtml = '';
-          images.forEach((imgSrc, index) => {
-            const activeClass = index === 0 ? 'active' : '';
-            slidesHtml += `<div class="carousel-slide ${activeClass}"><img src="${imgSrc.trim()}" alt="${title}"></div>`;
-          });
-          slidesHtml += '<button class="carousel-prev" onclick="plusSlides(-1)">&#10094;</button>';
-          slidesHtml += '<button class="carousel-next" onclick="plusSlides(1)">&#10095;</button>';
-          modalImgWrapper.innerHTML = slidesHtml;
-
-          // Global logic for carousel (injected or defined globally)
-          window.slideIndex = 1;
-          window.showSlides = function (n) {
-            let i;
-            let slides = document.getElementsByClassName("carousel-slide");
-            if (!slides.length) return;
-            if (n > slides.length) { window.slideIndex = 1 }
-            if (n < 1) { window.slideIndex = slides.length }
-            for (i = 0; i < slides.length; i++) {
-              slides[i].style.display = "none";
-              slides[i].classList.remove('active');
-            }
-            slides[window.slideIndex - 1].style.display = "block";
-            slides[window.slideIndex - 1].classList.add('active');
-          }
-          window.plusSlides = function (n) {
-            window.showSlides(window.slideIndex += n);
-            // Reset timer
-            if (window.carouselInterval) clearInterval(window.carouselInterval);
-            window.carouselInterval = setInterval(() => window.plusSlides(1), 4000);
-          }
-
-          // Auto slide
-          window.carouselInterval = setInterval(() => window.plusSlides(1), 4000);
-
-        } else {
-          // Single Image
-          modalImgWrapper.innerHTML = `<img src="${image}" alt="${title}" data-project-modal-img>`;
+        if (modalImgWrapper) {
+          modalImgWrapper.style.display = 'none'; // Ensure hidden
+          modalImgWrapper.innerHTML = ''; // Clear content
         }
         if (modalTitle) modalTitle.textContent = title;
         if (modalCategory) modalCategory.textContent = category;
