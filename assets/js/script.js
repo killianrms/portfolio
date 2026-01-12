@@ -733,15 +733,6 @@ document.addEventListener('DOMContentLoaded', () => {
         if (modalTitle) modalTitle.textContent = title;
         if (modalCategory) modalCategory.textContent = category;
 
-        // Dynamic labels - Restored
-        const descLabel = t.modal?.description || '📝 Description';
-        const techLabel = t.modal?.technologies || '🛠️ Technologies Utilisées';
-        const githubLabel = t.modal?.view_github || 'Voir sur GitHub';
-
-        if (modalDescription) {
-          modalDescription.innerHTML = description;
-        }
-
         if (modalLink) {
           modalLink.href = link;
           // Update the link text and icon
