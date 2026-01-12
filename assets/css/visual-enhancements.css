@@ -38,8 +38,10 @@
 }
 
 .lang-menu {
-    position: absolute;
-    top: calc(100% + 10px);
+    bottom: calc(100% + 10px);
+    /* Opens UPWARDS */
+    top: auto;
+    /* Reset top */
     right: 0;
     background: var(--eerie-black-2);
     border: 1px solid var(--jet);
@@ -49,7 +51,8 @@
     box-shadow: var(--shadow-2);
     opacity: 0;
     visibility: hidden;
-    transform: translateY(-10px);
+    transform: translateY(10px);
+    /* Animation from bottom */
     transition: var(--transition-1);
     z-index: 20;
 }
@@ -88,6 +91,8 @@
     background: linear-gradient(135deg, var(--eerie-black-2), var(--onyx));
     border: 1px solid var(--jet);
     padding: 16px 24px;
+    padding-left: 50px;
+    /* Restore space for icon */
     padding-right: 45px;
     /* Prevent text overlap with icon */
     border-radius: 16px;
@@ -230,4 +235,61 @@ html[data-theme="light"] .form-input:valid {
     .lang-dropdown {
         margin-left: 30px;
     }
+}
+
+/* --- Image Carousel --- */
+.carousel-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.carousel-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    object-fit: cover;
+}
+
+.carousel-slide.active {
+    opacity: 1;
+}
+
+/* Project Link Group Wrapper */
+.project-link-wrapper-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+}
+
+.youtube-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: #ff0000;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 12px;
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: background 0.3s ease, transform 0.2s ease;
+    width: 100%;
+    margin-top: 5px;
+}
+
+.youtube-btn:hover {
+    background: #cc0000;
+    transform: translateY(-2px);
+}
+
+.youtube-btn ion-icon {
+    font-size: 18px;
 }

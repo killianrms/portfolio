@@ -221,20 +221,29 @@
                     <li class="navbar-item">
                         <div class="lang-dropdown">
                             <button class="lang-toggle-btn" aria-label="Toggle language" data-lang-btn>
-                                <span class="flag">🇫🇷</span>
+                                <span class="flag">
+                                    <img src="./assets/images/flags/fr.svg" alt="Drapeau Français" width="20"
+                                        height="14">
+                                </span>
                                 <span class="lang-text">FR</span>
                                 <ion-icon name="chevron-down-outline" class="chevron"></ion-icon>
                             </button>
                             <ul class="lang-menu">
                                 <li>
                                     <button class="lang-option" data-lang-select="fr">
-                                        <span class="flag">🇫🇷</span>
+                                        <span class="flag">
+                                            <img src="./assets/images/flags/fr.svg" alt="Drapeau Français" width="20"
+                                                height="14">
+                                        </span>
                                         <span>Français</span>
                                     </button>
                                 </li>
                                 <li>
                                     <button class="lang-option" data-lang-select="en">
-                                        <span class="flag">🇬🇧</span>
+                                        <span class="flag">
+                                            <img src="./assets/images/flags/gb.svg" alt="English Flag" width="20"
+                                                height="14">
+                                        </span>
                                         <span>English</span>
                                     </button>
                                 </li>
@@ -376,8 +385,8 @@
                             </div>
                             <div class="skill-item-small" data-skill-name="Linux">
                                 <figure class="skill-icon-small">
-                                    <img src="assets/images/skills/linux.png" alt="Linux Logo" loading="lazy" width="16"
-                                        height="16" data-i18n-attr="alt:alt.skills.linux">
+                                    <img src="assets/images/skills/linux.webp" alt="Linux Logo" loading="lazy"
+                                        width="16" height="16" data-i18n-attr="alt:alt.skills.linux">
                                 </figure>
                                 <h4 class="skill-name-small">Linux</h4>
                             </div>
@@ -655,12 +664,18 @@
                             data-i18n-attr="data-project-title:projects.items.ecommerce.title,data-project-category:projects.items.ecommerce.category,data-project-role:projects.items.ecommerce.role,data-project-group:projects.items.ecommerce.group,data-project-time:projects.items.ecommerce.time,data-project-description:projects.items.ecommerce.desc">
                             <a data-modal-trigger="project-details" class="project-link-wrapper">
                                 <figure class="project-img">
-                                    <picture>
-                                        <source srcset="./assets/images/site-ecom.webp" type="image/webp">
-                                        <img src="./assets/images/site-ecom.webp"
-                                            alt="Miniature du projet Site e-commerce" loading="lazy"
-                                            data-i18n-attr="alt:alt.site_ecom">
-                                    </picture>
+                                    <div class="carousel-container">
+                                        <img src="./assets/images/E-Commerce0.webp" class="carousel-slide active"
+                                            alt="E-Commerce 0" loading="lazy">
+                                        <img src="./assets/images/E-Commerce1.webp" class="carousel-slide"
+                                            alt="E-Commerce 1" loading="lazy">
+                                        <img src="./assets/images/E-Commerce2.webp" class="carousel-slide"
+                                            alt="E-Commerce 2" loading="lazy">
+                                        <img src="./assets/images/E-Commerce3.webp" class="carousel-slide"
+                                            alt="E-Commerce 3" loading="lazy">
+                                        <img src="./assets/images/E-Commerce4.webp" class="carousel-slide"
+                                            alt="E-Commerce 4" loading="lazy">
+                                    </div>
                                     <div class="project-hover-text" data-i18n="projects.view_details"></div>
                                 </figure>
                                 <h3 class="project-title" data-i18n="projects.items.ecommerce.title">Site e-commerce de
@@ -678,19 +693,35 @@
                             data-project-tech="Java, Agile (Scrum)" data-project-role="Product Owner"
                             data-project-group="groupe de 4" data-project-time="projet de troisième année de but"
                             data-i18n-attr="data-project-title:projects.items.referendum.title,data-project-category:projects.items.referendum.category,data-project-role:projects.items.referendum.role,data-project-group:projects.items.referendum.group,data-project-time:projects.items.referendum.time,data-project-description:projects.items.referendum.desc">
-                            <a data-modal-trigger="project-details" class="project-link-wrapper">
-                                <figure class="project-img">
-                                    <picture>
-                                        <source srcset="./assets/images/ref.webp" type="image/webp">
-                                        <img src="./assets/images/ref.webp" alt="Miniature du projet Referendum"
-                                            loading="lazy" data-i18n-attr="alt:alt.referendum">
-                                    </picture>
-                                    <div class="project-hover-text" data-i18n="projects.view_details"></div>
-                                </figure>
-                                <h3 class="project-title" data-i18n="projects.items.referendum.title">Referendum</h3>
-                                <p class="project-category" data-i18n="projects.items.referendum.category">Développement
-                                    d'application | Universitaire</p>
-                            </a>
+                            <div class="project-link-wrapper-group">
+                                <a data-modal-trigger="project-details" class="project-link-wrapper">
+                                    <figure class="project-img">
+                                        <div class="carousel-container">
+                                            <img src="./assets/images/referendum1.webp" class="carousel-slide active"
+                                                alt="Referendum 1" loading="lazy">
+                                            <img src="./assets/images/referendum2.webp" class="carousel-slide"
+                                                alt="Referendum 2" loading="lazy">
+                                            <img src="./assets/images/referendum3.webp" class="carousel-slide"
+                                                alt="Referendum 3" loading="lazy">
+                                            <img src="./assets/images/referendum4.webp" class="carousel-slide"
+                                                alt="Referendum 4" loading="lazy">
+                                            <img src="./assets/images/referendum5.webp" class="carousel-slide"
+                                                alt="Referendum 5" loading="lazy">
+                                        </div>
+                                        <div class="project-hover-text" data-i18n="projects.view_details"></div>
+                                    </figure>
+                                    <h3 class="project-title" data-i18n="projects.items.referendum.title">Referendum
+                                    </h3>
+                                    <p class="project-category" data-i18n="projects.items.referendum.category">
+                                        Développement
+                                        d'application | Universitaire</p>
+                                </a>
+                                <a href="https://www.youtube.com/watch?v=F3I_4daMcuk" target="_blank"
+                                    class="youtube-btn" aria-label="Voir sur YouTube">
+                                    <ion-icon name="logo-youtube"></ion-icon>
+                                    <span>YouTube</span>
+                                </a>
+                            </div>
                         </li>
 
                         <li class="project-item active" data-category="personal"
@@ -702,20 +733,59 @@
                             data-project-tech="Python, API REST, HTML, CSS, Discord" data-project-role="Développeur"
                             data-project-group="seul" data-project-time="Juillet 2022 - Juin 2025 (arrêté)"
                             data-i18n-attr="data-project-title:projects.items.lobbybot.title,data-project-category:projects.items.lobbybot.category,data-project-role:projects.items.lobbybot.role,data-project-group:projects.items.lobbybot.group,data-project-time:projects.items.lobbybot.time,data-project-description:projects.items.lobbybot.desc">
-                            <a data-modal-trigger="project-details" class="project-link-wrapper">
-                                <figure class="project-img">
-                                    <picture>
-                                        <source srcset="./assets/images/lobbybot.webp" type="image/webp">
-                                        <img src="./assets/images/lobbybot.webp" alt="Miniature du projet Bot en python"
-                                            loading="lazy" data-i18n-attr="alt:alt.lobbybot">
-                                    </picture>
-                                    <div class="project-hover-text" data-i18n="projects.view_details"></div>
-                                </figure>
-                                <h3 class="project-title" data-i18n="projects.items.lobbybot.title">Bot fortnite en
-                                    python</h3>
-                                <p class="project-category" data-i18n="projects.items.lobbybot.category">Librairie + API
-                                    | Personnel</p>
-                            </a>
+                            <div class="project-link-wrapper-group">
+                                <a data-modal-trigger="project-details" class="project-link-wrapper">
+                                    <figure class="project-img">
+                                        <picture>
+                                            <source srcset="./assets/images/lobbybot.webp" type="image/webp">
+                                            <img src="./assets/images/lobbybot.webp"
+                                                alt="Miniature du projet Bot en python" loading="lazy" width="1536"
+                                                height="1024" data-i18n-attr="alt:alt.lobbybot">
+                                        </picture>
+                                        <div class="project-hover-text" data-i18n="projects.view_details"></div>
+                                    </figure>
+                                    <h3 class="project-title" data-i18n="projects.items.lobbybot.title">Bot fortnite en
+                                        python</h3>
+                                    <p class="project-category" data-i18n="projects.items.lobbybot.category">Librairie +
+                                        API
+                                        | Personnel</p>
+                                </a>
+                                <a href="https://www.youtube.com/watch?v=tja-34-FpnY" target="_blank"
+                                    class="youtube-btn" aria-label="Voir sur YouTube">
+                                    <ion-icon name="logo-youtube"></ion-icon>
+                                    <span>YouTube</span>
+                                </a>
+                            </div>
+                        </li>
+
+                        <!-- Nuit de l'Info 2025 -->
+                        <li class="project-item active" data-category="contest"
+                            data-project-title="Nuit de l'Info 2025 - NIRD"
+                            data-project-link="https://github.com/killianrms/NDI2025"
+                            data-project-image="./assets/images/ndi2025.webp"
+                            data-project-category="Concours | Nuit de l'Info"
+                            data-project-description="Une application interactive et ludique pour sensibiliser aux enjeux du numérique responsable. Fonctionnalités : Simulateur d'Empreinte Numérique, Test de Connaissances, Carte Interactive, Password Game et Jean-Philosophe (Chatbot IA)."
+                            data-project-tech="HTML, CSS, JS, IA (Groq)" data-project-role="Développeur FullStack"
+                            data-project-group="équipe" data-project-time="1 nuit (2025)">
+                            <div class="project-link-wrapper-group">
+                                <a data-modal-trigger="project-details" class="project-link-wrapper">
+                                    <figure class="project-img">
+                                        <picture>
+                                            <source srcset="./assets/images/ndi2025.webp" type="image/webp">
+                                            <img src="./assets/images/ndi2025.webp" alt="Nuit de l'Info 2025"
+                                                loading="lazy" width="1536" height="1024">
+                                        </picture>
+                                        <div class="project-hover-text" data-i18n="projects.view_details"></div>
+                                    </figure>
+                                    <h3 class="project-title">Nuit de l'Info 2025</h3>
+                                    <p class="project-category">Concours | Numérique Responsable</p>
+                                </a>
+                                <a href="https://killianrms.github.io/NDI2025/" target="_blank" class="website-btn"
+                                    style="display:inline-block; margin-top:5px; color:var(--orange-yellow-crayola); font-size:0.9em;">
+                                    <ion-icon name="globe-outline"
+                                        style="display:inline; vertical-align:middle"></ion-icon> Voir la page web
+                                </a>
+                            </div>
                         </li>
 
                         <li class="project-item active" data-category="personal"
@@ -775,20 +845,29 @@
                             data-project-description="Développer un jeu vidéo..." data-project-tech="Unreal Engine 5"
                             data-project-role="Développeur" data-project-group="groupe de 2" data-project-time="2 jours"
                             data-i18n-attr="data-project-title:projects.items.gamejam.title,data-project-category:projects.items.gamejam.category,data-project-role:projects.items.gamejam.role,data-project-group:projects.items.gamejam.group,data-project-time:projects.items.gamejam.time,data-project-description:projects.items.gamejam.desc">
-                            <a data-modal-trigger="project-details" class="project-link-wrapper">
-                                <figure class="project-img">
-                                    <picture>
-                                        <source srcset="./assets/images/project-4.webp" type="image/webp">
-                                        <img src="./assets/images/project-4.webp"
-                                            alt="Miniature du projet Code Game Jam" loading="lazy"
-                                            data-i18n-attr="alt:alt.gamejam">
-                                    </picture>
-                                    <div class="project-hover-text" data-i18n="projects.view_details"></div>
-                                </figure>
-                                <h3 class="project-title" data-i18n="projects.items.gamejam.title">Code Game Jam</h3>
-                                <p class="project-category" data-i18n="projects.items.gamejam.category">Code Game Jam
-                                    2023 | Concours</p>
-                            </a>
+                            <div class="project-link-wrapper-group">
+                                <a data-modal-trigger="project-details" class="project-link-wrapper">
+                                    <figure class="project-img">
+                                        <picture>
+                                            <source srcset="./assets/images/project-4.webp" type="image/webp">
+                                            <img src="./assets/images/project-4.webp"
+                                                alt="Miniature du projet Code Game Jam" loading="lazy" width="1536"
+                                                height="1024" data-i18n-attr="alt:alt.gamejam">
+                                        </picture>
+                                        <div class="project-hover-text" data-i18n="projects.view_details"></div>
+                                    </figure>
+                                    <h3 class="project-title" data-i18n="projects.items.gamejam.title">Code Game Jam
+                                    </h3>
+                                    <p class="project-category" data-i18n="projects.items.gamejam.category">Code Game
+                                        Jam
+                                        2023 | Concours</p>
+                                </a>
+                                <a href="https://www.youtube.com/watch?v=OoIJkiQOXEQ" target="_blank"
+                                    class="youtube-btn" aria-label="Voir sur YouTube">
+                                    <ion-icon name="logo-youtube"></ion-icon>
+                                    <span>YouTube</span>
+                                </a>
+                            </div>
                         </li>
 
                         <li class="project-item active" data-category="contest" data-project-title="Nuit de L'info"
@@ -934,7 +1013,7 @@
                             <a href="#" target="_blank" rel="noopener noreferrer" class="form-btn project-link-btn"
                                 data-project-modal-link style="margin-top: 25px;">
                                 <ion-icon name="logo-github"></ion-icon>
-                                <span data-i18n="modal.view_github">Voir sur GitHub</span>
+                                <span data-i18n="modal.view_github">GitHub</span>
                             </a>
                         </div>
                     </div>

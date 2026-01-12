@@ -39,7 +39,7 @@
             "role_group_time": "{{role}} ({{group}} | {{time}})",
             "description": "📝 Description",
             "technologies": "🛠️ Technologies Used",
-            "view_github": "View on GitHub"
+            "view_github": "GitHub"
         },
         "items": {
             "itesoft": {

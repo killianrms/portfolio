@@ -57,7 +57,14 @@ document.addEventListener('DOMContentLoaded', () => {
       const langFlag = document.querySelector('.lang-toggle-btn .flag');
       if (langText && langFlag) {
         langText.textContent = currentLang.toUpperCase();
-        langFlag.textContent = currentLang === 'fr' ? '🇫🇷' : '🇬🇧';
+        const flagImg = langFlag.querySelector('img');
+        if (flagImg) {
+          flagImg.src = `./assets/images/flags/${currentLang === 'fr' ? 'fr' : 'gb'}.svg`;
+          flagImg.alt = currentLang === 'fr' ? 'Drapeau Français' : 'English Flag';
+        } else {
+          // Fallback if structure is different (initial load might not have img yet if we didn't update HTML)
+          // But we will update HTML.
+        }
       }
 
       // Update html lang attribute
@@ -202,7 +209,33 @@ document.addEventListener('DOMContentLoaded', () => {
 
       init();
       animate();
+      init();
+      animate();
     }
+
+    // --- Carousel Logic ---
+    function initCarousel(scope = document) {
+      const carousels = scope.querySelectorAll('.carousel-container');
+      carousels.forEach(carousel => {
+        if (carousel.dataset.initialized === 'true') return;
+
+        const slides = carousel.querySelectorAll('.carousel-slide');
+        if (slides.length <= 1) return;
+
+        // Ensure first is active
+        slides[0].classList.add('active');
+        carousel.dataset.initialized = 'true';
+
+        let currentIndex = 0;
+        setInterval(() => {
+          slides[currentIndex].classList.remove('active');
+          currentIndex = (currentIndex + 1) % slides.length;
+          slides[currentIndex].classList.add('active');
+        }, 3000);
+      });
+    }
+    // Initialize globally
+    initCarousel();
 
     // --- Fonctions Utilitaires ---
 
@@ -607,8 +640,20 @@ document.addEventListener('DOMContentLoaded', () => {
         const modalVideo = modalElement.querySelector("[data-project-modal-video]");
 
         // Remplir la modale
-        const t = window.portfolioTranslations || {};
-        if (modalImg) { modalImg.src = image; modalImg.alt = title; }
+        if (modalImg) {
+          modalImg.innerHTML = ''; // Clear previous
+          const carouselContainer = dataSourceElement.querySelector('.carousel-container');
+          if (carouselContainer) {
+            const clonedCarousel = carouselContainer.cloneNode(true);
+            clonedCarousel.dataset.initialized = 'false'; // Reset for re-init
+            modalImg.appendChild(clonedCarousel);
+            initCarousel(modalImg);
+          } else {
+            if (image) {
+              modalImg.innerHTML = `<img src="${image}" alt="${title}" width="800" height="600" loading="lazy">`;
+            }
+          }
+        }
         if (modalTitle) modalTitle.textContent = title;
         if (modalCategory) modalCategory.textContent = category;
 
@@ -638,7 +683,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (modalTech) modalTech.textContent = tech;
         if (modalLink) {
           modalLink.href = link;
-          // Update the link text
+          // Update the link text and icon
           const span = modalLink.querySelector('span');
           if (span) span.textContent = githubLabel;
         }
