@@ -1243,10 +1243,11 @@ html[data-theme="light"] .timeline-item:hover {
   grid-template-columns: 1fr;
   gap: 30px;
   margin-bottom: 10px;
+  margin-left: 0;
   max-height: 75vh;
   /* Limiter la hauteur à 75% de la fenêtre */
   overflow-y: auto;
-  padding-left: 0;
+  padding-left: 0 !important;
   /* Fix mobile width indentation */
   padding-right: 5px;
   /* Ajouter du padding pour éviter le chevauchement de la barre de défilement */
@@ -1526,16 +1527,16 @@ section.contact-form {
 
 /* Contact Form Enhancements */
 .contact-form {
-  background: var(--eerie-black-1);
-  padding: 20px;
-  /* Reduced for mobile */
-  border-radius: 20px;
-  box-shadow: var(--shadow-2);
+  /* Mobile: Minimal styling to maximize width */
+  margin-bottom: 0;
 }
 
 @media (min-width: 580px) {
   .contact-form {
+    background: var(--eerie-black-1);
     padding: 30px;
+    border-radius: 20px;
+    box-shadow: var(--shadow-2);
   }
 }
 
