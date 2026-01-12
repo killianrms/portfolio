@@ -727,20 +727,43 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // --- 5. Web Link Button ---
         // Remove existing web button if any to avoid duplicates
-        const existingWebBtn = modalElement.querySelector('.project-weblink-btn');
-        if (existingWebBtn) existingWebBtn.remove();
+        // --- 5. Web Link Button & 4. GitHub Link (Combined Wrapper) --- 
+        // Create or find wrapper
+        let btnWrapper = modalElement.querySelector('.project-link-group');
+        if (!btnWrapper) {
+          btnWrapper = document.createElement('div');
+          btnWrapper.className = 'project-link-group';
+          // Insert wrapper at the end of modal-info
+          const modalInfoContainer = modalElement.querySelector('.modal-info');
+          modalInfoContainer.appendChild(btnWrapper);
+        } else {
+          btnWrapper.innerHTML = ''; // Clear existing
+        }
 
-        if (webLink && modalLink) {
+        // Create Web Link Button
+        if (webLink) {
           const webLinkBtn = document.createElement('a');
           webLinkBtn.className = 'form-btn project-link-btn project-weblink-btn';
           webLinkBtn.target = '_blank';
           webLinkBtn.rel = 'noopener noreferrer';
           webLinkBtn.href = webLink;
-          webLinkBtn.style.display = 'inline-flex';
-          webLinkBtn.style.marginRight = '15px'; // Spacing
           webLinkBtn.innerHTML = '<ion-icon name="globe-outline"></ion-icon><span>Voir la page web</span>';
-          // Insert before GitHub link
-          modalLink.parentNode.insertBefore(webLinkBtn, modalLink);
+          btnWrapper.appendChild(webLinkBtn);
+        }
+
+        // Move/Create GitHub Link
+        if (modalLink) {
+          // Update its href and text first
+          modalLink.href = link;
+          const githubLabel = (t.modal && t.modal.view_github) ? t.modal.view_github : 'Voir sur GitHub';
+          const span = modalLink.querySelector('span');
+          if (span) span.textContent = githubLabel;
+
+          // Remove from current location and append to wrapper
+          modalLink.remove();
+          btnWrapper.appendChild(modalLink);
+          modalLink.style.marginTop = '0'; // Reset margin
+          modalLink.style.display = 'inline-flex';
         }
 
         // --- 6. Video (YouTube) ---
