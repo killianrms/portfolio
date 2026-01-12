@@ -75,8 +75,13 @@
 
 /* Modal Title */
 .project-modal h3 {
-    font-size: 28px;
-    margin-bottom: 10px;
+    font-size: 26px;
+    /* Slightly smaller for better fit */
+    line-height: 1.4;
+    /* Prevent accent clipping */
+    margin-bottom: 15px;
+    padding-top: 5px;
+    /* Safety space for ascenders */
     background: -webkit-linear-gradient(45deg, var(--white-1), var(--orange-yellow-crayola));
     -webkit-background-clip: text;
     background-clip: text;
