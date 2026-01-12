@@ -1246,6 +1246,8 @@ html[data-theme="light"] .timeline-item:hover {
   max-height: 75vh;
   /* Limiter la hauteur à 75% de la fenêtre */
   overflow-y: auto;
+  padding-left: 0;
+  /* Fix mobile width indentation */
   padding-right: 5px;
   /* Ajouter du padding pour éviter le chevauchement de la barre de défilement */
   padding-bottom: 25px;
@@ -1402,8 +1404,23 @@ html[data-theme="light"] .timeline-item:hover {
 
 .project-modal .modal-close-btn {
   position: absolute;
-  top: 15px;
-  right: 15px;
+  top: 10px;
+  right: 10px;
+  background: rgba(0, 0, 0, 0.5);
+  /* Make it visible/clickable if overlapping image */
+  border-radius: 50%;
+  padding: 5px;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background var(--transition-std);
+}
+
+.project-modal .modal-close-btn:hover {
+  background: var(--orange-yellow-crayola);
+  color: var(--onyx);
 }
 
 .project-modal .modal-content {
@@ -1510,9 +1527,16 @@ section.contact-form {
 /* Contact Form Enhancements */
 .contact-form {
   background: var(--eerie-black-1);
-  padding: 30px;
+  padding: 20px;
+  /* Reduced for mobile */
   border-radius: 20px;
   box-shadow: var(--shadow-2);
+}
+
+@media (min-width: 580px) {
+  .contact-form {
+    padding: 30px;
+  }
 }
 
 .input-wrapper {
