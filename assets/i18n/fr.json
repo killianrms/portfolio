@@ -37,6 +37,7 @@
         "view_details": "Voir Détails",
         "modal": {
             "role_group_time": "{{role}} ({{group}} | {{time}})",
+            "demonstration": "📹 Démonstration",
             "description": "📝 Description",
             "technologies": "🛠️ Technologies Utilisées",
             "view_github": "Voir sur GitHub",
