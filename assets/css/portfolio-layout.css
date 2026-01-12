@@ -1,0 +1,123 @@
+/* --- Project Grid & Image Consistency --- */
+
+/* Force 3 columns on large screens */
+@media (min-width: 1024px) {
+    .project-list {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 30px;
+    }
+}
+
+/* Tablet: 2 columns */
+@media (min-width: 768px) and (max-width: 1023px) {
+    .project-list {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+    }
+}
+
+/* Ensure images are consistent and square-ish */
+.project-img {
+    aspect-ratio: 1 / 1;
+    /* Make container square */
+    width: 100%;
+    border-radius: 16px;
+    overflow: hidden;
+    margin-bottom: 15px;
+}
+
+.project-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* Crop to fill */
+    transition: var(--transition-1);
+}
+
+/* Modal Improvements: Bigger Image */
+.modal-img-wrapper {
+    width: 100%;
+    height: 400px;
+    /* Taller area */
+    margin-bottom: 20px;
+    border-radius: 20px;
+    overflow: hidden;
+    background: var(--onyx);
+    /* Placeholder bg */
+}
+
+.carousel-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    /* Show full image in modal, or cover? User said "plus visible", "pas très grand". Cover fills space but crops. Contain shows all but leaves space. */
+    /* Let's Try Cover for impact, or contain with a nice dark background. */
+    /* "Toute les images de la page projet a la meme taille genre 500x500" -> This refers to the GRID. */
+    /* For modal: "Images plus visible... limite tu retire les images de la dedans et tu met sur la page projets" */
+
+
+    /* --- Project Modal (Redesigned for Big Image) --- */
+
+    .project-modal {
+        display: flex !important;
+        /* Force flex for centering */
+        justify-content: center;
+        align-items: center;
+    }
+
+    .project-modal-content {
+        width: 90%;
+        max-width: 900px;
+        /* Wider for big image */
+        max-height: 90vh;
+        display: flex;
+        flex-direction: column;
+        /* Vertical Stack */
+        padding: 30px;
+    }
+
+    /* Override Grid Layout if present */
+    @media (min-width: 768px) {
+        .project-modal-content {
+            grid-template-columns: 1fr !important;
+            /* Force single column */
+            gap: 20px;
+        }
+    }
+
+    .modal-img-wrapper {
+        width: 100%;
+        height: 450px !important;
+        /* Big height override */
+        margin-bottom: 25px;
+        background: var(--onyx);
+        border-radius: 12px;
+        overflow: hidden;
+        flex-shrink: 0;
+    }
+
+    .modal-img-wrapper img,
+    .carousel-slide img {
+        object-fit: contain !important;
+        /* Show full image */
+        background: var(--onyx);
+        /* Nice background for padded images */
+    }
+
+    /* Sections */
+    .project-modal h4 {
+        margin-top: 20px;
+        border-left: 3px solid var(--orange-yellow-crayola);
+        padding-left: 10px;
+        border-bottom: none;
+        /* Remove old style */
+    }
+
+    .project-link-group {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 15px;
+        margin-top: 25px;
+    }
