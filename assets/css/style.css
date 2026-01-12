@@ -1258,7 +1258,7 @@ html[data-theme="light"] .timeline-item:hover {
 
 .project-item.active {
   display: block;
-  animation: fadeInUp 0.5s ease-out forwards;
+  /* animation: fadeInUp 0.5s ease-out forwards; */
 }
 
 
@@ -1380,7 +1380,8 @@ html[data-theme="light"] .timeline-item:hover {
 .project-modal {
   background: var(--eerie-black-2);
   position: relative;
-  padding: 35px;
+  padding: 5px;
+  /* Aggressively reduced for '0 écart' request */
   margin: 15px 12px;
   border: 1px solid var(--jet);
   border-radius: 14px;
@@ -1424,7 +1425,7 @@ html[data-theme="light"] .timeline-item:hover {
 .project-modal .modal-content {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 10px;
 }
 
 .project-modal .modal-img-wrapper {
@@ -1448,6 +1449,8 @@ html[data-theme="light"] .timeline-item:hover {
 
 .project-modal .modal-title {
   margin-bottom: 0;
+  margin-top: 10px;
+  /* Minimal space */
 }
 
 .project-modal .project-modal-category {
@@ -2521,35 +2524,42 @@ article.active .animated-item {
 }
 
 article.biographie.active header h2 {
-  animation: fadeInUp 0.5s 0.2s ease-out forwards;
+  /*   animation: fadeInUp 0.5s 0.2s ease-out forwards;
+ */
 }
 
 /* Cibler les enfants directs de la section dans le conteneur principal about-text */
 article.biographie.active section.about-text>section:nth-of-type(1) {
-  animation: fadeInUp 0.5s 0.4s ease-out forwards;
+  /*   animation: fadeInUp 0.5s 0.4s ease-out forwards;
+ */
 }
 
 article.biographie.active section.about-text>section:nth-of-type(2) {
-  animation: fadeInUp 0.5s 0.6s ease-out forwards;
+  /*   animation: fadeInUp 0.5s 0.6s ease-out forwards;
+ */
 }
 
 article.biographie.active section.about-text>section:nth-of-type(3) {
-  animation: fadeInUp 0.5s 0.8s ease-out forwards;
+  /*   animation: fadeInUp 0.5s 0.8s ease-out forwards;
+ */
 }
 
 
 article.resume.active header h2 {
-  animation: fadeInUp 0.5s 0.2s ease-out forwards;
+  /*   animation: fadeInUp 0.5s 0.2s ease-out forwards;
+ */
 }
 
 article.resume.active .timeline .title-wrapper {
-  animation: fadeInUp 0.5s 0.4s ease-out forwards;
+  /*   animation: fadeInUp 0.5s 0.4s ease-out forwards;
+ */
 }
 
 /* Décaler les éléments de la timeline - Affiné */
 article.resume.active .timeline-list .timeline-item {
   opacity: 0;
-  animation: fadeInUp 0.5s ease-out forwards;
+  /*   animation: fadeInUp 0.5s ease-out forwards;
+ */
 }
 
 article.resume.active .timeline-list .timeline-item:nth-child(1) {
@@ -2569,21 +2579,25 @@ article.resume.active .timeline-list .timeline-item:nth-child(4) {
 }
 
 article.resume.active .skill h3.skills-title {
-  animation: fadeInUp 0.5s 0.9s ease-out forwards;
+  /*   animation: fadeInUp 0.5s 0.9s ease-out forwards;
+ */
 }
 
 article.resume.active .skill ul.skills-list {
-  animation: fadeInUp 0.5s 1.1s ease-out forwards;
+  /*   animation: fadeInUp 0.5s 1.1s ease-out forwards;
+ */
 }
 
 /* Note : Les éléments de compétence individuels dans la liste ne sont pas animés ici, mais pourraient être ajoutés */
 
 article.projets.active header h2 {
-  animation: fadeInUp 0.5s 0.2s ease-out forwards;
+  /*   animation: fadeInUp 0.5s 0.2s ease-out forwards;
+ */
 }
 
 article.projets.active .filter-list {
-  animation: fadeInUp 0.5s 0.4s ease-out forwards;
+  /*   animation: fadeInUp 0.5s 0.4s ease-out forwards;
+ */
 }
 
 article.projets.active .project-list .project-item {
@@ -2620,7 +2634,8 @@ article.projets.active .project-list .project-item:nth-child(6) {
 }
 
 article.projets.active .filter-select-box {
-  animation: fadeInUp 0.5s 0.4s ease-out forwards;
+  /*   animation: fadeInUp 0.5s 0.4s ease-out forwards;
+ */
 }
 
 ;
@@ -3232,12 +3247,14 @@ html[data-theme="light"] .skill-name-small {
 
 /* L'article conteneur a déjà une animation fadeInUp */
 .biographie.active .article-title {
-  animation: fadeInUp 0.5s ease-out 0.3s forwards;
+  /*   animation: fadeInUp 0.5s ease-out 0.3s forwards;
+ */
   opacity: 0;
 }
 
 .biographie.active .about-text {
-  animation: fadeInUp 0.5s ease-out 0.5s forwards;
+  /*   animation: fadeInUp 0.5s ease-out 0.5s forwards;
+ */
   opacity: 0;
 }
 
@@ -4070,5 +4087,32 @@ html[data-theme="light"] .bouton-projet-ac:focus {
     .theme-toggle-btn {
       width: 38px;
     }
+  }
+}
+
+/* FIX: Ensure Projects and Contact take full width on mobile */
+@media (max-width: 768px) {
+
+  article.projets,
+  article.contact {
+    width: 100% !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+    border-radius: 0 !important;
+    max-width: 100% !important;
+  }
+
+  .project-list {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+
+  .contact-form {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
   }
 }
