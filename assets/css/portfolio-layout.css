@@ -105,13 +105,13 @@
 /* --- Desktop Modal Dual-Column Layout --- */
 @media (min-width: 1024px) {
     .project-modal-content {
-        max-width: 750px;
-        /* Optimized width for 2 columns */
+        max-width: 650px;
+        /* Compact width for better visual balance */
         display: grid;
         grid-template-columns: 1fr 1fr;
         /* Two equal columns */
-        gap: 30px;
-        padding: 40px;
+        gap: 25px;
+        padding: 35px;
         text-align: left;
         /* Align text left */
         align-items: start;

@@ -923,6 +923,11 @@ html[data-theme="light"] .navbar {
   visibility: visible;
 }
 
+/* Prevent body scroll when modal is open */
+body:has(.modal-container.active) {
+  overflow: hidden;
+}
+
 .overlay {
   position: fixed;
   top: 0;
