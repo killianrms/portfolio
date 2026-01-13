@@ -102,6 +102,134 @@
     padding-bottom: 10px;
 }
 
+/* --- Desktop Modal Dual-Column Layout --- */
+@media (min-width: 1024px) {
+    .project-modal-content {
+        max-width: 900px;
+        /* Wider for 2 columns */
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        /* Two equal columns */
+        gap: 30px;
+        padding: 40px;
+        text-align: left;
+        /* Align text left */
+        align-items: start;
+        /* Top align */
+    }
+
+    /* Left Column: Header Info + Video */
+    .modal-info-left {
+        grid-column: 1;
+        display: flex;
+        flex-direction: column;
+    }
+
+    /* Right Column: Description + Tech */
+    .modal-info-right {
+        grid-column: 2;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        justify-content: space-between;
+        /* Push buttons to bottom if needed */
+    }
+
+    /* Since we can't easily change HTML structure without JS refactor, 
+       we use Grid Areas or Flex hacks if HTML is flat. 
+       
+       CURRENT HTML STRUCTURE:
+       .modal-info >
+          .project-info (meta)
+          h3 (title)
+          p (category)
+          .project-video-container
+          div (desc)
+          div (tech)
+          a (link)
+       
+       Let's use Grid properly on the parent .modal-info if possible, 
+       BUT .modal-info is inside .modal-content.
+       
+       Actually, .modal-content contains figure (hidden) and .modal-info.
+       So let's target .modal-info directly.
+    */
+
+    .project-modal-content {
+        display: block;
+        /* Reset flex from mobile */
+        /* width set above */
+        overflow-y: auto;
+        /* Still allow scroll if needed */
+    }
+
+    .modal-info {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto auto auto 1fr auto;
+        gap: 20px 40px;
+        align-items: start;
+    }
+
+    /* Title & Category: Span top, or sit on left? User asked for split.
+       Let's put Title/Category/Video on Left. Desc/Tech/Link on Right.
+    */
+
+    /* Left Column Items */
+    .h3.modal-title {
+        grid-column: 1;
+        grid-row: 1;
+        text-align: left;
+        margin: 0;
+    }
+
+    .project-modal-category {
+        grid-column: 1;
+        grid-row: 2;
+        justify-self: start;
+        margin-bottom: 10px;
+    }
+
+    .project-info {
+        /* Meta tags */
+        grid-column: 1;
+        grid-row: 3;
+        justify-content: flex-start;
+    }
+
+    .project-video-container {
+        grid-column: 1;
+        grid-row: 4;
+        margin: 0 !important;
+        width: 100%;
+    }
+
+    /* Right Column Items */
+    /* Accessing description div (nth-child is risky, but they are div containers) */
+    /* Description Container */
+    .modal-info>div:nth-of-type(4) {
+        grid-column: 2;
+        grid-row: 1 / span 4;
+        /* Span down */
+        margin-top: 0 !important;
+    }
+
+    /* Tech Container */
+    .modal-info>div:nth-of-type(5) {
+        grid-column: 2;
+        grid-row: 5;
+    }
+
+    /* Link Button */
+    .project-link-btn {
+        grid-column: 2;
+        grid-row: 6;
+        margin-left: 0;
+        margin-right: auto;
+        width: fit-content;
+    }
+}
+
 /* Project Info (Meta Data) */
 .project-info {
     display: flex;
