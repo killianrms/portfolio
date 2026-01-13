@@ -205,22 +205,22 @@
     }
 
     /* Right Column Items */
-    /* Accessing description div (nth-child is risky, but they are div containers) */
+    /* Accessing description div (nth-child(5)) */
     /* Description Container */
-    .modal-info>div:nth-of-type(4) {
+    .modal-info>div:nth-child(5) {
         grid-column: 2;
         grid-row: 1 / span 4;
         /* Span down */
         margin-top: 0 !important;
     }
 
-    /* Tech Container */
-    .modal-info>div:nth-of-type(5) {
+    /* Tech Container (nth-child(6)) */
+    .modal-info>div:nth-child(6) {
         grid-column: 2;
         grid-row: 5;
     }
 
-    /* Link Button */
+    /* Link Button (nth-child(7)) */
     .project-link-btn {
         grid-column: 2;
         grid-row: 6;

@@ -213,6 +213,8 @@ html[data-theme="light"] .form-input:valid {
     transform: translateY(-4px) scale(1.02);
     box-shadow: 0 8px 25px rgba(255, 219, 112, 0.5);
     background: linear-gradient(135deg, #ffdb70, #ffd050);
+    color: var(--onyx);
+    /* Force dark text on yellow button */
 }
 
 .form-btn:disabled {

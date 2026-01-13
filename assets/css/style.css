@@ -274,8 +274,8 @@ article.active {
 
   article.projets,
   article.contact {
-    padding: 15px 10px;
-    /* Reduced horizontal padding */
+    padding: 15px 10px !important;
+    /* Reduced horizontal padding, forced */
   }
 }
 

@@ -42,6 +42,14 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         // Only update if we have a valid string, avoiding "undefined" or empty clears
+        // HARD CHECK: If it's the bio (about.p1), DO NOT update if text is null/empty/undefined
+        if (key === 'about.p1') {
+          if (!text || typeof text !== 'string' || text.trim() === '') {
+            console.error(`[CRITICAL] Refusing to update about.p1 with invalid text: "${text}". Keeping original content.`);
+            return; // SKIP update for this element
+          }
+        }
+
         if (text && typeof text === 'string') {
           // Log specific debugging for Bio content to verify what is being set
           if (key === 'about.p1') {
