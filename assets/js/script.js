@@ -13,6 +13,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const loadTranslations = async (lang) => {
       try {
         const response = await fetch(`./assets/i18n/${lang}.json`);
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
         return await response.json();
       } catch (error) {
         console.error('Error loading translations:', error);
@@ -21,6 +24,12 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     const updateText = () => {
+      // Ensure translations are loaded before attempting update
+      if (!translations) {
+        console.warn('No translations available to update text.');
+        return;
+      }
+
       // Expose translations globally for other functions (e.g. modal)
       window.portfolioTranslations = translations;
 
@@ -31,8 +40,12 @@ document.addEventListener('DOMContentLoaded', () => {
         for (const k of keys) {
           text = text ? text[k] : null;
         }
-        if (text) {
+
+        // Only update if we have a valid string, avoiding "undefined" or empty clears
+        if (text && typeof text === 'string') {
           element.innerHTML = text;
+        } else {
+          console.warn(`Missing translation for key: ${key}`);
         }
       });
 
@@ -46,8 +59,10 @@ document.addEventListener('DOMContentLoaded', () => {
           for (const k of keys) {
             text = text ? text[k] : null;
           }
-          if (text) {
+          if (text && typeof text === 'string') {
             element.setAttribute(attr, text);
+          } else {
+            console.warn(`Missing translation attribute for key: ${key}`);
           }
         });
       });
@@ -61,9 +76,6 @@ document.addEventListener('DOMContentLoaded', () => {
         if (flagImg) {
           flagImg.src = `./assets/images/flags/${currentLang === 'fr' ? 'fr' : 'gb'}.svg`;
           flagImg.alt = currentLang === 'fr' ? 'Drapeau Français' : 'English Flag';
-        } else {
-          // Fallback if structure is different (initial load might not have img yet if we didn't update HTML)
-          // But we will update HTML.
         }
       }
 
@@ -74,13 +86,17 @@ document.addEventListener('DOMContentLoaded', () => {
     const setLanguage = async (lang) => {
       currentLang = lang;
       localStorage.setItem('lang', lang);
-      translations = await loadTranslations(lang);
-      if (translations) {
+      const newTranslations = await loadTranslations(lang);
+
+      if (newTranslations) {
+        translations = newTranslations;
         window.translations = translations; // Expose globally
         updateText();
         // Dispatch event for other scripts
         document.dispatchEvent(new CustomEvent('translationsLoaded', { detail: { lang, translations } }));
-        // Update filter buttons translation explicitly if needed (handled by data-i18n now)
+      } else {
+        console.error("Failed to load translations. Keeping current content.");
+        // Optional: Trigger a UI alert or fallback logic here if needed
       }
     };
 
