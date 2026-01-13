@@ -269,6 +269,16 @@ article.active {
   transition: none !important;
 }
 
+/* Fix Mobile Width for Projects and Contact */
+@media (max-width: 580px) {
+
+  article.projets,
+  article.contact {
+    padding: 15px 10px;
+    /* Reduced horizontal padding */
+  }
+}
+
 
 @keyframes fadeInUp {
   0% {
