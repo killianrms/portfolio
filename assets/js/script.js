@@ -43,9 +43,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Only update if we have a valid string, avoiding "undefined" or empty clears
         if (text && typeof text === 'string') {
+          // Log specific debugging for Bio content to verify what is being set
+          if (key === 'about.p1') {
+            console.log(`[i18n] Updating about.p1 with length: ${text.length}`);
+          }
           element.innerHTML = text;
         } else {
           console.warn(`Missing translation for key: ${key}`);
+          // Do NOT clear the content if translation is missing
         }
       });
 
