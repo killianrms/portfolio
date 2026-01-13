@@ -163,8 +163,8 @@
         /* Still allow scroll if needed */
     }
 
-    .modal-info {
-        display: grid;
+    .project-modal .modal-info {
+        display: grid !important;
         grid-template-columns: 1fr 1fr;
         grid-template-rows: auto auto auto 1fr auto auto;
         gap: 20px 40px;
@@ -176,28 +176,28 @@
     */
 
     /* Left Column Items */
-    .modal-info .h3.modal-title {
+    .project-modal .modal-info .h3.modal-title {
         grid-column: 1;
         grid-row: 1;
         text-align: left;
         margin: 0;
     }
 
-    .modal-info .project-modal-category {
+    .project-modal .modal-info .project-modal-category {
         grid-column: 1;
         grid-row: 2;
         justify-self: start;
         margin-bottom: 10px;
     }
 
-    .modal-info .project-info {
+    .project-modal .modal-info .project-info {
         /* Meta tags */
         grid-column: 1;
         grid-row: 3;
         justify-content: flex-start;
     }
 
-    .modal-info .project-video-container {
+    .project-modal .modal-info .project-video-container {
         grid-column: 1;
         grid-row: 4;
         margin: 0 !important;
@@ -206,7 +206,7 @@
 
     /* Right Column Items */
     /* Description Container - 5th child */
-    .modal-info>div:nth-child(5) {
+    .project-modal .modal-info>div:nth-child(5) {
         grid-column: 2;
         grid-row: 1 / span 4;
         /* Span down */
@@ -214,13 +214,13 @@
     }
 
     /* Tech Container - 6th child */
-    .modal-info>div:nth-child(6) {
+    .project-modal .modal-info>div:nth-child(6) {
         grid-column: 2;
         grid-row: 5;
     }
 
     /* Link Button - 7th child */
-    .modal-info>a.project-link-btn {
+    .project-modal .modal-info>a.project-link-btn {
         grid-column: 2;
         grid-row: 6;
         margin-left: 0;
