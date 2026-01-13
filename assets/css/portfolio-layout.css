@@ -105,8 +105,8 @@
 /* --- Desktop Modal Dual-Column Layout --- */
 @media (min-width: 1024px) {
     .project-modal-content {
-        max-width: 900px;
-        /* Wider for 2 columns */
+        max-width: 750px;
+        /* Optimized width for 2 columns */
         display: grid;
         grid-template-columns: 1fr 1fr;
         /* Two equal columns */
@@ -159,8 +159,8 @@
         display: block;
         /* Reset flex from mobile */
         /* width set above */
-        overflow-y: auto;
-        /* Still allow scroll if needed */
+        overflow-y: visible;
+        /* No scroll needed with 2-column layout */
     }
 
     .project-modal .modal-info {

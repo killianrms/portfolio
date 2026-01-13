@@ -395,25 +395,15 @@ document.addEventListener('DOMContentLoaded', () => {
         });
         clickedButton.classList.add("active");
 
-        // Animation de filtre avec effet de propagation
+        // Animation de filtre - REMOVED to prevent flickering
         projectItems.forEach((item, index) => {
-          item.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
-          item.style.opacity = '0';
-          item.style.transform = 'scale(0.95)';
+          const itemCategory = item.dataset.category;
 
-          setTimeout(() => {
-            const itemCategory = item.dataset.category;
-
-            if (filterValue === "all" || filterValue === itemCategory) {
-              item.style.display = "";
-              setTimeout(() => {
-                item.style.opacity = '1';
-                item.style.transform = 'scale(1)';
-              }, index * 50);
-            } else {
-              item.style.display = "none";
-            }
-          }, 100);
+          if (filterValue === "all" || filterValue === itemCategory) {
+            item.classList.add("active");
+          } else {
+            item.classList.remove("active");
+          }
         });
       });
     }

@@ -1402,8 +1402,7 @@ html[data-theme="light"] .timeline-item:hover {
   z-index: 2;
   max-width: 1000px;
   width: 95%;
-  max-height: 90vh;
-  overflow-y: auto;
+  /* max-height and overflow removed - content fits in 2-column layout */
 }
 
 .project-modal-container.active .project-modal {
